@@ -1,0 +1,26 @@
+{
+    "artboards": [
+        "/src/screens/Launcher.js",
+        "/src/screens/Login.js",
+        "/src/screens/CreateAccount.js"
+    ],
+    "symbols": [
+        "/src/symbols/GenericButton.js",
+        "/src/symbols/GenericButtonIcon.js",
+        "/src/symbols/GenericButtonImage.js",
+        "/src/symbols/LogoR.js",
+        "/src/symbols/Others.js",
+        "/src/symbols/ButtonTransparent.js"
+    ],
+    "assets": [],
+    "defaultArtboardDirectory": "/src/screens",
+    "defaultSymbolDirectory": "/src/symbols",
+    "defaultAssetDirectory": "/src/assets",
+    "deviceName": "iPhone X",
+    "deviceOrientation": "portrait",
+    "basePath": "/Users/ivonne/hovup-react",
+    "tempPath": "/var/folders/3q/5_vntp2d5w773kcscg179xbc0000gn/T/BuilderAKjHBlN",
+    "useStylesheet": true,
+    "rulers": {},
+    "missingFonts": []
+}
