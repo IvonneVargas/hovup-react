@@ -3,6 +3,7 @@ import { Center } from "@builderx/utils";
 
 import GenericButton from "../symbols/GenericButton";
 
+import Header from "../symbols/Header";
 import {
   View,
   StyleSheet,
@@ -20,13 +21,8 @@ export default class CreateAccount extends Component {
         <StatusBar barStyle="light-content" style={styles.statusBar} />
         {}
         <ScrollView style={styles.scrollArea} />
-        <View style={styles.settingsbar} />
+        <Header style={styles.header} />
         <View style={styles.statusbar} />
-        <TextInput
-          style={styles.tittle}
-          placeholder="Crear cuenta"
-          placeholderTextColor="rgba(255,255,255,1)"
-        />
         <View style={styles.rect}>
           <TextInput
             style={styles.textInput2}
@@ -87,6 +83,9 @@ export default class CreateAccount extends Component {
             }}
             text="Siguiente"
           />
+          <Text style={styles.text13}>
+            Al registrarte aceptas los terminos y condiciones
+          </Text>
         </View>
       </View>
     );
@@ -121,15 +120,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     right: 0
   },
-  settingsbar: {
-    height: 54,
-    top: 28,
-    left: 0,
-    position: "absolute",
-    backgroundColor: "rgba(48,61,73,1)",
-    right: 0,
-    opacity: 1
-  },
+
   statusbar: {
     height: 28,
     top: 0,
@@ -139,17 +130,7 @@ const styles = StyleSheet.create({
     opacity: 1,
     right: -1.9
   },
-  tittle: {
-    top: 49,
-    left: 13,
-    position: "absolute",
-    backgroundColor: "transparent",
-    fontWeight: "bold",
-    color: "rgba(218,7,7,1)",
-    fontSize: 20,
-    height: 19,
-    width: 121.1
-  },
+
   textInput2: {
     width: 264,
     height: 42,
@@ -240,5 +221,19 @@ const styles = StyleSheet.create({
     height: 42,
     backgroundColor: "rgba(101,188,70,1)",
     opacity: 1
+  },
+  text13: {
+    width: 321,
+    height: 14,
+    backgroundColor: "transparent",
+    color: "rgba(249,249,249,1)",
+    textAlign: "center"
+  },
+  header: {
+    position: "absolute",
+    top: 28,
+    left: 0,
+    height: 53,
+    width: 374
   }
 });
