@@ -5,6 +5,8 @@ import Launcher from "./src/screens/Launcher";
 import Login from "./src/screens/Login";
 import CreateAccount from "./src/screens/CreateAccount";
 
+import SuccessCreateAccount from "./src/screens/SuccessCreateAccount";
+
 import { StackNavigator, DrawerNavigator } from "react-navigation";
 const DrawerNavigation = DrawerNavigator({
   Launcher: {
@@ -15,6 +17,9 @@ const DrawerNavigation = DrawerNavigator({
   },
   CreateAccount: {
     screen: CreateAccount
+  },
+  SuccessCreateAccount: {
+    screen: SuccessCreateAccount
   }
 });
 const StackNavigation = StackNavigator(
@@ -30,6 +35,9 @@ const StackNavigation = StackNavigator(
     },
     CreateAccount: {
       screen: CreateAccount
+    },
+    SuccessCreateAccount: {
+      screen: SuccessCreateAccount
     }
   },
   {
