@@ -2,7 +2,8 @@
     "artboards": [
         "/src/screens/Launcher.js",
         "/src/screens/Login.js",
-        "/src/screens/CreateAccount.js"
+        "/src/screens/CreateAccount.js",
+        "/src/screens/SuccessCreateAccount.js"
     ],
     "symbols": [
         "/src/symbols/GenericButton.js",
@@ -10,7 +11,9 @@
         "/src/symbols/GenericButtonImage.js",
         "/src/symbols/LogoR.js",
         "/src/symbols/Others.js",
-        "/src/symbols/ButtonTransparent.js"
+        "/src/symbols/ButtonTransparent.js",
+        "/src/symbols/Header.js",
+        "/src/symbols/GenericButtonBorder.js"
     ],
     "assets": [],
     "defaultArtboardDirectory": "/src/screens",
@@ -21,6 +24,41 @@
     "basePath": "/Users/ivonne/hovup-react",
     "tempPath": "/var/folders/3q/5_vntp2d5w773kcscg179xbc0000gn/T/BuilderAKjHBlN",
     "useStylesheet": true,
-    "rulers": {},
+    "rulers": {
+        "/src/screens/SuccessCreateAccount.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -256.5866873065015,
+                    "y": 33.15789473684211
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -375.6455108359132,
+                    "y": 81.72136222910218
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 22.233746130030887,
+                    "y": -100
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 351.23993808049545,
+                    "y": 265.0092879256966
+                },
+                "horizontal": false
+            }
+        ]
+    },
     "missingFonts": []
 }
