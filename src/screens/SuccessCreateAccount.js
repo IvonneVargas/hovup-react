@@ -3,9 +3,17 @@ import Header from "../symbols/Header";
 import { Center } from "@builderx/utils";
 import ButtonTransparent from "../symbols/ButtonTransparent";
 import GenericButtonBorder from "../symbols/GenericButtonBorder";
+import { Constants } from "expo";
 import GenericButton from "../symbols/GenericButton";
 
-import { View, StyleSheet, StatusBar, Text, ScrollView } from "react-native";
+import {
+  View,
+  StyleSheet,
+  StatusBar,
+  Text,
+  ScrollView,
+  Platform
+} from "react-native";
 
 export default class SuccessCreateAccount extends Component {
   render() {
@@ -16,11 +24,6 @@ export default class SuccessCreateAccount extends Component {
         <Header style={styles.header} tittle="Verificacion" />
         <View style={styles.rect} />
         <Center horizontal>
-          <Text style={styles.text}>
-            Se te ha enviado un correo electronico a tu cuenta:
-          </Text>
-        </Center>
-        <Center horizontal>
           <Text style={styles.text2}>ejemplo@yopmail.com≠</Text>
         </Center>
         <Center horizontal>
@@ -28,19 +31,23 @@ export default class SuccessCreateAccount extends Component {
             Sigue las instrucciones y activa tu cuenta
           </Text>
         </Center>
+        <Text style={styles.text}>
+          \n Se te ha enviado un correo electronico a tu cuenta:\n{" "}
+        </Text>
         <View style={styles.rect3}>
-          <ButtonTransparent
-            style={styles.buttonTransparent}
-            text="Cambiar de usuario"
+          <GenericButton
+            style={styles.genericButton}
+            navigation={this.props.navigation}
+            text="Continuar"
           />
           <GenericButtonBorder
             style={styles.genericButtonBorder}
             text4="Reenviar correo de verificacion"
           />
-          <GenericButton
-            style={styles.genericButton}
+          <ButtonTransparent
+            style={styles.buttonTransparent}
             navigation={this.props.navigation}
-            text="Continuar"
+            text="Cambiar de usuario"
           />
         </View>
       </View>
@@ -78,12 +85,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "rgba(25,39,52,1)"
   },
-  text: {
-    top: 130.37,
-    position: "absolute",
-    backgroundColor: "transparent",
-    color: "rgba(255,255,255,1)"
-  },
+
   text2: {
     top: 186,
     position: "absolute",
@@ -93,19 +95,18 @@ const styles = StyleSheet.create({
   },
   text3: {
     top: 242,
-
     position: "absolute",
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)"
   },
   rect3: {
+    height: 148.74,
+
+    top: 269,
     left: 0,
     position: "absolute",
     alignItems: "center",
     justifyContent: "space-between",
-    flexDirection: "column-reverse",
-    top: 329,
-    bottom: 329,
     right: 0
   },
   buttonTransparent: {
@@ -121,5 +122,14 @@ const styles = StyleSheet.create({
     height: 42,
     backgroundColor: "rgba(101,188,70,1)",
     opacity: 1
+  },
+  text: {
+    top: 130,
+    left: 19,
+    width: 337,
+    height: 14,
+    position: "absolute",
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)"
   }
 });

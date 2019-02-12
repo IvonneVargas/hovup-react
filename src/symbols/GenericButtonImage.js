@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Center } from "@builderx/utils";
 import { View, TouchableOpacity, StyleSheet, Text, Image } from "react-native";
 
 export default class GenericButtonImage extends Component {
@@ -11,13 +12,17 @@ export default class GenericButtonImage extends Component {
     return (
       <TouchableOpacity style={[styles.root, this.props.style]}>
         <TouchableOpacity style={styles.button} />
-        <Text style={styles.text}>
-          {this.props.text ? this.props.text : "Text Added"}
-        </Text>
-        <Image
-          style={styles.image}
-          source={require("../assets/google-icon.png")}
-        />
+        <Center vertical>
+          <Text style={styles.text}>
+            {this.props.text ? this.props.text : "Text Added"}
+          </Text>
+        </Center>
+        <Center vertical>
+          <Image
+            style={styles.image}
+            source={require("../assets/google-icon.png")}
+          />
+        </Center>
       </TouchableOpacity>
     );
   }
@@ -32,7 +37,6 @@ const styles = StyleSheet.create({
     borderRadius: 7
   },
   text: {
-    top: 15,
     left: 72,
     width: 190,
     height: 16,
@@ -42,8 +46,7 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)"
   },
   image: {
-    top: 7,
-    left: 42,
+    left: 29.62,
     width: 30,
     height: 30,
     position: "absolute"

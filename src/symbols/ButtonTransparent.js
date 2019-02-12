@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 export default class ButtonTransparent extends Component {
   // Only for displaying symbol in BuilderX.
@@ -10,7 +10,18 @@ export default class ButtonTransparent extends Component {
   render() {
     return (
       <View style={[this.props.style]}>
-        <View style={styles.rect} />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={
+            this.props.button ? (
+              this.props.button
+            ) : (
+              () => {
+                this.props.navigation.push("Launcher");
+              }
+            )
+          }
+        />
         <Text style={styles.text}>
           {this.props.text ? this.props.text : "Iniciar sesi\xF3n"}
         </Text>
@@ -19,7 +30,7 @@ export default class ButtonTransparent extends Component {
   }
 }
 const styles = StyleSheet.create({
-  rect: {
+  button: {
     top: 0,
     left: 0,
     width: 261,

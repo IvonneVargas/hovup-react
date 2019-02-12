@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Icon from "@builderx/icons";
 import { MaterialIcons } from "@expo/vector-icons";
+import { Center } from "@builderx/utils";
 import { TouchableOpacity, StyleSheet, Text } from "react-native";
 
 export default class GenericButtonIcon extends Component {
@@ -13,9 +14,11 @@ export default class GenericButtonIcon extends Component {
     return (
       <TouchableOpacity style={[styles.root, this.props.style]}>
         <TouchableOpacity style={styles.button} />
-        <Text style={styles.text}>
-          {this.props.text ? this.props.text : "Text Added"}
-        </Text>
+        <Center vertical>
+          <Text style={styles.text}>
+            {this.props.text ? this.props.text : "Text Added"}
+          </Text>
+        </Center>
         <Icon
           style={styles.icon}
           name="facebook"
@@ -35,8 +38,7 @@ const styles = StyleSheet.create({
     borderRadius: 7
   },
   text: {
-    top: 12,
-    left: 71,
+    left: 74,
     width: 188,
     height: 16,
     position: "absolute",
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     top: 0,
-    left: 19.91,
+    left: 26,
     position: "absolute",
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",

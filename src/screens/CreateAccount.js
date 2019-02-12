@@ -46,8 +46,8 @@ export default class CreateAccount extends Component {
             underlineColorAndroid="transparent"
           />
           <Text style={styles.text6}>
-            \n Con este código podrás dirigir a tus seguidores y amigos a tu
-            marca\n y/o tienda. Comprobar disponibilidad.\n{" "}
+            Con este código podrás dirigir a tus seguidores y amigos a tu marca
+            y/o tienda. Comprobar disponibilidad.
           </Text>
           <TextInput
             style={styles.textInput6}
@@ -88,14 +88,16 @@ export default class CreateAccount extends Component {
             Al registrarte aceptas los terminos y condiciones
           </Text>
         </View>
-        <Icon
-          name="home"
-          style={styles.icon}
-          type="MaterialCommunityIcons"
-          onPress={() => {
-            this.props.navigation.push("SuccessCreateAccount");
-          }}
-        />
+        <Center vertical>
+          <Icon
+            name="home"
+            style={styles.icon}
+            type="MaterialCommunityIcons"
+            onPress={() => {
+              this.props.navigation.push("SuccessCreateAccount");
+            }}
+          />
+        </Center>
       </View>
     );
   }
@@ -246,8 +248,7 @@ const styles = StyleSheet.create({
     width: 374
   },
   icon: {
-    top: 314,
-    left: 20.5,
+    left: 14,
     position: "absolute",
     backgroundColor: "transparent",
     color: "grey",
