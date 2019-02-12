@@ -58,6 +58,58 @@
                 },
                 "horizontal": false
             }
+        ],
+        "/src/symbols/GenericButtonImage.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -0.26934984520130456,
+                    "y": -68.16408668730651
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 30.690402476780093,
+                    "y": -27.297213622290997
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 59.173374613003034,
+                    "y": 12.331269349845229
+                },
+                "horizontal": false
+            }
+        ],
+        "/src/symbols/GenericButtonIcon.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -1.7461300309597618,
+                    "y": -47.11145510835911
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 29.21362229102158,
+                    "y": -14.913312693498426
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 61.41176470588232,
+                    "y": 76.72755417956654
+                },
+                "horizontal": false
+            }
         ]
     },
     "missingFonts": []
