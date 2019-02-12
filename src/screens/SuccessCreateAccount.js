@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Header from "../symbols/Header";
 import { Center } from "@builderx/utils";
-import GenericButtonBorder from "../symbols/GenericButtonBorder";
 import ButtonTransparent from "../symbols/ButtonTransparent";
+import GenericButtonBorder from "../symbols/GenericButtonBorder";
 import GenericButton from "../symbols/GenericButton";
 
-import { View, StyleSheet, StatusBar, Text } from "react-native";
+import { View, StyleSheet, StatusBar, Text, ScrollView } from "react-native";
 
 export default class SuccessCreateAccount extends Component {
   render() {
@@ -21,11 +21,11 @@ export default class SuccessCreateAccount extends Component {
           </Text>
         </Center>
         <Center horizontal>
-          <Text style={styles.text2}>ejemplo@yopmail.com</Text>
+          <Text style={styles.text2}>ejemplo@yopmail.com≠</Text>
         </Center>
         <Center horizontal>
           <Text style={styles.text3}>
-            Sigue las instrucciones y activa tu cuenta {"ä"}ndern
+            Sigue las instrucciones y activa tu cuenta
           </Text>
         </Center>
         <View style={styles.rect3}>
@@ -35,7 +35,7 @@ export default class SuccessCreateAccount extends Component {
           />
           <GenericButtonBorder
             style={styles.genericButtonBorder}
-            text4="Cambiar de usuario"
+            text4="Reenviar correo de verificacion"
           />
           <GenericButton
             style={styles.genericButton}
@@ -96,29 +96,28 @@ const styles = StyleSheet.create({
 
     position: "absolute",
     backgroundColor: "transparent",
-    color: "rgba(255,255,255,1)",
-    fontSize: 14
+    color: "rgba(255,255,255,1)"
   },
   rect3: {
-    height: 145.3,
-    top: 304,
     left: 0,
     position: "absolute",
-    right: 0,
     alignItems: "center",
     justifyContent: "space-between",
-    flexDirection: "column-reverse"
-  },
-  genericButtonBorder: {
-    width: 262,
-    height: 41
+    flexDirection: "column-reverse",
+    top: 329,
+    bottom: 329,
+    right: 0
   },
   buttonTransparent: {
-    width: 262,
+    width: 260,
+    height: 42
+  },
+  genericButtonBorder: {
+    width: 264,
     height: 42
   },
   genericButton: {
-    width: 263,
+    width: 264,
     height: 42,
     backgroundColor: "rgba(101,188,70,1)",
     opacity: 1

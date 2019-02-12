@@ -22,41 +22,43 @@ export default class Login extends Component {
         <StatusBar barStyle="light-content" style={styles.statusBar} />
         <ScrollView style={styles.scrollArea} />
         <LogoR style={styles.logoR} />
-        <View style={styles.rect}>
-          <TextInput
-            style={styles.textInput}
-            placeholder="Correo electronico"
-            underlineColorAndroid="transparent"
-            onChangeText={this.handleEmail}
-            keyboardType="email-address"
-            returnKeyType="next"
-            onSubmitEditing={() => this.passwordInput.focus()}
-          />
-          <TextInput
-            style={styles.textInput2}
-            placeholder="Contrase\\u00F1a"
-            underlineColorAndroid="transparent"
-            returnKeyType="go"
-            secureTextEntry
-            ref={input => (this.passwordInput = input)}
-            onChangeText={this.handlePassword}
-          />
-          <GenericButton
-            style={styles.genericButton}
-            navigation={this.props.navigation}
-            button={() => {
-              this.props.navigation.push("Main");
-            }}
-            text="Iniciar sesion"
-            root={() => {
-              this.props.navigation.push("Main");
-            }}
-          />
-          <ButtonTransparent
-            style={styles.buttonTransparent}
-            text="Olvidaste tu contrasena?"
-          />
-        </View>
+        <Center vertical>
+          <View style={styles.rect}>
+            <TextInput
+              style={styles.textInput}
+              placeholder="Correo electronico"
+              underlineColorAndroid="transparent"
+              onChangeText={this.handleEmail}
+              keyboardType="email-address"
+              returnKeyType="next"
+              onSubmitEditing={() => this.passwordInput.focus()}
+            />
+            <TextInput
+              style={styles.textInput2}
+              placeholder="Contrase\\u00F1a"
+              underlineColorAndroid="transparent"
+              returnKeyType="go"
+              secureTextEntry
+              ref={input => (this.passwordInput = input)}
+              onChangeText={this.handlePassword}
+            />
+            <GenericButton
+              style={styles.genericButton}
+              navigation={this.props.navigation}
+              button={() => {
+                this.props.navigation.push("Main");
+              }}
+              text="Iniciar sesion"
+              root={() => {
+                this.props.navigation.push("Main");
+              }}
+            />
+            <ButtonTransparent
+              style={styles.buttonTransparent}
+              text="Olvidaste tu contrsena?"
+            />
+          </View>
+        </Center>
         <Icon
           name="keyboard-backspace"
           style={styles.icon}
@@ -92,11 +94,10 @@ const styles = StyleSheet.create({
     left: "14.71%"
   },
   rect: {
-    top: 298,
     left: 0,
-    height: 201,
+    height: 202,
     position: "absolute",
-    right: 0,
+    right: 2,
     justifyContent: "space-between",
     alignItems: "center"
   },

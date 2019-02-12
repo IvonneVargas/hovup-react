@@ -246,8 +246,8 @@ const styles = StyleSheet.create({
     width: 374
   },
   icon: {
-    top: 327.67,
-    left: 25.26,
+    top: 314,
+    left: 20.5,
     position: "absolute",
     backgroundColor: "transparent",
     color: "grey",
