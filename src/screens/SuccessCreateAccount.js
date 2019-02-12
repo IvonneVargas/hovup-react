@@ -48,6 +48,9 @@ export default class SuccessCreateAccount extends Component {
             style={styles.buttonTransparent}
             navigation={this.props.navigation}
             text="Cambiar de usuario"
+            button={() => {
+              this.props.navigation.push("Launcher");
+            }}
           />
         </View>
       </View>
