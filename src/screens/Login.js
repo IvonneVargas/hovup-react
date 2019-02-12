@@ -34,7 +34,7 @@ export default class Login extends Component {
           />
           <TextInput
             style={styles.textInput2}
-            placeholder="Contrasena"
+            placeholder="Contrase\\u00F1a"
             underlineColorAndroid="transparent"
             returnKeyType="go"
             secureTextEntry
@@ -136,12 +136,12 @@ const styles = StyleSheet.create({
   },
   statusBar: {},
   rect2: {
-    height: 24.73,
+    height: 25,
     top: 0,
     left: 2,
     position: "absolute",
     backgroundColor: "rgba(48,61,73,1)",
-    right: 12,
+    right: 0,
     opacity: 1
   }
 });

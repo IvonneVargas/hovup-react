@@ -4,6 +4,7 @@ import { Center } from "@builderx/utils";
 import GenericButton from "../symbols/GenericButton";
 
 import Header from "../symbols/Header";
+import Icon from "@builderx/icons";
 import {
   View,
   StyleSheet,
@@ -79,7 +80,7 @@ export default class CreateAccount extends Component {
             style={styles.nextButton}
             navigation={this.props.navigation}
             root={() => {
-              this.props.navigation.push("SuccessCreateAcount");
+              this.props.navigation.push("SuccessCreateAccount");
             }}
             text="Siguiente"
           />
@@ -87,6 +88,14 @@ export default class CreateAccount extends Component {
             Al registrarte aceptas los terminos y condiciones
           </Text>
         </View>
+        <Icon
+          name="home"
+          style={styles.icon}
+          type="MaterialCommunityIcons"
+          onPress={() => {
+            this.props.navigation.push("SuccessCreateAccount");
+          }}
+        />
       </View>
     );
   }
@@ -212,7 +221,7 @@ const styles = StyleSheet.create({
   },
   text12: {
     width: 147,
-    height: 13,
+    height: 16,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)"
   },
@@ -235,5 +244,13 @@ const styles = StyleSheet.create({
     left: 0,
     height: 53,
     width: 374
+  },
+  icon: {
+    top: 327.67,
+    left: 25.26,
+    position: "absolute",
+    backgroundColor: "transparent",
+    color: "grey",
+    fontSize: 40
   }
 });
