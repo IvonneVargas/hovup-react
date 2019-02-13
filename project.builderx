@@ -5,7 +5,8 @@
         "/src/screens/CreateAccount.js",
         "/src/screens/SuccessCreateAccount.js",
         "/src/screens/Main.js",
-        "/src/screens/Options.js"
+        "/src/screens/Options.js",
+        "/src/screens/Tabs/ListadoMembresias.js"
     ],
     "symbols": [
         "/src/symbols/GenericButton.js",
@@ -16,7 +17,8 @@
         "/src/symbols/ButtonTransparent.js",
         "/src/symbols/Header.js",
         "/src/symbols/GenericButtonBorder.js",
-        "/src/symbols/HeaderSettings.js"
+        "/src/symbols/HeaderSettings.js",
+        "/src/symbols/LayoutStatusBar.js"
     ],
     "assets": [],
     "defaultArtboardDirectory": "/src/screens",
@@ -32,16 +34,16 @@
             {
                 "deviceName": "iPhone X",
                 "position": {
-                    "x": -256.5866873065015,
-                    "y": 33.15789473684211
+                    "x": -1572.5,
+                    "y": 31
                 },
                 "horizontal": true
             },
             {
                 "deviceName": "iPhone X",
                 "position": {
-                    "x": -375.6455108359132,
-                    "y": 81.72136222910218
+                    "x": -1572.5,
+                    "y": 82
                 },
                 "horizontal": true
             },
