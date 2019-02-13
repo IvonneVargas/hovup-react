@@ -49,7 +49,7 @@ export default class Login extends Component {
           <ButtonTransparent
             style={styles.buttonTransparent}
             navigation={this.props.navigation}
-            text="Olvidaste tu contrasena?"
+            text="Olvidaste tu contrasena?" /*locked*/
           />
         </View>
         <Icon
