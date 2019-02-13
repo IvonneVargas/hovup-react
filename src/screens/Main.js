@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { View, StyleSheet, StatusBar } from "react-native";
+import { View, StyleSheet, StatusBar, Platform, Text } from "react-native";
 import { Center } from "@builderx/utils";
 import LayoutStatusBar from "../symbols/LayoutStatusBar";
 import HeaderSettings from "../symbols/HeaderSettings";
 import { TabView, TabContent } from "@builderx/tab-view";
 
 import Colors from "../assets/colors";
+import Membresiass from "./Tabs/ListadoMembresias";
 
 export default class Main extends Component {
   render() {
@@ -21,13 +22,22 @@ export default class Main extends Component {
           style={styles.tab}
           tabBarStyle={styles.tab_tabBarStyle}
           tabIndicatorStyle={styles.tab_tabIndicatorStyle}
-          activeTabIndex={0}
+          activeTabIndex={1}
+          tabLabelStyle={styles.tab_tabLabelStyle}
         >
-          <TabContent title="Tab">
-            <View style={styles.rect} />
+          <TabContent title="Membresias">
+            <View style={styles.rect}>
+              <Text style={styles.text}>card stack membresias</Text>
+            </View>
           </TabContent>
-          <TabContent title="Tab1">
+          <TabContent title="Marcas">
             <View style={styles.rect2} />
+          </TabContent>
+          <TabContent title="Tiendas">
+            <View style={styles.B5Rgjj} />
+          </TabContent>
+          <TabContent title="Zonas">
+            <View style={styles.R4vQBS} />
           </TabContent>
         </TabView>
       </View>
@@ -48,31 +58,33 @@ const styles = StyleSheet.create({
     width: 376
   },
   layoutStatusBar: {
-    top: 0.8,
+    top: -2,
     left: 0,
     position: "absolute",
-    height: 34,
-    right: 0
+    height: 36,
+    right: -16
   },
   headerSettings: {
-    top: 34,
+    top: Platform.OS === "android" ? 18 : 34,
     left: 0,
     position: "absolute",
     height: 54,
     right: 0
   },
   tab: {
-    height: 724,
-    top: 88,
+    height: Platform.OS === "android" ? 670 : undefined,
+    top: Platform.OS === "android" ? 72 : 88,
     left: 0,
     position: "absolute",
-    right: 0
+    right: -16,
+    bottom: -72
   },
   tab_tabBarStyle: {
-    backgroundColor: "#3F51B5"
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1
   },
   tab_tabIndicatorStyle: {
-    backgroundColor: "#ffffff",
+    backgroundColor: "rgba(101,188,70,1)",
     elevation: 3,
     shadowColor: "#000",
     shadowOffset: {
@@ -80,14 +92,41 @@ const styles = StyleSheet.create({
       height: 2
     },
     shadowOpacity: 0.2,
-    shadowRadius: 1.2
+    shadowRadius: 1.2,
+    opacity: 1
   },
   rect: {
     flex: 1,
-    backgroundColor: "#eeeeee"
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1
   },
   rect2: {
     flex: 1,
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1
+  },
+  B5Rgjj: {
+    flex: 1,
     backgroundColor: "#eeeeee"
+  },
+  R4vQBS: {
+    flex: 1,
+    backgroundColor: "#eeeeee"
+  },
+  tab_tabLabelStyle: {
+    fontSize: 11,
+    color: "rgba(255,255,255,1)"
+  },
+  text: {
+    top: 277.76,
+    left: 140.63,
+    position: "absolute",
+    backgroundColor: "transparent"
+  },
+  text2: {
+    top: 440.84,
+    left: 266.74,
+    position: "absolute",
+    backgroundColor: "transparent"
   }
 });

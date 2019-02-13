@@ -125,9 +125,9 @@ const styles = StyleSheet.create({
   },
   text: {
     top: 130,
-    left: 19,
-    width: 337,
-    height: 14,
+    left: 20,
+    width: 336,
+    height: 16,
     position: "absolute",
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)"
