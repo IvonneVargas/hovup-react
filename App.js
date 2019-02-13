@@ -7,7 +7,11 @@ import CreateAccount from "./src/screens/CreateAccount";
 
 import SuccessCreateAccount from "./src/screens/SuccessCreateAccount";
 
+import Options from "./src/screens/Options";
+import Main from "./src/screens/Main";
+
 import { StackNavigator, DrawerNavigator } from "react-navigation";
+
 const DrawerNavigation = DrawerNavigator({
   Launcher: {
     screen: Launcher
@@ -20,6 +24,12 @@ const DrawerNavigation = DrawerNavigator({
   },
   SuccessCreateAccount: {
     screen: SuccessCreateAccount
+  },
+  Options: {
+    screen: Options
+  },
+  Main: {
+    screen: Main
   }
 });
 const StackNavigation = StackNavigator(
@@ -38,6 +48,12 @@ const StackNavigation = StackNavigator(
     },
     SuccessCreateAccount: {
       screen: SuccessCreateAccount
+    },
+    Options: {
+      screen: Options
+    },
+    Main: {
+      screen: Main
     }
   },
   {
@@ -62,6 +78,7 @@ export default class App extends React.Component {
       Roboto: require("./src/assets/fonts/Arial.ttf") /*Fallback Font*/
     });
     this.setState({ fontLoaded: true });
+    //console.warn("Fallback font is being used. Please check App.js file.");
   }
   render() {
     return this.state.fontLoaded ? <StackNavigation /> : <Expo.AppLoading />;
