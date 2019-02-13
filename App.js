@@ -10,6 +10,7 @@ import SuccessCreateAccount from "./src/screens/SuccessCreateAccount";
 import Options from "./src/screens/Options";
 import Main from "./src/screens/Main";
 
+import ListadoMembresias from "./src/screens/Tabs/ListadoMembresias";
 import { StackNavigator, DrawerNavigator } from "react-navigation";
 
 const DrawerNavigation = DrawerNavigator({
@@ -25,11 +26,14 @@ const DrawerNavigation = DrawerNavigator({
   SuccessCreateAccount: {
     screen: SuccessCreateAccount
   },
+  Main: {
+    screen: Main
+  },
   Options: {
     screen: Options
   },
-  Main: {
-    screen: Main
+  ListadoMembresias: {
+    screen: ListadoMembresias
   }
 });
 const StackNavigation = StackNavigator(
@@ -49,11 +53,14 @@ const StackNavigation = StackNavigator(
     SuccessCreateAccount: {
       screen: SuccessCreateAccount
     },
+    Main: {
+      screen: Main
+    },
     Options: {
       screen: Options
     },
-    Main: {
-      screen: Main
+    ListadoMembresias: {
+      screen: ListadoMembresias
     }
   },
   {
@@ -75,9 +82,11 @@ export default class App extends React.Component {
   async componentDidMount() {
     await Font.loadAsync({
       GoodDogPlain: require("./src/assets/fonts/GOODDP__.ttf") /*Fallback Font*/,
-      Roboto: require("./src/assets/fonts/Arial.ttf") /*Fallback Font*/
+      Roboto: require("./src/assets/fonts/Arial.ttf") /*Fallback Font*/,
+      "AbadiMT-CondensedLight": require("./src/assets/fonts/Arial.ttf") /*Fallback Font*/
     });
     this.setState({ fontLoaded: true });
+    //console.warn("Fallback font is being used. Please check App.js file.");
     //console.warn("Fallback font is being used. Please check App.js file.");
   }
   render() {
