@@ -5,6 +5,7 @@ import ButtonTransparent from "../symbols/ButtonTransparent";
 import GenericButtonBorder from "../symbols/GenericButtonBorder";
 import { Constants } from "expo";
 import GenericButton from "../symbols/GenericButton";
+import LayoutStatusBar from "../symbols/LayoutStatusBar";
 
 import {
   View,
@@ -21,8 +22,12 @@ export default class SuccessCreateAccount extends Component {
       <View style={styles.root}>
         <StatusBar barStyle="light-content" style={styles.statusBar} />
         <View style={styles.rect2} />
-        <Header style={styles.header} tittle="Verificacion" />
-        <View style={styles.rect} />
+        <Header
+          style={styles.header}
+          tittle="Verificacion"
+          navigation={Platform.OS === "ios" ? this.props.navigation : undefined}
+          text="Verificacion"
+        />
         <Center horizontal>
           <Text style={styles.text2}>ejemplo@yopmail.com≠</Text>
         </Center>
@@ -53,6 +58,7 @@ export default class SuccessCreateAccount extends Component {
             }}
           />
         </View>
+        <LayoutStatusBar style={styles.layoutStatusBar} />
       </View>
     );
   }
@@ -63,23 +69,14 @@ const styles = StyleSheet.create({
     flex: 1
   },
   header: {
-    top: 34,
+    top: Platform.OS === "android" ? 28 : 34,
     left: 0,
     position: "absolute",
-    height: 53,
+    height: Platform.OS === "android" ? 54 : 53,
     right: 0
   },
   statusBar: {},
-  rect: {
-    height: 34,
 
-    top: 0,
-    left: 0,
-    position: "absolute",
-    backgroundColor: "rgba(48,61,73,1)",
-    opacity: 1,
-    right: 0
-  },
   rect2: {
     top: 0,
     left: 0,
@@ -134,5 +131,19 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)"
+  },
+  statusBar: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 34
+  },
+  layoutStatusBar: {
+    top: -1.8,
+    left: -0.4,
+    position: "absolute",
+    height: 34,
+    width: 376
   }
 });

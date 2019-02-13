@@ -22,7 +22,11 @@ export default class CreateAccount extends Component {
         <StatusBar barStyle="light-content" style={styles.statusBar} />
         {}
         <ScrollView style={styles.scrollArea} />
-        <Header style={styles.header} />
+        <Header
+          style={styles.header}
+          navigation={this.props.navigation}
+          text="Crear cuenta"
+        />
         <View style={styles.statusbar} />
         <View style={styles.rect}>
           <TextInput
@@ -244,8 +248,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 28,
     left: 0,
-    height: 53,
-    width: 374
+    height: 54,
+    right: 0
   },
   icon: {
     left: 14,

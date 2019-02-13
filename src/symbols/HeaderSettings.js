@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     left: 325.17,
     position: "absolute",
     backgroundColor: "transparent",
-    fontSize: 35
+    fontSize: 35,
+    color: "rgba(255,255,255,1)"
   }
 });

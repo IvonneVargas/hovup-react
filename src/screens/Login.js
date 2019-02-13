@@ -30,6 +30,7 @@ export default class Login extends Component {
             onChangeText={this.handleEmail}
             keyboardType="email-address"
             returnKeyType="next"
+            underlineColorAndroid="rgba(189,25,25,1)"
           />
           <TextInput
             style={styles.textInput2}
@@ -37,6 +38,7 @@ export default class Login extends Component {
             onChangeText={this.handlePassword}
             returnKeyType="go"
             secureTextEntry={true}
+            underlineColorAndroid="rgba(255,255,255,1)"
           />
           <GenericButton
             style={styles.genericButton}
@@ -53,9 +55,9 @@ export default class Login extends Component {
           />
         </View>
         <Icon
-          name="keyboard-backspace"
+          name="ios-arrow-back"
           style={styles.icon}
-          type="MaterialCommunityIcons"
+          type="Ionicons"
           onPress={() => {
             this.props.navigation.pop();
           }}
@@ -88,12 +90,12 @@ const styles = StyleSheet.create({
   },
 
   icon: {
-    left: 35.5,
+    left: 18,
     position: "absolute",
     backgroundColor: "transparent",
-    color: "grey",
+    color: "rgba(255,255,255,1)",
     fontSize: 40,
-    top: "10.79%"
+    top: "4.68%"
   },
 
   statusBar: {},
