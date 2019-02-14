@@ -5,8 +5,7 @@
         "/src/screens/CreateAccount.js",
         "/src/screens/SuccessCreateAccount.js",
         "/src/screens/Main.js",
-        "/src/screens/Options.js",
-        "/src/screens/Tabs/ListadoMembresias.js"
+        "/src/screens/Options.js"
     ],
     "symbols": [
         "/src/symbols/GenericButton.js",
@@ -126,7 +125,8 @@
                 },
                 "horizontal": false
             }
-        ]
+        ],
+        "/src/screens/Options.js": []
     },
     "missingFonts": []
 }
