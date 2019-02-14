@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import LayoutStatusBar from "../symbols/LayoutStatusBar";
-import { View, StyleSheet, Text, FlatList } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  Image
+} from "react-native";
+import iconPerfil from "../assets/OptionsImages/ic_perfil.png";
 
 export default class Options extends Component {
   render() {
@@ -11,17 +19,46 @@ export default class Options extends Component {
         <FlatList
           style={styles.list}
           data={[
-            { icon: "Title Text", key: "Perfil" },
-            { icon: "Title Text", key: "Cambiar codigo Hovup" },
-            { icon: "Title Text", key: "Cambiar contrasena" },
-            { icon: "Title Text", key: "Acerca de nosotros" },
-            { icon: "Title Text", key: "Aviso de privacidad" },
-            { icon: "Title Text", key: "Cerrar sesion" }
+            {
+              icon: require("../assets/OptionsImages/ic_perfil.png"),
+              key: "Perfil",
+              link: ""
+            },
+            {
+              icon: require("../assets/OptionsImages/ic_perfil.png"),
+              key: "Cambiar codigo Hovup",
+              link: ""
+            },
+            {
+              icon: require("../assets/OptionsImages/ic_perfil.png"),
+              key: "Cambiar contrasena",
+              link: ""
+            },
+            {
+              icon: require("../assets/OptionsImages/ic_perfil.png"),
+              key: "Acerca de nosotros",
+              link: ""
+            },
+            {
+              icon: require("../assets/OptionsImages/ic_perfil.png"),
+              key: "Aviso de privacidad",
+              link: ""
+            },
+            {
+              icon: require("../assets/OptionsImages/ic_perfil.png"),
+              key: "Cerrar sesion",
+              link: ""
+            }
           ]}
           renderItem={({ item, separators }) => {
             return (
               <View style={styles.rect2}>
-                <Text style={styles.text2}>{item.key}</Text>
+                <TouchableOpacity
+                  style={styles.buttonsStyle}
+                  onPress={() => this.props.navigation.navigate("${item.link}")}
+                >
+                  <Text style={styles.text2}>{item.key}</Text>
+                </TouchableOpacity>
               </View>
             );
           }}
@@ -77,5 +114,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#999999",
     left: 15,
     height: 2
+  },
+  buttonsStyle: {
+    alignItems: "center",
+    flexDirection: "row",
+    marginTop: 5
   }
 });
