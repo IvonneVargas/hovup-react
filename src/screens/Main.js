@@ -6,7 +6,6 @@ import HeaderSettings from "../symbols/HeaderSettings";
 import { TabView, TabContent } from "@builderx/tab-view";
 
 import Colors from "../assets/colors";
-import Membresiass from "./Tabs/ListadoMembresias";
 
 export default class Main extends Component {
   render() {
