@@ -127,11 +127,11 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent"
   },
   rect: {
-    top: 86,
+    top: 81,
     left: 0,
     position: "absolute",
     justifyContent: "space-between",
-    height: 725,
+    height: 724,
     alignItems: "center",
     right: 0
   },
