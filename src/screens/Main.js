@@ -21,7 +21,7 @@ export default class Main extends Component {
           style={styles.tab}
           tabBarStyle={styles.tab_tabBarStyle}
           tabIndicatorStyle={styles.tab_tabIndicatorStyle}
-          activeTabIndex={1}
+          activeTabIndex={3}
           tabLabelStyle={styles.tab_tabLabelStyle}
         >
           <TabContent title="Membresias">
@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
     top: Platform.OS === "android" ? 72 : 88,
     left: 0,
     position: "absolute",
-    right: -16,
-    bottom: -72
+    right: 0,
+    bottom: -2
   },
   tab_tabBarStyle: {
     backgroundColor: "rgba(25,39,52,1)",
