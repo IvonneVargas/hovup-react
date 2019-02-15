@@ -5,7 +5,8 @@
         "/src/screens/CreateAccount.js",
         "/src/screens/SuccessCreateAccount.js",
         "/src/screens/Main.js",
-        "/src/screens/Options.js"
+        "/src/screens/Options.js",
+        "/src/screens/ZonesTab.js"
     ],
     "symbols": [
         "/src/symbols/GenericButton.js",
@@ -23,7 +24,7 @@
     "defaultArtboardDirectory": "/src/screens",
     "defaultSymbolDirectory": "/src/symbols",
     "defaultAssetDirectory": "/src/assets",
-    "deviceName": "iPhone X",
+    "deviceName": "Samsung Note 8",
     "deviceOrientation": "portrait",
     "basePath": "/Users/ivonne/hovup-react",
     "tempPath": "/var/folders/3q/5_vntp2d5w773kcscg179xbc0000gn/T/BuilderAKjHBlN",
