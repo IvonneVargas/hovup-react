@@ -6,6 +6,7 @@ import HeaderSettings from "../symbols/HeaderSettings";
 import { TabView, TabContent } from "@builderx/tab-view";
 
 import Colors from "../assets/colors";
+import Zones from "./ZonesTab";
 
 export default class Main extends Component {
   render() {
@@ -36,7 +37,9 @@ export default class Main extends Component {
             <View style={styles.B5Rgjj} />
           </TabContent>
           <TabContent title="Zonas">
-            <View style={styles.R4vQBS} />
+            <View style={styles.R4vQBS}>
+              <Zones style={styles.text2} />
+            </View>
           </TabContent>
         </TabView>
       </View>
@@ -127,5 +130,6 @@ const styles = StyleSheet.create({
     left: 266.74,
     position: "absolute",
     backgroundColor: "transparent"
-  }
+  },
+  text2: {}
 });

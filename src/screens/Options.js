@@ -92,13 +92,13 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   list: {
-    height: 726,
-    top: 85,
+    top: 72,
     left: 0,
     position: "absolute",
     right: 0,
     backgroundColor: "rgba(25,39,52,1)",
-    opacity: 1
+    opacity: 1,
+    bottom: 0
   },
   rect2: {
     backgroundColor: "rgba(25,39,52,1)",
