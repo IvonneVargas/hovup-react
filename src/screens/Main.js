@@ -7,6 +7,7 @@ import { TabView, TabContent } from "@builderx/tab-view";
 
 import Colors from "../assets/colors";
 import Zones from "./ZonesTab";
+import Brands from "./BrandsTab";
 
 export default class Main extends Component {
   render() {
@@ -22,7 +23,7 @@ export default class Main extends Component {
           style={styles.tab}
           tabBarStyle={styles.tab_tabBarStyle}
           tabIndicatorStyle={styles.tab_tabIndicatorStyle}
-          activeTabIndex={3}
+          activeTabIndex={1}
           tabLabelStyle={styles.tab_tabLabelStyle}
         >
           <TabContent title="Membresias">
@@ -31,7 +32,9 @@ export default class Main extends Component {
             </View>
           </TabContent>
           <TabContent title="Marcas">
-            <View style={styles.rect2} />
+            <View style={styles.rect2}>
+              <Brands style={styles.text2} />
+            </View>
           </TabContent>
           <TabContent title="Tiendas">
             <View style={styles.B5Rgjj} />
@@ -132,5 +135,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "transparent"
   },
-  text2: {}
+  text2: {},
+  text3: {
+    top: 135.13,
+    left: 126.2,
+    position: "absolute",
+    backgroundColor: "transparent"
+  }
 });
