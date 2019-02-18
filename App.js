@@ -11,6 +11,7 @@ import Options from "./src/screens/Options";
 import Main from "./src/screens/Main";
 
 import ZonesTab from "./src/screens/ZonesTab";
+import BrandsTab from "./src/screens/BrandsTab";
 import { StackNavigator, DrawerNavigator } from "react-navigation";
 
 const DrawerNavigation = DrawerNavigator({
@@ -34,6 +35,9 @@ const DrawerNavigation = DrawerNavigator({
   },
   ZonesTab: {
     screen: ZonesTab
+  },
+  BrandsTab: {
+    screen: BrandsTab
   }
 });
 const StackNavigation = StackNavigator(
@@ -61,6 +65,9 @@ const StackNavigation = StackNavigator(
     },
     ZonesTab: {
       screen: ZonesTab
+    },
+    BrandsTab: {
+      screen: BrandsTab
     }
   },
   {
