@@ -19,13 +19,14 @@
         "/src/symbols/Header.js",
         "/src/symbols/GenericButtonBorder.js",
         "/src/symbols/HeaderSettings.js",
-        "/src/symbols/LayoutStatusBar.js"
+        "/src/symbols/LayoutStatusBar.js",
+        "/src/symbols/Tabsbutton.js"
     ],
     "assets": [],
     "defaultArtboardDirectory": "/src/screens",
     "defaultSymbolDirectory": "/src/symbols",
     "defaultAssetDirectory": "/src/assets",
-    "deviceName": "iPhone SE",
+    "deviceName": "Samsung Note 8",
     "deviceOrientation": "portrait",
     "basePath": "/Users/ivonne/hovup-react",
     "tempPath": "/var/folders/3q/5_vntp2d5w773kcscg179xbc0000gn/T/BuilderAKjHBlN",
@@ -44,7 +45,7 @@
                 "deviceName": "iPhone X",
                 "position": {
                     "x": -1572.5,
-                    "y": 82
+                    "y": 88
                 },
                 "horizontal": true
             },
