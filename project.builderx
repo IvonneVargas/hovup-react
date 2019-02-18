@@ -24,7 +24,7 @@
     "defaultArtboardDirectory": "/src/screens",
     "defaultSymbolDirectory": "/src/symbols",
     "defaultAssetDirectory": "/src/assets",
-    "deviceName": "Samsung Note 8",
+    "deviceName": "iPhone SE",
     "deviceOrientation": "portrait",
     "basePath": "/Users/ivonne/hovup-react",
     "tempPath": "/var/folders/3q/5_vntp2d5w773kcscg179xbc0000gn/T/BuilderAKjHBlN",
@@ -127,7 +127,8 @@
                 "horizontal": false
             }
         ],
-        "/src/screens/Options.js": []
+        "/src/screens/Options.js": [],
+        "/src/screens/ZonesTab.js": []
     },
     "missingFonts": []
 }
