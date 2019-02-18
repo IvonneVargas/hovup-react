@@ -117,7 +117,8 @@ const styles = StyleSheet.create({
   },
   tab_tabLabelStyle: {
     fontSize: 11,
-    color: "rgba(255,255,255,1)"
+    color: "rgba(255,255,255,1)",
+    letterSpacing: 0
   },
   text: {
     top: 277.76,

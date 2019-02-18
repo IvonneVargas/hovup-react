@@ -58,13 +58,13 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   rect2: {
-    height: 372,
-    top: 80,
+    top: 0,
     left: 0,
     position: "absolute",
     right: 0,
     alignItems: "center",
-    justifyContent: "space-between"
+    justifyContent: "flex-start",
+    bottom: 272
   },
   text: {
     width: 344,
@@ -80,10 +80,10 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   rect3: {
-    width: 360,
-    height: 228,
+    height: 196,
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    alignSelf: "stretch"
   },
   text2: {
     top: 544,
@@ -92,8 +92,8 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent"
   },
   rect4: {
-    width: 110,
-    height: 228,
+    width: 108,
+    height: 200,
     flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "center"
@@ -103,8 +103,8 @@ const styles = StyleSheet.create({
     height: 60
   },
   rect5: {
-    width: 110,
-    height: 228,
+    width: 112,
+    height: 200,
     justifyContent: "space-around",
     alignItems: "center"
   },
