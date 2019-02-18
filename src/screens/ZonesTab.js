@@ -95,40 +95,43 @@ const styles = StyleSheet.create({
     width: 108,
     height: 200,
     flexDirection: "column",
-    justifyContent: "space-around",
+    justifyContent: "flex-start",
     alignItems: "center"
   },
   image2: {
     width: 60,
-    height: 60
+    height: 60,
+    margin: 30
   },
   rect5: {
     width: 112,
     height: 200,
-    justifyContent: "space-around",
+    justifyContent: "flex-start",
     alignItems: "center"
   },
   image: {
     width: 60,
-    height: 60
+    height: 60,
+    margin: 30
   },
   image3: {
     width: 44,
-    height: 100
+    height: 100,
+    margin: 20
   },
   text3: {
     width: 92,
     height: 20,
     backgroundColor: "transparent",
     color: "rgba(101,188,70,1)",
-    fontSize: 10,
+    fontSize: 14,
     textAlign: "center"
   },
   text4: {
-    width: 110,
-    height: 72,
+    width: 92,
+    height: 20,
     backgroundColor: "transparent",
-    fontSize: 10,
+    fontSize: 14,
     color: "rgba(101,188,70,1)",
     textAlign: "center"
   }
