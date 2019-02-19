@@ -1,18 +1,21 @@
 import React, { Component } from "react";
-import Tabsbutton from "../symbols/Tabsbutton";
+import Colors from "../assets/colors";
+import TabB from "../symbols/TabB";
 
-import { View, StyleSheet, TouchableOpacity, Platform } from "react-native";
+import CatDown from "../symbols/CatDown";
+import { View, StyleSheet, Platform } from "react-native";
 
 export default class BrandsTab extends Component {
   render() {
     return (
       <View style={styles.root}>
         <View style={styles.background} />
-        <View style={styles.rect2}>
-          <Tabsbutton style={styles.tabsbutton} text3="Publico" />
-          <Tabsbutton style={styles.tabsbutton2} text3="VIP" />
-          <Tabsbutton style={styles.tabsbutton3} text3="Privado" />
+        <View style={styles.rect}>
+          <TabB style={styles.tabB} text="Publico" />
+          <TabB style={styles.tabB3} text="VIP" />
+          <TabB style={styles.tabB2} text="Privado" />
         </View>
+        <CatDown style={styles.catDown} navigation={this.props.navigation} />
       </View>
     );
   }
@@ -32,28 +35,54 @@ const styles = StyleSheet.create({
     opacity: 1,
     alignItems: "center"
   },
-  rect2: {
-    height: 50,
-    top: 48,
+
+  rect: {
+    height: 32,
+    top: 28,
     left: 0,
     position: "absolute",
+
     right: 0,
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: "center",
+    alignItems: "center"
   },
-  tabsbutton: {
+  tabB: {
     width: 100,
-    height: 28,
-    borderTopLeftRadius: 10
+    height: 32,
+    borderBottomLeftRadius: 8,
+    borderTopLeftRadius: 8,
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1,
+    borderWidth: 1,
+    borderColor: "rgba(101,188,70,1)"
   },
-  tabsbutton2: {
+  tabB3: {
     width: 100,
-    height: 28
+    height: 32,
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1,
+    borderWidth: 1,
+    borderColor: "rgba(101,188,70,1)"
   },
-  tabsbutton3: {
+  tabB2: {
     width: 100,
-    height: 28,
-    borderTopRightRadius: 10,
-    borderBottomRightRadius: 10
+    height: 32,
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1,
+    borderWidth: 1,
+    borderColor: "rgba(101,188,70,1)",
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 8
+  },
+  PickerNaN: {
+    color: "rgba(251,251,251,1)"
+  },
+  catDown: {
+    position: "absolute",
+    top: 62,
+    left: 39,
+    height: 30,
+    width: 180
   }
 });
