@@ -22,7 +22,6 @@
         "/src/symbols/HeaderSettings.js",
         "/src/symbols/LayoutStatusBar.js",
         "/src/symbols/TabB.js",
-        "/src/symbols/CategoriesDown.js",
         "/src/symbols/CatDown.js"
     ],
     "assets": [],
@@ -40,7 +39,7 @@
                 "deviceName": "iPhone X",
                 "position": {
                     "x": -1572.5,
-                    "y": 31
+                    "y": 27
                 },
                 "horizontal": true
             },
