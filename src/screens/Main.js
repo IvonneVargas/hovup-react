@@ -38,7 +38,9 @@ export default class Main extends Component {
             </View>
           </TabContent>
           <TabContent title="Tiendas">
-            <View style={styles.B5Rgjj} />
+            <View style={styles.B5Rgjj}>
+              <Brands style={styles.text2} navigation={this.props.navigation} />
+            </View>
           </TabContent>
           <TabContent title="Zonas">
             <View style={styles.R4vQBS}>
@@ -141,6 +143,12 @@ const styles = StyleSheet.create({
   text3: {
     top: 135.13,
     left: 126.2,
+    position: "absolute",
+    backgroundColor: "transparent"
+  },
+  text3: {
+    top: 267.09,
+    left: 168.81,
     position: "absolute",
     backgroundColor: "transparent"
   }
