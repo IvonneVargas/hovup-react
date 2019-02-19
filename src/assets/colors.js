@@ -1,9 +1,4 @@
-/*const colors = {
-  one: '#3104B4',
-  // your colors
-}
-module.exports = colors ;*/
-export default {
+module.exports = {
    Gray: '#192734',
    LigthGray: '#303d49',
    Green:'#65bc46',
