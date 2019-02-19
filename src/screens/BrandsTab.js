@@ -64,7 +64,7 @@ export default class BrandsTab extends Component {
               return (
                 <View style={styles.rect5}>
                   <Image
-                    source={require("../assets/icon_gps_on.png")}
+                    source={require("../assets/ic_200x200.png")}
                     style={styles.image}
                   />
                   <Icon
@@ -73,8 +73,8 @@ export default class BrandsTab extends Component {
                     type="Ionicons"
                   />
                   <View style={styles.rect9}>
-                    <Text style={styles.text}>{item.sub}</Text>
                     <Text style={styles.text2}>{item.key}</Text>
+                    <Text style={styles.text}>{item.sub}</Text>
                   </View>
                 </View>
               );
@@ -174,17 +174,19 @@ const styles = StyleSheet.create({
   list: {
     top: 0,
     left: 0,
-    width: 375,
+
     height: 730,
     position: "absolute",
-    paddingLeft: 5,
-    paddingRight: 5
+    paddingLeft: 0,
+    paddingRight: 0,
+    right: 0
   },
   rect5: {
     backgroundColor: "rgba(25,39,52,1)",
     alignItems: "center",
     flexDirection: "row",
-    margin: 0
+    margin: 0,
+    width: Platform.OS === "android" ? 350 : undefined
   },
 
   rect8: {
@@ -195,36 +197,38 @@ const styles = StyleSheet.create({
   },
 
   icon: {
-    top: 13,
-    left: 350,
+    top: Platform.OS === "android" ? 13.33 : 20.19,
+    left: Platform.OS === "android" ? 330.67 : 354.52,
     position: "absolute",
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     fontSize: 20
   },
   image: {
-    width: 40,
-    height: 40,
-    marginRight: 10
+    width: 95,
+    height: 54,
+    borderRadius: 6,
+    margin: 5
   },
   rect9: {
-    height: 32,
-    width: 111,
-    top: 4,
-    left: 49,
+    height: 40,
+    width: 238,
+    top: 12,
+    left: 104,
     position: "absolute",
-    justifyContent: "space-between"
+    justifyContent: "space-around"
   },
   text: {
-    width: 58,
-    height: 11,
+    width: 237,
+    height: 17,
     fontSize: 12,
     color: "rgba(255,255,255,1)"
   },
   text2: {
-    width: 67,
-    height: 14,
+    width: 237,
+    height: 16,
     fontSize: 14,
+    fontWeight: "bold",
     color: "rgba(255,255,255,1)"
   }
 });
