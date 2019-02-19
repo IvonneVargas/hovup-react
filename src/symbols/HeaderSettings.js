@@ -14,16 +14,14 @@ export default class HeaderSettings extends Component {
       <View style={[this.props.style]}>
         <View style={styles.rect3} />
         <Text style={styles.text}>hovup</Text>
-        <Center vertical>
-          <Icon
-            style={styles.icon}
-            name="settings"
-            type="MaterialCommunityIcons"
-            onPress={() => {
-              this.props.navigation.push("Options");
-            }}
-          />
-        </Center>
+        <Icon
+          style={styles.icon}
+          name="settings"
+          type="MaterialCommunityIcons"
+          onPress={() => {
+            this.props.navigation.push("Options");
+          }}
+        />
       </View>
     );
   }
@@ -48,10 +46,13 @@ const styles = StyleSheet.create({
     color: "rgba(101,188,70,1)"
   },
   icon: {
-    left: 325.17,
+    left: 325,
     position: "absolute",
     backgroundColor: "transparent",
-    fontSize: 35,
-    color: "rgba(255,255,255,1)"
+    fontSize: 25,
+    color: "rgba(255,255,255,1)",
+    top: "18.52%",
+    width: 30,
+    height: 31
   }
 });
