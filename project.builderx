@@ -7,7 +7,8 @@
         "/src/screens/Main.js",
         "/src/screens/Options.js",
         "/src/screens/ZonesTab.js",
-        "/src/screens/BrandsTab.js"
+        "/src/screens/BrandsTab.js",
+        "/src/screens/CategoriesList.js"
     ],
     "symbols": [
         "/src/symbols/GenericButton.js",
@@ -20,13 +21,15 @@
         "/src/symbols/GenericButtonBorder.js",
         "/src/symbols/HeaderSettings.js",
         "/src/symbols/LayoutStatusBar.js",
-        "/src/symbols/Tabsbutton.js"
+        "/src/symbols/TabB.js",
+        "/src/symbols/CategoriesDown.js",
+        "/src/symbols/CatDown.js"
     ],
     "assets": [],
     "defaultArtboardDirectory": "/src/screens",
     "defaultSymbolDirectory": "/src/symbols",
     "defaultAssetDirectory": "/src/assets",
-    "deviceName": "Samsung Note 8",
+    "deviceName": "iPhone X",
     "deviceOrientation": "portrait",
     "basePath": "/Users/ivonne/hovup-react",
     "tempPath": "/var/folders/3q/5_vntp2d5w773kcscg179xbc0000gn/T/BuilderAKjHBlN",
@@ -45,7 +48,7 @@
                 "deviceName": "iPhone X",
                 "position": {
                     "x": -1572.5,
-                    "y": 88
+                    "y": 81
                 },
                 "horizontal": true
             },
@@ -130,7 +133,85 @@
             }
         ],
         "/src/screens/Options.js": [],
-        "/src/screens/ZonesTab.js": []
+        "/src/screens/ZonesTab.js": [],
+        "/src/symbols/TabB.js": [
+            {
+                "deviceName": "Samsung Note 8",
+                "position": {
+                    "x": -190,
+                    "y": -1.4210854715202004e-14
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "Samsung Note 8",
+                "position": {
+                    "x": 26,
+                    "y": 32
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "Samsung Note 8",
+                "position": {
+                    "x": -190,
+                    "y": 7.6666666666666625
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "Samsung Note 8",
+                "position": {
+                    "x": -24.333333333333343,
+                    "y": 23.66666666666667
+                },
+                "horizontal": true
+            }
+        ],
+        "/src/symbols/Listdown.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 63.28865979381442,
+                    "y": -0.33333333333337123
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -4.711340206185582,
+                    "y": 30.833333333333258
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -230,
+                    "y": 8.666666666666663
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -230,
+                    "y": 22.66666666666666
+                },
+                "horizontal": true
+            }
+        ],
+        "/src/screens/BrandsTab.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -1208.5,
+                    "y": 146
+                },
+                "horizontal": false
+            }
+        ]
     },
     "missingFonts": []
 }
