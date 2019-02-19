@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
+import Header from "../symbols/Header";
 import iconPerfil from "../assets/OptionsImages/ic_perfil.png";
 
 export default class Options extends Component {
@@ -15,7 +16,6 @@ export default class Options extends Component {
     return (
       <View style={styles.root}>
         <LayoutStatusBar style={styles.layoutStatusBar} />
-        <View style={styles.rect} />
         <FlatList
           style={styles.list}
           data={[
@@ -66,6 +66,11 @@ export default class Options extends Component {
             return <View style={styles.rect5} />;
           }}
         />
+        <Header
+          style={styles.header}
+          navigation={this.props.navigation}
+          text="Opciones"
+        />
       </View>
     );
   }
@@ -82,15 +87,7 @@ const styles = StyleSheet.create({
     height: 34,
     right: 0
   },
-  rect: {
-    height: 54,
-    top: 31,
-    left: 0,
-    position: "absolute",
-    backgroundColor: "rgba(48,61,73,1)",
-    right: 0,
-    opacity: 1
-  },
+
   list: {
     top: 72,
     left: 0,
@@ -119,5 +116,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     marginTop: 5
+  },
+  header: {
+    top: 23.91,
+    left: 0,
+    position: "absolute",
+    height: 53,
+    right: 0
   }
 });
