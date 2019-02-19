@@ -67,13 +67,15 @@ export default class BrandsTab extends Component {
                     source={require("../assets/icon_gps_on.png")}
                     style={styles.image}
                   />
-                  <Text style={styles.text2}>{item.key}</Text>
-                  <Text style={styles.text}>{item.sub}</Text>
                   <Icon
                     name="ios-arrow-forward"
                     style={styles.icon}
                     type="Ionicons"
                   />
+                  <View style={styles.rect9}>
+                    <Text style={styles.text}>{item.sub}</Text>
+                    <Text style={styles.text2}>{item.key}</Text>
+                  </View>
                 </View>
               );
             }}
@@ -174,27 +176,24 @@ const styles = StyleSheet.create({
     left: 0,
     width: 375,
     height: 730,
-    position: "absolute"
+    position: "absolute",
+    paddingLeft: 5,
+    paddingRight: 5
   },
   rect5: {
     backgroundColor: "rgba(25,39,52,1)",
     alignItems: "center",
     flexDirection: "row",
-    marginTop: 5
+    margin: 0
   },
-  text: {
-    color: "rgba(255,255,255,1)",
-    fontSize: 12
-  },
+
   rect8: {
     left: 15,
     height: 2,
-    backgroundColor: "#999999"
+    backgroundColor: "#999999",
+    margin: 0
   },
-  text2: {
-    color: "rgba(255,255,255,1)",
-    fontSize: 14
-  },
+
   icon: {
     top: 13,
     left: 350,
@@ -207,5 +206,25 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     marginRight: 10
+  },
+  rect9: {
+    height: 32,
+    width: 111,
+    top: 4,
+    left: 49,
+    position: "absolute",
+    justifyContent: "space-between"
+  },
+  text: {
+    width: 58,
+    height: 11,
+    fontSize: 12,
+    color: "rgba(255,255,255,1)"
+  },
+  text2: {
+    width: 67,
+    height: 14,
+    fontSize: 14,
+    color: "rgba(255,255,255,1)"
   }
 });
