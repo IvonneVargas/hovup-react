@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Colors from "../assets/colors";
 import TabB from "../symbols/TabB";
-
 import CatDown from "../symbols/CatDown";
+
 import { View, StyleSheet, Platform } from "react-native";
 
 export default class BrandsTab extends Component {
@@ -10,12 +10,19 @@ export default class BrandsTab extends Component {
     return (
       <View style={styles.root}>
         <View style={styles.background} />
-        <View style={styles.rect}>
-          <TabB style={styles.tabB} text="Publico" />
-          <TabB style={styles.tabB3} text="VIP" />
-          <TabB style={styles.tabB2} text="Privado" />
+        <View style={styles.rect2}>
+          <View style={styles.rect}>
+            <TabB style={styles.tabB} text="Publico" />
+            <TabB style={styles.tabB3} text="VIP" />
+            <TabB style={styles.tabB2} text="Privado" />
+          </View>
+          <View style={styles.rect3} navigation={this.props.navigation}>
+            <CatDown
+              style={styles.catDown}
+              navigation={this.props.navigation}
+            />
+          </View>
         </View>
-        <CatDown style={styles.catDown} navigation={this.props.navigation} />
       </View>
     );
   }
@@ -36,26 +43,37 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
 
-  rect: {
-    height: 32,
-    top: 28,
+  PickerNaN: {
+    color: "rgba(251,251,251,1)"
+  },
+  rect2: {
+    top: 1,
     left: 0,
-    position: "absolute",
-
     right: 0,
+    height: 91,
+    position: "absolute",
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  rect: {
+    width: 375,
+    height: 32,
     flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: "center"
   },
   tabB: {
     width: 100,
     height: 32,
-    borderBottomLeftRadius: 8,
-    borderTopLeftRadius: 8,
     backgroundColor: "rgba(25,39,52,1)",
     opacity: 1,
     borderWidth: 1,
-    borderColor: "rgba(101,188,70,1)"
+    borderColor: "rgba(101,188,70,1)",
+    borderBottomLeftRadius: 8,
+    borderTopLeftRadius: 8
   },
   tabB3: {
     width: 100,
@@ -72,17 +90,17 @@ const styles = StyleSheet.create({
     opacity: 1,
     borderWidth: 1,
     borderColor: "rgba(101,188,70,1)",
-    borderTopRightRadius: 8,
-    borderBottomRightRadius: 8
+    borderBottomRightRadius: 8,
+    borderTopRightRadius: 8
   },
-  PickerNaN: {
-    color: "rgba(251,251,251,1)"
+  rect3: {
+    width: 375,
+    height: 32,
+    alignItems: "flex-start",
+    paddingLeft: 35
   },
   catDown: {
-    position: "absolute",
-    top: 62,
-    left: 39,
-    height: 30,
-    width: 180
+    width: 180,
+    height: 30
   }
 });
