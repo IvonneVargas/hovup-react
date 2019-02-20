@@ -22,7 +22,7 @@ export default class Options extends Component {
             {
               icon: require("../assets/OptionsImages/ic_perfil.png"),
               key: "Perfil",
-              link: ""
+              link: "OptionsProfile"
             },
             {
               icon: require("../assets/OptionsImages/ic_perfil.png"),
@@ -55,7 +55,9 @@ export default class Options extends Component {
               <View style={styles.rect2}>
                 <TouchableOpacity
                   style={styles.buttonsStyle}
-                  onPress={() => this.props.navigation.navigate("${item.link}")}
+                  onPress={item => {
+                    console.log("holas");
+                  }}
                 >
                   <Image
                     source={require("../assets/ic_acerca_nosotros.png")}

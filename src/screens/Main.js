@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     left: 0,
     position: "absolute",
     right: 0,
-    bottom: -2,
+    bottom: -4,
     backgroundColor: "#E6E6E6"
   },
   tab_tabBarStyle: {
