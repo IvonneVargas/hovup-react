@@ -57,6 +57,10 @@ export default class Options extends Component {
                   style={styles.buttonsStyle}
                   onPress={() => this.props.navigation.navigate("${item.link}")}
                 >
+                  <Image
+                    source={require("../assets/ic_acerca_nosotros.png")}
+                    style={styles.image}
+                  />
                   <Text style={styles.text2}>{item.key}</Text>
                 </TouchableOpacity>
               </View>
@@ -123,5 +127,12 @@ const styles = StyleSheet.create({
     position: "absolute",
     height: 53,
     right: 0
+  },
+  image: {
+    width: 42,
+    height: 42,
+    borderRadius: 6,
+    margin: 0,
+    marginRight: 8
   }
 });
