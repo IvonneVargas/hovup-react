@@ -13,6 +13,8 @@ import Main from "./src/screens/Main";
 import ZonesTab from "./src/screens/ZonesTab";
 import BrandsTab from "./src/screens/BrandsTab";
 import CategoriesList from "./src/screens/CategoriesList";
+import OptionsProfile from "./src/screens/OptionsProfile";
+import CountryStateCityLists from "./src/screens/CountryStateCityLists";
 import { StackNavigator, DrawerNavigator } from "react-navigation";
 
 const DrawerNavigation = DrawerNavigator({
@@ -42,6 +44,12 @@ const DrawerNavigation = DrawerNavigator({
   },
   CategoriesList: {
     screen: CategoriesList
+  },
+  OptionsProfile: {
+    screen: OptionsProfile
+  },
+  CountryStateCityLists: {
+    screen: CountryStateCityLists
   }
 });
 const StackNavigation = StackNavigator(
@@ -75,6 +83,12 @@ const StackNavigation = StackNavigator(
     },
     CategoriesList: {
       screen: CategoriesList
+    },
+    OptionsProfile: {
+      screen: OptionsProfile
+    },
+    CountryStateCityLists: {
+      screen: CountryStateCityLists
     }
   },
   {
@@ -102,6 +116,8 @@ export default class App extends React.Component {
     this.setState({ fontLoaded: true });
     //console.warn("Fallback font is being used. Please check App.js file.");
     //console.warn("Fallback font is being used. Please check App.js file.");
+    //console.warn("Fallback font is being used. Please check App.js file.");
+    console.warn("Fallback font is being used. Please check App.js file.");
   }
   render() {
     return this.state.fontLoaded ? <StackNavigation /> : <Expo.AppLoading />;

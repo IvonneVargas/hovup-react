@@ -8,7 +8,9 @@
         "/src/screens/Options.js",
         "/src/screens/ZonesTab.js",
         "/src/screens/BrandsTab.js",
-        "/src/screens/CategoriesList.js"
+        "/src/screens/CategoriesList.js",
+        "/src/screens/OptionsProfile.js",
+        "/src/screens/CountryStateCityLists.js"
     ],
     "symbols": [
         "/src/symbols/GenericButton.js",
@@ -22,7 +24,10 @@
         "/src/symbols/HeaderSettings.js",
         "/src/symbols/LayoutStatusBar.js",
         "/src/symbols/TabB.js",
-        "/src/symbols/CatDown.js"
+        "/src/symbols/CatDown.js",
+        "/src/symbols/HeaderIcon.js",
+        "/src/symbols/LogoSigle.js",
+        "/src/symbols/HeaderSingleLogo.js"
     ],
     "assets": [],
     "defaultArtboardDirectory": "/src/screens",
@@ -47,7 +52,7 @@
                 "deviceName": "iPhone X",
                 "position": {
                     "x": -1572.5,
-                    "y": 81
+                    "y": 82
                 },
                 "horizontal": true
             },
@@ -207,6 +212,92 @@
                 "position": {
                     "x": -1208.5,
                     "y": 146
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -573.374613003096,
+                    "y": 1297.3312693498451
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "Samsung Note 8",
+                "position": {
+                    "x": -301.2249742002064,
+                    "y": 1252.3333333333333
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "Samsung Note 8",
+                "position": {
+                    "x": -272.5583075335398,
+                    "y": 1291.6666666666667
+                },
+                "horizontal": true
+            }
+        ],
+        "/src/screens/OptionsProfile.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -4062.5,
+                    "y": 42.69969040247677
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -4062.5,
+                    "y": 67.69969040247676
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -4062.5,
+                    "y": 159.8328173374613
+                },
+                "horizontal": true
+            }
+        ],
+        "/src/symbols/HeaderIcon.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -141.17337461300312,
+                    "y": 11.639318885448915
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -386.374613003096,
+                    "y": 38.73839009287926
+                },
+                "horizontal": true
+            }
+        ],
+        "/src/screens/CountryStateCityLists.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 1.3049535603713593,
+                    "y": -20.10526315789474
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 375.71362229102215,
+                    "y": 14.359133126934992
                 },
                 "horizontal": false
             }
