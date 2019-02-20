@@ -33,9 +33,13 @@ export default class OptionsProfile extends Component {
             <TextInput style={styles.textInput} placeholder="Nombre*" />
           </View>
           <View style={styles.rect5}>
-            <TextInput style={styles.textInput6} placeholder="Ciudad*" />
+            <TextInput
+              style={styles.textInput6}
+              placeholder="Ciudad*"
+              onKeyPress={keyPress => console.log(keyPress)}
+            />
             <TextInput style={styles.textInput5} placeholder="Estado*" />
-            <TextInput style={styles.textInput4} placeholder="Pais*" />
+            <TextInput style={styles.textInput9} placeholder="Pais*" />
           </View>
           <View style={styles.rect4}>
             <TextInput style={styles.textInput8} placeholder="Telefono*" />
@@ -156,7 +160,7 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     textAlign: "center"
   },
-  textInput4: {
+  textInput9: {
     width: 262,
     height: 42,
     backgroundColor: "#E6E6E6",
