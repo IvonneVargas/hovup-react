@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   header: {
-    top: Platform.OS === "android" ? 28 : 34,
+    top: Platform.OS === "android" ? 28 : 28,
     left: 0,
     position: "absolute",
     height: Platform.OS === "android" ? 54 : 53,
@@ -140,10 +140,10 @@ const styles = StyleSheet.create({
     height: 34
   },
   layoutStatusBar: {
-    top: -1.8,
-    left: -0.4,
+    top: 0,
+    left: 0,
     position: "absolute",
     height: 34,
-    width: 376
+    right: 0
   }
 });

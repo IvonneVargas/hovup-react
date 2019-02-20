@@ -67,25 +67,25 @@ const styles = StyleSheet.create({
     flex: 1
   },
   header: {
-    top: 31,
+    top: 28,
     left: 0,
     position: "absolute",
     height: 53,
     right: 0
   },
   layoutStatusBar: {
-    top: -2.87,
+    top: 0,
     left: 0,
     position: "absolute",
     height: 34,
     right: 0
   },
   list: {
-    top: 83,
+    top: 81,
     left: 0,
     position: "absolute",
     right: 0,
-    bottom: -83,
+    bottom: -81,
     backgroundColor: "rgba(25,39,52,1)",
     opacity: 1
   },

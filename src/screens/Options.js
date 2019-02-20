@@ -81,11 +81,11 @@ export default class Options extends Component {
 }
 const styles = StyleSheet.create({
   root: {
-    backgroundColor: "white",
+    backgroundColor: "rgba(25,39,52,1)",
     flex: 1
   },
   layoutStatusBar: {
-    top: -1.8,
+    top: 0,
     left: 0,
     position: "absolute",
     height: 34,
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
 
   list: {
-    top: 72,
+    top: 100.2,
     left: 0,
     position: "absolute",
     right: 0,
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     margin: 0
   },
   header: {
-    top: 23.91,
+    top: 28,
     left: 0,
     position: "absolute",
     height: 53,

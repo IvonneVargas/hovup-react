@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   rect2: {
     height: 25,
     top: 0,
-    left: 2,
+    left: 0,
     position: "absolute",
     backgroundColor: "rgba(48,61,73,1)",
     right: 0,

@@ -66,11 +66,11 @@ const styles = StyleSheet.create({
     width: 376
   },
   layoutStatusBar: {
-    top: -2,
+    top: 0,
     left: 0,
     position: "absolute",
     height: 36,
-    right: -16
+    right: 0
   },
   headerSettings: {
     top: Platform.OS === "android" ? 18 : 34,

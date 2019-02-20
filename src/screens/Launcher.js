@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     left: 0,
     position: "absolute",
     backgroundColor: "rgba(48,61,73,1)",
-    right: 14,
+    right: 0,
     opacity: 1
   }
 });
