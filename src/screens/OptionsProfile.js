@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import LayoutStatusBar from "../symbols/LayoutStatusBar";
 import HeaderIcon from "../symbols/HeaderIcon";
-import { View, StyleSheet, Text, TextInput } from "react-native";
+import { View, StyleSheet, Text, TextInput, Platform } from "react-native";
 import Texts from "../assets/texts";
 
 export default class OptionsProfile extends Component {
@@ -36,10 +36,24 @@ export default class OptionsProfile extends Component {
             <TextInput
               style={styles.textInput6}
               placeholder="Ciudad*"
-              onKeyPress={keyPress => console.log(keyPress)}
+              onFocus={() => {
+                this.props.navigation.push("CountryStateCityLists");
+              }}
             />
-            <TextInput style={styles.textInput5} placeholder="Estado*" />
-            <TextInput style={styles.textInput9} placeholder="Pais*" />
+            <TextInput
+              style={styles.textInput5}
+              placeholder="Estado*"
+              onFocus={() => {
+                this.props.navigation.push("CountryStateCityLists");
+              }}
+            />
+            <TextInput
+              style={styles.textInput9}
+              placeholder="Pais*"
+              onFocus={() => {
+                this.props.navigation.push("CountryStateCityLists");
+              }}
+            />
           </View>
           <View style={styles.rect4}>
             <TextInput style={styles.textInput8} placeholder="Telefono*" />
@@ -108,12 +122,12 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)"
   },
   rect3: {
-    top: 159.97,
+    top: 160,
     left: 0,
     position: "absolute",
     backgroundColor: "rgba(25,39,52,1)",
     right: 0,
-    bottom: -2,
+    bottom: -4,
     opacity: 1,
     justifyContent: "space-around",
     alignItems: "center"

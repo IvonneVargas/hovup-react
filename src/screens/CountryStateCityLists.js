@@ -11,6 +11,37 @@ export default class CountryStateCityLists extends Component {
         <HeaderSingleLogo style={styles.headerSingleLogo} />
         <FlatList
           style={styles.list}
+          data={[
+            {
+              key: "Perfil",
+              link: ""
+            },
+            {
+              icon: require("../assets/OptionsImages/ic_perfil.png"),
+              key: "Cambiar codigo Hovup",
+              link: ""
+            },
+            {
+              icon: require("../assets/OptionsImages/ic_perfil.png"),
+              key: "Cambiar contrasena",
+              link: ""
+            },
+            {
+              icon: require("../assets/OptionsImages/ic_perfil.png"),
+              key: "Acerca de nosotros",
+              link: ""
+            },
+            {
+              icon: require("../assets/OptionsImages/ic_perfil.png"),
+              key: "Aviso de privacidad",
+              link: ""
+            },
+            {
+              icon: require("../assets/OptionsImages/ic_perfil.png"),
+              key: "Cerrar sesion",
+              link: ""
+            }
+          ]}
           renderItem={({ item, separators }) => {
             return (
               <View style={styles.rect}>
@@ -46,7 +77,7 @@ const styles = StyleSheet.create({
     right: 0
   },
   list: {
-    top: 82,
+    top: 83.03,
     left: 0,
     position: "absolute",
     right: 0,
