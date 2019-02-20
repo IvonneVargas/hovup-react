@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     padding: 5,
 
     opacity: 1,
-    height: 42
+    height: 46
   },
   text2: {
     color: "rgba(255,255,255,1)",
@@ -126,10 +126,11 @@ const styles = StyleSheet.create({
     right: 0
   },
   image: {
-    width: 34,
-    height: 33,
+    width: 35,
+    height: 35,
     borderRadius: 6,
-    margin: 0
+    margin: 0,
+    marginRight: 8
   },
   rect3: {
     backgroundColor: "rgba(148,148,148,1)",
