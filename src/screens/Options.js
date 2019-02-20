@@ -56,14 +56,14 @@ export default class Options extends Component {
                 <TouchableOpacity
                   style={styles.buttonsStyle}
                   onPress={item => {
-                    console.log("holas");
+                    console.log("holas,");
                   }}
                 >
                   <Image
                     source={require("../assets/ic_acerca_nosotros.png")}
                     style={styles.image}
                   />
-                  <Text style={styles.text2}>{item.key}</Text>
+                  <Text style={styles.text2}>{item.link}</Text>
                 </TouchableOpacity>
               </View>
             );
