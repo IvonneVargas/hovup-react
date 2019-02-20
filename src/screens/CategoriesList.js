@@ -8,9 +8,9 @@ export default class CategoriesList extends Component {
     const itemId = this.props.navigation.getParam("id", "NO-ID");
     var title = "";
     if (itemId === "1") {
-      title = "Categorias"
+      title = "Categorias";
     } else {
-      title = "Title"
+      title = "Title";
     }
     return (
       <View style={styles.root}>
