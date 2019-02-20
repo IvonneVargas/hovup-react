@@ -67,7 +67,7 @@ export default class Options extends Component {
             );
           }}
           ItemSeparatorComponent={({}) => {
-            return <View style={styles.rect5} />;
+            return <View style={styles.rect3} />;
           }}
         />
         <Header
@@ -103,23 +103,20 @@ const styles = StyleSheet.create({
   },
   rect2: {
     backgroundColor: "rgba(25,39,52,1)",
-    padding: 15,
-    paddingTop: 10,
-    paddingBottom: 10,
-    opacity: 1
+    padding: 5,
+
+    opacity: 1,
+    height: 42
   },
   text2: {
-    color: "rgba(255,255,255,1)"
+    color: "rgba(255,255,255,1)",
+    margin: 0
   },
-  rect5: {
-    backgroundColor: "#999999",
-    left: 15,
-    height: 2
-  },
+
   buttonsStyle: {
     alignItems: "center",
     flexDirection: "row",
-    marginTop: 5
+    margin: 0
   },
   header: {
     top: 23.91,
@@ -129,10 +126,15 @@ const styles = StyleSheet.create({
     right: 0
   },
   image: {
-    width: 42,
-    height: 42,
+    width: 34,
+    height: 33,
     borderRadius: 6,
-    margin: 0,
-    marginRight: 8
+    margin: 0
+  },
+  rect3: {
+    backgroundColor: "rgba(148,148,148,1)",
+    left: 0,
+    height: 3,
+    opacity: 1
   }
 });

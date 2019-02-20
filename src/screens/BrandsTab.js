@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   },
 
   rect8: {
-    left: 15,
+    left: 0,
     height: 2,
     backgroundColor: "#999999",
     margin: 0
