@@ -5,12 +5,19 @@ import { View, StyleSheet, FlatList, Text } from "react-native";
 
 export default class CategoriesList extends Component {
   render() {
+    const itemId = this.props.navigation.getParam("id", "NO-ID");
+    var title = "";
+    if (itemId === "1") {
+      title = "Categorias"
+    } else {
+      title = "Title"
+    }
     return (
       <View style={styles.root}>
         <Header
           style={styles.header}
           navigation={this.props.navigation}
-          text="Categorias"
+          text={title}
         />
         <LayoutStatusBar style={styles.layoutStatusBar} />
         <FlatList

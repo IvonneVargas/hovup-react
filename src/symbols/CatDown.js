@@ -13,7 +13,7 @@ export default class CatDown extends Component {
       <TouchableOpacity
         style={[styles.root, this.props.style]}
         onPress={() => {
-          this.props.navigation.push("CategoriesList");
+          this.props.navigation.navigate("CategoriesList", { id: "1" });
         }}
       >
         <Text style={styles.text}>Todas las categorias</Text>
