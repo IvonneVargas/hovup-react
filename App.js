@@ -16,6 +16,7 @@ import CategoriesList from "./src/screens/CategoriesList";
 import OptionsProfile from "./src/screens/OptionsProfile";
 import CountryStateCityLists from "./src/screens/CountryStateCityLists";
 import About from "./src/screens/About";
+import Privacy from "./src/screens/Privacy";
 import { StackNavigator, DrawerNavigator } from "react-navigation";
 
 const DrawerNavigation = DrawerNavigator({
@@ -54,6 +55,9 @@ const DrawerNavigation = DrawerNavigator({
   },
   About: {
     screen: About
+  },
+  Privacy: {
+    screen: Privacy
   }
 });
 const StackNavigation = StackNavigator(
@@ -96,6 +100,9 @@ const StackNavigation = StackNavigator(
     },
     About: {
       screen: About
+    },
+    Privacy: {
+      screen: Privacy
     }
   },
   {

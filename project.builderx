@@ -11,7 +11,8 @@
         "/src/screens/CategoriesList.js",
         "/src/screens/OptionsProfile.js",
         "/src/screens/CountryStateCityLists.js",
-        "/src/screens/About.js"
+        "/src/screens/About.js",
+        "/src/screens/Privacy.js"
     ],
     "symbols": [
         "/src/symbols/GenericButton.js",
