@@ -48,11 +48,11 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   text: {
-    top: 87.1,
+    top: 78.8,
     left: 0,
     position: "absolute",
     backgroundColor: "transparent",
-    right: 325,
+    right: 199,
     bottom: 0,
     color: "rgba(255,255,255,1)"
   }

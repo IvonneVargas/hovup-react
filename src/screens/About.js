@@ -23,7 +23,7 @@ export default class About extends Component {
           </View>
           <View style={styles.rect2}>
             <Text style={styles.text}>
-              Hovup SAPI de CV © 2019. Hovup, Inc. © 2019. Todoso los derechos
+              Hovup SAPI de CV © 2019. Hovup, Inc. © 2019. Todo so los derechos
               reservados.
             </Text>
           </View>
@@ -52,13 +52,14 @@ const styles = StyleSheet.create({
     right: 0
   },
   rect: {
-    top: 83,
+    top: 82.95,
     left: 0,
     position: "absolute",
     backgroundColor: "rgba(25,39,52,1)",
     right: 0,
-    bottom: -31,
+    bottom: 0,
     opacity: 1,
+    flexDirection: "column",
     justifyContent: "space-between"
   },
   rect2: {
@@ -66,21 +67,23 @@ const styles = StyleSheet.create({
     padding: 0,
     paddingTop: 0,
     paddingBottom: 0,
-    marginBottom: 100,
-    alignSelf: "stretch"
+
+    alignSelf: "stretch",
+    margin: 0
   },
   text: {
-    top: 0,
+    top: -16.59,
     left: 0,
-    width: 375,
-    height: 49,
+
     position: "absolute",
     backgroundColor: "transparent",
     margin: 0,
     marginTop: 0,
     marginBottom: 0,
     padding: 13,
-    color: "rgba(255,255,255,1)"
+    color: "rgba(255,255,255,1)",
+    right: 0,
+    bottom: 0
   },
   rect3: {
     height: 212,
