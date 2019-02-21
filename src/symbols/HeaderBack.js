@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Icon from "@builderx/icons";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Platform } from "react-native";
 
 export default class HeaderBack extends Component {
   // Only for displaying symbol in BuilderX.
