@@ -25,21 +25,24 @@ export default class Options extends Component {
               key: "Perfil",
               link: "OptionsProfile",
               id: 1,
-              desc: "Para actualizar tu información, da clicl en el renglón que desees editar."
+              desc:
+                "Para actualizar tu información, da clicl en el renglón que desees editar."
             },
             {
               icon: require("../assets/OptionsImages/ic_perfil.png"),
               key: "Cambiar código Hovup",
               link: "OptionsProfile",
               id: 2,
-              desc: "Este código es su identificador en el ambiente Hovup. Elija uno original y que lo identifique"
+              desc:
+                "Este código es su identificador en el ambiente Hovup. Elija uno original y que lo identifique"
             },
             {
               icon: require("../assets/OptionsImages/ic_perfil.png"),
               key: "Cambiar contraseña",
               link: "OptionsProfile",
               id: 3,
-              desc: "En esta sección podrás cambiar tu contraseña siempre que desees. Tu contraseña debe contener: al mens una mayúscula, un número y tener entre 4 y 10 caracteres; recuerda mantener tu contraseña en un lugar seguro."
+              desc:
+                "En esta sección podrás cambiar tu contraseña siempre que desees. Tu contraseña debe contener: al mens una mayúscula, un número y tener entre 4 y 10 caracteres; recuerda mantener tu contraseña en un lugar seguro."
             },
             {
               icon: require("../assets/OptionsImages/ic_perfil.png"),
@@ -67,14 +70,21 @@ export default class Options extends Component {
                   style={styles.buttonsStyle}
                   onPress={() => {
                     if (item.link == "") {
-                      this._showAlert("Cerrar sesión","¿Estás seguro que deseas cerrar sesión?");
+                      this._showAlert(
+                        "Cerrar sesión",
+                        "¿Estás seguro que deseas cerrar sesión?"
+                      );
                     } else {
                       console.log("holas2,", item.link);
                       if (item.id > 3) {
-                        console.log("son los ultimos")
+                        console.log("son los ultimos");
                         this.props.navigation.push(item.link);
                       } else {
-                        this.props.navigation.push(item.link, { id: item.id , title: item.key, desc: item.desc});
+                        this.props.navigation.push(item.link, {
+                          id: item.id,
+                          title: item.key,
+                          desc: item.desc
+                        });
                       }
                     }
                   }}
@@ -100,18 +110,21 @@ export default class Options extends Component {
       </View>
     );
   }
-  _showAlert (title, msg) {
+  _showAlert(title, msg) {
     Alert.alert(
       title,
       msg,
       [
-        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-        {text: 'OK', onPress: () => console.log('OK Pressed')},
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
       ],
       { cancelable: false }
-    )
+    );
   }
-
 }
 const styles = StyleSheet.create({
   root: {

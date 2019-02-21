@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import LayoutStatusBar from "../symbols/LayoutStatusBar";
 import HeaderIcon from "../symbols/HeaderIcon";
-import { View, StyleSheet, Text, TextInput, Platform } from "react-native";
+import { View, StyleSheet, Text, Platform, TextInput } from "react-native";
+import GenericButton from "../symbols/GenericButton";
 import Texts from "../assets/texts";
 
 export default class OptionsProfile extends Component {
   render() {
     const itemId = this.props.navigation.getParam("id", "");
-    const title = this.props.navigation.getParam("title","");
-    const desc = this.props.navigation.getParam("desc","");
+    const title = this.props.navigation.getParam("title", "");
+    const desc = this.props.navigation.getParam("desc", "");
     console.log("itemId options profile", itemId);
     return (
       <View style={styles.root}>
@@ -22,13 +23,9 @@ export default class OptionsProfile extends Component {
         <View style={styles.rect} />
         <View style={styles.rect2}>
           <Text style={styles.text}>{title}</Text>
-          <Text style={styles.text2}>
-            {desc}
-          </Text>
+          <Text style={styles.text2}>{desc}</Text>
         </View>
-        <View style={styles.rect3}>
-          {this.displayContent()}
-        </View>
+        <View style={styles.rect3}>{this.displayContent()}</View>
       </View>
     );
   }
@@ -36,12 +33,43 @@ export default class OptionsProfile extends Component {
   displayContent() {
     const itemId = this.props.navigation.getParam("id", "");
     if (itemId == 1) {
-      return <TextInput style={styles.textInput8} placeholder="Telefono*" />;
-    } else {
-      return <TextInput style={styles.textInput8} placeholder="Numero*" />;
+      return (
+        <View style={styles.rect6}>
+          <TextInput style={styles.textInput3} placeholder="Genero*" />
+          <TextInput
+            style={styles.textInput2}
+            placeholder="Apellido paterno*"
+          />
+          <TextInput style={styles.textInput} placeholder="Nombre*" />
+          <TextInput style={styles.textInput3} placeholder="Genero*" />
+          <TextInput
+            style={styles.textInput2}
+            placeholder="Apellido paterno*"
+          />
+          <TextInput style={styles.textInput} placeholder="Nombre*" />
+          <TextInput style={styles.textInput8} placeholder="Telefono*" />
+          <TextInput style={styles.textInput7} placeholder="Correo*" />
+        </View>
+      );
+    } else if (itemId == 2) {
+      return (
+          <View style={styles.rect7}>
+            <Text style={styles.text3}>Código Hovup actual: adasdYf</Text>
+            <TextInput
+              style={styles.textInput}
+              placeholder="Nuevo codigo Hovup"
+            />
+            <GenericButton
+              style={styles.genericButton}
+              navigation={this.props.navigation}
+              text="Cambiar codigo Hovup"
+            />
+          </View>
+        );
+    } else if (itemId == 3) {
+      return <TextInput style={styles.textInput8} placeholder="lala*" />;
     }
   }
-
 }
 const styles = StyleSheet.create({
   root: {
@@ -108,8 +136,10 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: -2,
     opacity: 1,
-    justifyContent: "space-around",
-    alignItems: "center"
+
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "column"
   },
   rect4: {
     height: 100,
@@ -160,12 +190,7 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     textAlign: "center"
   },
-  rect6: {
-    width: 374,
-    height: 157,
-    justifyContent: "space-between",
-    alignItems: "center"
-  },
+
   textInput3: {
     width: 262,
     height: 42,
@@ -183,11 +208,54 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     textAlign: "center"
   },
-  textInput: {
+
+  textInput9: {
+    width: 262,
+    height: 42,
+    backgroundColor: "#E6E6E6",
+    margin: 0,
+    borderRadius: 7,
+    textAlign: "center",
+    marginTop: 0
+  },
+  textInput10: {
     width: 262,
     height: 42,
     backgroundColor: "#E6E6E6",
     borderRadius: 7,
-    textAlign: "center"
+    textAlign: "center",
+    margin: 0
+  },
+  rect6: {
+    alignItems: "center",
+    justifyContent: "space-around",
+    alignSelf: "stretch",
+    flex: 1
+  },
+  rect7: {
+    width: 376,
+    height: 116,
+    alignItems: "center",
+    justifyContent: "space-around"
+  },
+  text3: {
+    width: 200,
+    height: 16,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)"
+  },
+  textInput: {
+    width: 262,
+    height: 42,
+    textAlign: "center",
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7
+  },
+  genericButton: {
+    width: 264,
+    height: 42,
+    marginBottom: 45,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1
   }
 });
