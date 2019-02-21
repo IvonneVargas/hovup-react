@@ -15,6 +15,7 @@ import BrandsTab from "./src/screens/BrandsTab";
 import CategoriesList from "./src/screens/CategoriesList";
 import OptionsProfile from "./src/screens/OptionsProfile";
 import CountryStateCityLists from "./src/screens/CountryStateCityLists";
+import About from "./src/screens/About";
 import { StackNavigator, DrawerNavigator } from "react-navigation";
 
 const DrawerNavigation = DrawerNavigator({
@@ -50,6 +51,9 @@ const DrawerNavigation = DrawerNavigator({
   },
   CountryStateCityLists: {
     screen: CountryStateCityLists
+  },
+  About: {
+    screen: About
   }
 });
 const StackNavigation = StackNavigator(
@@ -89,6 +93,9 @@ const StackNavigation = StackNavigator(
     },
     CountryStateCityLists: {
       screen: CountryStateCityLists
+    },
+    About: {
+      screen: About
     }
   },
   {

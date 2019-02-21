@@ -10,7 +10,8 @@
         "/src/screens/BrandsTab.js",
         "/src/screens/CategoriesList.js",
         "/src/screens/OptionsProfile.js",
-        "/src/screens/CountryStateCityLists.js"
+        "/src/screens/CountryStateCityLists.js",
+        "/src/screens/About.js"
     ],
     "symbols": [
         "/src/symbols/GenericButton.js",
@@ -27,13 +28,14 @@
         "/src/symbols/CatDown.js",
         "/src/symbols/HeaderIcon.js",
         "/src/symbols/LogoSigle.js",
-        "/src/symbols/HeaderSingleLogo.js"
+        "/src/symbols/HeaderSingleLogo.js",
+        "/src/symbols/HeaderBack.js"
     ],
     "assets": [],
     "defaultArtboardDirectory": "/src/screens",
     "defaultSymbolDirectory": "/src/symbols",
     "defaultAssetDirectory": "/src/assets",
-    "deviceName": "iPhone X",
+    "deviceName": "iPhone SE",
     "deviceOrientation": "portrait",
     "basePath": "/Users/ivonne/hovup-react",
     "tempPath": "/var/folders/3q/5_vntp2d5w773kcscg179xbc0000gn/T/BuilderAKjHBlN",
@@ -298,6 +300,42 @@
                 "position": {
                     "x": 375.71362229102215,
                     "y": 14.359133126934992
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 430.4047619047618,
+                    "y": -100
+                },
+                "horizontal": false
+            }
+        ],
+        "/src/screens/About.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -0.0714285714284415,
+                    "y": 56.61904761904762
+                },
+                "horizontal": false
+            }
+        ],
+        "/src/symbols/Header.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -1.956190476190443,
+                    "y": -94.9019047619048
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 15.666666666666686,
+                    "y": -32.24285714285713
                 },
                 "horizontal": false
             }
