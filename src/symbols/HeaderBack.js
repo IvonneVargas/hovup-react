@@ -13,7 +13,14 @@ export default class HeaderBack extends Component {
       <View style={[this.props.style]}>
         <View style={styles.rect} />
         {Platform.OS !== "android" ? (
-          <Icon style={styles.icon} name="ios-arrow-back" type="Ionicons" />
+          <Icon
+            style={styles.icon}
+            name="ios-arrow-back"
+            type="Ionicons"
+            onPress={() => {
+              this.props.navigation.pop();
+            }}
+          />
         ) : null}
       </View>
     );

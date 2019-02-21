@@ -9,7 +9,10 @@ export default class Privacy extends Component {
     return (
       <View style={styles.root}>
         <LayoutStatusBar style={styles.layoutStatusBar} />
-        <HeaderBack style={styles.headerBack} />
+        <HeaderBack
+          style={styles.headerBack}
+          navigation={this.props.navigation}
+        />
         <ScrollView style={styles.scrollArea} />
         <Text style={styles.text}>{Texts.OptionsDescription}</Text>
       </View>
@@ -30,10 +33,10 @@ const styles = StyleSheet.create({
   },
   headerBack: {
     top: 31.1,
-    left: -0.7,
+    left: 0,
     position: "absolute",
     height: 54,
-    width: 375
+    right: 0
   },
   scrollArea: {
     top: 82.95,

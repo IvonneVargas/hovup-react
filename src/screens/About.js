@@ -10,7 +10,10 @@ export default class About extends Component {
     return (
       <View style={styles.root}>
         <LayoutStatusBar style={styles.layoutStatusBar} />
-        <HeaderBack style={styles.headerBack} />
+        <HeaderBack
+          style={styles.headerBack}
+          navigation={this.props.navigation}
+        />
         <View style={styles.rect}>
           <View style={styles.rect3}>
             <LogoR style={styles.logoR} />
@@ -46,7 +49,7 @@ const styles = StyleSheet.create({
     top: 30,
     left: 0,
     height: 54,
-    width: 375
+    right: 0
   },
   rect: {
     top: 83,
@@ -63,7 +66,7 @@ const styles = StyleSheet.create({
     padding: 0,
     paddingTop: 0,
     paddingBottom: 0,
-    marginBottom: 45,
+    marginBottom: 80,
     alignSelf: "stretch"
   },
   text: {
@@ -88,13 +91,14 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   logoR: {
-    width: 263,
+    width: 287.89,
     height: 164,
-    margin: 0
+    margin: 0,
+    alignSelf: "center"
   },
   text2: {
     width: 50,
-    height: 10,
+    height: 16,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     margin: 0
