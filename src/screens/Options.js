@@ -23,32 +23,41 @@ export default class Options extends Component {
             {
               icon: require("../assets/OptionsImages/ic_perfil.png"),
               key: "Perfil",
-              link: "OptionsProfile"
+              link: "OptionsProfile",
+              id: 1,
+              desc: "Para actualizar tu información, da clicl en el renglón que desees editar."
             },
             {
               icon: require("../assets/OptionsImages/ic_perfil.png"),
-              key: "Cambiar codigo Hovup",
-              link: ""
+              key: "Cambiar código Hovup",
+              link: "OptionsProfile",
+              id: 2,
+              desc: "Este código es su identificador en el ambiente Hovup. Elija uno original y que lo identifique"
             },
             {
               icon: require("../assets/OptionsImages/ic_perfil.png"),
-              key: "Cambiar contrasena",
-              link: ""
+              key: "Cambiar contraseña",
+              link: "OptionsProfile",
+              id: 3,
+              desc: "En esta sección podrás cambiar tu contraseña siempre que desees. Tu contraseña debe contener: al mens una mayúscula, un número y tener entre 4 y 10 caracteres; recuerda mantener tu contraseña en un lugar seguro."
             },
             {
               icon: require("../assets/OptionsImages/ic_perfil.png"),
               key: "Acerca de nosotros",
-              link: "About"
+              link: "About",
+              id: 4
             },
             {
               icon: require("../assets/OptionsImages/ic_perfil.png"),
               key: "Aviso de privacidad",
-              link: "Privacy"
+              link: "Privacy",
+              id: 5
             },
             {
               icon: require("../assets/OptionsImages/ic_perfil.png"),
               key: "Cerrar sesion",
-              link: ""
+              link: "",
+              id: 6
             }
           ]}
           renderItem={({ item, separators }) => {
@@ -58,11 +67,15 @@ export default class Options extends Component {
                   style={styles.buttonsStyle}
                   onPress={() => {
                     if (item.link == "") {
-                      console.log("vacio")
                       this._showAlert("Cerrar sesión","¿Estás seguro que deseas cerrar sesión?");
                     } else {
                       console.log("holas2,", item.link);
-                      this.props.navigation.push(item.link);
+                      if (item.id > 3) {
+                        console.log("son los ultimos")
+                        this.props.navigation.push(item.link);
+                      } else {
+                        this.props.navigation.push(item.link, { id: item.id , title: item.key, desc: item.desc});
+                      }
                     }
                   }}
                 >

@@ -6,6 +6,10 @@ import Texts from "../assets/texts";
 
 export default class OptionsProfile extends Component {
   render() {
+    const itemId = this.props.navigation.getParam("id", "");
+    const title = this.props.navigation.getParam("title","");
+    const desc = this.props.navigation.getParam("desc","");
+    console.log("itemId options profile", itemId);
     return (
       <View style={styles.root}>
         <LayoutStatusBar style={styles.layoutStatusBar} />
@@ -17,52 +21,27 @@ export default class OptionsProfile extends Component {
         />
         <View style={styles.rect} />
         <View style={styles.rect2}>
-          <Text style={styles.text}>{Texts.OptionsTitle}</Text>
+          <Text style={styles.text}>{title}</Text>
           <Text style={styles.text2}>
-            Para actualizar tu informacion, da clic en el renglon que desees
-            editar.
+            {desc}
           </Text>
         </View>
         <View style={styles.rect3}>
-          <View style={styles.rect6}>
-            <TextInput style={styles.textInput3} placeholder="Genero*" />
-            <TextInput
-              style={styles.textInput2}
-              placeholder="Apellido paterno*"
-            />
-            <TextInput style={styles.textInput} placeholder="Nombre*" />
-          </View>
-          <View style={styles.rect5}>
-            <TextInput
-              style={styles.textInput6}
-              placeholder="Ciudad*"
-              onFocus={() => {
-                this.props.navigation.push("CountryStateCityLists");
-              }}
-            />
-            <TextInput
-              style={styles.textInput5}
-              placeholder="Estado*"
-              onFocus={() => {
-                this.props.navigation.push("CountryStateCityLists");
-              }}
-            />
-            <TextInput
-              style={styles.textInput9}
-              placeholder="Pais*"
-              onFocus={() => {
-                this.props.navigation.push("CountryStateCityLists");
-              }}
-            />
-          </View>
-          <View style={styles.rect4}>
-            <TextInput style={styles.textInput8} placeholder="Telefono*" />
-            <TextInput style={styles.textInput7} placeholder="Correo*" />
-          </View>
+          {this.displayContent()}
         </View>
       </View>
     );
   }
+
+  displayContent() {
+    const itemId = this.props.navigation.getParam("id", "");
+    if (itemId == 1) {
+      return <TextInput style={styles.textInput8} placeholder="Telefono*" />;
+    } else {
+      return <TextInput style={styles.textInput8} placeholder="Numero*" />;
+    }
+  }
+
 }
 const styles = StyleSheet.create({
   root: {
