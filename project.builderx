@@ -273,18 +273,50 @@
             {
                 "deviceName": "iPhone X",
                 "position": {
-                    "x": -141.17337461300312,
-                    "y": 11.639318885448915
+                    "x": -327,
+                    "y": 0.20666666666667943
                 },
                 "horizontal": true
             },
             {
                 "deviceName": "iPhone X",
                 "position": {
-                    "x": -386.374613003096,
-                    "y": 38.73839009287926
+                    "x": -327,
+                    "y": 51.166666666666714
                 },
                 "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -327,
+                    "y": 14.780000000000086
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -327,
+                    "y": 33.40666666666675
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -0.09333333333336213,
+                    "y": 21.58000000000004
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 14.120000000000005,
+                    "y": 42.35333333333335
+                },
+                "horizontal": false
             }
         ],
         "/src/screens/CountryStateCityLists.js": [
@@ -327,8 +359,8 @@
             {
                 "deviceName": "iPhone X",
                 "position": {
-                    "x": -1.956190476190443,
-                    "y": -94.9019047619048
+                    "x": 0.18666666666664078,
+                    "y": -299.85999999999996
                 },
                 "horizontal": false
             },
@@ -337,6 +369,80 @@
                 "position": {
                     "x": 15.666666666666686,
                     "y": -32.24285714285713
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 87.37333333333333,
+                    "y": -1.3799999999999955
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -327,
+                    "y": 51.8066666666667
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 175.93333333333334,
+                    "y": 16.113333333333344
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 121.26666666666665,
+                    "y": 31.420000000000016
+                },
+                "horizontal": true
+            }
+        ],
+        "/src/symbols/HeaderBack.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -327.5,
+                    "y": -0.16666666666668561
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 98.5476190476191,
+                    "y": 52.73809523809524
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 104.02380952380958,
+                    "y": 13.309523809523796
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -327.5,
+                    "y": 37.404761904761926
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 15.309523809523853,
+                    "y": 34.11904761904765
                 },
                 "horizontal": false
             }
