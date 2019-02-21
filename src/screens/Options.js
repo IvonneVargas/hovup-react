@@ -37,12 +37,12 @@ export default class Options extends Component {
             {
               icon: require("../assets/OptionsImages/ic_perfil.png"),
               key: "Acerca de nosotros",
-              link: ""
+              link: "About"
             },
             {
               icon: require("../assets/OptionsImages/ic_perfil.png"),
               key: "Aviso de privacidad",
-              link: ""
+              link: "Privacy"
             },
             {
               icon: require("../assets/OptionsImages/ic_perfil.png"),
