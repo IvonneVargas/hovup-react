@@ -131,7 +131,7 @@ export default class App extends React.Component {
     //console.warn("Fallback font is being used. Please check App.js file.");
     //console.warn("Fallback font is being used. Please check App.js file.");
     //console.warn("Fallback font is being used. Please check App.js file.");
-    console.warn("Fallback font is being used. Please check App.js file.");
+    //console.warn("Fallback font is being used. Please check App.js file.");
   }
   render() {
     return this.state.fontLoaded ? <StackNavigation /> : <Expo.AppLoading />;
