@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   layoutStatusBar: {
-    top: 0.26,
+    top: -1,
     left: 0,
     position: "absolute",
     height: 33,
