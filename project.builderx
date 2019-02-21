@@ -35,7 +35,7 @@
     "defaultArtboardDirectory": "/src/screens",
     "defaultSymbolDirectory": "/src/symbols",
     "defaultAssetDirectory": "/src/assets",
-    "deviceName": "iPhone SE",
+    "deviceName": "iPhone X",
     "deviceOrientation": "portrait",
     "basePath": "/Users/ivonne/hovup-react",
     "tempPath": "/var/folders/3q/5_vntp2d5w773kcscg179xbc0000gn/T/BuilderAKjHBlN",

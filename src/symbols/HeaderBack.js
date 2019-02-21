@@ -12,7 +12,9 @@ export default class HeaderBack extends Component {
     return (
       <View style={[this.props.style]}>
         <View style={styles.rect} />
-        <Icon style={styles.icon} name="ios-arrow-back" type="Ionicons" />
+        {Platform.OS !== "android" ? (
+          <Icon style={styles.icon} name="ios-arrow-back" type="Ionicons" />
+        ) : null}
       </View>
     );
   }
