@@ -44,13 +44,13 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   icon2: {
-    top: Platform.OS === "ios" ? 9.85 : 21.55,
-    left: Platform.OS === "ios" ? 13.57 : 21.06,
+    top: Platform.OS === "ios" ? 14 : 21.55,
+    left: Platform.OS === "ios" ? 15 : 21.06,
     position: "absolute",
     backgroundColor: "transparent",
     color: Platform.OS === "ios" ? "rgba(255,255,255,1)" : "grey",
-    fontSize: Platform.OS === "ios" ? 30 : 40,
-    width: Platform.OS === "ios" ? 30 : undefined,
-    height: Platform.OS === "ios" ? 30 : undefined
+    fontSize: Platform.OS === "ios" ? 23 : 40,
+    width: Platform.OS === "ios" ? 25 : undefined,
+    height: Platform.OS === "ios" ? 25 : undefined
   }
 });

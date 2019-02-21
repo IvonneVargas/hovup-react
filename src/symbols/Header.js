@@ -62,12 +62,12 @@ const styles = StyleSheet.create({
     textAlign: Platform.OS === "ios" ? "center" : "left"
   },
   icon: {
-    top: Platform.OS === "ios" ? 6.5 : 21.55,
-    left: Platform.OS === "ios" ? 14.85 : 26.01,
+    top: Platform.OS === "ios" ? 13 : 21.55,
+    left: Platform.OS === "ios" ? 16 : 26.01,
     position: "absolute",
     backgroundColor: "transparent",
     color: Platform.OS === "ios" ? "rgba(255,255,255,1)" : "grey",
-    fontSize: 40
+    fontSize: 25
   },
   text: {
     position: "absolute",

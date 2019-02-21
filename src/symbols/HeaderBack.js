@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   icon: {
-    top: 14,
-    left: 15,
+    top: 15,
+    left: 17,
     position: "absolute",
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",

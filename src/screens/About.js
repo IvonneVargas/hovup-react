@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     padding: 0,
     paddingTop: 0,
     paddingBottom: 0,
-    marginBottom: 80,
+    marginBottom: 100,
     alignSelf: "stretch"
   },
   text: {
