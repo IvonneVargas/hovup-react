@@ -6,7 +6,8 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
-  Image
+  Image,
+  Alert
 } from "react-native";
 import Header from "../symbols/Header";
 import iconPerfil from "../assets/OptionsImages/ic_perfil.png";
@@ -56,8 +57,13 @@ export default class Options extends Component {
                 <TouchableOpacity
                   style={styles.buttonsStyle}
                   onPress={() => {
-                    console.log("holas2,", item.link);
-                    this.props.navigation.push(item.link);
+                    if (item.link == "") {
+                      console.log("vacio")
+                      this._showAlert("Cerrar sesión","¿Estás seguro que deseas cerrar sesión?");
+                    } else {
+                      console.log("holas2,", item.link);
+                      this.props.navigation.push(item.link);
+                    }
                   }}
                 >
                   <Image
@@ -81,6 +87,18 @@ export default class Options extends Component {
       </View>
     );
   }
+  _showAlert (title, msg) {
+    Alert.alert(
+      title,
+      msg,
+      [
+        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        {text: 'OK', onPress: () => console.log('OK Pressed')},
+      ],
+      { cancelable: false }
+    )
+  }
+
 }
 const styles = StyleSheet.create({
   root: {
