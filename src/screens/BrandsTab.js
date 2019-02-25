@@ -83,7 +83,17 @@ export default class BrandsTab extends Component {
               style={styles.imageBig}
               source={require("../assets/ic_200x200.png")}
             />
-            <View style={styles.memberships} />
+            <View style={styles.memberships}>
+              <Text style={styles.whatismembership}>Que es la membresia?</Text>
+              <Text style={styles.requestmembership}>
+                ¡Solicita tu membresia para recibir beneficios!
+              </Text>
+              <Icon
+                style={styles.iconmembership}
+                name="bookmark-remove"
+                type="MaterialCommunityIcons"
+              />
+            </View>
           </View>
           <View style={styles.listContentBrand}>
             <FlatList
@@ -328,7 +338,7 @@ const styles = StyleSheet.create({
     margin: 5
   },
   imageBig: {
-    height: "70%",
+    height: "65%",
     borderRadius: 6,
     margin: 5,
     alignSelf: "stretch",
@@ -455,7 +465,9 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     marginLeft: 19,
     marginRight: 19,
-    height: "15%"
+    height: "15%",
+    flexDirection: "row",
+    justifyContent: "space-between"
   },
   listSecond: {
     top: 0,
@@ -483,5 +495,28 @@ const styles = StyleSheet.create({
   text3: {
     fontSize: 14,
     color: "#999999"
+  },
+  whatismembership: {
+    width: "22%",
+    backgroundColor: "transparent",
+    alignSelf: "stretch",
+    fontSize: 12,
+    color: "rgba(243,243,243,1)"
+  },
+  requestmembership: {
+    width: "50%",
+
+    backgroundColor: "transparent",
+    color: "rgba(101,188,70,1)",
+    fontSize: 12,
+    alignSelf: "stretch"
+  },
+  iconmembership: {
+    width: 40,
+    height: 40,
+    backgroundColor: "transparent",
+    color: "rgba(253,0,0,1)",
+    fontSize: 40,
+    alignSelf: "flex-start"
   }
 });
