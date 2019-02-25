@@ -17,9 +17,7 @@ export default class OptionsProfile extends Component {
         <LayoutStatusBar style={styles.layoutStatusBar} />
         <HeaderIcon
           style={styles.headerIcon}
-          navigation={
-            Platform.OS === "ios" ? "this.props.navigation" : undefined
-          }
+          navigation={Platform.OS === "ios" ? this.props.navigation : undefined}
         />
         <View style={styles.rect} />
         <View style={styles.rect2}>
@@ -37,23 +35,33 @@ export default class OptionsProfile extends Component {
       return (
         <View style={styles.rect6}>
           <TextInput style={styles.textInput} placeholder="Nombre*" />
+          <TextInput style={styles.textInput} placeholder="Apellido paterno*" />
+          <TextInput style={styles.textInput} placeholder="Genero*" />
           <TextInput
             style={styles.textInput}
-            placeholder="Apellido paterno*"
+            placeholder="Pais*"
+            onFocus={() => {
+              this.props.navigation.push("CountryStateCityLists");
+            }}
           />
-          <TextInput style={styles.textInput} placeholder="Genero*" />
-
-          <TextInput style={styles.textInput} placeholder="Pais*" onFocus={() => {
-                this.props.navigation.push("CountryStateCityLists");
-              }}/>
-          <TextInput style={styles.textInput} placeholder="Estado*" onFocus={() => {
-                this.props.navigation.push("CountryStateCityLists");
-              }}/>
-          <TextInput style={styles.textInput} placeholder="Ciudad*" onFocus={() => {
-                this.props.navigation.push("CountryStateCityLists");
-              }}/>
-
-          <TextInput style={styles.textInput} placeholder="Correo electronico*" />
+          <TextInput
+            style={styles.textInput}
+            placeholder="Estado*"
+            onFocus={() => {
+              this.props.navigation.push("CountryStateCityLists");
+            }}
+          />
+          <TextInput
+            style={styles.textInput}
+            placeholder="Ciudad*"
+            onFocus={() => {
+              this.props.navigation.push("CountryStateCityLists");
+            }}
+          />
+          <TextInput
+            style={styles.textInput}
+            placeholder="Correo electronico*"
+          />
           <TextInput style={styles.textInput} placeholder="Telefono*" />
         </View>
       );
@@ -75,10 +83,7 @@ export default class OptionsProfile extends Component {
     } else if (itemId == 3) {
       return (
         <View style={styles.rect4}>
-          <TextInput
-            style={styles.textInput}
-            placeholder="Contrasena actual"
-          />
+          <TextInput style={styles.textInput} placeholder="Contrasena actual" />
           <TextInput style={styles.textInput} placeholder="Nueva contrasena" />
           <TextInput
             style={styles.textInput}
@@ -211,11 +216,12 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   rect4: {
-    height: 264,
-    top: 164,
+    top: 0,
     left: 0,
     position: "absolute",
     right: 0,
-    flexDirection: "column"
+    alignItems: "center",
+    justifyContent: "space-around",
+    bottom: 366
   }
 });
