@@ -8,9 +8,9 @@ import {
   View,
   StyleSheet,
   Platform,
+  Image,
   FlatList,
-  Text,
-  Image
+  Text
 } from "react-native";
 
 export default class BrandsTab extends Component {
@@ -32,85 +32,178 @@ export default class BrandsTab extends Component {
           </View>
         </View>
         <View style={styles.rect4}>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            style={styles.list}
-            data={[
-              {
-                key: "Titulo",
-                sub: "Descripcion"
-              },
-              {
-                key: "Titulo2",
-                sub: "Descripcion"
-              },
-              {
-                key: "Titulo3",
-                sub: "Descripcion"
-              },
-              {
-                key: "Titulo4",
-                sub: "Descripcion"
-              },
-              {
-                key: "Titulo5",
-                sub: "Descripcion"
-              },
-              {
-                key: "Titulo6",
-                sub: "Descripcion"
-              },
-              {
-                key: "Titulo7",
-                sub: "Descripcion"
-              },
-              {
-                key: "Titulo8",
-                sub: "Descripcion"
-              },
-              {
-                key: "Titulo9",
-                sub: "Descripcion"
-              },
-              {
-                key: "Titulo10",
-                sub: "Descripcion"
-              },
-              {
-                key: "Titulo11",
-                sub: "Descripcion"
-              },
-              {
-                key: "Titulo12",
-                sub: "Descripcion"
-              }
-            ]}
-            renderItem={({ item, separators }) => {
-              return (
-                <View style={styles.rect5}>
-                  <Image
-                    source={require("../assets/ic_200x200.png")}
-                    style={styles.image}
-                  />
-                  <Icon
-                    name="ios-arrow-forward"
-                    style={styles.icon}
-                    type="Ionicons"
-                  />
-                  <View style={styles.rect9}>
-                    <Text style={styles.text2}>{item.key}</Text>
-                    <Text style={styles.text}>{item.sub}</Text>
+          <View style={styles.brandPrincipal}>
+            <View style={styles.contentItems}>
+              <View style={styles.otherItems}>
+                <Icon
+                  style={styles.email}
+                  name="home"
+                  type="MaterialCommunityIcons"
+                />
+                <Icon
+                  style={styles.phone}
+                  name="home"
+                  type="MaterialCommunityIcons"
+                />
+                <Icon
+                  style={styles.web}
+                  name="home"
+                  type="MaterialCommunityIcons"
+                />
+                <Icon
+                  style={styles.facebook}
+                  name="home"
+                  type="MaterialCommunityIcons"
+                />
+                <Icon
+                  style={styles.twitter}
+                  name="home"
+                  type="MaterialCommunityIcons"
+                />
+                <Icon
+                  style={styles.youtube}
+                  name="home"
+                  type="MaterialCommunityIcons"
+                />
+                <Icon
+                  style={styles.instagram}
+                  name="home"
+                  type="MaterialCommunityIcons"
+                />
+              </View>
+              <View style={styles.fav}>
+                <Icon
+                  style={styles.heart}
+                  name="home"
+                  type="MaterialCommunityIcons"
+                />
+              </View>
+            </View>
+            <Image
+              style={styles.imageBig}
+              source={require("../assets/ic_200x200.png")}
+            />
+            <View style={styles.memberships} />
+          </View>
+          <View style={styles.listContentBrand}>
+            <FlatList
+              style={styles.listSecond}
+              renderItem={({ item, separators }) => {
+                return (
+                  <View style={styles.rect5}>
+                    <Text style={styles.text}>List Item</Text>
                   </View>
-                </View>
-              );
-            }}
-            ItemSeparatorComponent={({}) => {
-              return <View style={styles.rect8} />;
-            }}
-          />
+                );
+              }}
+              ListHeaderComponent={({ highlighted }) => {
+                return (
+                  <View style={styles.rect6}>
+                    <Text style={styles.text2}>List Header</Text>
+                  </View>
+                );
+              }}
+              ListFooterComponent={({ highlighted }) => {
+                return (
+                  <View style={styles.rect7}>
+                    <Text style={styles.text3}>List Footer</Text>
+                  </View>
+                );
+              }}
+              ItemSeparatorComponent={({}) => {
+                return <View style={styles.rect8} />;
+              }}
+            />
+          </View>
         </View>
       </View>
     );
+  }
+  displayContent() {
+    const level = this.props.navigation.getParam("level", "1"); //1 = List brands, 2 = Select brand(Items, facebook, phone, web...), 3 = Content brand, 4 = Final content.
+    console.log("level: ", level);
+    if (level == 1) {
+      return (
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          style={styles.list}
+          data={[
+            {
+              key: "Titulo",
+              sub: "Descripcion"
+            },
+            {
+              key: "Titulo2",
+              sub: "Descripcion"
+            },
+            {
+              key: "Titulo3",
+              sub: "Descripcion"
+            },
+            {
+              key: "Titulo4",
+              sub: "Descripcion"
+            },
+            {
+              key: "Titulo5",
+              sub: "Descripcion"
+            },
+            {
+              key: "Titulo6",
+              sub: "Descripcion"
+            },
+            {
+              key: "Titulo7",
+              sub: "Descripcion"
+            },
+            {
+              key: "Titulo8",
+              sub: "Descripcion"
+            },
+            {
+              key: "Titulo9",
+              sub: "Descripcion"
+            },
+            {
+              key: "Titulo10",
+              sub: "Descripcion"
+            },
+            {
+              key: "Titulo11",
+              sub: "Descripcion"
+            },
+            {
+              key: "Titulo12",
+              sub: "Descripcion"
+            }
+          ]}
+          renderItem={({ item, separators }) => {
+            return (
+              <View style={styles.rect5}>
+                <Image
+                  source={require("../assets/ic_200x200.png")}
+                  style={styles.image}
+                />
+                <Icon
+                  name="ios-arrow-forward"
+                  style={styles.icon}
+                  type="Ionicons"
+                />
+                <View style={styles.rect9}>
+                  <Text style={styles.text2}>{item.key}</Text>
+                  <Text style={styles.text}>{item.sub}</Text>
+                </View>
+              </View>
+            );
+          }}
+          ItemSeparatorComponent={({}) => {
+            return <View style={styles.rect8} />;
+          }}
+        />
+      );
+    } else if (level == 2) {
+    } else if (level == 3) {
+    } else if (level == 4) {
+    }
   }
 }
 const styles = StyleSheet.create({
@@ -194,7 +287,8 @@ const styles = StyleSheet.create({
     left: 0,
     position: "absolute",
     right: 0,
-    bottom: 0
+    bottom: 0,
+    justifyContent: "space-around"
   },
   list: {
     position: "absolute",
@@ -203,16 +297,17 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0
   },
-  rect5: {
-    backgroundColor: "rgba(25,39,52,1)",
+  fav: {
     alignItems: "center",
     flexDirection: "row",
     margin: 0,
-    width: Platform.OS === "android" ? 350 : undefined
+    width: "40%",
+    alignSelf: "stretch",
+    justifyContent: "space-around"
   },
 
   rect8: {
-    left: 0,
+    left: 15,
     height: 2,
     backgroundColor: "#999999",
     margin: 0
@@ -232,6 +327,14 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     margin: 5
   },
+  imageBig: {
+    height: "70%",
+    borderRadius: 6,
+    margin: 5,
+    alignSelf: "stretch",
+    marginLeft: 20,
+    marginRight: 20
+  },
   rect9: {
     height: 40,
     width: 238,
@@ -244,13 +347,131 @@ const styles = StyleSheet.create({
     width: 237,
     height: 17,
     fontSize: 12,
-    color: "rgba(255,255,255,1)"
+    color: "#000000"
   },
   text2: {
     width: 237,
     height: 16,
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: "bold",
-    color: "rgba(255,255,255,1)"
+    color: "#999999"
+  },
+  brandPrincipal: {
+    height: "40%",
+
+    alignSelf: "stretch",
+
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  listContentBrand: {
+    height: "60%",
+
+    alignSelf: "stretch"
+  },
+  contentItems: {
+    height: "15%",
+
+    alignSelf: "stretch",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    margin: 0,
+    marginLeft: 19,
+    marginRight: 19
+  },
+  otherItems: {
+    width: "60%",
+
+    alignSelf: "stretch",
+    flexDirection: "row"
+  },
+  email: {
+    width: 35,
+    height: 39,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 35
+  },
+  phone: {
+    width: 39,
+    height: 39,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 35
+  },
+  web: {
+    width: 39,
+    height: 39,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 35
+  },
+  facebook: {
+    width: 39,
+    height: 39,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 35
+  },
+  twitter: {
+    width: 39,
+    height: 39,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 35
+  },
+  youtube: {
+    width: 39,
+    height: 39,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 35
+  },
+  instagram: {
+    width: 39,
+    height: 39,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 35
+  },
+  heart: {
+    width: 25,
+    height: 23,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 25
+  },
+  memberships: {
+    flex: 1,
+    alignSelf: "stretch",
+    marginLeft: 19,
+    marginRight: 19
+  },
+  listSecond: {
+    top: 0,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    bottom: 0
+  },
+  rect5: {
+    backgroundColor: "#ffffff",
+    padding: 15,
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  rect6: {
+    backgroundColor: "#ffffff",
+    padding: 15
+  },
+  rect7: {
+    backgroundColor: "#ffffff",
+    padding: 15,
+    borderBottomColor: "#999999",
+    borderBottomWidth: 1
+  },
+  text3: {
+    fontSize: 14,
+    color: "#999999"
   }
 });
