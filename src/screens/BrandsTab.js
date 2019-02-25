@@ -37,44 +37,44 @@ export default class BrandsTab extends Component {
               <View style={styles.otherItems}>
                 <Icon
                   style={styles.email}
-                  name="home"
+                  name="email-outline"
                   type="MaterialCommunityIcons"
                 />
                 <Icon
                   style={styles.phone}
-                  name="home"
-                  type="MaterialCommunityIcons"
+                  name="phone"
+                  type="SimpleLineIcons"
                 />
                 <Icon
                   style={styles.web}
-                  name="home"
+                  name="earth"
                   type="MaterialCommunityIcons"
                 />
                 <Icon
                   style={styles.facebook}
-                  name="home"
-                  type="MaterialCommunityIcons"
+                  name="social-facebook"
+                  type="SimpleLineIcons"
                 />
                 <Icon
                   style={styles.twitter}
-                  name="home"
-                  type="MaterialCommunityIcons"
+                  name="social-twitter"
+                  type="SimpleLineIcons"
                 />
                 <Icon
                   style={styles.youtube}
-                  name="home"
-                  type="MaterialCommunityIcons"
+                  name="social-youtube"
+                  type="SimpleLineIcons"
                 />
                 <Icon
                   style={styles.instagram}
-                  name="home"
-                  type="MaterialCommunityIcons"
+                  name="social-instagram"
+                  type="SimpleLineIcons"
                 />
               </View>
               <View style={styles.fav}>
                 <Icon
                   style={styles.heart}
-                  name="home"
+                  name="heart-outline"
                   type="MaterialCommunityIcons"
                 />
               </View>
@@ -303,7 +303,7 @@ const styles = StyleSheet.create({
     margin: 0,
     width: "40%",
     alignSelf: "stretch",
-    justifyContent: "space-around"
+    justifyContent: "flex-end"
   },
 
   rect8: {
@@ -382,70 +382,80 @@ const styles = StyleSheet.create({
   otherItems: {
     width: "60%",
 
-    alignSelf: "stretch",
-    flexDirection: "row"
+    alignSelf: "center",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between"
   },
   email: {
-    width: 35,
-    height: 39,
+    width: 25,
+    height: 25,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    fontSize: 35
+    fontSize: 25,
+    alignSelf: "center"
   },
   phone: {
-    width: 39,
-    height: 39,
+    width: 25,
+    height: 25,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    fontSize: 35
+    fontSize: 25,
+    alignSelf: "center"
   },
   web: {
-    width: 39,
-    height: 39,
+    width: 25,
+    height: 25,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    fontSize: 35
+    fontSize: 25,
+    alignSelf: "center"
   },
   facebook: {
-    width: 39,
-    height: 39,
+    width: 25,
+    height: 25,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    fontSize: 35
+    fontSize: 25,
+    alignSelf: "center"
   },
   twitter: {
-    width: 39,
-    height: 39,
+    width: 25,
+    height: 25,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    fontSize: 35
+    fontSize: 25,
+    alignSelf: "center"
   },
   youtube: {
-    width: 39,
-    height: 39,
+    width: 25,
+    height: 25,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    fontSize: 35
+    fontSize: 25,
+    alignSelf: "center"
   },
   instagram: {
-    width: 39,
-    height: 39,
+    width: 25,
+    height: 25,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    fontSize: 35
+    fontSize: 25,
+    alignSelf: "center"
   },
   heart: {
     width: 25,
     height: 23,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    fontSize: 25
+    fontSize: 25,
+    alignSelf: "center"
   },
   memberships: {
-    flex: 1,
     alignSelf: "stretch",
     marginLeft: 19,
-    marginRight: 19
+    marginRight: 19,
+    height: "15%"
   },
   listSecond: {
     top: 0,
