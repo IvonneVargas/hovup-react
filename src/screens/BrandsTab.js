@@ -36,27 +36,43 @@ export default class BrandsTab extends Component {
             style={styles.list}
             data={[
               {
-                key: "Perfil",
+                key: "Titulo",
                 sub: "Descripcion"
               },
               {
-                key: "Cambiar codigo Hovup",
+                key: "Titulo2",
                 sub: "Descripcion"
               },
               {
-                key: "Cambiar contrasena",
+                key: "Titulo3",
                 sub: "Descripcion"
               },
               {
-                key: "Acerca de nosotros",
+                key: "Titulo4",
                 sub: "Descripcion"
               },
               {
-                key: "Aviso de privacidad",
+                key: "Titulo5",
                 sub: "Descripcion"
               },
               {
-                key: "Cerrar sesion",
+                key: "Titulo6",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo7",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo8",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo9",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo10",
                 sub: "Descripcion"
               }
             ]}
