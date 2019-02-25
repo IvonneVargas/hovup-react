@@ -3,6 +3,7 @@ import LayoutStatusBar from "../symbols/LayoutStatusBar";
 import HeaderIcon from "../symbols/HeaderIcon";
 import { View, StyleSheet, Text, Platform, TextInput } from "react-native";
 import GenericButton from "../symbols/GenericButton";
+
 import Texts from "../assets/texts";
 
 export default class OptionsProfile extends Component {
@@ -35,20 +36,25 @@ export default class OptionsProfile extends Component {
     if (itemId == 1) {
       return (
         <View style={styles.rect6}>
-          <TextInput style={styles.textInput3} placeholder="Genero*" />
+          <TextInput style={styles.textInput} placeholder="Nombre*" />
           <TextInput
-            style={styles.textInput2}
+            style={styles.textInput}
             placeholder="Apellido paterno*"
           />
-          <TextInput style={styles.textInput} placeholder="Nombre*" />
-          <TextInput style={styles.textInput3} placeholder="Genero*" />
-          <TextInput
-            style={styles.textInput2}
-            placeholder="Apellido paterno*"
-          />
-          <TextInput style={styles.textInput} placeholder="Nombre*" />
-          <TextInput style={styles.textInput8} placeholder="Telefono*" />
-          <TextInput style={styles.textInput7} placeholder="Correo*" />
+          <TextInput style={styles.textInput} placeholder="Genero*" />
+
+          <TextInput style={styles.textInput} placeholder="Pais*" onFocus={() => {
+                this.props.navigation.push("CountryStateCityLists");
+              }}/>
+          <TextInput style={styles.textInput} placeholder="Estado*" onFocus={() => {
+                this.props.navigation.push("CountryStateCityLists");
+              }}/>
+          <TextInput style={styles.textInput} placeholder="Ciudad*" onFocus={() => {
+                this.props.navigation.push("CountryStateCityLists");
+              }}/>
+
+          <TextInput style={styles.textInput} placeholder="Correo electronico*" />
+          <TextInput style={styles.textInput} placeholder="Telefono*" />
         </View>
       );
     } else if (itemId == 2) {
@@ -67,7 +73,24 @@ export default class OptionsProfile extends Component {
         </View>
       );
     } else if (itemId == 3) {
-      return <TextInput style={styles.textInput8} placeholder="lala*" />;
+      return (
+        <View style={styles.rect4}>
+          <TextInput
+            style={styles.textInput}
+            placeholder="Contrasena actual"
+          />
+          <TextInput style={styles.textInput} placeholder="Nueva contrasena" />
+          <TextInput
+            style={styles.textInput}
+            placeholder="Confirma nueva contrasena"
+          />
+          <GenericButton
+            style={styles.genericButton}
+            navigation={this.props.navigation}
+            text="Cambiar contrasena"
+          />
+        </View>
+      );
     }
   }
 }
@@ -144,87 +167,16 @@ const styles = StyleSheet.create({
   rect4: {
     height: 100,
     alignSelf: "stretch",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
     alignItems: "center",
     paddingBottom: 0,
     marginBottom: 0
-  },
-  textInput8: {
-    width: 262,
-    height: 41,
-    backgroundColor: "#E6E6E6",
-    borderRadius: 7,
-    textAlign: "center"
-  },
-  textInput7: {
-    width: 262,
-    height: 41,
-    backgroundColor: "#E6E6E6",
-    borderRadius: 7,
-    textAlign: "center"
   },
   rect5: {
     width: 374,
     height: 156.8,
     justifyContent: "space-between",
     alignItems: "center"
-  },
-  textInput6: {
-    width: 262,
-    height: 42,
-    backgroundColor: "#E6E6E6",
-    borderRadius: 7,
-    textAlign: "center"
-  },
-  textInput5: {
-    width: 262,
-    height: 42,
-    backgroundColor: "#E6E6E6",
-    borderRadius: 7,
-    textAlign: "center"
-  },
-  textInput9: {
-    width: 262,
-    height: 42,
-    backgroundColor: "#E6E6E6",
-    borderRadius: 7,
-    textAlign: "center"
-  },
-
-  textInput3: {
-    width: 262,
-    height: 42,
-    backgroundColor: "#E6E6E6",
-    margin: 0,
-    marginTop: 0,
-    marginBottom: 0,
-    borderRadius: 7,
-    textAlign: "center"
-  },
-  textInput2: {
-    width: 262,
-    height: 42,
-    backgroundColor: "#E6E6E6",
-    borderRadius: 7,
-    textAlign: "center"
-  },
-
-  textInput9: {
-    width: 262,
-    height: 42,
-    backgroundColor: "#E6E6E6",
-    margin: 0,
-    borderRadius: 7,
-    textAlign: "center",
-    marginTop: 0
-  },
-  textInput10: {
-    width: 262,
-    height: 42,
-    backgroundColor: "#E6E6E6",
-    borderRadius: 7,
-    textAlign: "center",
-    margin: 0
   },
   rect6: {
     alignItems: "center",
@@ -245,7 +197,7 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)"
   },
   textInput: {
-    width: 262,
+    width: 264,
     height: 42,
     textAlign: "center",
     backgroundColor: "#E6E6E6",
@@ -257,5 +209,13 @@ const styles = StyleSheet.create({
     marginBottom: 45,
     backgroundColor: "rgba(101,188,70,1)",
     opacity: 1
+  },
+  rect4: {
+    height: 264,
+    top: 164,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    flexDirection: "column"
   }
 });
