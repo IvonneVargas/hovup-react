@@ -53,19 +53,19 @@ export default class OptionsProfile extends Component {
       );
     } else if (itemId == 2) {
       return (
-          <View style={styles.rect7}>
-            <Text style={styles.text3}>Código Hovup actual: adasdYf</Text>
-            <TextInput
-              style={styles.textInput}
-              placeholder="Nuevo codigo Hovup"
-            />
-            <GenericButton
-              style={styles.genericButton}
-              navigation={this.props.navigation}
-              text="Cambiar codigo Hovup"
-            />
-          </View>
-        );
+        <View style={styles.rect7}>
+          <Text style={styles.text3}>Código Hovup actual: adasdYf</Text>
+          <TextInput
+            style={styles.textInput}
+            placeholder="Nuevo codigo Hovup"
+          />
+          <GenericButton
+            style={styles.genericButton}
+            navigation={this.props.navigation}
+            text="Cambiar codigo Hovup"
+          />
+        </View>
+      );
     } else if (itemId == 3) {
       return <TextInput style={styles.textInput8} placeholder="lala*" />;
     }
@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
   },
   rect7: {
     width: 376,
-    height: 116,
+    height: 184,
     alignItems: "center",
     justifyContent: "space-around"
   },
