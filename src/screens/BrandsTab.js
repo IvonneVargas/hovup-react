@@ -33,6 +33,7 @@ export default class BrandsTab extends Component {
         </View>
         <View style={styles.rect4}>
           <FlatList
+            showsVerticalScrollIndicator={false}
             style={styles.list}
             data={[
               {
@@ -73,6 +74,14 @@ export default class BrandsTab extends Component {
               },
               {
                 key: "Titulo10",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo11",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo12",
                 sub: "Descripcion"
               }
             ]}
@@ -188,14 +197,11 @@ const styles = StyleSheet.create({
     bottom: 0
   },
   list: {
-    top: 0,
-    left: 0,
-
-    height: 730,
     position: "absolute",
-    paddingLeft: 0,
-    paddingRight: 0,
-    right: 0
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0
   },
   rect5: {
     backgroundColor: "rgba(25,39,52,1)",

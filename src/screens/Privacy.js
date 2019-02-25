@@ -65,12 +65,12 @@ const styles = StyleSheet.create({
     right: 0
   },
   scrollArea: {
-    top: 86,
+    top: 85,
     left: 0,
     position: "absolute",
     backgroundColor: "rgba(25,39,52,1)",
     right: 0,
-    bottom: 0,
+    bottom: -5,
     opacity: 1
   },
   text: {

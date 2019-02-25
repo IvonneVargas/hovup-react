@@ -28,10 +28,10 @@ const styles = StyleSheet.create({
     position: "absolute"
   },
   text: {
-    top: 9,
+    top: 7,
     left: 0,
     width: 100,
-    height: 16,
+    height: 17,
     position: "absolute",
     backgroundColor: "transparent",
     textAlign: "center",
