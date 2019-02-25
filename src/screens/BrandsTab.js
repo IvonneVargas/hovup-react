@@ -100,22 +100,20 @@ export default class BrandsTab extends Component {
               style={styles.listSecond}
               renderItem={({ item, separators }) => {
                 return (
-                  <View style={styles.rect5}>
-                    <Text style={styles.text}>List Item</Text>
-                  </View>
-                );
-              }}
-              ListHeaderComponent={({ highlighted }) => {
-                return (
-                  <View style={styles.rect6}>
-                    <Text style={styles.text2}>List Header</Text>
-                  </View>
-                );
-              }}
-              ListFooterComponent={({ highlighted }) => {
-                return (
-                  <View style={styles.rect7}>
-                    <Text style={styles.text3}>List Footer</Text>
+                  <View style={styles.rect10}>
+                    <Image
+                      source={require("../assets/ic_60x60.png")}
+                      style={styles.image2}
+                    />
+                    <Icon
+                      name="ios-arrow-forward"
+                      style={styles.icon}
+                      type="Ionicons"
+                    />
+                    <View style={styles.rect11}>
+                      <Text style={styles.text2}>{item.key}</Text>
+                      <Text style={styles.text}>{item.sub}</Text>
+                    </View>
                   </View>
                 );
               }}
@@ -324,8 +322,8 @@ const styles = StyleSheet.create({
   },
 
   icon: {
-    top: Platform.OS === "android" ? 13.33 : 20.19,
-    left: Platform.OS === "android" ? 330.67 : 354.52,
+    top: Platform.OS === "android" ? 13.33 : 32.6,
+    left: Platform.OS === "android" ? 330.67 : 352.42,
     position: "absolute",
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
@@ -334,6 +332,12 @@ const styles = StyleSheet.create({
   image: {
     width: 95,
     height: 54,
+    borderRadius: 6,
+    margin: 5
+  },
+  image2: {
+    width: 60,
+    height: 60,
     borderRadius: 6,
     margin: 5
   },
@@ -353,18 +357,25 @@ const styles = StyleSheet.create({
     position: "absolute",
     justifyContent: "space-around"
   },
+  rect11: {
+    height: 39,
+    width: 238,
+    top: 22.45,
+    left: 85.1,
+    position: "absolute",
+    justifyContent: "space-around"
+  },
   text: {
     width: 237,
     height: 17,
     fontSize: 12,
-    color: "#000000"
+    color: "rgba(255,255,255,1)"
   },
   text2: {
     width: 237,
-    height: 16,
-    fontSize: 13,
-    fontWeight: "bold",
-    color: "#999999"
+    height: 17,
+    fontSize: 16,
+    color: "rgba(255,255,255,1)"
   },
   brandPrincipal: {
     height: "40%",
@@ -477,24 +488,18 @@ const styles = StyleSheet.create({
     bottom: 0
   },
   rect5: {
-    backgroundColor: "#ffffff",
+    backgroundColor: "rgba(25,39,52,1)",
     padding: 15,
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
+    opacity: 1
   },
-  rect6: {
-    backgroundColor: "#ffffff",
-    padding: 15
-  },
-  rect7: {
-    backgroundColor: "#ffffff",
+  rect10: {
+    backgroundColor: "rgba(25,39,52,1)",
     padding: 15,
-    borderBottomColor: "#999999",
-    borderBottomWidth: 1
-  },
-  text3: {
-    fontSize: 14,
-    color: "#999999"
+    paddingTop: 10,
+    paddingBottom: 10,
+    opacity: 1
   },
   whatismembership: {
     width: "22%",
