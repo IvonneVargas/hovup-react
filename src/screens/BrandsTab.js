@@ -22,7 +22,119 @@ export default class BrandsTab extends Component {
     return (
       <View style={styles.root}>
         <View style={styles.background} />
-        {this.displayContent()}
+        <View style={styles.all}>
+          <View style={styles.rect2} navigation={this.props.navigation}>
+            <View style={styles.rect}>
+              <TabB style={styles.tabB} text="Publico" />
+              <TabB style={styles.tabB3} text="VIP" />
+              <TabB style={styles.tabB2} text="Privado" />
+            </View>
+            <View style={styles.rect3}>
+              <CatDown
+                style={styles.catDown}
+                navigation={this.props.navigation}
+              />
+            </View>
+          </View>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            style={styles.list2}
+            data={[
+              {
+                key: "Titulo",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo2",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo3",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo4",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo5",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo6",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo7",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo8",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo9",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo10",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo11",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo12",
+                sub: "Descripcion",
+                level: 2
+              }
+            ]}
+            renderItem={({ item, separators }) => {
+              return (
+                <View style={styles.rect5}>
+                  <TouchableOpacity
+                    style={styles.buttonsStyle}
+                    onPress={() => {
+                      console.log("Click,", item.level);
+                      this.props.navigation.push("BrandsTab", {
+                        level: item.level
+                      });
+                    }}
+                  >
+                    <Image
+                      source={require("../assets/ic_200x200.png")}
+                      style={styles.image}
+                    />
+                    <Icon
+                      name="ios-arrow-forward"
+                      style={styles.icon}
+                      type="Ionicons"
+                    />
+                    <View style={styles.rect9}>
+                      <Text style={styles.text2}>{item.key}</Text>
+                      <Text style={styles.text}>{item.sub}</Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+              );
+            }}
+            ItemSeparatorComponent={({}) => {
+              return <View style={styles.rect8} />;
+            }}
+          />
+        </View>
       </View>
     );
   }
@@ -379,12 +491,14 @@ const styles = StyleSheet.create({
     left: 15,
     height: 2,
     backgroundColor: "#999999",
-    margin: 0
+    margin: 0,
+    alignSelf: "stretch",
+    marginRight: 0
   },
 
   icon: {
-    top: Platform.OS === "android" ? 13.33 : 32.6,
-    left: Platform.OS === "android" ? 330.67 : 352.42,
+    top: Platform.OS === "android" ? 18 : 21.67,
+    left: Platform.OS === "android" ? 329 : 344,
     position: "absolute",
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
@@ -411,10 +525,10 @@ const styles = StyleSheet.create({
     marginRight: 20
   },
   rect9: {
-    height: 40,
-    width: 230,
-    top: 21,
-    left: 117,
+    height: 41,
+    width: 220,
+    top: 14,
+    left: 104,
     position: "absolute",
     justifyContent: "space-around"
   },
@@ -553,7 +667,8 @@ const styles = StyleSheet.create({
     padding: 15,
     paddingTop: 10,
     paddingBottom: 10,
-    opacity: 1
+    opacity: 1,
+    width: Platform.OS === "android" ? 360 : undefined
   },
   rect10: {
     backgroundColor: "rgba(25,39,52,1)",
