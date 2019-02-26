@@ -11,10 +11,10 @@ import {
   View,
   StyleSheet,
   Platform,
-  Image,
   FlatList,
-  Text,
-  TouchableOpacity
+  TouchableOpacity,
+  Image,
+  Text
 } from "react-native";
 
 export default class BrandsTab extends Component {
@@ -35,6 +35,16 @@ export default class BrandsTab extends Component {
                 name="heart-outline"
                 type="MaterialCommunityIcons"
               />
+            </View>
+            <View style={styles.topleftlayer}>
+              <Image
+                style={styles.imagetop}
+                source={require("../assets/ic_60x60.png")}
+              />
+            </View>
+            <View style={styles.toprigthlayer}>
+              <Text style={styles.titlelayertop}>Titulo</Text>
+              <Text style={styles.subtitletoplayer}>Text Added</Text>
             </View>
           </View>
           <View style={styles.bottomlatyer} />
@@ -350,6 +360,16 @@ export default class BrandsTab extends Component {
                 type="MaterialCommunityIcons"
               />
             </View>
+            <View style={styles.topleftlayer}>
+              <Image
+                style={styles.imagetop}
+                source={require("../assets/ic_60x60.png")}
+              />
+            </View>
+            <View style={styles.toprigthlayer}>
+              <Text style={styles.titlelayertop}>Titulo</Text>
+              <Text style={styles.subtitletoplayer}>Text Added</Text>
+            </View>
           </View>
           <View style={styles.bottomlatyer} />
         </View>
@@ -466,7 +486,7 @@ const styles = StyleSheet.create({
   text: {
     width: 237,
     height: 17,
-    fontSize: 12,
+    fontSize: 14,
     color: "rgba(255,255,255,1)"
   },
   text2: {
@@ -709,33 +729,30 @@ const styles = StyleSheet.create({
     bottom: 0
   },
   layoutStatusBarT: {
-    width: 376,
-    height: 33
+    height: 33,
+    alignSelf: "stretch"
   },
   headerBackT: {
-    width: 374,
-    height: 55
+    height: 55,
+    alignSelf: "stretch"
   },
   toplayer: {
     top: 88,
     left: 0,
-    height: "Infinity%",
+    height: "24.98%",
     position: "absolute",
     right: 0
   },
   bottomlatyer: {
-    top: 290.24,
+    top: 290,
     left: 0,
     position: "absolute",
     right: 0,
-    height: "Infinity%"
+    height: "64.46%"
   },
   topfav: {
-    top: 2,
-    left: 0,
-    height: "13.5%",
-    position: "absolute",
-    right: 0,
+    height: "14.3%",
+
     justifyContent: "flex-end",
     flexDirection: "row"
   },
@@ -747,5 +764,38 @@ const styles = StyleSheet.create({
     fontSize: 25,
     marginRight: 3,
     marginTop: 3
+  },
+  topleftlayer: {
+    width: "50%",
+    height: "84.80392156862744%",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  toprigthlayer: {
+    top: 30,
+    left: 189,
+    width: "49.33%",
+    height: "84.8%",
+    position: "absolute",
+    justifyContent: "center"
+  },
+  imagetop: {
+    width: 140,
+    height: 140,
+    borderRadius: 7
+  },
+  titlelayertop: {
+    height: 20,
+    backgroundColor: "transparent",
+    fontSize: 20,
+    color: "rgba(255,255,255,1)",
+    alignSelf: "stretch"
+  },
+  subtitletoplayer: {
+    height: 13,
+    backgroundColor: "transparent",
+    fontSize: 14,
+    alignSelf: "stretch",
+    color: "rgba(255,255,255,1)"
   }
 });
