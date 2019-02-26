@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import LayoutStatusBar from "../symbols/LayoutStatusBar";
 import HeaderSingleLogo from "../symbols/HeaderSingleLogo";
-import { View, StyleSheet, FlatList, Text } from "react-native";
+import { View, StyleSheet, FlatList, Text, Platform } from "react-native";
 
 export default class CountryStateCityLists extends Component {
   render() {
@@ -66,22 +66,22 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     position: "absolute",
-    height: 32,
+    height: Platform.OS === "android" ? 25 : 32,
     right: 0
   },
   headerSingleLogo: {
     position: "absolute",
-    top: 30,
+    top: Platform.OS === "android" ? 25 : 30,
     left: 0,
-    height: 53,
+    height: Platform.OS === "android" ? 53 : 53,
     right: 0
   },
   list: {
-    top: 83.03,
-    left: 0,
+    top: Platform.OS === "android" ? 78 : 83.03,
+    left: Platform.OS === "android" ? 0 : 0,
     position: "absolute",
-    right: 0,
-    bottom: 0
+    right: Platform.OS === "android" ? 0 : 0,
+    bottom: Platform.OS === "android" ? 5 : 0
   },
   rect: {
     backgroundColor: "rgba(25,39,52,1)",

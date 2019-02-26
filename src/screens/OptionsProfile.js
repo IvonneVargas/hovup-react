@@ -108,31 +108,31 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     position: "absolute",
-    height: 32,
+    height: Platform.OS === "android" ? 25 : 32,
     right: 0
   },
   headerIcon: {
     position: "absolute",
-    top: 28,
+    top: Platform.OS === "android" ? 25 : 28,
     left: 0,
     right: 0,
     height: 53
   },
   rect: {
-    top: 79.89,
-    left: 0,
+    top: Platform.OS === "android" ? 77 : 79.89,
+    left: Platform.OS === "android" ? 0 : 0,
     position: "absolute",
     backgroundColor: "rgba(25,39,52,1)",
-    right: 0,
-    bottom: 0,
+    right: Platform.OS === "android" ? 0 : 0,
+    bottom: Platform.OS === "android" ? 3 : 0,
     opacity: 1
   },
   rect2: {
-    height: 81.4,
-    top: 83,
-    left: 0,
+    height: Platform.OS === "android" ? 81 : 81.4,
+    top: Platform.OS === "android" ? 83 : 83,
+    left: Platform.OS === "android" ? 0 : 0,
     position: "absolute",
-    right: 0,
+    right: Platform.OS === "android" ? 0 : 0,
     flexDirection: "column",
     alignItems: "flex-start",
     justifyContent: "center"

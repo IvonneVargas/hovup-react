@@ -12,7 +12,8 @@ import {
   TextInput,
   Text,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  Platform
 } from "react-native";
 
 export default class CreateAccount extends Component {
@@ -137,7 +138,7 @@ const styles = StyleSheet.create({
   },
 
   statusbar: {
-    height: 32,
+    height: Platform.OS === "android" ? 25 : 32,
     top: 0,
     left: 0,
     position: "absolute",
@@ -246,9 +247,9 @@ const styles = StyleSheet.create({
   },
   header: {
     position: "absolute",
-    top: 28,
+    top: Platform.OS === "android" ? 24 : 28,
     left: 0,
-    height: 54,
+    height: Platform.OS === "android" ? 54 : 54,
     right: 0
   },
   icon: {

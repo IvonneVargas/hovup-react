@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     position: "absolute",
-    height: 32,
+    height: Platform.OS === "android" ? 25 : 32,
     right: 0
   },
   headerSettings: {
@@ -80,13 +80,14 @@ const styles = StyleSheet.create({
     right: 0
   },
   tab: {
-    height: Platform.OS === "android" ? 670 : 730,
-    top: Platform.OS === "android" ? 72 : 82.67,
-    left: 0.67,
+    height: Platform.OS === "android" ? 670 : undefined,
+    top: Platform.OS === "android" ? 72 : 82.14,
+    left: 0,
     position: "absolute",
-    right: -0.67,
+    right: 0,
 
-    backgroundColor: "#E6E6E6"
+    backgroundColor: "#E6E6E6",
+    bottom: 0
   },
   tab_tabBarStyle: {
     backgroundColor: "rgba(25,39,52,1)",

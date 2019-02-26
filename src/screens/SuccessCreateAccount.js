@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   header: {
-    top: Platform.OS === "android" ? 28 : 28,
+    top: Platform.OS === "android" ? 24 : 28,
     left: 0,
     position: "absolute",
     height: Platform.OS === "android" ? 54 : 53,
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     position: "absolute",
-    height: 32,
+    height: Platform.OS === "android" ? 25 : 32,
     right: 0
   }
 });

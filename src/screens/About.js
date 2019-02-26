@@ -3,7 +3,7 @@ import LayoutStatusBar from "../symbols/LayoutStatusBar";
 import HeaderBack from "../symbols/HeaderBack";
 import LogoR from "../symbols/LogoR";
 
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, Platform } from "react-native";
 
 export default class About extends Component {
   render() {
@@ -41,23 +41,23 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     position: "absolute",
-    height: 32,
+    height: Platform.OS === "android" ? 25 : 32,
     right: 0
   },
   headerBack: {
     position: "absolute",
-    top: 30,
+    top: Platform.OS === "android" ? 25 : 30,
     left: 0,
     height: 53,
     right: 0
   },
   rect: {
-    top: 82.95,
-    left: 0,
+    top: Platform.OS === "android" ? 79 : 82.95,
+    left: Platform.OS === "android" ? 0 : 0,
     position: "absolute",
     backgroundColor: "rgba(25,39,52,1)",
-    right: 0,
-    bottom: 0,
+    right: Platform.OS === "android" ? 0 : 0,
+    bottom: Platform.OS === "android" ? 4 : 0,
     opacity: 1,
     flexDirection: "column",
     justifyContent: "space-between"

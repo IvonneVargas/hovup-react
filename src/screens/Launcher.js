@@ -13,7 +13,8 @@ import {
   ScrollView,
   Alert,
   Button,
-  Text
+  Text,
+  Platform
 } from "react-native";
 
 export default class Launcher extends Component {
@@ -173,7 +174,7 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   rect: {
-    height: 32,
+    height: Platform.OS === "android" ? 25 : 32,
     top: 0,
     left: 0,
     position: "absolute",

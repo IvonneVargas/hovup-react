@@ -7,7 +7,8 @@ import {
   FlatList,
   TouchableOpacity,
   Image,
-  Alert
+  Alert,
+  Platform
 } from "react-native";
 import Header from "../symbols/Header";
 import iconPerfil from "../assets/OptionsImages/ic_perfil.png";
@@ -135,7 +136,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     position: "absolute",
-    height: 32,
+    height: Platform.OS === "android" ? 25 : 32,
     right: 0
   },
 
@@ -166,7 +167,7 @@ const styles = StyleSheet.create({
     margin: 0
   },
   header: {
-    top: 28,
+    top: Platform.OS === "android" ? 25 : 28,
     left: 0,
     position: "absolute",
     height: 53,

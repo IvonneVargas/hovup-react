@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import LayoutStatusBar from "../symbols/LayoutStatusBar";
 import HeaderBack from "../symbols/HeaderBack";
-import { View, StyleSheet, ScrollView, TextInput, Text } from "react-native";
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  TextInput,
+  Text,
+  Platform
+} from "react-native";
 import Texts from "../assets/texts";
 
 export default class Privacy extends Component {
@@ -54,23 +61,23 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     position: "absolute",
-    height: 32,
+    height: Platform.OS === "android" ? 25 : 32,
     right: 0
   },
   headerBack: {
-    top: 31,
+    top: Platform.OS === "android" ? 25 : 31,
     left: 0,
     position: "absolute",
     height: 53,
     right: 0
   },
   scrollArea: {
-    top: 85,
-    left: 0,
+    top: Platform.OS === "android" ? 79 : 85,
+    left: Platform.OS === "android" ? 0 : 0,
     position: "absolute",
     backgroundColor: "rgba(25,39,52,1)",
-    right: 0,
-    bottom: -5,
+    right: Platform.OS === "android" ? 0 : 0,
+    bottom: Platform.OS === "android" ? 2 : -5,
     opacity: 1
   },
   text: {

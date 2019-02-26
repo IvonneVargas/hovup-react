@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "../symbols/Header";
 import LayoutStatusBar from "../symbols/LayoutStatusBar";
-import { View, StyleSheet, FlatList, Text } from "react-native";
+import { View, StyleSheet, FlatList, Text, Platform } from "react-native";
 
 export default class CategoriesList extends Component {
   render() {
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   header: {
-    top: 28,
+    top: Platform.OS === "android" ? 24 : 28,
     left: 0,
     position: "absolute",
     height: 53,
@@ -84,17 +84,18 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     position: "absolute",
-    height: 32,
+    height: Platform.OS === "android" ? 25 : 32,
     right: 0
   },
   list: {
-    top: 81,
-    left: 0,
+    top: Platform.OS === "android" ? 75.67 : 81,
+    left: Platform.OS === "android" ? 0 : 0,
     position: "absolute",
-    right: 0,
-    bottom: -81,
+    right: Platform.OS === "android" ? 0 : 0,
+    bottom: Platform.OS === "android" ? undefined : -81,
     backgroundColor: "rgba(25,39,52,1)",
-    opacity: 1
+    opacity: 1,
+    height: Platform.OS === "android" ? 745 : undefined
   },
   rect: {
     backgroundColor: "rgba(25,39,52,1)",
