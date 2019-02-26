@@ -31,6 +31,106 @@ export default class BrandsTab extends Component {
             />
           </View>
         </View>
+        {this.displayContent()}
+      </View>
+    );
+  }
+  displayContent() {
+    const level = this.props.navigation.getParam("level", "1"); //1 = List brands, 2 = Select brand(Items, facebook, phone, web...), 3 = Content brand, 4 = Final content.
+    console.log("level: ", level);
+    if (level == 1) {
+      return (
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          style={styles.list2}
+          data={[
+            {
+              key: "Titulo",
+              sub: "Descripcion",
+              level: 2
+            },
+            {
+              key: "Titulo2",
+              sub: "Descripcion",
+              level: 2
+            },
+            {
+              key: "Titulo3",
+              sub: "Descripcion",
+              level: 2
+            },
+            {
+              key: "Titulo4",
+              sub: "Descripcion",
+              level: 2
+            },
+            {
+              key: "Titulo5",
+              sub: "Descripcion",
+              level: 2
+            },
+            {
+              key: "Titulo6",
+              sub: "Descripcion",
+              level: 2
+            },
+            {
+              key: "Titulo7",
+              sub: "Descripcion",
+              level: 2
+            },
+            {
+              key: "Titulo8",
+              sub: "Descripcion",
+              level: 2
+            },
+            {
+              key: "Titulo9",
+              sub: "Descripcion",
+              level: 2
+            },
+            {
+              key: "Titulo10",
+              sub: "Descripcion",
+              level: 2
+            },
+            {
+              key: "Titulo11",
+              sub: "Descripcion",
+              level: 2
+            },
+            {
+              key: "Titulo12",
+              sub: "Descripcion",
+              level: 2
+            }
+          ]}
+          renderItem={({ item, separators }) => {
+            return (
+              <View style={styles.rect5}>
+                <Image
+                  source={require("../assets/ic_200x200.png")}
+                  style={styles.image}
+                />
+                <Icon
+                  name="ios-arrow-forward"
+                  style={styles.icon}
+                  type="Ionicons"
+                />
+                <View style={styles.rect9}>
+                  <Text style={styles.text2}>{item.key}</Text>
+                  <Text style={styles.text}>{item.sub}</Text>
+                </View>
+              </View>
+            );
+          }}
+          ItemSeparatorComponent={({}) => {
+            return <View style={styles.rect8} />;
+          }}
+        />
+      );
+    } else if (level == 2) {
+      return (
         <View style={styles.rect4}>
           <View style={styles.brandPrincipal}>
             <View style={styles.contentItems}>
@@ -123,92 +223,7 @@ export default class BrandsTab extends Component {
             />
           </View>
         </View>
-      </View>
-    );
-  }
-  displayContent() {
-    const level = this.props.navigation.getParam("level", "1"); //1 = List brands, 2 = Select brand(Items, facebook, phone, web...), 3 = Content brand, 4 = Final content.
-    console.log("level: ", level);
-    if (level == 1) {
-      return (
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          style={styles.list}
-          data={[
-            {
-              key: "Titulo",
-              sub: "Descripcion"
-            },
-            {
-              key: "Titulo2",
-              sub: "Descripcion"
-            },
-            {
-              key: "Titulo3",
-              sub: "Descripcion"
-            },
-            {
-              key: "Titulo4",
-              sub: "Descripcion"
-            },
-            {
-              key: "Titulo5",
-              sub: "Descripcion"
-            },
-            {
-              key: "Titulo6",
-              sub: "Descripcion"
-            },
-            {
-              key: "Titulo7",
-              sub: "Descripcion"
-            },
-            {
-              key: "Titulo8",
-              sub: "Descripcion"
-            },
-            {
-              key: "Titulo9",
-              sub: "Descripcion"
-            },
-            {
-              key: "Titulo10",
-              sub: "Descripcion"
-            },
-            {
-              key: "Titulo11",
-              sub: "Descripcion"
-            },
-            {
-              key: "Titulo12",
-              sub: "Descripcion"
-            }
-          ]}
-          renderItem={({ item, separators }) => {
-            return (
-              <View style={styles.rect5}>
-                <Image
-                  source={require("../assets/ic_200x200.png")}
-                  style={styles.image}
-                />
-                <Icon
-                  name="ios-arrow-forward"
-                  style={styles.icon}
-                  type="Ionicons"
-                />
-                <View style={styles.rect9}>
-                  <Text style={styles.text2}>{item.key}</Text>
-                  <Text style={styles.text}>{item.sub}</Text>
-                </View>
-              </View>
-            );
-          }}
-          ItemSeparatorComponent={({}) => {
-            return <View style={styles.rect8} />;
-          }}
-        />
       );
-    } else if (level == 2) {
     } else if (level == 3) {
     } else if (level == 4) {
     }
@@ -305,6 +320,14 @@ const styles = StyleSheet.create({
     top: 0,
     bottom: 0
   },
+  list2: {
+    left: 0,
+    right: 0,
+    top: 84,
+    bottom: 0,
+    height: 728,
+    alignSelf: "stretch"
+  },
   fav: {
     alignItems: "center",
     flexDirection: "row",
@@ -351,9 +374,9 @@ const styles = StyleSheet.create({
   },
   rect9: {
     height: 40,
-    width: 238,
-    top: 12,
-    left: 104,
+    width: 230,
+    top: 21,
+    left: 117,
     position: "absolute",
     justifyContent: "space-around"
   },
@@ -499,7 +522,8 @@ const styles = StyleSheet.create({
     padding: 15,
     paddingTop: 10,
     paddingBottom: 10,
-    opacity: 1
+    opacity: 1,
+    height: 84
   },
   whatismembership: {
     width: "22%",
