@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Colors from "../assets/colors";
 
-import Icon from "@builderx/icons";
 import TabB from "../symbols/TabB";
 import CatDown from "../symbols/CatDown";
-import HeaderBack from "../symbols/HeaderBack";
 import LayoutStatusBar from "../symbols/LayoutStatusBar";
+import HeaderBack from "../symbols/HeaderBack";
+import Icon from "@builderx/icons";
 
 import {
   View,
@@ -22,118 +22,22 @@ export default class BrandsTab extends Component {
     return (
       <View style={styles.root}>
         <View style={styles.background} />
-        <View style={styles.all}>
-          <View style={styles.rect2} navigation={this.props.navigation}>
-            <View style={styles.rect}>
-              <TabB style={styles.tabB} text="Publico" />
-              <TabB style={styles.tabB3} text="VIP" />
-              <TabB style={styles.tabB2} text="Privado" />
-            </View>
-            <View style={styles.rect3}>
-              <CatDown
-                style={styles.catDown}
-                navigation={this.props.navigation}
+        <View style={styles.rectTree}>
+          <LayoutStatusBar style={styles.layoutStatusBarT} />
+          <HeaderBack
+            style={styles.headerBackT}
+            navigation={this.props.navigation}
+          />
+          <View style={styles.toplayer}>
+            <View style={styles.topfav}>
+              <Icon
+                style={styles.topfavlayers}
+                name="heart-outline"
+                type="MaterialCommunityIcons"
               />
             </View>
           </View>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            style={styles.list2}
-            data={[
-              {
-                key: "Titulo",
-                sub: "Descripcion",
-                level: 2
-              },
-              {
-                key: "Titulo2",
-                sub: "Descripcion",
-                level: 2
-              },
-              {
-                key: "Titulo3",
-                sub: "Descripcion",
-                level: 2
-              },
-              {
-                key: "Titulo4",
-                sub: "Descripcion",
-                level: 2
-              },
-              {
-                key: "Titulo5",
-                sub: "Descripcion",
-                level: 2
-              },
-              {
-                key: "Titulo6",
-                sub: "Descripcion",
-                level: 2
-              },
-              {
-                key: "Titulo7",
-                sub: "Descripcion",
-                level: 2
-              },
-              {
-                key: "Titulo8",
-                sub: "Descripcion",
-                level: 2
-              },
-              {
-                key: "Titulo9",
-                sub: "Descripcion",
-                level: 2
-              },
-              {
-                key: "Titulo10",
-                sub: "Descripcion",
-                level: 2
-              },
-              {
-                key: "Titulo11",
-                sub: "Descripcion",
-                level: 2
-              },
-              {
-                key: "Titulo12",
-                sub: "Descripcion",
-                level: 2
-              }
-            ]}
-            renderItem={({ item, separators }) => {
-              return (
-                <View style={styles.rect5}>
-                  <TouchableOpacity
-                    style={styles.buttonsStyle}
-                    onPress={() => {
-                      console.log("Click,", item.level);
-                      this.props.navigation.push("BrandsTab", {
-                        level: item.level
-                      });
-                    }}
-                  >
-                    <Image
-                      source={require("../assets/ic_200x200.png")}
-                      style={styles.image}
-                    />
-                    <Icon
-                      name="ios-arrow-forward"
-                      style={styles.icon}
-                      type="Ionicons"
-                    />
-                    <View style={styles.rect9}>
-                      <Text style={styles.text2}>{item.key}</Text>
-                      <Text style={styles.text}>{item.sub}</Text>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-              );
-            }}
-            ItemSeparatorComponent={({}) => {
-              return <View style={styles.rect8} />;
-            }}
-          />
+          <View style={styles.bottomlatyer} />
         </View>
       </View>
     );
@@ -431,6 +335,25 @@ export default class BrandsTab extends Component {
         </View>
       );
     } else if (level == 3) {
+      return (
+        <View style={styles.rectTree}>
+          <LayoutStatusBar style={styles.layoutStatusBarT} />
+          <HeaderBack
+            style={styles.headerBackT}
+            navigation={this.props.navigation}
+          />
+          <View style={styles.toplayer}>
+            <View style={styles.topfav}>
+              <Icon
+                style={styles.topfavlayers}
+                name="heart-outline"
+                type="MaterialCommunityIcons"
+              />
+            </View>
+          </View>
+          <View style={styles.bottomlatyer} />
+        </View>
+      );
     } else if (level == 4) {
     }
   }
@@ -777,5 +700,52 @@ const styles = StyleSheet.create({
   layoutStatusBar: {
     height: "3%",
     alignSelf: "stretch"
+  },
+  rectTree: {
+    top: 0,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    bottom: 0
+  },
+  layoutStatusBarT: {
+    width: 376,
+    height: 33
+  },
+  headerBackT: {
+    width: 374,
+    height: 55
+  },
+  toplayer: {
+    top: 88,
+    left: 0,
+    height: "Infinity%",
+    position: "absolute",
+    right: 0
+  },
+  bottomlatyer: {
+    top: 290.24,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    height: "Infinity%"
+  },
+  topfav: {
+    top: 2,
+    left: 0,
+    height: "13.5%",
+    position: "absolute",
+    right: 0,
+    justifyContent: "flex-end",
+    flexDirection: "row"
+  },
+  topfavlayers: {
+    width: 24,
+    height: 24,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 25,
+    marginRight: 3,
+    marginTop: 3
   }
 });
