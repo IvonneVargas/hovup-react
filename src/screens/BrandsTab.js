@@ -10,7 +10,8 @@ import {
   Platform,
   Image,
   FlatList,
-  Text
+  Text,
+  TouchableOpacity
 } from "react-native";
 
 export default class BrandsTab extends Component {
@@ -22,8 +23,9 @@ export default class BrandsTab extends Component {
       </View>
     );
   }
+
   displayContent() {
-    const level = this.props.navigation.getParam("level", "2"); //1 = List brands, 2 = Select brand(Items, facebook, phone, web...), 3 = Content brand, 4 = Final content.
+    const level = this.props.navigation.getParam("level", "1"); //1 = List brands, 2 = Select brand(Items, facebook, phone, web...), 3 = Content brand, 4 = Final content.
     console.log("level: ", level);
     if (level == 1) {
       return (
@@ -109,19 +111,29 @@ export default class BrandsTab extends Component {
             renderItem={({ item, separators }) => {
               return (
                 <View style={styles.rect5}>
-                  <Image
-                    source={require("../assets/ic_200x200.png")}
-                    style={styles.image}
-                  />
-                  <Icon
-                    name="ios-arrow-forward"
-                    style={styles.icon}
-                    type="Ionicons"
-                  />
-                  <View style={styles.rect9}>
-                    <Text style={styles.text2}>{item.key}</Text>
-                    <Text style={styles.text}>{item.sub}</Text>
-                  </View>
+                  <TouchableOpacity
+                    style={styles.buttonsStyle}
+                    onPress={() => {
+                      console.log("Click,", item.level);
+                      this.props.navigation.push("Main", {
+                        level: item.level
+                      });
+                    }}
+                  >
+                    <Image
+                      source={require("../assets/ic_200x200.png")}
+                      style={styles.image}
+                    />
+                    <Icon
+                      name="ios-arrow-forward"
+                      style={styles.icon}
+                      type="Ionicons"
+                    />
+                    <View style={styles.rect9}>
+                      <Text style={styles.text2}>{item.key}</Text>
+                      <Text style={styles.text}>{item.sub}</Text>
+                    </View>
+                  </TouchableOpacity>
                 </View>
               );
             }}
@@ -201,67 +213,67 @@ export default class BrandsTab extends Component {
             <FlatList
               style={styles.listSecond}
               data={[
-              {
-                key: "Titulo",
-                sub: "Descripcion",
-                level: 3
-              },
-              {
-                key: "Titulo2",
-                sub: "Descripcion",
-                level: 3
-              },
-              {
-                key: "Titulo3",
-                sub: "Descripcion",
-                level: 3
-              },
-              {
-                key: "Titulo4",
-                sub: "Descripcion",
-                level: 3
-              },
-              {
-                key: "Titulo5",
-                sub: "Descripcion",
-                level: 3
-              },
-              {
-                key: "Titulo6",
-                sub: "Descripcion",
-                level: 3
-              },
-              {
-                key: "Titulo7",
-                sub: "Descripcion",
-                level: 3
-              },
-              {
-                key: "Titulo8",
-                sub: "Descripcion",
-                level: 3
-              },
-              {
-                key: "Titulo9",
-                sub: "Descripcion",
-                level: 3
-              },
-              {
-                key: "Titulo10",
-                sub: "Descripcion",
-                level: 3
-              },
-              {
-                key: "Titulo11",
-                sub: "Descripcion",
-                level: 3
-              },
-              {
-                key: "Titulo12",
-                sub: "Descripcion",
-                level: 3
-              }
-            ]}
+                {
+                  key: "Titulo",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo2",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo3",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo4",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo5",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo6",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo7",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo8",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo9",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo10",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo11",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo12",
+                  sub: "Descripcion",
+                  level: 3
+                }
+              ]}
               renderItem={({ item, separators }) => {
                 return (
                   <View style={styles.rect10}>
@@ -619,5 +631,10 @@ const styles = StyleSheet.create({
   catDown: {
     width: 180,
     height: 30
+  },
+  buttonsStyle: {
+    alignItems: "center",
+    flexDirection: "row",
+    margin: 0
   }
 });
