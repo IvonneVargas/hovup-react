@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Colors from "../assets/colors";
-import TabB from "../symbols/TabB";
-import CatDown from "../symbols/CatDown";
 
 import Icon from "@builderx/icons";
+import TabB from "../symbols/TabB";
+import CatDown from "../symbols/CatDown";
 import {
   View,
   StyleSheet,
@@ -18,116 +18,118 @@ export default class BrandsTab extends Component {
     return (
       <View style={styles.root}>
         <View style={styles.background} />
-        <View style={styles.rect2}>
-          <View style={styles.rect}>
-            <TabB style={styles.tabB} text="Publico" />
-            <TabB style={styles.tabB3} text="VIP" />
-            <TabB style={styles.tabB2} text="Privado" />
-          </View>
-          <View style={styles.rect3} navigation={this.props.navigation}>
-            <CatDown
-              style={styles.catDown}
-              navigation={this.props.navigation}
-            />
-          </View>
-        </View>
         {this.displayContent()}
       </View>
     );
   }
   displayContent() {
-    const level = this.props.navigation.getParam("level", "1"); //1 = List brands, 2 = Select brand(Items, facebook, phone, web...), 3 = Content brand, 4 = Final content.
+    const level = this.props.navigation.getParam("level", "2"); //1 = List brands, 2 = Select brand(Items, facebook, phone, web...), 3 = Content brand, 4 = Final content.
     console.log("level: ", level);
     if (level == 1) {
       return (
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          style={styles.list2}
-          data={[
-            {
-              key: "Titulo",
-              sub: "Descripcion",
-              level: 2
-            },
-            {
-              key: "Titulo2",
-              sub: "Descripcion",
-              level: 2
-            },
-            {
-              key: "Titulo3",
-              sub: "Descripcion",
-              level: 2
-            },
-            {
-              key: "Titulo4",
-              sub: "Descripcion",
-              level: 2
-            },
-            {
-              key: "Titulo5",
-              sub: "Descripcion",
-              level: 2
-            },
-            {
-              key: "Titulo6",
-              sub: "Descripcion",
-              level: 2
-            },
-            {
-              key: "Titulo7",
-              sub: "Descripcion",
-              level: 2
-            },
-            {
-              key: "Titulo8",
-              sub: "Descripcion",
-              level: 2
-            },
-            {
-              key: "Titulo9",
-              sub: "Descripcion",
-              level: 2
-            },
-            {
-              key: "Titulo10",
-              sub: "Descripcion",
-              level: 2
-            },
-            {
-              key: "Titulo11",
-              sub: "Descripcion",
-              level: 2
-            },
-            {
-              key: "Titulo12",
-              sub: "Descripcion",
-              level: 2
-            }
-          ]}
-          renderItem={({ item, separators }) => {
-            return (
-              <View style={styles.rect5}>
-                <Image
-                  source={require("../assets/ic_200x200.png")}
-                  style={styles.image}
-                />
-                <Icon
-                  name="ios-arrow-forward"
-                  style={styles.icon}
-                  type="Ionicons"
-                />
-                <View style={styles.rect9}>
-                  <Text style={styles.text2}>{item.key}</Text>
-                  <Text style={styles.text}>{item.sub}</Text>
+        <View style={styles.all}>
+          <View style={styles.rect2} navigation={this.props.navigation}>
+            <View style={styles.rect}>
+              <TabB style={styles.tabB} text="Publico" />
+              <TabB style={styles.tabB3} text="VIP" />
+              <TabB style={styles.tabB2} text="Privado" />
+            </View>
+            <View style={styles.rect3}>
+              <CatDown
+                style={styles.catDown}
+                navigation={this.props.navigation}
+              />
+            </View>
+          </View>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            style={styles.list2}
+            data={[
+              {
+                key: "Titulo",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo2",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo3",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo4",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo5",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo6",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo7",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo8",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo9",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo10",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo11",
+                sub: "Descripcion",
+                level: 2
+              },
+              {
+                key: "Titulo12",
+                sub: "Descripcion",
+                level: 2
+              }
+            ]}
+            renderItem={({ item, separators }) => {
+              return (
+                <View style={styles.rect5}>
+                  <Image
+                    source={require("../assets/ic_200x200.png")}
+                    style={styles.image}
+                  />
+                  <Icon
+                    name="ios-arrow-forward"
+                    style={styles.icon}
+                    type="Ionicons"
+                  />
+                  <View style={styles.rect9}>
+                    <Text style={styles.text2}>{item.key}</Text>
+                    <Text style={styles.text}>{item.sub}</Text>
+                  </View>
                 </View>
-              </View>
-            );
-          }}
-          ItemSeparatorComponent={({}) => {
-            return <View style={styles.rect8} />;
-          }}
-        />
+              );
+            }}
+            ItemSeparatorComponent={({}) => {
+              return <View style={styles.rect8} />;
+            }}
+          />
+        </View>
       );
     } else if (level == 2) {
       return (
@@ -198,6 +200,68 @@ export default class BrandsTab extends Component {
           <View style={styles.listContentBrand}>
             <FlatList
               style={styles.listSecond}
+              data={[
+              {
+                key: "Titulo",
+                sub: "Descripcion",
+                level: 3
+              },
+              {
+                key: "Titulo2",
+                sub: "Descripcion",
+                level: 3
+              },
+              {
+                key: "Titulo3",
+                sub: "Descripcion",
+                level: 3
+              },
+              {
+                key: "Titulo4",
+                sub: "Descripcion",
+                level: 3
+              },
+              {
+                key: "Titulo5",
+                sub: "Descripcion",
+                level: 3
+              },
+              {
+                key: "Titulo6",
+                sub: "Descripcion",
+                level: 3
+              },
+              {
+                key: "Titulo7",
+                sub: "Descripcion",
+                level: 3
+              },
+              {
+                key: "Titulo8",
+                sub: "Descripcion",
+                level: 3
+              },
+              {
+                key: "Titulo9",
+                sub: "Descripcion",
+                level: 3
+              },
+              {
+                key: "Titulo10",
+                sub: "Descripcion",
+                level: 3
+              },
+              {
+                key: "Titulo11",
+                sub: "Descripcion",
+                level: 3
+              },
+              {
+                key: "Titulo12",
+                sub: "Descripcion",
+                level: 3
+              }
+            ]}
               renderItem={({ item, separators }) => {
                 return (
                   <View style={styles.rect10}>
@@ -248,65 +312,9 @@ const styles = StyleSheet.create({
   PickerNaN: {
     color: "rgba(251,251,251,1)"
   },
-  rect2: {
-    top: 1,
-    left: 0,
-    right: 0,
-    height: 81,
-    position: "absolute",
-    backgroundColor: "rgba(25,39,52,1)",
-    opacity: 1,
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  rect: {
-    width: 375,
-    height: 32,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  tabB: {
-    width: 100,
-    height: 32,
-    backgroundColor: "rgba(25,39,52,1)",
-    opacity: 1,
-    borderWidth: 1,
-    borderColor: "rgba(101,188,70,1)",
-    borderBottomLeftRadius: 8,
-    borderTopLeftRadius: 8
-  },
-  tabB3: {
-    width: 100,
-    height: 32,
-    backgroundColor: "rgba(25,39,52,1)",
-    opacity: 1,
-    borderWidth: 1,
-    borderColor: "rgba(101,188,70,1)"
-  },
-  tabB2: {
-    width: 100,
-    height: 32,
-    backgroundColor: "rgba(25,39,52,1)",
-    opacity: 1,
-    borderWidth: 1,
-    borderColor: "rgba(101,188,70,1)",
-    borderBottomRightRadius: 8,
-    borderTopRightRadius: 8
-  },
-  rect3: {
-    width: 375,
-    height: 32,
-    alignItems: "flex-start",
-    paddingLeft: 35
-  },
-  catDown: {
-    width: 180,
-    height: 30
-  },
+
   rect4: {
-    top: 82,
+    top: 0,
     left: 0,
     position: "absolute",
     right: 0,
@@ -547,5 +555,69 @@ const styles = StyleSheet.create({
     color: "rgba(253,0,0,1)",
     fontSize: 40,
     alignSelf: "flex-start"
+  },
+  all: {
+    top: 0,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    bottom: 0
+  },
+  rect2: {
+    top: 2,
+    left: 0,
+    width: 376,
+    height: 80,
+    position: "absolute",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1
+  },
+  rect: {
+    width: 375,
+    height: 32,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  tabB: {
+    width: 100,
+    height: 32,
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1,
+    borderWidth: 1,
+    borderColor: "rgba(101,188,70,1)",
+    borderBottomLeftRadius: 8,
+    borderTopLeftRadius: 8
+  },
+  tabB3: {
+    width: 100,
+    height: 32,
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1,
+    borderWidth: 1,
+    borderColor: "rgba(101,188,70,1)"
+  },
+  tabB2: {
+    width: 100,
+    height: 32,
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1,
+    borderWidth: 1,
+    borderColor: "rgba(101,188,70,1)",
+    borderBottomRightRadius: 8,
+    borderTopRightRadius: 8
+  },
+  rect3: {
+    width: 375,
+    height: 32,
+    alignItems: "flex-start",
+    paddingLeft: 35
+  },
+  catDown: {
+    width: 180,
+    height: 30
   }
 });
