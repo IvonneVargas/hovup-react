@@ -137,13 +137,13 @@ const styles = StyleSheet.create({
   },
 
   statusbar: {
-    height: 28,
+    height: 32,
     top: 0,
     left: 0,
     position: "absolute",
     backgroundColor: "rgba(48,61,73,1)",
     opacity: 1,
-    right: -1.9
+    right: 0
   },
 
   textInput2: {

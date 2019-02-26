@@ -54,14 +54,14 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     position: "absolute",
-    height: 33,
+    height: 32,
     right: 0
   },
   headerBack: {
-    top: 31.1,
+    top: 31,
     left: 0,
     position: "absolute",
-    height: 54,
+    height: 53,
     right: 0
   },
   scrollArea: {

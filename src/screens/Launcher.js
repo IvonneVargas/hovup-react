@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   rect: {
-    height: 24.73,
+    height: 32,
     top: 0,
     left: 0,
     position: "absolute",

@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
 
   statusBar: {},
   rect2: {
-    height: 25,
+    height: 32,
     top: 0,
     left: 0,
     position: "absolute",

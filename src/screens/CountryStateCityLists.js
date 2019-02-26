@@ -63,10 +63,10 @@ const styles = StyleSheet.create({
     flex: 1
   },
   layoutStatusBar: {
-    top: -1,
+    top: 0,
     left: 0,
     position: "absolute",
-    height: 33,
+    height: 32,
     right: 0
   },
   headerSingleLogo: {

@@ -4,6 +4,9 @@ import Colors from "../assets/colors";
 import Icon from "@builderx/icons";
 import TabB from "../symbols/TabB";
 import CatDown from "../symbols/CatDown";
+import HeaderBack from "../symbols/HeaderBack";
+import LayoutStatusBar from "../symbols/LayoutStatusBar";
+
 import {
   View,
   StyleSheet,
@@ -115,7 +118,7 @@ export default class BrandsTab extends Component {
                     style={styles.buttonsStyle}
                     onPress={() => {
                       console.log("Click,", item.level);
-                      this.props.navigation.push("Main", {
+                      this.props.navigation.push("BrandsTab", {
                         level: item.level
                       });
                     }}
@@ -146,6 +149,11 @@ export default class BrandsTab extends Component {
     } else if (level == 2) {
       return (
         <View style={styles.rect4}>
+          <LayoutStatusBar style={styles.layoutStatusBar} />
+          <HeaderBack
+            style={styles.headerBack}
+            navigation={this.props.navigation}
+          />
           <View style={styles.brandPrincipal}>
             <View style={styles.contentItems}>
               <View style={styles.otherItems}>
@@ -277,19 +285,29 @@ export default class BrandsTab extends Component {
               renderItem={({ item, separators }) => {
                 return (
                   <View style={styles.rect10}>
-                    <Image
-                      source={require("../assets/ic_60x60.png")}
-                      style={styles.image2}
-                    />
-                    <Icon
-                      name="ios-arrow-forward"
-                      style={styles.icon}
-                      type="Ionicons"
-                    />
-                    <View style={styles.rect11}>
-                      <Text style={styles.text2}>{item.key}</Text>
-                      <Text style={styles.text}>{item.sub}</Text>
-                    </View>
+                    <TouchableOpacity
+                      style={styles.buttonsStyle}
+                      onPress={() => {
+                        console.log("Click,", item.level);
+                        this.props.navigation.push("BrandsTab", {
+                          level: item.level
+                        });
+                      }}
+                    >
+                      <Image
+                        source={require("../assets/ic_60x60.png")}
+                        style={styles.image2}
+                      />
+                      <Icon
+                        name="ios-arrow-forward"
+                        style={styles.icon}
+                        type="Ionicons"
+                      />
+                      <View style={styles.rect11}>
+                        <Text style={styles.text2}>{item.key}</Text>
+                        <Text style={styles.text}>{item.sub}</Text>
+                      </View>
+                    </TouchableOpacity>
                   </View>
                 );
               }}
@@ -421,7 +439,7 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)"
   },
   brandPrincipal: {
-    height: "40%",
+    height: "30%",
 
     alignSelf: "stretch",
 
@@ -636,5 +654,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     margin: 0
+  },
+  headerBack: {
+    height: "7%",
+    alignSelf: "stretch"
+  },
+  layoutStatusBar: {
+    height: "3%",
+    alignSelf: "stretch"
   }
 });

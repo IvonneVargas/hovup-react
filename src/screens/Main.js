@@ -69,23 +69,23 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     position: "absolute",
-    height: 36,
+    height: 32,
     right: 0
   },
   headerSettings: {
-    top: Platform.OS === "android" ? 18 : 34,
+    top: Platform.OS === "android" ? 18 : 31,
     left: 0,
     position: "absolute",
-    height: 54,
+    height: 53,
     right: 0
   },
   tab: {
-    height: Platform.OS === "android" ? 670 : undefined,
-    top: Platform.OS === "android" ? 72 : 88,
-    left: 0,
+    height: Platform.OS === "android" ? 670 : 730,
+    top: Platform.OS === "android" ? 72 : 82.67,
+    left: 0.67,
     position: "absolute",
-    right: 0,
-    bottom: -4,
+    right: -0.67,
+
     backgroundColor: "#E6E6E6"
   },
   tab_tabBarStyle: {

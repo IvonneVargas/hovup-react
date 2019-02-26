@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     position: "absolute",
-    height: 33,
+    height: 32,
     right: 0
   },
   headerIcon: {
