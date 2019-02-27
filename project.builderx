@@ -152,8 +152,8 @@
             {
                 "deviceName": "iPhone X",
                 "position": {
-                    "x": 595.261904761905,
-                    "y": 214.33333333333337
+                    "x": 584.5,
+                    "y": -240
                 },
                 "horizontal": false
             }
