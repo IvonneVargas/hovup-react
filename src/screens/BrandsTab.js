@@ -352,62 +352,62 @@ export default class BrandsTab extends Component {
                 {
                   key: "Titulo",
                   sub: "Descripcion",
-                  level: 3
+                  level: 4
                 },
                 {
                   key: "Titulo2",
                   sub: "Descripcion",
-                  level: 3
+                  level: 4
                 },
                 {
                   key: "Titulo3",
                   sub: "Descripcion",
-                  level: 3
+                  level: 4
                 },
                 {
                   key: "Titulo4",
                   sub: "Descripcion",
-                  level: 3
+                  level: 4
                 },
                 {
                   key: "Titulo5",
                   sub: "Descripcion",
-                  level: 3
+                  level: 4
                 },
                 {
                   key: "Titulo6",
                   sub: "Descripcion",
-                  level: 3
+                  level: 4
                 },
                 {
                   key: "Titulo7",
                   sub: "Descripcion",
-                  level: 3
+                  level: 4
                 },
                 {
                   key: "Titulo8",
                   sub: "Descripcion",
-                  level: 3
+                  level: 4
                 },
                 {
                   key: "Titulo9",
                   sub: "Descripcion",
-                  level: 3
+                  level: 4
                 },
                 {
                   key: "Titulo10",
                   sub: "Descripcion",
-                  level: 3
+                  level: 4
                 },
                 {
                   key: "Titulo11",
                   sub: "Descripcion",
-                  level: 3
+                  level: 4
                 },
                 {
                   key: "Titulo12",
                   sub: "Descripcion",
-                  level: 3
+                  level: 4
                 }
               ]}
               renderItem={({ item, separators }) => {
@@ -447,6 +447,30 @@ export default class BrandsTab extends Component {
         </View>
       );
     } else if (level == 4) {
+      return (
+        <View style={styles.layerfour}>
+          <LayoutStatusBar style={styles.layoutStatusBarFour} />
+          <HeaderBack
+            style={styles.headerBackFour}
+            navigation={this.props.navigation}
+          />
+          <View style={styles.layerfavsfour}>
+            <Icon
+              style={styles.favsfour}
+              name="heart-outline"
+              type="MaterialCommunityIcons"
+            />
+          </View>
+          <View style={styles.fourlayerbottom}>
+            <Image
+              style={styles.imagefour}
+              source={require("../assets/ic_60x60.png")}
+            />
+            <Text style={styles.texttittlefour}>Text Added</Text>
+            <Text style={styles.subtitlefourlayer}>Text Added</Text>
+          </View>
+        </View>
+      );
     }
   }
 }
@@ -877,5 +901,61 @@ const styles = StyleSheet.create({
     height: 13,
     position: "absolute",
     backgroundColor: "transparent"
+  },
+  layerfour: {
+    top: 0,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    bottom: 0
+  },
+  layoutStatusBarFour: {
+    height: "3.9408866995073892%",
+    alignSelf: "stretch"
+  },
+  headerBackFour: {
+    height: "6.65024630541872%",
+    alignSelf: "stretch"
+  },
+  layerfavsfour: {
+    height: "4.1871921182266005%",
+
+    justifyContent: "flex-end",
+    flexDirection: "row",
+    alignSelf: "stretch"
+  },
+  favsfour: {
+    width: 24,
+    height: 24,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 25,
+    marginRight: 5,
+    marginTop: 5
+  },
+  fourlayerbottom: {
+    height: 326,
+    alignSelf: "stretch",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  imagefour: {
+    width: 150,
+    height: 150
+  },
+  texttittlefour: {
+    height: 24,
+    backgroundColor: "transparent",
+    fontSize: 20,
+    color: "rgba(255,255,255,1)",
+    alignSelf: "center",
+    marginTop: 15
+  },
+  subtitlefourlayer: {
+    height: 16,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    alignSelf: "center",
+    marginTop: 13
   }
 });
