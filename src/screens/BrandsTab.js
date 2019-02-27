@@ -22,33 +22,7 @@ export default class BrandsTab extends Component {
     return (
       <View style={styles.root}>
         <View style={styles.background} />
-        <View style={styles.rectTree}>
-          <LayoutStatusBar style={styles.layoutStatusBarT} />
-          <HeaderBack
-            style={styles.headerBackT}
-            navigation={this.props.navigation}
-          />
-          <View style={styles.toplayer}>
-            <View style={styles.topfav}>
-              <Icon
-                style={styles.topfavlayers}
-                name="heart-outline"
-                type="MaterialCommunityIcons"
-              />
-            </View>
-            <View style={styles.topleftlayer}>
-              <Image
-                style={styles.imagetop}
-                source={require("../assets/ic_60x60.png")}
-              />
-            </View>
-            <View style={styles.toprigthlayer}>
-              <Text style={styles.titlelayertop}>Titulo</Text>
-              <Text style={styles.subtitletoplayer}>Text Added</Text>
-            </View>
-          </View>
-          <View style={styles.bottomlatyer} />
-        </View>
+        {this.displayContent()}
       </View>
     );
   }
@@ -371,7 +345,105 @@ export default class BrandsTab extends Component {
               <Text style={styles.subtitletoplayer}>Text Added</Text>
             </View>
           </View>
-          <View style={styles.bottomlatyer} />
+          <View style={styles.bottomlatyer}>
+            <FlatList
+              style={styles.listSecond}
+              data={[
+                {
+                  key: "Titulo",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo2",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo3",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo4",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo5",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo6",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo7",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo8",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo9",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo10",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo11",
+                  sub: "Descripcion",
+                  level: 3
+                },
+                {
+                  key: "Titulo12",
+                  sub: "Descripcion",
+                  level: 3
+                }
+              ]}
+              renderItem={({ item, separators }) => {
+                return (
+                  <View style={styles.rect10}>
+                    <TouchableOpacity
+                      style={styles.buttonsStyle}
+                      onPress={() => {
+                        console.log("Click,", item.level);
+                        this.props.navigation.push("BrandsTab", {
+                          level: item.level
+                        });
+                      }}
+                    >
+                      <Image
+                        source={require("../assets/ic_60x60.png")}
+                        style={styles.image2}
+                      />
+                      <Icon
+                        name="ios-arrow-forward"
+                        style={styles.icon}
+                        type="Ionicons"
+                      />
+                      <View style={styles.rect11}>
+                        <Text style={styles.text2}>{item.key}</Text>
+                        <Text style={styles.text}>{item.sub}</Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                );
+              }}
+              ItemSeparatorComponent={({}) => {
+                return <View style={styles.rect8} />;
+              }}
+            />
+          </View>
         </View>
       );
     } else if (level == 4) {
@@ -785,17 +857,25 @@ const styles = StyleSheet.create({
     borderRadius: 7
   },
   titlelayertop: {
-    height: 20,
+    height: 23,
     backgroundColor: "transparent",
     fontSize: 20,
     color: "rgba(255,255,255,1)",
     alignSelf: "stretch"
   },
   subtitletoplayer: {
-    height: 13,
+    height: 16,
     backgroundColor: "transparent",
     fontSize: 14,
     alignSelf: "stretch",
     color: "rgba(255,255,255,1)"
+  },
+  lalalal: {
+    top: 33,
+    left: 158,
+    width: 74,
+    height: 13,
+    position: "absolute",
+    backgroundColor: "transparent"
   }
 });
