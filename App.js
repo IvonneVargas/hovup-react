@@ -17,7 +17,12 @@ import OptionsProfile from "./src/screens/OptionsProfile";
 import CountryStateCityLists from "./src/screens/CountryStateCityLists";
 import About from "./src/screens/About";
 import Privacy from "./src/screens/Privacy";
-import { StackNavigator, DrawerNavigator } from "react-navigation";
+
+import {
+  StackNavigator,
+  DrawerNavigator,
+  TabNavigator
+} from "react-navigation";
 
 const DrawerNavigation = DrawerNavigator({
   Launcher: {
@@ -109,6 +114,21 @@ const StackNavigation = StackNavigator(
     headerMode: "none"
   }
 );
+
+const TabNavigation = TabNavigator(
+  {
+    ZonesTab: {
+      screen: ZonesTab
+    },
+    BrandsTab: {
+      screen: BrandsTab
+    }
+  },
+  {
+    headerMode: "none"
+  }
+);
+
 export default class App extends React.Component {
   constructor() {
     super();
