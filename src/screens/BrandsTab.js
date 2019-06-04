@@ -27,6 +27,38 @@ export default class BrandsTab extends Component {
     );
   }
 
+  showStar(){
+    if (type == "Store"){
+      return (<View style={styles.containerStars}>
+        <Icon
+          style={styles.starSmall}
+          name="star"
+          type="MaterialCommunityIcons"
+        />
+        <Icon
+          style={styles.starSmall}
+          name="star"
+          type="MaterialCommunityIcons"
+        />
+        <Icon
+          style={styles.starSmall}
+          name="star"
+          type="MaterialCommunityIcons"
+        />
+        <Icon
+          style={styles.starSmall}
+          name="star"
+          type="MaterialCommunityIcons"
+        />
+        <Icon
+          style={styles.starSmall}
+          name="star"
+          type="MaterialCommunityIcons"
+        />
+      </View>);
+    }
+  }
+
   displayContent() {
     const level = this.props.navigation.getParam("level", "1"); //1 = List brands, 2 = Select brand(Items, facebook, phone, web...), 3 = Content brand, 4 = Final content.
     console.log("level: ", level);
@@ -135,6 +167,7 @@ export default class BrandsTab extends Component {
                     <View style={styles.rect9}>
                       <Text style={styles.text2}>{item.key}</Text>
                       <Text style={styles.text}>{item.sub}</Text>
+                      {this.showStar()}
                     </View>
                   </TouchableOpacity>
                 </View>
@@ -566,10 +599,10 @@ const styles = StyleSheet.create({
   rect9: {
     height: 41,
     width: 220,
-    top: 14,
+    top: 10,
     left: 104,
     position: "absolute",
-    justifyContent: "space-around"
+    justifyContent: "space-between"
   },
   rect11: {
     height: 39,
@@ -659,6 +692,14 @@ const styles = StyleSheet.create({
     height: 25,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
+    fontSize: 25,
+    alignSelf: "center"
+  },
+  starSmall: {
+    width: 25,
+    height: 25,
+    backgroundColor: "transparent",
+    color: "rgba(255,178,51,1)",
     fontSize: 25,
     alignSelf: "center"
   },
@@ -957,5 +998,11 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)",
     alignSelf: "center",
     marginTop: 13
-  }
+  },
+  containerStars: {
+    width: "60%",
+    alignSelf: "flex-start",
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
 });
