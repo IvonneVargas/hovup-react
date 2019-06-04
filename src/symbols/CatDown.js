@@ -19,8 +19,8 @@ export default class CatDown extends Component {
         <Text style={styles.text}>Todas las categorias</Text>
         <Icon
           style={styles.icon}
-          name="ios-arrow-down-outline"
-          type="Ionicons"
+          name="chevron-down"
+          type="MaterialCommunityIcons"
         />
       </TouchableOpacity>
     );
