@@ -17,6 +17,7 @@ import {
   Text
 } from "react-native";
 
+
 export default class BrandsTab extends Component {
   render() {
     return (
@@ -27,9 +28,54 @@ export default class BrandsTab extends Component {
     );
   }
 
+  showBarIcon(){
+    var typeT = this.props.navigation.getParam("type", this.props.type);
+    console.log("2type: ", typeT);
+    if (typeT == "Brand"){
+      return(<View style={styles.otherItems}>
+                <Icon
+                  style={styles.email}
+                  name="email-outline"
+                  type="MaterialCommunityIcons"
+                />
+                <Icon
+                  style={styles.phone}
+                  name="phone"
+                  type="SimpleLineIcons"
+                />
+                <Icon
+                  style={styles.web}
+                  name="earth"
+                  type="MaterialCommunityIcons"
+                />
+                <Icon
+                  style={styles.facebook}
+                  name="social-facebook"
+                  type="SimpleLineIcons"
+                />
+                <Icon
+                  style={styles.twitter}
+                  name="social-twitter"
+                  type="SimpleLineIcons"
+                />
+                <Icon
+                  style={styles.youtube}
+                  name="social-youtube"
+                  type="SimpleLineIcons"
+                />
+                <Icon
+                  style={styles.instagram}
+                  name="social-instagram"
+                  type="SimpleLineIcons"
+                />
+              </View>
+              );
+    }
+  }
+
   showStar(){
-    const type = this.props.type;
-    if (type == "Store"){
+    console.log("1type: ", this.props.type);
+    if (this.props.type == "Store"){
       return (<View style={styles.containerStars}>
         <Icon
           style={styles.starSmall}
@@ -62,6 +108,8 @@ export default class BrandsTab extends Component {
 
   displayContent() {
     const level = this.props.navigation.getParam("level", "1"); //1 = List brands, 2 = Select brand(Items, facebook, phone, web...), 3 = Content brand, 4 = Final content.
+    const type = this.props.type;
+    console.log("ddtype: ", type);
     console.log("level: ", level);
     if (level == 1) {
       return (
@@ -152,7 +200,8 @@ export default class BrandsTab extends Component {
                     onPress={() => {
                       console.log("Click,", item.level);
                       this.props.navigation.push("BrandsTab", {
-                        level: item.level
+                        level: item.level,
+                        type: this.props.type
                       });
                     }}
                   >
@@ -190,43 +239,7 @@ export default class BrandsTab extends Component {
           />
           <View style={styles.brandPrincipal}>
             <View style={styles.contentItems}>
-              <View style={styles.otherItems}>
-                <Icon
-                  style={styles.email}
-                  name="email-outline"
-                  type="MaterialCommunityIcons"
-                />
-                <Icon
-                  style={styles.phone}
-                  name="phone"
-                  type="SimpleLineIcons"
-                />
-                <Icon
-                  style={styles.web}
-                  name="earth"
-                  type="MaterialCommunityIcons"
-                />
-                <Icon
-                  style={styles.facebook}
-                  name="social-facebook"
-                  type="SimpleLineIcons"
-                />
-                <Icon
-                  style={styles.twitter}
-                  name="social-twitter"
-                  type="SimpleLineIcons"
-                />
-                <Icon
-                  style={styles.youtube}
-                  name="social-youtube"
-                  type="SimpleLineIcons"
-                />
-                <Icon
-                  style={styles.instagram}
-                  name="social-instagram"
-                  type="SimpleLineIcons"
-                />
-              </View>
+              {this.showBarIcon()}
               <View style={styles.fav}>
                 <Icon
                   style={styles.heart}
