@@ -145,7 +145,14 @@ export default class App extends React.Component {
     await Font.loadAsync({
       GoodDogPlain: require("./src/assets/fonts/GOODDP__.ttf") /*Fallback Font*/,
       Roboto: require("./src/assets/fonts/Arial.ttf") /*Fallback Font*/,
-      "AbadiMT-CondensedLight": require("./src/assets/fonts/Arial.ttf") /*Fallback Font*/
+      "AbadiMT-CondensedLight": require("./src/assets/fonts/Arial.ttf") /*Fallback Font*/,
+      "Material Icons": require("@expo/vector-icons/fonts/MaterialIcons.ttf"),
+      MaterialIcons: require("@expo/vector-icons/fonts/MaterialIcons.ttf"),
+      MaterialCommunityIcons: require("@expo/vector-icons/fonts/MaterialCommunityIcons.ttf"),
+      "Material Design Icons": require("@expo/vector-icons/fonts/MaterialCommunityIcons.ttf"),
+      Ionicons: require("@expo/vector-icons/fonts/Ionicons.ttf"),
+      SimpleLineIcons: require("@expo/vector-icons/fonts/SimpleLineIcons.ttf"),
+      "simple-line-icons": require("@expo/vector-icons/fonts/SimpleLineIcons.ttf")
     });
     this.setState({ fontLoaded: true });
     //console.warn("Fallback font is being used. Please check App.js file.");
