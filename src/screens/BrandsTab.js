@@ -28,6 +28,7 @@ export default class BrandsTab extends Component {
   }
 
   showStar(){
+    const type = this.props.type;
     if (type == "Store"){
       return (<View style={styles.containerStars}>
         <Icon
