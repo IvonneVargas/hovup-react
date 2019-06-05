@@ -7,6 +7,7 @@ import LayoutStatusBar from "../symbols/LayoutStatusBar";
 import HeaderBack from "../symbols/HeaderBack";
 import Icon from "@builderx/icons";
 
+import GenericButton from "../symbols/GenericButton";
 import {
   View,
   StyleSheet,
@@ -22,7 +23,7 @@ export default class BrandsTab extends Component {
     return (
       <View style={styles.root}>
         <View style={styles.background} />
-        {this.displayContent()}
+         {this.displayContent()}
       </View>
     );
   }
@@ -30,7 +31,7 @@ export default class BrandsTab extends Component {
   showMembership() {
     var typeT = this.props.navigation.getParam("type", this.props.type);
     if (typeT == "Brand") {
-      return(
+      return (
         <View style={styles.memberships}>
           <Text style={styles.whatismembership}>Que es la membresia?</Text>
           <Text style={styles.requestmembership}>
@@ -44,7 +45,7 @@ export default class BrandsTab extends Component {
         </View>
       );
     } else {
-      return(
+      return (
         <View style={styles.containerStars}>
           <Icon
             style={styles.starBig}
@@ -154,6 +155,7 @@ export default class BrandsTab extends Component {
     const type = this.props.type;
     console.log("ddtype: ", type);
     console.log("level: ", level);
+    //main content
     if (level == 1) {
       return (
         <View style={styles.all}>
@@ -527,6 +529,7 @@ export default class BrandsTab extends Component {
         </View>
       );
     } else if (level == 4) {
+      //content final
       return (
         <View style={styles.layerfour}>
           <LayoutStatusBar style={styles.layoutStatusBarFour} />
@@ -546,8 +549,51 @@ export default class BrandsTab extends Component {
               style={styles.imagefour}
               source={require("../assets/ic_60x60.png")}
             />
-            <Text style={styles.texttittlefour}>Text Added</Text>
-            <Text style={styles.subtitlefourlayer}>Text Added</Text>
+            <Text style={styles.texttittlefour}>Titulo</Text>
+            <Text style={styles.lowPrice}>$100.00</Text>
+            <Text style={styles.discountLayer}>-50%</Text>
+            <Text style={styles.textItemPrice}>$200.00</Text>
+            <Text style={styles.descriptionLayer}>
+              Descripción del producto agregado desde la tienda la cual fue que
+              se de hovup.
+            </Text>
+            <View style={styles.containerItems}>
+              <View style={styles.viewItem}>
+                <Image
+                  style={styles.imageItem}
+                  source={require("../assets/Stores/ic_no_instalacion.png")}
+                />
+                <Text style={styles.textItem}>
+                  No requiere{"\n"}instalacion
+                </Text>
+              </View>
+              <View style={styles.viewItem}>
+                <Image
+                  style={styles.imageItem}
+                  source={require("../assets/Stores/ic_no_informacion.png")}
+                />
+                <Text style={styles.textItem}>Más{"\n"}información</Text>
+              </View>
+              <View style={styles.viewItem}>
+                <Image
+                  style={styles.imageItem}
+                  source={require("../assets/Stores/ic_no_video.png")}
+                />
+                <Text style={styles.textItem}>Ver{"\n"}video</Text>
+              </View>
+              <View style={styles.viewItem}>
+                <Image
+                  style={styles.imageItem}
+                  source={require("../assets/Stores/ic_entrega.png")}
+                />
+                <Text style={styles.textItem}>Incluye{"\n"}entrega</Text>
+              </View>
+            </View>
+            <GenericButton
+              style={styles.genericButton}
+              navigation={this.props.navigation}
+              text="Anadir a carrito"
+            />
           </View>
         </View>
       );
@@ -860,7 +906,7 @@ const styles = StyleSheet.create({
     height: 32,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "flex-start"
   },
   tabB: {
     width: 100,
@@ -1030,15 +1076,16 @@ const styles = StyleSheet.create({
     marginTop: 5
   },
   fourlayerbottom: {
-    height: 326,
-    alignSelf: "stretch",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    alignSelf: "stretch",
+    height: 612.11
   },
   imagefour: {
-    width: 150,
-    height: 150
+    width: 200,
+    height: 200
   },
+
   texttittlefour: {
     height: 24,
     backgroundColor: "transparent",
@@ -1047,6 +1094,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 15
   },
+
   subtitlefourlayer: {
     height: 16,
     backgroundColor: "transparent",
@@ -1054,10 +1102,106 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 13
   },
+  lowPrice: {
+    height: 16,
+    backgroundColor: "transparent",
+    color: "rgba(153,153,153,1)",
+    alignSelf: "center",
+    textDecorationLine: "line-through",
+    marginTop: 13
+  },
+  discountLayer: {
+    height: 16,
+    backgroundColor: "rgba(101,188,70,1)",
+    color: "rgba(255,255,255,1)",
+    alignSelf: "center",
+    marginTop: 13
+  },
+  descriptionLayer: {
+    backgroundColor: "transparent",
+    fontSize: 17,
+    color: "rgba(255,255,255,1)",
+
+    marginTop: 15,
+    height: 79.5,
+    width: 305
+  },
   containerStars: {
     width: "60%",
     alignSelf: "flex-start",
     flexDirection: "row",
     justifyContent: "space-between"
+  },
+  containerItems: {
+    alignSelf: "center",
+    flexDirection: "row",
+    height: 86.5,
+    justifyContent: "space-between",
+    width: "80%"
+  },
+
+  textItemPrice: {
+    height: 24,
+    backgroundColor: "transparent",
+    fontSize: 20,
+    color: "rgba(255,255,255,1)",
+    alignSelf: "center",
+    marginTop: 15
+  },
+  rect: { alignSelf: "flex-start", flexDirection: "column" },
+
+  rect2: {
+    alignSelf: "center",
+    flexDirection: "column",
+    flexWrap: "wrap"
+  },
+
+  rect: {
+    alignSelf: "stretch",
+    flexDirection: "column",
+    flex: 1
+  },
+  viewItem: {
+    backgroundColor: "transparent",
+    flexDirection: "column",
+    flex: 1
+  },
+  rect: {
+    width: 99,
+    height: 100,
+    backgroundColor: "rgb(230,230,230)",
+    display: "none"
+  },
+  rect2: {
+    width: 99,
+    height: 100,
+    backgroundColor: "rgb(230,230,230)",
+    display: "none"
+  },
+  rect3: {
+    width: 99,
+    height: 100,
+    backgroundColor: "rgb(230,230,230)",
+    display: "none"
+  },
+  imageItem: {
+    height: 50,
+    width: 50,
+    alignSelf: "center"
+  },
+  textItem: {
+    backgroundColor: "transparent",
+    textAlign: "center",
+    alignSelf: "center",
+    flex: 1,
+    color: "rgba(255,255,255,1)",
+    alignSelf: "center"
+  },
+  genericButton: {
+    width: 263,
+    height: 42,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1,
+    marginTop: 28
   }
 });
