@@ -23,7 +23,7 @@ export default class BrandsTab extends Component {
     return (
       <View style={styles.root}>
         <View style={styles.background} />
-         {this.displayContent()}
+          {this.displayContent()}
       </View>
     );
   }

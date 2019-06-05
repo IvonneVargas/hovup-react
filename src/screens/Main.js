@@ -9,7 +9,6 @@ import Colors from "../assets/colors";
 import Zones from "./ZonesTab";
 
 import Brands from "./BrandsTab";
-import Stores from "./StoresTab";
 
 export default class Main extends Component {
   render() {
