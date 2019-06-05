@@ -35,12 +35,20 @@ export default class Main extends Component {
           </TabContent>
           <TabContent title="Marcas">
             <View style={styles.rect2}>
-              <Brands style={styles.text2} navigation={this.props.navigation} type={'Brand'} />
+              <Brands
+                style={styles.text2}
+                navigation={this.props.navigation}
+                type={"Brand"}
+              />
             </View>
           </TabContent>
           <TabContent title="Tiendas">
             <View style={styles.B5Rgjj}>
-              <Brands style={styles.text2} navigation={this.props.navigation} type={'Store'} />
+              <Brands
+                style={styles.text2}
+                navigation={this.props.navigation}
+                type={"Store"}
+              />
             </View>
           </TabContent>
           <TabContent title="Zonas">

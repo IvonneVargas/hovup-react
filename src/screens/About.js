@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     right: 0
   },
   rect: {
-    top: Platform.OS === "android" ? 79 : 82.95,
+    top: Platform.OS === "android" ? 79 : 83,
     left: Platform.OS === "android" ? 0 : 0,
     position: "absolute",
     backgroundColor: "rgba(25,39,52,1)",

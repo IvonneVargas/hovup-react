@@ -17,7 +17,6 @@ import {
   Text
 } from "react-native";
 
-
 export default class BrandsTab extends Component {
   render() {
     return (
@@ -28,81 +27,125 @@ export default class BrandsTab extends Component {
     );
   }
 
-  showBarIcon(){
+  showMembership() {
     var typeT = this.props.navigation.getParam("type", this.props.type);
-    console.log("2type: ", typeT);
-    if (typeT == "Brand"){
-      return(<View style={styles.otherItems}>
-                <Icon
-                  style={styles.email}
-                  name="email-outline"
-                  type="MaterialCommunityIcons"
-                />
-                <Icon
-                  style={styles.phone}
-                  name="phone"
-                  type="SimpleLineIcons"
-                />
-                <Icon
-                  style={styles.web}
-                  name="earth"
-                  type="MaterialCommunityIcons"
-                />
-                <Icon
-                  style={styles.facebook}
-                  name="social-facebook"
-                  type="SimpleLineIcons"
-                />
-                <Icon
-                  style={styles.twitter}
-                  name="social-twitter"
-                  type="SimpleLineIcons"
-                />
-                <Icon
-                  style={styles.youtube}
-                  name="social-youtube"
-                  type="SimpleLineIcons"
-                />
-                <Icon
-                  style={styles.instagram}
-                  name="social-instagram"
-                  type="SimpleLineIcons"
-                />
-              </View>
-              );
+    if (typeT == "Brand") {
+      return(
+        <View style={styles.memberships}>
+          <Text style={styles.whatismembership}>Que es la membresia?</Text>
+          <Text style={styles.requestmembership}>
+            ¡Solicita tu membresia para recibir beneficios!
+          </Text>
+          <Icon
+            style={styles.iconmembership}
+            name="bookmark-remove"
+            type="MaterialCommunityIcons"
+          />
+        </View>
+      );
+    } else {
+      return(
+        <View style={styles.containerStars}>
+          <Icon
+            style={styles.starBig}
+            name="star"
+            type="MaterialCommunityIcons"
+          />
+          <Icon
+            style={styles.starBig}
+            name="star"
+            type="MaterialCommunityIcons"
+          />
+          <Icon
+            style={styles.starBig}
+            name="star"
+            type="MaterialCommunityIcons"
+          />
+          <Icon
+            style={styles.starBig}
+            name="star"
+            type="MaterialCommunityIcons"
+          />
+          <Icon
+            style={styles.starBig}
+            name="star"
+            type="MaterialCommunityIcons"
+          />
+        </View>
+      );
     }
   }
 
-  showStar(){
+  showBarIcon() {
+    var typeT = this.props.navigation.getParam("type", this.props.type);
+    console.log("2type: ", typeT);
+    if (typeT == "Brand") {
+      return (
+        <View style={styles.otherItems}>
+          <Icon
+            style={styles.email}
+            name="email-outline"
+            type="MaterialCommunityIcons"
+          />
+          <Icon style={styles.phone} name="phone" type="SimpleLineIcons" />
+          <Icon style={styles.web} name="earth" type="MaterialCommunityIcons" />
+          <Icon
+            style={styles.facebook}
+            name="social-facebook"
+            type="SimpleLineIcons"
+          />
+          <Icon
+            style={styles.twitter}
+            name="social-twitter"
+            type="SimpleLineIcons"
+          />
+          <Icon
+            style={styles.youtube}
+            name="social-youtube"
+            type="SimpleLineIcons"
+          />
+          <Icon
+            style={styles.instagram}
+            name="social-instagram"
+            type="SimpleLineIcons"
+          />
+        </View>
+      );
+    }
+  }
+
+  showStar() {
     console.log("1type: ", this.props.type);
-    if (this.props.type == "Store"){
-      return (<View style={styles.containerStars}>
-        <Icon
-          style={styles.starSmall}
-          name="star"
-          type="MaterialCommunityIcons"
-        />
-        <Icon
-          style={styles.starSmall}
-          name="star"
-          type="MaterialCommunityIcons"
-        />
-        <Icon
-          style={styles.starSmall}
-          name="star"
-          type="MaterialCommunityIcons"
-        />
-        <Icon
-          style={styles.starSmall}
-          name="star"
-          type="MaterialCommunityIcons"
-        />
-        <Icon
-          style={styles.starSmall}
-          name="star"
-          type="MaterialCommunityIcons"
-        />
-      </View>);
+    if (this.props.type == "Store") {
+      return (
+        <View style={styles.containerStars}>
+          <Icon
+            style={styles.starSmall}
+            name="star"
+            type="MaterialCommunityIcons"
+          />
+          <Icon
+            style={styles.starSmall}
+            name="star"
+            type="MaterialCommunityIcons"
+          />
+          <Icon
+            style={styles.starSmall}
+            name="star"
+            type="MaterialCommunityIcons"
+          />
+          <Icon
+            style={styles.starSmall}
+            name="star"
+            type="MaterialCommunityIcons"
+          />
+          <Icon
+            style={styles.starSmall}
+            name="star"
+            type="MaterialCommunityIcons"
+          />
+        </View>
+      );
     }
   }
 
@@ -252,17 +295,7 @@ export default class BrandsTab extends Component {
               style={styles.imageBig}
               source={require("../assets/ic_200x200.png")}
             />
-            <View style={styles.memberships}>
-              <Text style={styles.whatismembership}>Que es la membresia?</Text>
-              <Text style={styles.requestmembership}>
-                ¡Solicita tu membresia para recibir beneficios!
-              </Text>
-              <Icon
-                style={styles.iconmembership}
-                name="bookmark-remove"
-                type="MaterialCommunityIcons"
-              />
-            </View>
+            {this.showMembership()}
           </View>
           <View style={styles.listContentBrand}>
             <FlatList
@@ -717,6 +750,14 @@ const styles = StyleSheet.create({
     fontSize: 25,
     alignSelf: "center"
   },
+  starBig: {
+    width: 30,
+    height: 30,
+    backgroundColor: "transparent",
+    color: "rgba(255,178,51,1)",
+    fontSize: 35,
+    alignSelf: "center"
+  },
   youtube: {
     width: 25,
     height: 25,
@@ -1018,5 +1059,5 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
     flexDirection: "row",
     justifyContent: "space-between"
-  },
+  }
 });
