@@ -28,6 +28,79 @@ export default class BrandsTab extends Component {
     );
   }
 
+  showProduct() {
+    var typeT = this.props.navigation.getParam("type", this.props.type);
+    if (typeT == "Brand") {
+      return(
+       <View style={styles.fourlayerbottomBrand}>
+          <Image
+            style={styles.imagefour}
+            source={require("../assets/ic_60x60.png")}
+          />
+          <Text style={styles.texttittlefour}>Titulo</Text>
+          <Text style={styles.descriptionLayer}>
+            Descripción del producto agregado desde la tienda la cual fue que
+            se de hovup.
+          </Text>
+      </View>
+      );
+    } else {
+      return(
+        <View style={styles.fourlayerbottom}>
+          <Image
+            style={styles.imagefour}
+            source={require("../assets/ic_60x60.png")}
+          />
+          <Text style={styles.texttittlefour}>Titulo</Text>
+          <Text style={styles.lowPrice}>$100.00</Text>
+          <Text style={styles.discountLayer}>-50%</Text>
+          <Text style={styles.textItemPrice}>$200.00</Text>
+          <Text style={styles.descriptionLayer}>
+            Descripción del producto agregado desde la tienda la cual fue que
+            se de hovup.
+          </Text>
+          <View style={styles.containerItems}>
+            <View style={styles.viewItem}>
+              <Image
+                style={styles.imageItem}
+                source={require("../assets/Stores/ic_no_instalacion.png")}
+              />
+              <Text style={styles.textItem}>
+                No requiere{"\n"}instalacion
+              </Text>
+            </View>
+            <View style={styles.viewItem}>
+              <Image
+                style={styles.imageItem}
+                source={require("../assets/Stores/ic_no_informacion.png")}
+              />
+              <Text style={styles.textItem}>Más{"\n"}información</Text>
+            </View>
+            <View style={styles.viewItem}>
+              <Image
+                style={styles.imageItem}
+                source={require("../assets/Stores/ic_no_video.png")}
+              />
+              <Text style={styles.textItem}>Ver{"\n"}video</Text>
+            </View>
+            <View style={styles.viewItem}>
+              <Image
+                style={styles.imageItem}
+                source={require("../assets/Stores/ic_entrega.png")}
+              />
+              <Text style={styles.textItem}>Incluye{"\n"}entrega</Text>
+            </View>
+          </View>
+          <GenericButton
+            style={styles.genericButton}
+            navigation={this.props.navigation}
+            text="Anadir a carrito"
+          />
+        </View>
+      );
+    }
+  }
+
   showMembership() {
     var typeT = this.props.navigation.getParam("type", this.props.type);
     if (typeT == "Brand") {
@@ -79,7 +152,6 @@ export default class BrandsTab extends Component {
 
   showBarIcon() {
     var typeT = this.props.navigation.getParam("type", this.props.type);
-    console.log("2type: ", typeT);
     if (typeT == "Brand") {
       return (
         <View style={styles.otherItems}>
@@ -116,7 +188,6 @@ export default class BrandsTab extends Component {
   }
 
   showStar() {
-    console.log("1type: ", this.props.type);
     if (this.props.type == "Store") {
       return (
         <View style={styles.containerStars}>
@@ -152,9 +223,7 @@ export default class BrandsTab extends Component {
 
   displayContent() {
     const level = this.props.navigation.getParam("level", "1"); //1 = List brands, 2 = Select brand(Items, facebook, phone, web...), 3 = Content brand, 4 = Final content.
-    const type = this.props.type;
-    console.log("ddtype: ", type);
-    console.log("level: ", level);
+    var typeT = this.props.navigation.getParam("type", this.props.type);
     //main content
     if (level == 1) {
       return (
@@ -243,7 +312,7 @@ export default class BrandsTab extends Component {
                   <TouchableOpacity
                     style={styles.buttonsStyle}
                     onPress={() => {
-                      console.log("Click,", item.level);
+                      console.log("1Click,", item.level);
                       this.props.navigation.push("BrandsTab", {
                         level: item.level,
                         type: this.props.type
@@ -370,9 +439,10 @@ export default class BrandsTab extends Component {
                     <TouchableOpacity
                       style={styles.buttonsStyle}
                       onPress={() => {
-                        console.log("Click,", item.level);
+                        console.log("2Click,", item.level);
                         this.props.navigation.push("BrandsTab", {
-                          level: item.level
+                          level: item.level,
+                          type: typeT
                         });
                       }}
                     >
@@ -401,6 +471,7 @@ export default class BrandsTab extends Component {
         </View>
       );
     } else if (level == 3) {
+      var typeT = this.props.navigation.getParam("type", this.props.type);
       return (
         <View style={styles.rectTree}>
           <LayoutStatusBar style={styles.layoutStatusBarT} />
@@ -498,9 +569,10 @@ export default class BrandsTab extends Component {
                     <TouchableOpacity
                       style={styles.buttonsStyle}
                       onPress={() => {
-                        console.log("Click,", item.level);
+                        console.log("3Click,", item.level);
                         this.props.navigation.push("BrandsTab", {
-                          level: item.level
+                          level: item.level,
+                          type: typeT
                         });
                       }}
                     >
@@ -544,57 +616,7 @@ export default class BrandsTab extends Component {
               type="MaterialCommunityIcons"
             />
           </View>
-          <View style={styles.fourlayerbottom}>
-            <Image
-              style={styles.imagefour}
-              source={require("../assets/ic_60x60.png")}
-            />
-            <Text style={styles.texttittlefour}>Titulo</Text>
-            <Text style={styles.lowPrice}>$100.00</Text>
-            <Text style={styles.discountLayer}>-50%</Text>
-            <Text style={styles.textItemPrice}>$200.00</Text>
-            <Text style={styles.descriptionLayer}>
-              Descripción del producto agregado desde la tienda la cual fue que
-              se de hovup.
-            </Text>
-            <View style={styles.containerItems}>
-              <View style={styles.viewItem}>
-                <Image
-                  style={styles.imageItem}
-                  source={require("../assets/Stores/ic_no_instalacion.png")}
-                />
-                <Text style={styles.textItem}>
-                  No requiere{"\n"}instalacion
-                </Text>
-              </View>
-              <View style={styles.viewItem}>
-                <Image
-                  style={styles.imageItem}
-                  source={require("../assets/Stores/ic_no_informacion.png")}
-                />
-                <Text style={styles.textItem}>Más{"\n"}información</Text>
-              </View>
-              <View style={styles.viewItem}>
-                <Image
-                  style={styles.imageItem}
-                  source={require("../assets/Stores/ic_no_video.png")}
-                />
-                <Text style={styles.textItem}>Ver{"\n"}video</Text>
-              </View>
-              <View style={styles.viewItem}>
-                <Image
-                  style={styles.imageItem}
-                  source={require("../assets/Stores/ic_entrega.png")}
-                />
-                <Text style={styles.textItem}>Incluye{"\n"}entrega</Text>
-              </View>
-            </View>
-            <GenericButton
-              style={styles.genericButton}
-              navigation={this.props.navigation}
-              text="Anadir a carrito"
-            />
-          </View>
+          {this.showProduct()}
         </View>
       );
     }
@@ -1080,6 +1102,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "stretch",
     height: 612.11
+  },
+  fourlayerbottomBrand: {
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "stretch",
+    height: 330
   },
   imagefour: {
     width: 200,
