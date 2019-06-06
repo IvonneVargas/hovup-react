@@ -23,7 +23,7 @@ export default class BrandsTab extends Component {
     return (
       <View style={styles.root}>
         <View style={styles.background} />
-          {this.displayContent()}
+        {this.displayContent()}
       </View>
     );
   }
@@ -31,21 +31,21 @@ export default class BrandsTab extends Component {
   showProduct() {
     var typeT = this.props.navigation.getParam("type", this.props.type);
     if (typeT == "Brand") {
-      return(
-       <View style={styles.fourlayerbottomBrand}>
+      return (
+        <View style={styles.fourlayerbottomBrand}>
           <Image
             style={styles.imagefour}
             source={require("../assets/ic_60x60.png")}
           />
           <Text style={styles.texttittlefour}>Titulo</Text>
           <Text style={styles.descriptionLayer}>
-            Descripción del producto agregado desde la tienda la cual fue que
-            se de hovup.
+            Descripción del producto agregado desde la tienda la cual fue que se
+            de hovup.
           </Text>
-      </View>
+        </View>
       );
     } else {
-      return(
+      return (
         <View style={styles.fourlayerbottom}>
           <Image
             style={styles.imagefour}
@@ -56,8 +56,8 @@ export default class BrandsTab extends Component {
           <Text style={styles.discountLayer}>-50%</Text>
           <Text style={styles.textItemPrice}>$200.00</Text>
           <Text style={styles.descriptionLayer}>
-            Descripción del producto agregado desde la tienda la cual fue que
-            se de hovup.
+            Descripción del producto agregado desde la tienda la cual fue que se
+            de hovup.
           </Text>
           <View style={styles.containerItems}>
             <View style={styles.viewItem}>
@@ -65,9 +65,7 @@ export default class BrandsTab extends Component {
                 style={styles.imageItem}
                 source={require("../assets/Stores/ic_no_instalacion.png")}
               />
-              <Text style={styles.textItem}>
-                No requiere{"\n"}instalacion
-              </Text>
+              <Text style={styles.textItem}>No requiere{"\n"}instalacion</Text>
             </View>
             <View style={styles.viewItem}>
               <Image
