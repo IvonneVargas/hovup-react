@@ -226,13 +226,13 @@ export default class BrandsTab extends Component {
     if (level == 1) {
       return (
         <View style={styles.all}>
-          <View style={styles.rect2} navigation={this.props.navigation}>
-            <View style={styles.rect}>
+          <View style={styles.rectTabs} navigation={this.props.navigation}>
+            <View style={styles.rectTabsContainer}>
               <TabB style={styles.tabB} text="Publico" />
               <TabB style={styles.tabB3} text="VIP" />
               <TabB style={styles.tabB2} text="Privado" />
             </View>
-            <View style={styles.rect3}>
+            <View style={styles.rectCatDown}>
               <CatDown
                 style={styles.catDown}
                 navigation={this.props.navigation}
@@ -1195,20 +1195,17 @@ const styles = StyleSheet.create({
   rect: {
     width: 99,
     height: 100,
-    backgroundColor: "rgb(230,230,230)",
-    display: "none"
+    backgroundColor: "rgb(230,230,230)"
   },
   rect2: {
     width: 99,
     height: 100,
-    backgroundColor: "rgb(230,230,230)",
-    display: "none"
+    backgroundColor: "rgb(230,230,230)"
   },
   rect3: {
     width: 99,
     height: 100,
-    backgroundColor: "rgb(230,230,230)",
-    display: "none"
+    backgroundColor: "rgb(230,230,230)"
   },
   imageItem: {
     height: 50,
@@ -1229,5 +1226,30 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(101,188,70,1)",
     opacity: 1,
     marginTop: 28
+  },
+  rectTabs: {
+    top: 2,
+    left: 0,
+    width: 376,
+    height: 80,
+    position: "absolute",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1
+  },
+  rectTabsContainer: {
+    width: 375,
+    height: 32,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  rectCatDown: {
+    width: 375,
+    height: 32,
+    alignItems: "flex-start",
+    paddingLeft: 35
   }
 });
