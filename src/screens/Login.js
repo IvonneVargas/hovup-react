@@ -13,9 +13,9 @@ import {
   StyleSheet,
   ScrollView,
   StatusBar,
-  TextInput,
   Platform,
-  Text
+  Text,
+  TextInput
 } from "react-native";
 
 export default class Login extends Component {
@@ -25,7 +25,7 @@ export default class Login extends Component {
         <StatusBar barStyle="light-content" style={styles.statusBar} />
         <ScrollView style={styles.scrollArea} />
         <LogoR style={styles.logoR} />
-        {this.displayContent()}
+          {this.displayContent()}
         <Icon
           name="ios-arrow-back"
           style={styles.icon}
@@ -45,7 +45,7 @@ export default class Login extends Component {
       return (
         <View style={styles.rect3} navigation={this.props.navigation}>
           <TextInput
-            style={styles.textInput}
+            style={styles.textInput2}
             placeholder="Correo electronico"
             onChangeText={this.handleEmail}
             keyboardType="email-address"
@@ -99,11 +99,50 @@ export default class Login extends Component {
             text="Enviar codigo de seguridad"
             root={() => {
               this.props.navigation.push("Login", {
-                type: "forgot"
+                type: "code"
               });
             }}
           />
         </View>
+      );
+    } else if (type == "code") {
+      return(
+        <View style={styles.rect4} navigation={this.props.navigation}>
+        <Text style={styles.text}>
+          Para continuar por favor ingrese el código de seguridad que te hemos
+          enviado a tu correo electronico registrado: ejemplo@yopmail.com, Por
+          favor
+        </Text>
+        <TextInput
+          style={styles.textInput2}
+          placeholder="Codigo de seguridad*"
+          returnKeyType="go"
+          secureTextEntry={true}
+          underlineColorAndroid="rgba(255,255,255,1)"
+        />
+        <TextInput
+          style={styles.textInput2}
+          placeholder="Nueva contraseña*"
+          returnKeyType="go"
+          secureTextEntry={true}
+          underlineColorAndroid="rgba(255,255,255,1)"
+        />
+        <TextInput
+          style={styles.textInput2}
+          placeholder="Confirmar nueva contraseña*"
+          returnKeyType="go"
+          secureTextEntry={true}
+          underlineColorAndroid="rgba(255,255,255,1)"
+        />
+        <GenericButton
+          style={styles.genericButton}
+          navigation={this.props.navigation}
+          text="Continuar"
+          root={() => {
+            this.props.navigation.push("Launcher");
+          }}
+        />
+      </View>
       );
     }
   }
@@ -159,7 +198,16 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     right: 0
   },
+  rect4: {
+    height: 272.5,
 
+    top: 280,
+    left: 0,
+    position: "absolute",
+    alignItems: "center",
+    justifyContent: "space-between",
+    right: 0
+  },
   genericButton: {
     width: 263,
     height: 42,
@@ -174,12 +222,15 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   textInput: {
-    width: 262,
-    height: 42,
+    width: 100,
+    height: 100,
     backgroundColor: "#E6E6E6",
     borderRadius: 7,
     textAlign: "center",
-    color: "rgba(0,0,0,1)"
+    color: "rgba(0,0,0,1)",
+    top: 135,
+    left: 61,
+    position: "absolute"
   },
   genericButtonTransparent: {
     width: 265,
@@ -187,10 +238,9 @@ const styles = StyleSheet.create({
   },
   text: {
     backgroundColor: "transparent",
-    fontSize: 14,
-    width: 262,
-    height: 70,
     fontSize: 13,
+    width: 316,
+    height: 72.46,
     textAlign: "center",
     color: "rgba(243,243,243,1)"
   }
