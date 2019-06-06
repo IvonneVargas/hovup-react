@@ -5,16 +5,17 @@ import { Center } from "@builderx/utils";
 
 import Icon from "@builderx/icons";
 import { Constants } from "expo";
-import ButtonTransparent from "../symbols/ButtonTransparent";
-import GenericButton from "../symbols/GenericButton";
 
+import GenericButtonTransparent from "../symbols/GenericButtonTransparent";
+import GenericButton from "../symbols/GenericButton";
 import {
   View,
   StyleSheet,
   ScrollView,
   StatusBar,
   TextInput,
-  Platform
+  Platform,
+  Text
 } from "react-native";
 
 export default class Login extends Component {
@@ -24,6 +25,24 @@ export default class Login extends Component {
         <StatusBar barStyle="light-content" style={styles.statusBar} />
         <ScrollView style={styles.scrollArea} />
         <LogoR style={styles.logoR} />
+        {this.displayContent()}
+        <Icon
+          name="ios-arrow-back"
+          style={styles.icon}
+          type="Ionicons"
+          onPress={() => {
+            this.props.navigation.pop();
+          }}
+        />
+        <View style={styles.rect2} />
+      </View>
+    );
+  }
+  displayContent() {
+    const type = this.props.navigation.getParam("type", "login");
+    console.log("types: ", type);
+    if (type == "login") {
+      return (
         <View style={styles.rect3} navigation={this.props.navigation}>
           <TextInput
             style={styles.textInput}
@@ -49,23 +68,44 @@ export default class Login extends Component {
               this.props.navigation.push("Main");
             }}
           />
-          <ButtonTransparent
-            style={styles.buttonTransparent}
+          <GenericButtonTransparent
+            style={styles.genericButtonTransparent}
             navigation={this.props.navigation}
-            text="Olvidaste tu contrasena?" /*locked*/
+            root={() => {
+              this.props.navigation.push("Login", {
+                type: "forgot"
+              });
+            }}
+            text="Olvidaste tu contrasena?"
           />
         </View>
-        <Icon
-          name="ios-arrow-back"
-          style={styles.icon}
-          type="Ionicons"
-          onPress={() => {
-            this.props.navigation.pop();
-          }}
-        />
-        <View style={styles.rect2} />
-      </View>
-    );
+      );
+    } else if (type == "forgot") {
+      return (
+        <View style={styles.rect3} navigation={this.props.navigation}>
+          <Text style={styles.text}>
+            Si olvidaste tu contraseña, ingresa el correo electrónico que
+            registraste ent u cuenta y enviaremos un código de seguridad para
+            asignarte una nueva contrasena.
+          </Text>
+          <TextInput
+            style={styles.textInput2}
+            placeholder="Correo electronico*"
+            underlineColorAndroid="transparent"
+          />
+          <GenericButton
+            style={styles.genericButton}
+            navigation={this.props.navigation}
+            text="Enviar codigo de seguridad"
+            root={() => {
+              this.props.navigation.push("Login", {
+                type: "forgot"
+              });
+            }}
+          />
+        </View>
+      );
+    }
   }
 }
 const styles = StyleSheet.create({
@@ -119,12 +159,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     right: 0
   },
-  buttonTransparent: {
-    width: 262,
-    height: 42
-  },
+
   genericButton: {
-    width: 265,
+    width: 263,
     height: 42,
     backgroundColor: "rgba(101,188,70,1)",
     opacity: 1
@@ -143,5 +180,18 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     textAlign: "center",
     color: "rgba(0,0,0,1)"
+  },
+  genericButtonTransparent: {
+    width: 265,
+    height: 42
+  },
+  text: {
+    backgroundColor: "transparent",
+    fontSize: 14,
+    width: 262,
+    height: 70,
+    fontSize: 13,
+    textAlign: "center",
+    color: "rgba(243,243,243,1)"
   }
 });
