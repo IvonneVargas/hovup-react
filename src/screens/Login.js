@@ -25,7 +25,7 @@ export default class Login extends Component {
         <StatusBar barStyle="light-content" style={styles.statusBar} />
         <ScrollView style={styles.scrollArea} />
         <LogoR style={styles.logoR} />
-          {this.displayContent()}
+        {this.displayContent()}
         <Icon
           name="ios-arrow-back"
           style={styles.icon}
@@ -106,43 +106,43 @@ export default class Login extends Component {
         </View>
       );
     } else if (type == "code") {
-      return(
+      return (
         <View style={styles.rect4} navigation={this.props.navigation}>
-        <Text style={styles.text}>
-          Para continuar por favor ingrese el código de seguridad que te hemos
-          enviado a tu correo electronico registrado: ejemplo@yopmail.com, Por
-          favor
-        </Text>
-        <TextInput
-          style={styles.textInput2}
-          placeholder="Codigo de seguridad*"
-          returnKeyType="go"
-          secureTextEntry={true}
-          underlineColorAndroid="rgba(255,255,255,1)"
-        />
-        <TextInput
-          style={styles.textInput2}
-          placeholder="Nueva contraseña*"
-          returnKeyType="go"
-          secureTextEntry={true}
-          underlineColorAndroid="rgba(255,255,255,1)"
-        />
-        <TextInput
-          style={styles.textInput2}
-          placeholder="Confirmar nueva contraseña*"
-          returnKeyType="go"
-          secureTextEntry={true}
-          underlineColorAndroid="rgba(255,255,255,1)"
-        />
-        <GenericButton
-          style={styles.genericButton}
-          navigation={this.props.navigation}
-          text="Continuar"
-          root={() => {
-            this.props.navigation.push("Launcher");
-          }}
-        />
-      </View>
+          <Text style={styles.text}>
+            Para continuar por favor ingrese el código de seguridad que te hemos
+            enviado a tu correo electronico registrado: ejemplo@yopmail.com, Por
+            favor
+          </Text>
+          <TextInput
+            style={styles.textInput2}
+            placeholder="Codigo de seguridad*"
+            returnKeyType="go"
+            secureTextEntry={true}
+            underlineColorAndroid="rgba(255,255,255,1)"
+          />
+          <TextInput
+            style={styles.textInput2}
+            placeholder="Nueva contrase\xF1a*"
+            returnKeyType="go"
+            secureTextEntry={true}
+            underlineColorAndroid="rgba(255,255,255,1)"
+          />
+          <TextInput
+            style={styles.textInput2}
+            placeholder="Confirmar nueva contrase\xF1a*"
+            returnKeyType="go"
+            secureTextEntry={true}
+            underlineColorAndroid="rgba(255,255,255,1)"
+          />
+          <GenericButton
+            style={styles.genericButton}
+            navigation={this.props.navigation}
+            text="Continuar"
+            root={() => {
+              this.props.navigation.push("Launcher");
+            }}
+          />
+        </View>
       );
     }
   }
