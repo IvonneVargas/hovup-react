@@ -12,7 +12,12 @@
         "/src/screens/OptionsProfile.js",
         "/src/screens/CountryStateCityLists.js",
         "/src/screens/About.js",
-        "/src/screens/Privacy.js"
+        "/src/screens/Privacy.js",
+        "/src/screens/BottomViewBar.js",
+        "/src/screens/Favorites.js",
+        "/src/screens/Wallet.js",
+        "/src/screens/Notifications.js",
+        "/src/screens/Cart.js"
     ],
     "symbols": [
         "/src/symbols/GenericButton.js",
@@ -30,7 +35,10 @@
         "/src/symbols/HeaderIcon.js",
         "/src/symbols/LogoSigle.js",
         "/src/symbols/HeaderSingleLogo.js",
-        "/src/symbols/HeaderBack.js"
+        "/src/symbols/HeaderBack.js",
+        "/src/symbols/GenericButtonTransparent.js",
+        "/src/symbols/BottomBarButton.js",
+        "/src/symbols/BottomBar.js"
     ],
     "assets": [],
     "defaultArtboardDirectory": "/src/screens",
@@ -38,7 +46,7 @@
     "defaultAssetDirectory": "/src/assets",
     "deviceName": "iPhone X",
     "deviceOrientation": "portrait",
-    "basePath": "/Users/ivonne/hovup-react",
+    "basePath": "/Users/ivonne/native/hovup-react",
     "tempPath": "/var/folders/3q/5_vntp2d5w773kcscg179xbc0000gn/T/BuilderAKjHBlN",
     "useStylesheet": true,
     "rulers": {
@@ -47,7 +55,7 @@
                 "deviceName": "iPhone X",
                 "position": {
                     "x": -1572.5,
-                    "y": -19.996904024767794
+                    "y": -27
                 },
                 "horizontal": true
             },
@@ -343,7 +351,7 @@
                 "deviceName": "iPhone X",
                 "position": {
                     "x": -3232.5,
-                    "y": 289.83281733746134
+                    "y": 317.09293352441847
                 },
                 "horizontal": true
             },
@@ -444,8 +452,8 @@
             {
                 "deviceName": "iPhone X",
                 "position": {
-                    "x": 375.71362229102215,
-                    "y": 14.359133126934992
+                    "x": 370.27900640514963,
+                    "y": -100
                 },
                 "horizontal": false
             },
@@ -556,6 +564,64 @@
                 "position": {
                     "x": 15.309523809523853,
                     "y": 34.11904761904765
+                },
+                "horizontal": false
+            }
+        ],
+        "/src/screens/Privacy.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -304.5,
+                    "y": 29
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 0.5,
+                    "y": 85
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 375.5,
+                    "y": 112
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 74.5,
+                    "y": -100
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 223.5,
+                    "y": -100
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 145.5,
+                    "y": -100
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 299.5,
+                    "y": -100
                 },
                 "horizontal": false
             }
