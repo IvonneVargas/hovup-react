@@ -18,6 +18,11 @@ import CountryStateCityLists from "./src/screens/CountryStateCityLists";
 import About from "./src/screens/About";
 import Privacy from "./src/screens/Privacy";
 
+import BottomViewBar from "./src/screens/BottomViewBar";
+import Favorites from "./src/screens/Favorites";
+import Wallet from "./src/screens/Wallet";
+import Notifications from "./src/screens/Notifications";
+import Cart from "./src/screens/Cart";
 import {
   StackNavigator,
   DrawerNavigator,
@@ -63,6 +68,21 @@ const DrawerNavigation = DrawerNavigator({
   },
   Privacy: {
     screen: Privacy
+  },
+  BottomViewBar: {
+    screen: BottomViewBar
+  },
+  Favorites: {
+    screen: Favorites
+  },
+  Wallet: {
+    screen: Wallet
+  },
+  Notifications: {
+    screen: Notifications
+  },
+  Cart: {
+    screen: Cart
   }
 });
 const StackNavigation = StackNavigator(
@@ -108,6 +128,21 @@ const StackNavigation = StackNavigator(
     },
     Privacy: {
       screen: Privacy
+    },
+    BottomViewBar: {
+      screen: BottomViewBar
+    },
+    Favorites: {
+      screen: Favorites
+    },
+    Wallet: {
+      screen: Wallet
+    },
+    Notifications: {
+      screen: Notifications
+    },
+    Cart: {
+      screen: Cart
     }
   },
   {
