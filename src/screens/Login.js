@@ -65,7 +65,7 @@ export default class Login extends Component {
             navigation={this.props.navigation}
             text="Iniciar sesion"
             root={() => {
-              this.props.navigation.push("Main");
+              this.props.navigation.push("BottomViewBar");
             }}
           />
           <GenericButtonTransparent
@@ -122,14 +122,14 @@ export default class Login extends Component {
           />
           <TextInput
             style={styles.textInput2}
-            placeholder="Nueva contrase\xF1a*"
+            placeholder="Nueva contrasena*"
             returnKeyType="go"
             secureTextEntry={true}
             underlineColorAndroid="rgba(255,255,255,1)"
           />
           <TextInput
             style={styles.textInput2}
-            placeholder="Confirmar nueva contrase\xF1a*"
+            placeholder="Confirmar nueva contrasena*"
             returnKeyType="go"
             secureTextEntry={true}
             underlineColorAndroid="rgba(255,255,255,1)"
