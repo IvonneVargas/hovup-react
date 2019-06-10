@@ -38,7 +38,8 @@
         "/src/symbols/HeaderBack.js",
         "/src/symbols/GenericButtonTransparent.js",
         "/src/symbols/BottomBarButton.js",
-        "/src/symbols/BottomBar.js"
+        "/src/symbols/BottomBar.js",
+        "/src/symbols/Footer.js"
     ],
     "assets": [],
     "defaultArtboardDirectory": "/src/screens",
@@ -351,7 +352,7 @@
                 "deviceName": "iPhone X",
                 "position": {
                     "x": -3232.5,
-                    "y": 317.09293352441847
+                    "y": 309.1671826625387
                 },
                 "horizontal": true
             },
