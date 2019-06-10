@@ -9,9 +9,7 @@ import Notifications from "./Notifications";
 import Cart from "./Cart";
 import Icon from "@builderx/icons";
 
-import BottomBarButton from "../symbols/BottomBarButton";
 import Footer from "../symbols/Footer";
-import BottomBar from "../symbols/BottomBar";
 
 export default class BottomViewBar extends Component {
   constructor() {
@@ -25,62 +23,7 @@ export default class BottomViewBar extends Component {
     return (
       <View style={styles.root}>
         <View style={styles.rect2}>
-          {this.displayContent()}
-          <View style={styles.rect3}>
-            <BottomBarButton
-              style={styles.bottomBarButton}
-              root={() => {
-                this.setState({
-                  display: "main"
-                });
-              }}
-            />
-            <BottomBarButton
-              style={styles.bottomBarButton2}
-              root={() => {
-                this.setState({
-                  display: "fav"
-                });
-              }}
-              homeType="MaterialCommunityIcons"
-              homeName="heart-outline"
-              homeText="Favoritos"
-            />
-            <BottomBarButton
-              style={styles.bottomBarButton3}
-              homeType="MaterialCommunityIcons"
-              homeName="wallet"
-              homeText="Wallet"
-              root={() => {
-                this.setState({
-                  display: "wallet"
-                });
-              }}
-            />
-            <BottomBarButton
-              style={styles.bottomBarButton4}
-              homeType="MaterialCommunityIcons"
-              homeName="bell-outline"
-              homeText="Notificaciones"
-              root={() => {
-                this.setState({
-                  display: "notify"
-                });
-              }}
-            />
-            <BottomBarButton
-              style={styles.bottomBarButton5}
-              homeType="MaterialCommunityIcons"
-              homeName="cart-outline"
-              homeText="Carrito"
-              active="Show"
-              root={() => {
-                this.setState({
-                  display: "cart"
-                });
-              }}
-            />
-          </View>
+          <View style={styles.display}>{this.displayContent()}</View>
           <Footer
             style={styles.footer}
             active={this.state.display}
@@ -109,10 +52,6 @@ export default class BottomViewBar extends Component {
                 display: "cart"
               });
             }}
-          />
-          <BottomBar
-            style={styles.bottomBar}
-            navigation={this.props.navigation}
           />
         </View>
       </View>
@@ -157,25 +96,24 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 0,
     bottom: 0,
-    backgroundColor: "#E6E6E6"
+    backgroundColor: "#E6E6E6",
+    flexDirection: "column"
   },
-  bottomBar: {
-    height: 77,
-    alignSelf: "stretch",
-    display: "none"
-  },
+
   rect: {
     height: 725,
     backgroundColor: "rgb(230,230,230)",
     alignSelf: "stretch"
   },
   icon: {
-    top: 226.71,
-    left: 75.14,
+    top: 86,
+    left: 116,
     position: "absolute",
     backgroundColor: "transparent",
     color: "grey",
-    fontSize: 40
+    fontSize: 40,
+    width: 41,
+    height: 39
   },
   text: {
     top: 239.52,
@@ -184,37 +122,13 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     color: "rgba(251,251,251,1)"
   },
-  rect3: {
-    height: 93,
-    backgroundColor: "rgba(29,41,53,1)",
-    opacity: 1,
-    flexDirection: "row",
-    alignSelf: "stretch",
-    alignItems: "center",
-    display: "none"
-  },
-  bottomBarButton: {
-    height: 67,
-    flex: 0.2
-  },
-  bottomBarButton2: {
-    height: 67,
-    flex: 0.2
-  },
-  bottomBarButton3: {
-    height: 67,
-    flex: 0.2
-  },
-  bottomBarButton4: {
-    height: 67,
-    flex: 0.2
-  },
-  bottomBarButton5: {
-    height: 67,
-    flex: 0.2
-  },
+
   footer: {
-    height: 90,
-    alignSelf: "stretch"
+    alignSelf: "stretch",
+    height: "13%"
+  },
+  display: {
+    alignSelf: "stretch",
+    height: "87%"
   }
 });
