@@ -17,14 +17,21 @@ export default class BottomBarButton extends Component {
     this.props.root
     ) : (
     () => {
-      this.props.navigation.push("Launcher");
+    this.props.navigation.push("Launcher");
     }
     )
     }*/
         onPress={this.props.root ? this.props.root : null}
       >
         <Icon
-          style={styles.home}
+          style={[
+            styles.home,
+            {
+              color: this.props.active
+                ? "rgba(243,6,6,1)"
+                : "rgba(255,255,255,1)"
+            }
+          ]}
           name={this.props.homeName ? this.props.homeName : "home-outline"}
           /*onPress={() => {
       this.props.navigation.push("Launcher");
@@ -45,7 +52,7 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     backgroundColor: "transparent",
-    color: "rgba(255,255,255,1)",
+
     fontSize: 33
   },
   homeText: {
