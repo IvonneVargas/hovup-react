@@ -10,6 +10,7 @@ import Cart from "./Cart";
 import Icon from "@builderx/icons";
 
 import BottomBarButton from "../symbols/BottomBarButton";
+import Footer from "../symbols/Footer";
 import BottomBar from "../symbols/BottomBar";
 
 export default class BottomViewBar extends Component {
@@ -72,6 +73,7 @@ export default class BottomViewBar extends Component {
               homeType="MaterialCommunityIcons"
               homeName="cart-outline"
               homeText="Carrito"
+              active="Show"
               root={() => {
                 this.setState({
                   display: "cart"
@@ -79,6 +81,35 @@ export default class BottomViewBar extends Component {
               }}
             />
           </View>
+          <Footer
+            style={styles.footer}
+            active={this.state.display}
+            buttonWrapper={() => {
+              this.setState({
+                display: "main"
+              });
+            }}
+            buttonWrapper1={() => {
+              this.setState({
+                display: "fav"
+              });
+            }}
+            buttonWrapper2={() => {
+              this.setState({
+                display: "wallet"
+              });
+            }}
+            buttonWrapper3={() => {
+              this.setState({
+                display: "notify"
+              });
+            }}
+            buttonWrapper4={() => {
+              this.setState({
+                display: "cart"
+              });
+            }}
+          />
           <BottomBar
             style={styles.bottomBar}
             navigation={this.props.navigation}
@@ -159,26 +190,31 @@ const styles = StyleSheet.create({
     opacity: 1,
     flexDirection: "row",
     alignSelf: "stretch",
-    alignItems: "center"
+    alignItems: "center",
+    display: "none"
   },
   bottomBarButton: {
     height: 67,
-    flex: 1
+    flex: 0.2
   },
   bottomBarButton2: {
     height: 67,
-    flex: 1
+    flex: 0.2
   },
   bottomBarButton3: {
     height: 67,
-    flex: 1
+    flex: 0.2
   },
   bottomBarButton4: {
     height: 67,
-    flex: 1
+    flex: 0.2
   },
   bottomBarButton5: {
     height: 67,
-    flex: 1
+    flex: 0.2
+  },
+  footer: {
+    height: 90,
+    alignSelf: "stretch"
   }
 });
