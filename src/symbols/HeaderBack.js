@@ -37,11 +37,11 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   icon: {
-    top: 15,
-    left: 17,
+    top: 5.28,
+    left: 15.76,
     position: "absolute",
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    fontSize: 25
+    fontSize: 40
   }
 });

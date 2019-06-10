@@ -22,7 +22,7 @@ export default class Header extends Component {
         <View style={styles.settingsbar} />
         {Platform.OS === "ios" ? (
           <Icon
-            name={Platform.OS === "ios" ? "ios-arrow-back-outline" : "home"}
+            name={Platform.OS === "ios" ? "ios-arrow-back" : "home"}
             style={styles.icon}
             type={Platform.OS === "ios" ? "Ionicons" : "MaterialCommunityIcons"}
             onPress={() => {
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "transparent",
     color: Platform.OS === "ios" ? "rgba(255,255,255,1)" : "grey",
-    fontSize: 25
+    fontSize: 40
   },
   text: {
     position: "absolute",

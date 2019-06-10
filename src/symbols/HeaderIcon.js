@@ -18,7 +18,7 @@ export default class HeaderIcon extends Component {
         />
         {Platform.OS === "ios" ? (
           <Icon
-            name={Platform.OS === "ios" ? "ios-arrow-back-outline" : "home"}
+            name={Platform.OS === "ios" ? "ios-arrow-back" : "home"}
             style={styles.icon2}
             type={Platform.OS === "ios" ? "Ionicons" : "MaterialCommunityIcons"}
             onPress={() => {
@@ -44,13 +44,13 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   icon2: {
-    top: Platform.OS === "ios" ? 14 : 21.55,
-    left: Platform.OS === "ios" ? 15 : 21.06,
+    top: Platform.OS === "ios" ? 5.28 : 21.55,
+    left: Platform.OS === "ios" ? 14 : 21.06,
     position: "absolute",
     backgroundColor: "transparent",
     color: Platform.OS === "ios" ? "rgba(255,255,255,1)" : "grey",
-    fontSize: Platform.OS === "ios" ? 23 : 40,
-    width: Platform.OS === "ios" ? 25 : undefined,
-    height: Platform.OS === "ios" ? 25 : undefined
+    fontSize: Platform.OS === "ios" ? 40 : 40,
+    width: Platform.OS === "ios" ? 16 : undefined,
+    height: Platform.OS === "ios" ? 40 : undefined
   }
 });

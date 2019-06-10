@@ -73,7 +73,8 @@ export default class footer1 extends Component {
               )
             }
           />
-          <Text style={[
+          <Text
+            style={[
               styles.content1,
               {
                 color:
@@ -81,7 +82,8 @@ export default class footer1 extends Component {
                     ? "rgba(101,188,70,1)"
                     : "rgba(238,238,238,1)"
               }
-            ]}>
+            ]}
+          >
             {this.props.content1 ? this.props.content1 : "Favoritos"}
           </Text>
         </TouchableOpacity>
@@ -108,7 +110,8 @@ export default class footer1 extends Component {
               )
             }
           />
-          <Text style={[
+          <Text
+            style={[
               styles.content2,
               {
                 color:
@@ -116,7 +119,8 @@ export default class footer1 extends Component {
                     ? "rgba(101,188,70,1)"
                     : "rgba(238,238,238,1)"
               }
-            ]}>
+            ]}
+          >
             {this.props.content2 ? this.props.content2 : "Cartera"}
           </Text>
         </TouchableOpacity>
@@ -143,7 +147,8 @@ export default class footer1 extends Component {
               )
             }
           />
-          <Text style={[
+          <Text
+            style={[
               styles.content3,
               {
                 color:
@@ -151,7 +156,8 @@ export default class footer1 extends Component {
                     ? "rgba(101,188,70,1)"
                     : "rgba(238,238,238,1)"
               }
-            ]}>
+            ]}
+          >
             {this.props.content3 ? this.props.content3 : "Notificaciones"}
           </Text>
         </TouchableOpacity>
@@ -172,7 +178,8 @@ export default class footer1 extends Component {
             name="cart-outline"
             type="MaterialCommunityIcons"
           />
-          <Text style={[
+          <Text
+            style={[
               styles.text,
               {
                 color:
@@ -180,7 +187,10 @@ export default class footer1 extends Component {
                     ? "rgba(101,188,70,1)"
                     : "rgba(238,238,238,1)"
               }
-            ]}>Carrito</Text>
+            ]}
+          >
+            Carrito
+          </Text>
         </TouchableOpacity>
       </View>
     );
