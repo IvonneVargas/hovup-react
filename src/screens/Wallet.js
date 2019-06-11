@@ -45,7 +45,77 @@ export default class Wallet extends Component {
         />
         <View style={styles.background}>
           <LayoutStatusBar style={styles.layoutStatusBar} />
-          <View style={styles.viewCoupon}>
+          {this.displayContent()}
+        </View>
+      </View>
+    );
+  }
+
+  dataShow() {
+    if (this.state.active == 1) {
+    }
+  }
+
+  displayContent() {
+    const typeT = this.props.navigation.getParam("type", "main");
+    console.log("type wallet: " + typeT);
+    if (typeT == "main") {
+      return (
+        <View style={styles.rect5}>
+          <HeaderSingleLogo style={styles.headerSingleLogo} />
+          <View style={styles.content}>
+            <FlatList
+              style={styles.list}
+              data={[
+                {
+                  key: "Cupones/Promociones",
+                  sub: "Descripcion",
+                  icon: require("../assets/Wallet/ic_ventas.png"),
+                  type: "coupon"
+                },
+                {
+                  key: "Compras hechas",
+                  sub: "Descripcion",
+                  icon: require("../assets/Wallet/ic_ventas.png"),
+                  type: "buy"
+                },
+                {
+                  key: "Ventas Realizadas",
+                  icon: require("../assets/Wallet/ic_ventas.png"),
+                  sub: "Descripcion",
+                  type: "sales"
+                }
+              ]}
+              renderItem={({ item, separators }) => {
+                return (
+                  <View style={styles.rect}>
+                    <TouchableOpacity
+                      style={styles.buttonsStyle}
+                      onPress={() => {
+                        this.props.navigation.push("Wallet", {
+                          type: item.type
+                        });
+                      }}
+                    >
+                      <Image
+                        style={styles.image}
+                        source={require("../assets/Wallet/ic_ventas.png")}
+                      />
+                      <Text style={styles.text2}>{item.key}</Text>
+                    </TouchableOpacity>
+                  </View>
+                );
+              }}
+              ItemSeparatorComponent={({}) => {
+                return <View style={styles.rect4} />;
+              }}
+            />
+          </View>
+        </View>
+      );
+    } else if (typeT == "coupon") {
+      return(
+        <View style={styles.viewCoupon}>
             <HeaderBack
               style={styles.headerBack}
               navigation={this.props.navigation}
@@ -138,74 +208,7 @@ export default class Wallet extends Component {
               />
             </View>
           </View>
-        </View>
-      </View>
-    );
-  }
-
-  dataShow() {
-    if (this.state.active == 1) {
-    }
-  }
-
-  displayContent() {
-    const typeT = this.props.navigation.getParam("type", "main");
-    console.log("type wallet: " + typeT);
-    if (typeT == "main") {
-      return (
-        <View style={styles.rect5}>
-          <HeaderSingleLogo style={styles.headerSingleLogo} />
-          <View style={styles.content}>
-            <FlatList
-              style={styles.list}
-              data={[
-                {
-                  key: "Cupones/Promociones",
-                  sub: "Descripcion",
-                  icon: require("../assets/Wallet/ic_ventas.png"),
-                  type: "coupon"
-                },
-                {
-                  key: "Compras hechas",
-                  sub: "Descripcion",
-                  icon: require("../assets/Wallet/ic_ventas.png"),
-                  type: "buy"
-                },
-                {
-                  key: "Ventas Realizadas",
-                  icon: require("../assets/Wallet/ic_ventas.png"),
-                  sub: "Descripcion",
-                  type: "sales"
-                }
-              ]}
-              renderItem={({ item, separators }) => {
-                return (
-                  <View style={styles.rect}>
-                    <TouchableOpacity
-                      style={styles.buttonsStyle}
-                      onPress={() => {
-                        this.props.navigation.push("Wallet", {
-                          type: item.type
-                        });
-                      }}
-                    >
-                      <Image
-                        style={styles.image}
-                        source={require("../assets/Wallet/ic_ventas.png")}
-                      />
-                      <Text style={styles.text2}>{item.key}</Text>
-                    </TouchableOpacity>
-                  </View>
-                );
-              }}
-              ItemSeparatorComponent={({}) => {
-                return <View style={styles.rect4} />;
-              }}
-            />
-          </View>
-        </View>
-      );
-    } else if (typeT == "buy") {
+        );
     }
   }
 }
