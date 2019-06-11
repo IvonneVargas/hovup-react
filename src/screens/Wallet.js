@@ -3,18 +3,38 @@ import LayoutStatusBar from "../symbols/LayoutStatusBar";
 import HeaderSingleLogo from "../symbols/HeaderSingleLogo";
 
 import HeaderBack from "../symbols/HeaderBack";
+import TabViewButton from "../symbols/TabViewButton";
+import Icon from "@builderx/icons";
 import {
   View,
   StyleSheet,
   StatusBar,
-  FlatList,
   TouchableOpacity,
   Image,
-  Text
+  Text,
+  FlatList,
+  Platform
 } from "react-native";
 
 export default class Wallet extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      active: 1,
+      datalist: [
+        {
+          key: "Bonificacion",
+          sub: "Descripcion",
+          icon: require("../assets/Wallet/ic_ventas.png"),
+          type: "coupon"
+        }
+      ]
+    };
+  }
   render() {
+    //const active = this.props.navigation.getParam("active", 1);
+    console.log("active; ", this.state.active);
     return (
       <View style={styles.root}>
         <StatusBar
@@ -30,10 +50,102 @@ export default class Wallet extends Component {
               style={styles.headerBack}
               navigation={this.props.navigation}
             />
+            <Text style={styles.text}>Cupones</Text>
+            <TabViewButton
+              style={styles.tabViewButton}
+              text="Bonificacion"
+              text2="Beneficio"
+              text3="Descuento"
+              active={this.state.active}
+              button={() => {
+                this.setState({
+                  active: 1,
+                  datalist: [
+                    {
+                      key: "Bonificacion",
+                      sub: "Descripcion",
+                      icon: require("../assets/Wallet/ic_ventas.png"),
+                      type: "coupon"
+                    }
+                  ]
+                });
+              }}
+              button2={() => {
+                this.setState({
+                  active: 2,
+                  datalist: [
+                    {
+                      key: "Beneficio",
+                      sub: "Descripcion",
+                      icon: require("../assets/Wallet/ic_ventas.png"),
+                      type: "coupon"
+                    }
+                  ]
+                });
+              }}
+              button3={() => {
+                this.setState({
+                  active: 3,
+                  datalist: [
+                    {
+                      key: "Descuento",
+                      sub: "Descripcion",
+                      icon: require("../assets/Wallet/ic_ventas.png"),
+                      type: "coupon"
+                    }
+                  ]
+                });
+              }}
+            />
+            <View style={styles.content}>
+              <Text style={styles.text2}>{this.state.active}</Text>
+              <FlatList
+                style={styles.list}
+                data={this.state.datalist}
+                renderItem={({ item, separators }) => {
+                  return (
+                    <View style={styles.rect}>
+                      <TouchableOpacity
+                        style={styles.buttonsStyle}
+                        onPress={() => {
+                          console.log("1Click,", item.level);
+                          this.props.navigation.push("BrandsTab", {
+                            level: item.level,
+                            type: this.props.type
+                          });
+                        }}
+                      >
+                        <Image
+                          source={require("../assets/ic_60x60.png")}
+                          style={styles.imageS}
+                        />
+                        <Icon
+                          name="ios-arrow-forward"
+                          style={styles.icon}
+                          type="Ionicons"
+                        />
+                        <View style={styles.rect9}>
+                          <Text style={styles.text6}>{item.key}</Text>
+                          <Text style={styles.text7}>{item.sub}</Text>
+                        </View>
+                      </TouchableOpacity>
+                    </View>
+                  );
+                }}
+                ItemSeparatorComponent={({}) => {
+                  return <View style={styles.rect4} />;
+                }}
+              />
+            </View>
           </View>
         </View>
       </View>
     );
+  }
+
+  dataShow() {
+    if (this.state.active == 1) {
+    }
   }
 
   displayContent() {
@@ -122,21 +234,37 @@ const styles = StyleSheet.create({
     flex: 1
   },
   content: {
-    width: 376,
-    height: 726
+    alignSelf: "stretch",
+    flex: 1
   },
   list: {
     alignSelf: "stretch",
-    flex: 1
+    flex: 1,
+    top: 0,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    bottom: 0
   },
   viewCoupon: {
     backgroundColor: "rgba(29,41,53,1)",
     opacity: 1,
-    padding: 15,
-    paddingTop: 10,
-    paddingBottom: 10,
+    padding: 0,
+
     alignSelf: "stretch",
-    flex: 1
+    flex: 1,
+    flexDirection: "column"
+  },
+  text3: {
+    width: 257.91,
+    height: 20,
+    backgroundColor: "transparent",
+    fontSize: 18,
+    color: "rgba(253,253,253,1)",
+    padding: 0,
+    textAlign: "left",
+    margin: 0,
+    alignSelf: "center"
   },
   buttonsStyle: {
     flexDirection: "row",
@@ -150,9 +278,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
     borderRadius: 6
   },
-  text2: {
-    color: "rgba(255,255,255,1)"
-  },
+
   rect4: {
     left: 15,
     height: 2,
@@ -163,10 +289,83 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   headerBack: {
-    top: 0,
-    left: 0,
-    width: 376,
     height: 54,
-    position: "absolute"
+    alignSelf: "stretch"
+  },
+  text: {
+    width: 106.33,
+    height: 31,
+    backgroundColor: "transparent",
+    fontSize: 18,
+    color: "rgba(253,253,253,1)",
+    padding: 0,
+    textAlign: "center",
+    margin: 18,
+    alignSelf: "center"
+  },
+  tabViewButton: {
+    height: 70,
+    alignSelf: "stretch"
+  },
+  text2: {
+    top: 174,
+    left: 113,
+    width: 75,
+    height: 13,
+    position: "absolute",
+    backgroundColor: "transparent",
+    display: "none"
+  },
+  rect: {
+    backgroundColor: "rgba(29,41,53,1)",
+    padding: 15,
+    paddingTop: 10,
+    paddingBottom: 10,
+    opacity: 1
+  },
+  text3: {
+    color: "rgba(255,255,255,1)"
+  },
+  imageS: {
+    width: 60,
+    height: 60,
+    borderRadius: 6,
+    margin: 5
+  },
+  icon: {
+    top: Platform.OS === "android" ? 18 : 21.67,
+    left: Platform.OS === "android" ? 329 : 344,
+    position: "absolute",
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 20
+  },
+  buttonsStyle: {
+    alignItems: "center",
+    flexDirection: "row",
+    margin: 0
+  },
+  text4: {
+    width: 253.41,
+    height: 31,
+    backgroundColor: "transparent",
+    fontSize: 18,
+    color: "rgba(253,253,253,1)",
+    padding: 0,
+    textAlign: "left",
+    margin: 18,
+    alignSelf: "center"
+  },
+  text6: {
+    width: 237,
+    height: 17,
+    fontSize: 14,
+    color: "rgba(255,255,255,1)"
+  },
+  text7: {
+    width: 237,
+    height: 17,
+    fontSize: 16,
+    color: "rgba(255,255,255,1)"
   }
 });
