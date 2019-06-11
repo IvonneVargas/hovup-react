@@ -14,8 +14,7 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
-  Platform,
-  Picker
+  Platform
 } from "react-native";
 
 export default class Wallet extends Component {
@@ -53,16 +52,15 @@ export default class Wallet extends Component {
               navigation={this.props.navigation}
             />
             <Title style={styles.title} />
-            <View style={styles.viewProd} />
+            <View style={styles.viewProd}>
+              <Subtitle style={styles.subtitle2} />
+              <Subtitle
+                style={styles.subtitle}
+                text="Total de articulos comprados"
+              />
+            </View>
           </View>
         </View>
-        <Subtitle style={styles.itemPicker} />
-        <Picker style={styles.icon} itemStyle={{}} enabled={true}>
-          <Picker.Item value="one" label="Lorem Ipsum Dolor Sit" />
-          <Picker.Item value="two" label="Lorem Ipsum Dolor Sit" />
-          <Picker.Item value="three" label="Lorem Ipsum Dolor Sit" />
-        </Picker>
-        <Icon name="home" style={styles.sIes7W} type="MaterialCommunityIcons" />
       </View>
     );
   }
@@ -266,7 +264,7 @@ const styles = StyleSheet.create({
     bottom: 0
   },
   viewCoupon: {
-    backgroundColor: "rgba(29,41,53,1)",
+    backgroundColor: "rgba(48,61,73,1)",
     opacity: 1,
     padding: 0,
 
@@ -378,17 +376,13 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)"
   },
   viewProd: {
-    width: 344.24,
+    width: 333.27,
     height: 78,
     margin: 0,
     flexDirection: "column",
-    backgroundColor: "rgba(48,61,73,1)",
+    backgroundColor: "rgba(75,86,92,1)",
     opacity: 1,
-    padding: 0,
-    marginLeft: 0,
-    marginRight: 0,
     justifyContent: "space-around",
-    alignItems: "center",
     alignSelf: "center"
   },
   title: {
@@ -397,26 +391,19 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     margin: 18
   },
-  itemPicker: {
+  bVuzlZ: {
+    top: 110.02,
+    left: 217.32,
     position: "absolute",
-    top: 141,
-    left: 130,
-    height: 100,
-    width: 100
+    height: 17,
+    width: 13
   },
-  icon: {
-    top: 380.93,
-    left: 163.36,
-    position: "absolute"
+  subtitle2: {
+    height: 17,
+    alignSelf: "center"
   },
-  sIes7W: {
-    height: 1,
-    width: 1,
-    top: 324.54,
-    left: 63.1,
-    position: "absolute",
-    backgroundColor: "transparent",
-    color: "grey",
-    fontSize: 40
+  subtitle: {
+    height: 17,
+    alignSelf: "center"
   }
 });
