@@ -53,40 +53,99 @@ export default class Wallet extends Component {
         />
         <View style={styles.background}>
           <LayoutStatusBar style={styles.layoutStatusBar} />
+          <View style={styles.viewCoupon}>
+          <HeaderBack
+            style={styles.headerBack}
+            navigation={this.props.navigation}
+          />
+          <Text style={styles.textCoupons}>Cupones</Text>
+          <TabViewButton
+            style={styles.tabViewButton}
+            text="Bonificacion"
+            text2="Beneficio"
+            text3="Descuento"
+            active={this.state.active}
+            button={() => {
+              this.setState({
+                active: 1,
+                datalist: [
+                  {
+                    key: "Bonificacion",
+                    sub: "Descripcion",
+                    icon: require("../assets/Wallet/ic_ventas.png"),
+                    type: "coupon"
+                  }
+                ]
+              });
+            }}
+            button2={() => {
+              this.setState({
+                active: 2,
+                datalist: [
+                  {
+                    key: "Beneficio",
+                    sub: "Descripcion",
+                    icon: require("../assets/Wallet/ic_ventas.png"),
+                    type: "coupon"
+                  }
+                ]
+              });
+            }}
+            button3={() => {
+              this.setState({
+                active: 3,
+                datalist: [
+                  {
+                    key: "Descuento",
+                    sub: "Descripcion",
+                    icon: require("../assets/Wallet/ic_ventas.png"),
+                    type: "coupon"
+                  }
+                ]
+              });
+            }}
+          />
           <View style={styles.content}>
-            <HeaderBack
-              style={styles.headerBack}
-              navigation={this.props.navigation}
+            <Text style={styles.text2}>{this.state.active}</Text>
+            <FlatList
+              style={styles.list}
+              data={this.state.datalist}
+              renderItem={({ item, separators }) => {
+                return (
+                  <View style={styles.rect}>
+                    <TouchableOpacity
+                      style={styles.buttonsStyle}
+                      onPress={() => {
+                        console.log("1Click,", item.level);
+                        this.props.navigation.push("BrandsTab", {
+                          level: item.level,
+                          type: this.props.type
+                        });
+                      }}
+                    >
+                      <Image
+                        source={require("../assets/ic_60x60.png")}
+                        style={styles.imageS}
+                      />
+                      <Icon
+                        name="ios-arrow-forward"
+                        style={styles.icon}
+                        type="Ionicons"
+                      />
+                      <View style={styles.rect9}>
+                        <Text style={styles.text6}>{item.key}</Text>
+                        <Text style={styles.text7}>{item.sub}</Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                );
+              }}
+              ItemSeparatorComponent={({}) => {
+                return <View style={styles.rect4} />;
+              }}
             />
-            <Text style={styles.text2}>Compras</Text>
-            <View style={styles.viewProd}>
-              <Subtitle style={styles.subtitle2} />
-              <Subtitle
-                style={styles.subtitle}
-                text="Total de articulos comprados"
-              />
-            </View>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={this.showActionSheet}
-            >
-              <Text style={styles.month}>Junio</Text>
-              <Text style={styles.year}>2019</Text>
-            </TouchableOpacity>
-            <View style={styles.contentBuy}>
-              <View style={styles.contentNotBuy}>
-                <Image
-                  style={styles.image}
-                  source={require("../assets/ic_gracias_compra.png")}
-                />
-                <Text style={styles.text}>
-                  Por el momento no tienes ninguna compra, cuando realices
-                  alguna en esta seccion podras ver el resumen de cada una de
-                  ellas.
-                </Text>
-              </View>
-            </View>
           </View>
+        </View>
         </View>
       </View>
     );
@@ -154,10 +213,10 @@ export default class Wallet extends Component {
                       }}
                     >
                       <Image
-                        style={styles.image}
+                        style={styles.imagelist}
                         source={require("../assets/Wallet/ic_ventas.png")}
                       />
-                      <Text style={styles.text2}>{item.key}</Text>
+                      <Text style={styles.textlist}>{item.key}</Text>
                     </TouchableOpacity>
                   </View>
                 );
@@ -176,7 +235,7 @@ export default class Wallet extends Component {
             style={styles.headerBack}
             navigation={this.props.navigation}
           />
-          <Text style={styles.text}>Cupones</Text>
+          <Text style={styles.textCoupons}>Cupones</Text>
           <TabViewButton
             style={styles.tabViewButton}
             text="Bonificacion"
@@ -265,6 +324,42 @@ export default class Wallet extends Component {
           </View>
         </View>
       );
+    } else if (typeT == "buy") {
+      return (
+        <View style={styles.content}>
+          <HeaderBack
+            style={styles.headerBack}
+            navigation={this.props.navigation}
+          />
+          <Text style={styles.text2}>Compras</Text>
+          <View style={styles.viewProd}>
+            <Subtitle style={styles.subtitle2} />
+            <Subtitle
+              style={styles.subtitle}
+              text="Total de articulos comprados"
+            />
+          </View>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={this.showActionSheet}
+          >
+            <Text style={styles.month}>Junio</Text>
+            <Text style={styles.year}>2019</Text>
+          </TouchableOpacity>
+          <View style={styles.contentBuy}>
+            <View style={styles.contentNotBuy}>
+              <Image
+                style={styles.image}
+                source={require("../assets/ic_gracias_compra.png")}
+              />
+              <Text style={styles.text}>
+                Por el momento no tienes ninguna compra, cuando realices alguna
+                en esta seccion podras ver el resumen de cada una de ellas.
+              </Text>
+            </View>
+          </View>
+        </View>
+      );
     }
   }
 }
@@ -341,7 +436,13 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     marginTop: 80
   },
-
+  imagelist: {
+    width: 35,
+    height: 35,
+    borderRadius: 6,
+    margin: 0,
+    marginRight: 8
+  },
   rect4: {
     left: 15,
     height: 2,
@@ -370,6 +471,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     padding: 0,
     margin: 13
+  },
+  textlist: {
+    color: "rgba(255,255,255,1)",
+    margin: 0
   },
   rect: {
     backgroundColor: "rgba(29,41,53,1)",
@@ -471,6 +576,12 @@ const styles = StyleSheet.create({
     marginRight: 0,
     textAlign: "center",
     fontSize: 16,
+    color: "rgba(255,255,255,1)"
+  },
+  textCoupons: {
+    backgroundColor: "transparent",
+    textAlign: "center",
+    fontSize: 20,
     color: "rgba(255,255,255,1)"
   },
   icon: {
