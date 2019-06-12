@@ -5,7 +5,7 @@ import HeaderSingleLogo from "../symbols/HeaderSingleLogo";
 import TabViewButton from "../symbols/TabViewButton";
 import Icon from "@builderx/icons";
 import HeaderBack from "../symbols/HeaderBack";
-import Title from "../symbols/Title";
+
 import Subtitle from "../symbols/Subtitle";
 import {
   View,
@@ -15,8 +15,13 @@ import {
   FlatList,
   Platform,
   Image,
-  Text
+  Text,
+  ActionSheetIOS
 } from "react-native";
+
+var BUTTONS = ["Option 0", "Option 1", "Option 2", "Delete", "Cancel"];
+var DESTRUCTIVE_INDEX = 3;
+var CANCEL_INDEX = 4;
 
 export default class Wallet extends Component {
   constructor() {
@@ -31,7 +36,8 @@ export default class Wallet extends Component {
           icon: require("../assets/Wallet/ic_ventas.png"),
           type: "coupon"
         }
-      ]
+      ],
+      clicked: "none"
     };
   }
   render() {
@@ -52,7 +58,7 @@ export default class Wallet extends Component {
               style={styles.headerBack}
               navigation={this.props.navigation}
             />
-            <Title style={styles.title} />
+            <Text style={styles.text2}>Compras</Text>
             <View style={styles.viewProd}>
               <Subtitle style={styles.subtitle2} />
               <Subtitle
@@ -60,6 +66,13 @@ export default class Wallet extends Component {
                 text="Total de articulos comprados"
               />
             </View>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={this.showActionSheet}
+            >
+              <Text style={styles.month}>Text Added</Text>
+              <Text style={styles.year}>year</Text>
+            </TouchableOpacity>
             <View style={styles.contentBuy}>
               <View style={styles.contentNotBuy}>
                 <Image
@@ -76,6 +89,21 @@ export default class Wallet extends Component {
           </View>
         </View>
       </View>
+    );
+  }
+
+  showActionSheet() {
+    ActionSheetIOS.showActionSheetWithOptions(
+      {
+        options: ["Cancel", "Remove"],
+        destructiveButtonIndex: 1,
+        cancelButtonIndex: 0,
+        tintColor: "green"
+      },
+      buttonIndex => {
+        if (buttonIndex === 1) {
+        }
+      }
     );
   }
 
@@ -267,7 +295,9 @@ const styles = StyleSheet.create({
   content: {
     alignSelf: "stretch",
     flex: 1,
-    flexDirection: "column"
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center"
   },
   list: {
     alignSelf: "stretch",
@@ -291,7 +321,7 @@ const styles = StyleSheet.create({
     width: 257.91,
     height: 20,
     backgroundColor: "transparent",
-    fontSize: 18,
+    fontSize: 20,
     color: "rgba(253,253,253,1)",
     padding: 0,
     textAlign: "left",
@@ -331,13 +361,15 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   text2: {
-    top: 174,
-    left: 113,
-    width: 75,
-    height: 13,
-    position: "absolute",
+    width: 77,
+    height: 23,
     backgroundColor: "transparent",
-    display: "none"
+
+    fontSize: 20,
+    color: "rgba(255,252,252,1)",
+    alignSelf: "center",
+    padding: 0,
+    margin: 13
   },
   rect: {
     backgroundColor: "rgba(29,41,53,1)",
@@ -401,12 +433,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignSelf: "center"
   },
-  title: {
-    height: 30,
-    width: 77,
-    alignSelf: "center",
-    margin: 18
-  },
+
   bVuzlZ: {
     top: 110.02,
     left: 217.32,
@@ -445,5 +472,47 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 16,
     color: "rgba(255,255,255,1)"
+  },
+  icon: {
+    top: 263.44,
+    left: 78.76,
+    position: "absolute",
+    backgroundColor: "transparent",
+    color: "grey",
+    fontSize: 40
+  },
+  button: {
+    height: 64,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-around",
+
+    padding: 0,
+    margin: 0,
+    marginBottom: 13,
+    marginTop: 10,
+    alignSelf: "stretch",
+    borderWidth: 0,
+    borderColor: "green",
+    borderBottomColor: "rgba(155,155,155,1)",
+    borderBottomWidth: 1,
+    borderTopColor: "rgba(155,155,155,1)",
+    borderTopWidth: 1
+  },
+  month: {
+    width: 75,
+    height: 20,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    textAlign: "center",
+    margin: 0
+  },
+  year: {
+    width: 45,
+    height: 20,
+    backgroundColor: "transparent",
+    color: "rgba(228,228,228,1)",
+    textAlign: "center",
+    margin: 0
   }
 });
