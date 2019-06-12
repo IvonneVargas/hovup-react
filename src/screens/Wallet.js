@@ -4,9 +4,9 @@ import HeaderSingleLogo from "../symbols/HeaderSingleLogo";
 
 import TabViewButton from "../symbols/TabViewButton";
 import Icon from "@builderx/icons";
-import HeaderBack from "../symbols/HeaderBack";
 
 import Subtitle from "../symbols/Subtitle";
+import HeaderBack from "../symbols/HeaderBack";
 import {
   View,
   StyleSheet,
@@ -14,9 +14,9 @@ import {
   TouchableOpacity,
   FlatList,
   Platform,
+  ActionSheetIOS,
   Image,
-  Text,
-  ActionSheetIOS
+  Text
 } from "react-native";
 
 var BUTTONS = ["Option 0", "Option 1", "Option 2", "Delete", "Cancel"];
@@ -267,6 +267,26 @@ export default class Wallet extends Component {
             </View>
           </View>
         </View>
+      );
+    } else if ("sales") {
+      return (
+        <View style={styles.contentSales}>
+            <HeaderBack
+              style={styles.headerBackSales}
+              navigation={this.props.navigation}
+            />
+            <View style={styles.contentSalesInto}>
+              <Image
+                style={styles.imageSales}
+                source={require("../assets/ic_gracias_compra.png")}
+              />
+              <Text style={styles.textSales}>
+                Esta seccion te mostrara las ventas que realices utilizando
+                Hovup. Contrata el Plan Platino para disfrutar de esta y mas
+                funciones.
+              </Text>
+            </View>
+          </View>
       );
     }
   }
@@ -532,5 +552,35 @@ const styles = StyleSheet.create({
     color: "rgba(228,228,228,1)",
     textAlign: "center",
     margin: 0
+  },
+  contentSales: {
+    alignSelf: "stretch",
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center"
+  },
+  headerBackSales: {
+    width: 376,
+    height: 55
+  },
+  contentSalesInto: {
+    alignSelf: "stretch",
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  imageSales: {
+    width: 70,
+    height: 69
+  },
+  textSales: {
+    width: 352,
+    height: 70.9,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    padding: 0,
+    margin: 25
   }
 });
