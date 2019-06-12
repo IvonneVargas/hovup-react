@@ -70,8 +70,8 @@ export default class Wallet extends Component {
               style={styles.button}
               onPress={this.showActionSheet}
             >
-              <Text style={styles.month}>Text Added</Text>
-              <Text style={styles.year}>year</Text>
+              <Text style={styles.month}>Junio</Text>
+              <Text style={styles.year}>2019</Text>
             </TouchableOpacity>
             <View style={styles.contentBuy}>
               <View style={styles.contentNotBuy}>
