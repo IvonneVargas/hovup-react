@@ -53,99 +53,7 @@ export default class Wallet extends Component {
         />
         <View style={styles.background}>
           <LayoutStatusBar style={styles.layoutStatusBar} />
-          <View style={styles.viewCoupon}>
-          <HeaderBack
-            style={styles.headerBack}
-            navigation={this.props.navigation}
-          />
-          <Text style={styles.textCoupons}>Cupones</Text>
-          <TabViewButton
-            style={styles.tabViewButton}
-            text="Bonificacion"
-            text2="Beneficio"
-            text3="Descuento"
-            active={this.state.active}
-            button={() => {
-              this.setState({
-                active: 1,
-                datalist: [
-                  {
-                    key: "Bonificacion",
-                    sub: "Descripcion",
-                    icon: require("../assets/Wallet/ic_ventas.png"),
-                    type: "coupon"
-                  }
-                ]
-              });
-            }}
-            button2={() => {
-              this.setState({
-                active: 2,
-                datalist: [
-                  {
-                    key: "Beneficio",
-                    sub: "Descripcion",
-                    icon: require("../assets/Wallet/ic_ventas.png"),
-                    type: "coupon"
-                  }
-                ]
-              });
-            }}
-            button3={() => {
-              this.setState({
-                active: 3,
-                datalist: [
-                  {
-                    key: "Descuento",
-                    sub: "Descripcion",
-                    icon: require("../assets/Wallet/ic_ventas.png"),
-                    type: "coupon"
-                  }
-                ]
-              });
-            }}
-          />
-          <View style={styles.content}>
-            <Text style={styles.text2}>{this.state.active}</Text>
-            <FlatList
-              style={styles.list}
-              data={this.state.datalist}
-              renderItem={({ item, separators }) => {
-                return (
-                  <View style={styles.rect}>
-                    <TouchableOpacity
-                      style={styles.buttonsStyle}
-                      onPress={() => {
-                        console.log("1Click,", item.level);
-                        this.props.navigation.push("BrandsTab", {
-                          level: item.level,
-                          type: this.props.type
-                        });
-                      }}
-                    >
-                      <Image
-                        source={require("../assets/ic_60x60.png")}
-                        style={styles.imageS}
-                      />
-                      <Icon
-                        name="ios-arrow-forward"
-                        style={styles.icon}
-                        type="Ionicons"
-                      />
-                      <View style={styles.rect9}>
-                        <Text style={styles.text6}>{item.key}</Text>
-                        <Text style={styles.text7}>{item.sub}</Text>
-                      </View>
-                    </TouchableOpacity>
-                  </View>
-                );
-              }}
-              ItemSeparatorComponent={({}) => {
-                return <View style={styles.rect4} />;
-              }}
-            />
-          </View>
-        </View>
+          {this.displayContent()}
         </View>
       </View>
     );
@@ -404,8 +312,6 @@ const styles = StyleSheet.create({
     bottom: 0
   },
   viewCoupon: {
-    backgroundColor: "rgba(48,61,73,1)",
-    opacity: 1,
     padding: 0,
 
     alignSelf: "stretch",
@@ -582,7 +488,8 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     textAlign: "center",
     fontSize: 20,
-    color: "rgba(255,255,255,1)"
+    color: "rgba(255,255,255,1)",
+    alignSelf: "center"
   },
   icon: {
     top: 263.44,
