@@ -125,20 +125,21 @@ export default class Favorites extends Component {
   }
 
   showImage(type) {
-    console.log("typesssssssl: " , type == "content")
+    console.log("typesssssssl: ", type == "content");
     if (type == "content") {
-      return(
+      return (
         <Image
-        source={require("../assets/ic_60x60.png")}
-        style={styles.imageS}
-      />);
+          source={require("../assets/ic_60x60.png")}
+          style={styles.imageS}
+        />
+      );
     } else {
-      return(
+      return (
         <Image
-        source={require("../assets/ic_200x200.png")}
-        style={styles.image}
-      />
-        );
+          source={require("../assets/ic_200x200.png")}
+          style={styles.image}
+        />
+      );
     }
   }
 }

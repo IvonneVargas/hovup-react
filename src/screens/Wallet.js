@@ -12,9 +12,10 @@ import {
   StyleSheet,
   StatusBar,
   TouchableOpacity,
-  Image,
   FlatList,
-  Platform
+  Platform,
+  Image,
+  Text
 } from "react-native";
 
 export default class Wallet extends Component {
@@ -58,6 +59,19 @@ export default class Wallet extends Component {
                 style={styles.subtitle}
                 text="Total de articulos comprados"
               />
+            </View>
+            <View style={styles.contentBuy}>
+              <View style={styles.contentNotBuy}>
+                <Image
+                  style={styles.image}
+                  source={require("../assets/ic_gracias_compra.png")}
+                />
+                <Text style={styles.text}>
+                  Por el momento no tienes ninguna compra, cuando realices
+                  alguna en esta seccion podras ver el resumen de cada una de
+                  ellas.
+                </Text>
+              </View>
             </View>
           </View>
         </View>
@@ -252,7 +266,8 @@ const styles = StyleSheet.create({
   },
   content: {
     alignSelf: "stretch",
-    flex: 1
+    flex: 1,
+    flexDirection: "column"
   },
   list: {
     alignSelf: "stretch",
@@ -289,11 +304,12 @@ const styles = StyleSheet.create({
     margin: 0
   },
   image: {
-    width: 35,
-    height: 35,
+    width: 100,
+    height: 100,
     margin: 0,
     marginRight: 8,
-    borderRadius: 6
+    borderRadius: 6,
+    marginTop: 80
   },
 
   rect4: {
@@ -386,7 +402,7 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   title: {
-    height: 23.9,
+    height: 30,
     width: 77,
     alignSelf: "center",
     margin: 18
@@ -405,5 +421,29 @@ const styles = StyleSheet.create({
   subtitle: {
     height: 17,
     alignSelf: "center"
+  },
+  contentBuy: {
+    alignSelf: "stretch",
+    flex: 1,
+    flexDirection: "column"
+  },
+  contentNotBuy: {
+    alignSelf: "stretch",
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center"
+  },
+  text: {
+    width: 321,
+    height: 70.9,
+    backgroundColor: "transparent",
+    padding: 0,
+    margin: 0,
+    marginLeft: 0,
+    marginTop: 0,
+    marginRight: 0,
+    textAlign: "center",
+    fontSize: 16,
+    color: "rgba(255,255,255,1)"
   }
 });
