@@ -24,6 +24,6 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     textAlign: "center",
     color: "rgba(241,241,241,1)",
-    fontSize: 16
+    fontSize: 18
   }
 });
