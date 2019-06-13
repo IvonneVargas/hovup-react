@@ -465,8 +465,8 @@ const styles = StyleSheet.create({
     margin: 5
   },
   description: {
-    width: 303.72,
-    height: 36.5,
+    width: 304,
+    height: 59.5,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     textAlign: "center",
