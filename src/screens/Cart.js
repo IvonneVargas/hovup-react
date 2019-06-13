@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import GenericButton from "../symbols/GenericButton";
 import TitleFive from "../symbols/TitleFive";
-import DescriptionFive from "../symbols/DescriptionFive";
+
 import HeaderBack from "../symbols/HeaderBack";
 import Icon from "@builderx/icons";
 
@@ -168,10 +168,14 @@ export default class Cart extends Component {
               navigation={this.props.navigation}
             />
             <TitleFive style={styles.titleFive} text2="Codigos promocionales" />
-            <DescriptionFive
-              style={styles.descriptionFive}
-              text2="Por favor ingresa los codigos promocionales que deseas usar para tu compra, recuerda que solo se aplica a los productos validos para cada codigo."
-            />
+            <Text
+              style={styles.description}
+              selectionColor="rgba(255,255,255,1)"
+            >
+              Por favor ingresa los codigos promocionales que deseas usar para
+              tu compra, recuerda que solo se aplica a los productos validos
+              para cada codigo.
+            </Text>
             <View style={styles.contentInputs}>
               <TextInput
                 style={styles.textInput}
@@ -211,8 +215,8 @@ const styles = StyleSheet.create({
   },
 
   layoutStatusBar: {
-    width: 376,
-    height: 32
+    height: 32,
+    alignSelf: "stretch"
   },
   content: {
     alignSelf: "stretch",
@@ -425,14 +429,10 @@ const styles = StyleSheet.create({
     margin: 8,
     alignSelf: "center"
   },
-  descriptionFive: {
-    width: 359,
-    height: 47,
-    alignSelf: "center"
-  },
+
   headerBack: {
-    width: 375,
-    height: 54
+    height: 54,
+    alignSelf: "stretch"
   },
   contentInputs: {
     height: 143.86,
@@ -463,5 +463,13 @@ const styles = StyleSheet.create({
     fontSize: 40,
     alignSelf: "center",
     margin: 5
+  },
+  description: {
+    width: 303.72,
+    height: 36.5,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    textAlign: "center",
+    alignSelf: "center"
   }
 });
