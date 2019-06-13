@@ -20,9 +20,10 @@ export default class TitleFive extends Component {
 const styles = StyleSheet.create({
   text2: {
     width: 359,
-    height: 16,
+    height: 18,
     backgroundColor: "transparent",
     textAlign: "center",
-    color: "rgba(241,241,241,1)"
+    color: "rgba(241,241,241,1)",
+    fontSize: 16
   }
 });
