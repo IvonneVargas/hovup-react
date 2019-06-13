@@ -271,22 +271,21 @@ export default class Wallet extends Component {
     } else if ("sales") {
       return (
         <View style={styles.contentSales}>
-            <HeaderBack
-              style={styles.headerBackSales}
-              navigation={this.props.navigation}
+          <HeaderBack
+            style={styles.headerBackSales}
+            navigation={this.props.navigation}
+          />
+          <View style={styles.contentSalesInto}>
+            <Image
+              style={styles.imageSales}
+              source={require("../assets/ic_gracias_compra.png")}
             />
-            <View style={styles.contentSalesInto}>
-              <Image
-                style={styles.imageSales}
-                source={require("../assets/ic_gracias_compra.png")}
-              />
-              <Text style={styles.textSales}>
-                Esta seccion te mostrara las ventas que realices utilizando
-                Hovup. Contrata el Plan Platino para disfrutar de esta y mas
-                funciones.
-              </Text>
-            </View>
+            <Text style={styles.textSales}>
+              Esta seccion te mostrara las ventas que realices utilizando Hovup.
+              Contrata el Plan Platino para disfrutar de esta y mas funciones.
+            </Text>
           </View>
+        </View>
       );
     }
   }
