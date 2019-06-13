@@ -190,13 +190,30 @@ export default class Cart extends Component {
             <View style={styles.contentDetailCoupon}>
               <FlatList
                 style={styles.listReferenceCoupons}
+                data={[
+                {
+                  key: "123",
+                  name: "#3D15",
+                  percentage: "15"
+                },
+                {
+                  key: "456",
+                  name: "#FB10-2018",
+                  percentage: "10"
+                },
+                {
+                  key: "789",
+                  name: "#PRUEBA",
+                  percentage: "50"
+                }
+              ]}
                 renderItem={({ item, separators }) => {
                   return (
                     <View style={styles.rect10}>
                       <View style={styles.contentListReferenceItem}>
-                        <Text style={styles.textHash}>List Item</Text>
+                        <Text style={styles.textHash}>{item.name}</Text>
                         <Text style={styles.textDiscountPercentage}>
-                          Text Added
+                          {item.percentage}
                         </Text>
                       </View>
                     </View>
