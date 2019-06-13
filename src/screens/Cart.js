@@ -1,11 +1,139 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import LayoutStatusBar from "../symbols/LayoutStatusBar";
+import HeaderSingleLogo from "../symbols/HeaderSingleLogo";
+import {
+  View,
+  StyleSheet,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  Image
+} from "react-native";
+import Icon from "@builderx/icons";
 
 export default class Cart extends Component {
   render() {
     return (
       <View style={styles.root}>
-        <Text style={styles.text}>cart</Text>
+        <View style={styles.background}>
+          <LayoutStatusBar style={styles.layoutStatusBar} />
+          <View style={styles.content}>
+            <HeaderSingleLogo style={styles.headerSingleLogo} />
+            <Text style={styles.title}>Productos en el carrito</Text>
+            <Text style={styles.textDescription}>
+              Desliza el producto hacia la derecha para: borrar el producto
+              editar la cantidad del pedido o aplicar algún cupon disponible en
+              tu cartera.
+            </Text>
+            <FlatList
+              style={styles.list}
+              data={[
+                {
+                  key: "Titulo",
+                  sub: "Descripcion",
+                  level: 2
+                },
+                {
+                  key: "Titulo2",
+                  sub: "Descripcion",
+                  level: 2
+                },
+                {
+                  key: "Titulo3",
+                  sub: "Descripcion",
+                  level: 2
+                },
+                {
+                  key: "Titulo4",
+                  sub: "Descripcion",
+                  level: 2
+                },
+                {
+                  key: "Titulo5",
+                  sub: "Descripcion",
+                  level: 2
+                },
+                {
+                  key: "Titulo6",
+                  sub: "Descripcion",
+                  level: 2
+                },
+                {
+                  key: "Titulo7",
+                  sub: "Descripcion",
+                  level: 2
+                },
+                {
+                  key: "Titulo8",
+                  sub: "Descripcion",
+                  level: 2
+                },
+                {
+                  key: "Titulo9",
+                  sub: "Descripcion",
+                  level: 2
+                },
+                {
+                  key: "Titulo10",
+                  sub: "Descripcion",
+                  level: 2
+                },
+                {
+                  key: "Titulo11",
+                  sub: "Descripcion",
+                  level: 2
+                },
+                {
+                  key: "Titulo12",
+                  sub: "Descripcion",
+                  level: 2
+                }
+              ]}
+              renderItem={({ item, separators }) => {
+                return (
+                  <View style={styles.rect}>
+                    <TouchableOpacity
+                      style={styles.buttonsStyle}
+                      onPress={() => {
+                        console.log("1Click,", item.level);
+                        this.props.navigation.push("BrandsTab", {
+                          level: item.level,
+                          type: this.props.type
+                        });
+                      }}
+                    >
+                      <Image
+                        source={require("../assets/ic_200x200.png")}
+                        style={styles.image}
+                      />
+                      <Icon
+                        name="ios-arrow-forward"
+                        style={styles.icon}
+                        type="Ionicons"
+                      />
+                      <View style={styles.rect9}>
+                        <Text style={styles.textKey}>{item.key}</Text>
+                        <Text style={styles.textSub}>$ {item.sub} MXN</Text>
+                        <View style={styles.contentPieces}>
+                          <Text style={styles.textPieces}>
+                            x {item.pieces} Pieza
+                          </Text>
+                          <Text style={styles.textTotal}>
+                            $ {item.total} MXN
+                          </Text>
+                        </View>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                );
+              }}
+              ItemSeparatorComponent={({}) => {
+                return <View style={styles.rect4} />;
+              }}
+            />
+            <View style={styles.contentProducts} />
+          </View>
+        </View>
       </View>
     );
   }
@@ -15,10 +143,131 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     flex: 1
   },
-  text: {
-    top: 277.54,
-    left: 132.3,
+  background: {
+    top: 0,
+    left: 0,
     position: "absolute",
-    backgroundColor: "transparent"
+    backgroundColor: "rgba(29,41,53,1)",
+    right: 0,
+    bottom: 0,
+    opacity: 1
+  },
+
+  layoutStatusBar: {
+    width: 376,
+    height: 32
+  },
+  content: {
+    alignSelf: "stretch",
+    flex: 1,
+    flexDirection: "column"
+  },
+  title: {
+    width: 172,
+    height: 16,
+    backgroundColor: "transparent",
+    fontSize: 16,
+    color: "rgba(255,255,255,1)",
+    textAlign: "center",
+    alignSelf: "center",
+    margin: 15
+  },
+  textDescription: {
+    width: 350.5,
+    height: 49,
+    backgroundColor: "transparent",
+    color: "rgba(241,241,241,1)",
+    fontSize: 14,
+
+    textAlign: "left",
+    margin: 0,
+    alignSelf: "center"
+  },
+  headerSingleLogo: {
+    width: 374,
+    height: 53
+  },
+  contentProducts: {
+    alignSelf: "stretch",
+    flex: 1
+  },
+  list: {
+    alignSelf: "stretch",
+    flex: 1
+  },
+  rect: {
+    backgroundColor: "rgba(29,41,53,1)",
+    padding: 15,
+    paddingTop: 10,
+    paddingBottom: 10,
+    opacity: 1
+  },
+  text2: {
+    color: "#000000"
+  },
+  rect4: {
+    left: 15,
+    height: 2,
+    backgroundColor: "#999999"
+  },
+  buttonsStyle: {
+    alignItems: "center",
+    flexDirection: "row",
+    margin: 0,
+    height: 76
+  },
+  icon: {
+    top: Platform.OS === "android" ? 18 : 21.67,
+    left: Platform.OS === "android" ? 329 : 344,
+    position: "absolute",
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 20
+  },
+  image: {
+    width: 59,
+    height: 60,
+    borderRadius: 6,
+    margin: 5
+  },
+  rect9: {
+    height: 56,
+    width: 237,
+    top: 10,
+    left: 80,
+    position: "absolute",
+    justifyContent: "space-around",
+    flexDirection: "column"
+  },
+  textSub: {
+    width: 237,
+    height: 17,
+    fontSize: 14,
+    color: "rgba(255,255,255,1)"
+  },
+  textKey: {
+    width: 237,
+    height: 17,
+    fontSize: 16,
+    color: "rgba(255,255,255,1)"
+  },
+  contentPieces: {
+    width: 237,
+    height: 17,
+    flexDirection: "row"
+  },
+  textPieces: {
+    width: "50%",
+    height: 14,
+    backgroundColor: "transparent",
+    color: "rgba(241,241,241,1)"
+  },
+  textTotal: {
+    width: "50%",
+    height: 14,
+    backgroundColor: "transparent",
+    fontSize: 14,
+    color: "rgba(255,252,252,1)",
+    textAlign: "right"
   }
 });
