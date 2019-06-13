@@ -187,6 +187,26 @@ export default class Cart extends Component {
                 type="MaterialCommunityIcons"
               />
             </View>
+            <View style={styles.contentDetailCoupon}>
+              <FlatList
+                style={styles.listReferenceCoupons}
+                renderItem={({ item, separators }) => {
+                  return (
+                    <View style={styles.rect10}>
+                      <View style={styles.contentListReferenceItem}>
+                        <Text style={styles.textHash}>List Item</Text>
+                        <Text style={styles.textDiscountPercentage}>
+                          Text Added
+                        </Text>
+                      </View>
+                    </View>
+                  );
+                }}
+                ItemSeparatorComponent={({}) => {
+                  return <View style={styles.rect13} />;
+                }}
+              />
+            </View>
             <GenericButton
               style={styles.genericButton}
               navigation={this.props.navigation}
@@ -266,9 +286,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     opacity: 1
   },
-  text2: {
-    color: "rgba(255,255,255,1)"
-  },
+
   rect4: {
     left: 15,
     height: 2,
@@ -439,14 +457,16 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    display: "none"
   },
   genericButton: {
     width: 265,
     height: 42,
     alignSelf: "center",
     backgroundColor: "rgba(126,211,33,1)",
-    opacity: 1
+    opacity: 1,
+    margin: 13
   },
   textInput: {
     width: 262,
@@ -470,6 +490,58 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     textAlign: "center",
+    alignSelf: "center"
+  },
+  contentDetailCoupon: {
+    height: 148.56,
+    alignSelf: "stretch"
+  },
+  listReferenceCoupons: {
+    top: 0,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    bottom: 0
+  },
+  rect10: {
+    backgroundColor: "rgba(29,41,53,1)",
+    padding: 15,
+    paddingTop: 10,
+    paddingBottom: 10,
+    opacity: 1,
+    height: 50
+  },
+  rect13: {
+    left: 15,
+    height: 2,
+    backgroundColor: "#999999",
+    alignSelf: "stretch"
+  },
+  contentListReferenceItem: {
+    height: 35.72,
+    top: 9,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "flex-start"
+  },
+  textHash: {
+    width: 360,
+    height: 15,
+    fontSize: 16,
+    color: "rgba(255,255,255,1)",
+    alignSelf: "center"
+  },
+  textDiscountPercentage: {
+    width: 360,
+    height: 17,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 14,
+    margin: 0,
+    padding: 0,
     alignSelf: "center"
   }
 });
