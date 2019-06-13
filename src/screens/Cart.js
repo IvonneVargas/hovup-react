@@ -177,6 +177,11 @@ export default class Cart extends Component {
                 style={styles.textInput}
                 placeholder="Codigo promocional"
               />
+              <Icon
+                style={styles.icon2}
+                name="plus-circle-outline"
+                type="MaterialCommunityIcons"
+              />
             </View>
             <GenericButton
               style={styles.genericButton}
@@ -449,5 +454,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#E6E6E6",
     borderRadius: 7,
     textAlign: "center"
+  },
+  icon2: {
+    width: 41,
+    height: 39,
+    backgroundColor: "transparent",
+    color: "rgba(126,211,33,1)",
+    fontSize: 40,
+    alignSelf: "center",
+    margin: 5
   }
 });
