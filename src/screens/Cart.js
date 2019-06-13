@@ -175,12 +175,17 @@ export default class Cart extends Component {
                 renderItem={({ item, separators }) => {
                   return (
                     <View style={styles.rect10}>
-                      <View style={styles.contentListReferenceItem}>
+                      <TouchableOpacity
+                        style={styles.contentListReferenceItem}
+                        onPress={() => {
+                          console.log("CLICK ITEM KEY,", item.key);
+                        }}
+                      >
                         <Text style={styles.textHash}>{item.name}</Text>
                         <Text style={styles.textDiscountPercentage}>
                           {item.percentage}
                         </Text>
-                      </View>
+                      </TouchableOpacity>
                     </View>
                   );
                 }}
@@ -222,8 +227,9 @@ const styles = StyleSheet.create({
   },
   content: {
     alignSelf: "stretch",
-    flex: 0.5,
-    flexDirection: "column"
+    flex: 1,
+    flexDirection: "column",
+    display: "none"
   },
   title: {
     width: 172,
@@ -247,8 +253,8 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   headerSingleLogo: {
-    width: 374,
-    height: 53
+    height: 53,
+    alignSelf: "stretch"
   },
   contentProducts: {
     alignSelf: "stretch",
@@ -420,8 +426,7 @@ const styles = StyleSheet.create({
   contentCodes: {
     alignSelf: "stretch",
     flex: 1,
-    flexDirection: "column",
-    display: "none"
+    flexDirection: "column"
   },
   titleFive: {
     width: 359,
@@ -476,8 +481,7 @@ const styles = StyleSheet.create({
   },
   contentDetailCoupon: {
     height: 148.56,
-    alignSelf: "stretch",
-    display: "none"
+    alignSelf: "stretch"
   },
   listReferenceCoupons: {
     top: 0,
