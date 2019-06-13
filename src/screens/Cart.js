@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
+import GenericButton from "../symbols/GenericButton";
 import Icon from "@builderx/icons";
 
 export default class Cart extends Component {
@@ -132,7 +133,28 @@ export default class Cart extends Component {
                 return <View style={styles.rect4} />;
               }}
             />
-            <View style={styles.contentProducts} />
+            <View style={styles.contentProducts}>
+              <View style={styles.contentOne}>
+                <Text style={styles.textSubtotalT}>Text Added</Text>
+                <Text style={styles.textSubtotal}>Text Added</Text>
+              </View>
+              <View style={styles.contentTwo}>
+                <Text style={styles.textIvaT}>Text Added</Text>
+                <Text style={styles.textIva}>Text Added</Text>
+              </View>
+              <View style={styles.contentThree}>
+                <Text style={styles.textTotalT}>Text Added</Text>
+                <Text style={styles.textTotals}>Text Added</Text>
+              </View>
+              <GenericButton
+                style={styles.addCodesBtn}
+                navigation={this.props.navigation}
+              />
+              <GenericButton
+                style={styles.paymentBtn}
+                navigation={this.props.navigation}
+              />
+            </View>
           </View>
         </View>
       </View>
@@ -165,7 +187,7 @@ const styles = StyleSheet.create({
   },
   title: {
     width: 172,
-    height: 16,
+    height: 17,
     backgroundColor: "transparent",
     fontSize: 16,
     color: "rgba(255,255,255,1)",
@@ -190,11 +212,13 @@ const styles = StyleSheet.create({
   },
   contentProducts: {
     alignSelf: "stretch",
-    flex: 1
+    flex: 0.42,
+    flexDirection: "column",
+    justifyContent: "flex-start"
   },
   list: {
     alignSelf: "stretch",
-    flex: 1
+    flex: 0.58
   },
   rect: {
     backgroundColor: "rgba(29,41,53,1)",
@@ -270,5 +294,77 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "rgba(255,252,252,1)",
     textAlign: "right"
+  },
+  contentOne: {
+    width: 374,
+    height: 31,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center"
+  },
+  contentTwo: {
+    width: 374,
+    height: 31,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center"
+  },
+  contentThree: {
+    width: 374,
+    height: 31,
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center"
+  },
+  textSubtotalT: {
+    width: 75,
+    height: 13,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)"
+  },
+  textSubtotal: {
+    width: 75,
+    height: 13,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)"
+  },
+  textIvaT: {
+    width: 75,
+    height: 13,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)"
+  },
+  textIva: {
+    width: 75,
+    height: 13,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)"
+  },
+  textTotalT: {
+    width: 75,
+    height: 13,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)"
+  },
+  textTotals: {
+    width: 75,
+    height: 13,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)"
+  },
+  addCodesBtn: {
+    width: 263,
+    height: 42,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1,
+    alignSelf: "center",
+    margin: 8
+  },
+  paymentBtn: {
+    width: 263,
+    height: 42,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1,
+    alignSelf: "center"
   }
 });
