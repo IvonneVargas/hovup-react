@@ -426,7 +426,7 @@ const styles = StyleSheet.create({
   titleFive: {
     width: 359,
     height: 16,
-    margin: 8,
+    margin: 15,
     alignSelf: "center"
   },
 
@@ -465,8 +465,8 @@ const styles = StyleSheet.create({
     margin: 5
   },
   description: {
-    width: 304,
-    height: 59.5,
+    width: 330.97,
+    height: 71.57,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     textAlign: "center",
