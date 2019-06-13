@@ -135,24 +135,26 @@ export default class Cart extends Component {
             />
             <View style={styles.contentProducts}>
               <View style={styles.contentOne}>
-                <Text style={styles.textSubtotalT}>Text Added</Text>
-                <Text style={styles.textSubtotal}>Text Added</Text>
+                <Text style={styles.AllText}>Subtotal</Text>
+                <Text style={styles.text4}>$ 20,000.00 MXN</Text>
               </View>
               <View style={styles.contentTwo}>
-                <Text style={styles.textIvaT}>Text Added</Text>
-                <Text style={styles.textIva}>Text Added</Text>
+                <Text style={styles.text6}>IVA</Text>
+                <Text style={styles.text3}>$ 3,000.00 MXN</Text>
               </View>
               <View style={styles.contentThree}>
-                <Text style={styles.textTotalT}>Text Added</Text>
-                <Text style={styles.textTotals}>Text Added</Text>
+                <Text style={styles.text5}>Totald</Text>
+                <Text style={styles.text2}>$ 23,000.00 MXN</Text>
               </View>
               <GenericButton
                 style={styles.addCodesBtn}
                 navigation={this.props.navigation}
+                text="Agregar codigos"
               />
               <GenericButton
                 style={styles.paymentBtn}
                 navigation={this.props.navigation}
+                text="Forma de pago"
               />
             </View>
           </View>
@@ -212,13 +214,13 @@ const styles = StyleSheet.create({
   },
   contentProducts: {
     alignSelf: "stretch",
-    flex: 0.42,
+    flex: 0.53,
     flexDirection: "column",
     justifyContent: "flex-start"
   },
   list: {
     alignSelf: "stretch",
-    flex: 0.58
+    flex: 0.47
   },
   rect: {
     backgroundColor: "rgba(29,41,53,1)",
@@ -316,41 +318,13 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center"
   },
-  textSubtotalT: {
+  AllText: {
     width: 75,
-    height: 13,
+    height: 16,
     backgroundColor: "transparent",
-    color: "rgba(255,255,255,1)"
-  },
-  textSubtotal: {
-    width: 75,
-    height: 13,
-    backgroundColor: "transparent",
-    color: "rgba(255,255,255,1)"
-  },
-  textIvaT: {
-    width: 75,
-    height: 13,
-    backgroundColor: "transparent",
-    color: "rgba(255,255,255,1)"
-  },
-  textIva: {
-    width: 75,
-    height: 13,
-    backgroundColor: "transparent",
-    color: "rgba(255,255,255,1)"
-  },
-  textTotalT: {
-    width: 75,
-    height: 13,
-    backgroundColor: "transparent",
-    color: "rgba(255,255,255,1)"
-  },
-  textTotals: {
-    width: 75,
-    height: 13,
-    backgroundColor: "transparent",
-    color: "rgba(255,255,255,1)"
+    color: "rgba(255,255,255,1)",
+    margin: 5,
+    textAlign: "right"
   },
   addCodesBtn: {
     width: 263,
@@ -366,5 +340,45 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(101,188,70,1)",
     opacity: 1,
     alignSelf: "center"
+  },
+  text2: {
+    width: 130,
+    height: 16,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    margin: 5,
+    textAlign: "right"
+  },
+  text3: {
+    width: 130,
+    height: 16,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    margin: 5,
+    textAlign: "right"
+  },
+  text4: {
+    width: 130,
+    height: 16,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    margin: 5,
+    textAlign: "right"
+  },
+  text5: {
+    width: 75,
+    height: 16,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    margin: 5,
+    textAlign: "right"
+  },
+  text6: {
+    width: 75,
+    height: 16,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    margin: 5,
+    textAlign: "right"
   }
 });
