@@ -5,7 +5,6 @@ import { View, StyleSheet, Text } from "react-native";
 import Main from "./Main";
 import Favorites from "./Favorites";
 import Wallet from "./Wallet";
-import Notifications from "./Notifications";
 import Cart from "./Cart";
 import Icon from "@builderx/icons";
 
@@ -78,7 +77,7 @@ export default class BottomViewBar extends Component {
       return <Wallet style={styles.rect} navigation={this.props.navigation} />;
     } else if (this.state.display == "notify") {
       return (
-        <Notifications style={styles.rect} navigation={this.props.navigation} />
+        <Favorites style={styles.rect} navigation={this.props.navigation} />
       );
     } else if (this.state.display == "cart") {
       return <Cart style={styles.rect} navigation={this.props.navigation} />;
