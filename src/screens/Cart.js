@@ -35,64 +35,29 @@ export default class Cart extends Component {
               style={styles.list}
               data={[
                 {
-                  key: "Titulo",
-                  sub: "Descripcion",
-                  level: 2
+                  key: "Producto",
+                  sub: "10.00",
+                  pieces: 2
                 },
                 {
-                  key: "Titulo2",
-                  sub: "Descripcion",
-                  level: 2
+                  key: "Producto2",
+                  sub: "30.00",
+                  pieces: 2
                 },
                 {
-                  key: "Titulo3",
-                  sub: "Descripcion",
-                  level: 2
+                  key: "Producto3",
+                  sub: "20.00",
+                  pieces: 3
                 },
                 {
-                  key: "Titulo4",
-                  sub: "Descripcion",
-                  level: 2
+                  key: "Producto4",
+                  sub: "40.00",
+                  pieces: 5
                 },
                 {
-                  key: "Titulo5",
-                  sub: "Descripcion",
-                  level: 2
-                },
-                {
-                  key: "Titulo6",
-                  sub: "Descripcion",
-                  level: 2
-                },
-                {
-                  key: "Titulo7",
-                  sub: "Descripcion",
-                  level: 2
-                },
-                {
-                  key: "Titulo8",
-                  sub: "Descripcion",
-                  level: 2
-                },
-                {
-                  key: "Titulo9",
-                  sub: "Descripcion",
-                  level: 2
-                },
-                {
-                  key: "Titulo10",
-                  sub: "Descripcion",
-                  level: 2
-                },
-                {
-                  key: "Titulo11",
-                  sub: "Descripcion",
-                  level: 2
-                },
-                {
-                  key: "Titulo12",
-                  sub: "Descripcion",
-                  level: 2
+                  key: "Producto5",
+                  sub: "50.00",
+                  pieces: 6
                 }
               ]}
               renderItem={({ item, separators }) => {
@@ -191,22 +156,22 @@ export default class Cart extends Component {
               <FlatList
                 style={styles.listReferenceCoupons}
                 data={[
-                {
-                  key: "123",
-                  name: "#3D15",
-                  percentage: "15"
-                },
-                {
-                  key: "456",
-                  name: "#FB10-2018",
-                  percentage: "10"
-                },
-                {
-                  key: "789",
-                  name: "#PRUEBA",
-                  percentage: "50"
-                }
-              ]}
+                  {
+                    key: "123",
+                    name: "#3D15",
+                    percentage: "15"
+                  },
+                  {
+                    key: "456",
+                    name: "#FB10-2018",
+                    percentage: "10"
+                  },
+                  {
+                    key: "789",
+                    name: "#PRUEBA",
+                    percentage: "50"
+                  }
+                ]}
                 renderItem={({ item, separators }) => {
                   return (
                     <View style={styles.rect10}>
@@ -258,8 +223,7 @@ const styles = StyleSheet.create({
   content: {
     alignSelf: "stretch",
     flex: 0.5,
-    flexDirection: "column",
-    display: "none"
+    flexDirection: "column"
   },
   title: {
     width: 172,
@@ -456,7 +420,8 @@ const styles = StyleSheet.create({
   contentCodes: {
     alignSelf: "stretch",
     flex: 1,
-    flexDirection: "column"
+    flexDirection: "column",
+    display: "none"
   },
   titleFive: {
     width: 359,
@@ -511,7 +476,8 @@ const styles = StyleSheet.create({
   },
   contentDetailCoupon: {
     height: 148.56,
-    alignSelf: "stretch"
+    alignSelf: "stretch",
+    display: "none"
   },
   listReferenceCoupons: {
     top: 0,
