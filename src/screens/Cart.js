@@ -172,6 +172,17 @@ export default class Cart extends Component {
               style={styles.descriptionFive}
               text2="Por favor ingresa los codigos promocionales que deseas usar para tu compra, recuerda que solo se aplica a los productos validos para cada codigo."
             />
+            <View style={styles.contentInputs}>
+              <TextInput
+                style={styles.textInput}
+                placeholder="Codigo promocional"
+              />
+            </View>
+            <GenericButton
+              style={styles.genericButton}
+              navigation={this.props.navigation}
+              text="Buscar promociones"
+            />
           </View>
         </View>
       </View>
@@ -417,5 +428,26 @@ const styles = StyleSheet.create({
   headerBack: {
     width: 375,
     height: 54
+  },
+  contentInputs: {
+    height: 143.86,
+    alignSelf: "stretch",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  genericButton: {
+    width: 265,
+    height: 42,
+    alignSelf: "center",
+    backgroundColor: "rgba(126,211,33,1)",
+    opacity: 1
+  },
+  textInput: {
+    width: 262,
+    height: 42,
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    textAlign: "center"
   }
 });
