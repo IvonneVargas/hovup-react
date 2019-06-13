@@ -8,9 +8,13 @@ import {
   FlatList,
   Platform,
   TouchableOpacity,
-  Image
+  Image,
+  TextInput
 } from "react-native";
 import GenericButton from "../symbols/GenericButton";
+import TitleFive from "../symbols/TitleFive";
+import DescriptionFive from "../symbols/DescriptionFive";
+import HeaderBack from "../symbols/HeaderBack";
 import Icon from "@builderx/icons";
 
 export default class Cart extends Component {
@@ -158,6 +162,17 @@ export default class Cart extends Component {
               />
             </View>
           </View>
+          <View style={styles.contentCodes}>
+            <HeaderBack
+              style={styles.headerBack}
+              navigation={this.props.navigation}
+            />
+            <TitleFive style={styles.titleFive} text2="Codigos promocionales" />
+            <DescriptionFive
+              style={styles.descriptionFive}
+              text2="Por favor ingresa los codigos promocionales que deseas usar para tu compra, recuerda que solo se aplica a los productos validos para cada codigo."
+            />
+          </View>
         </View>
       </View>
     );
@@ -175,7 +190,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(29,41,53,1)",
     right: 0,
     bottom: 0,
-    opacity: 1
+    opacity: 1,
+    flexDirection: "column"
   },
 
   layoutStatusBar: {
@@ -184,8 +200,9 @@ const styles = StyleSheet.create({
   },
   content: {
     alignSelf: "stretch",
-    flex: 1,
-    flexDirection: "column"
+    flex: 0.5,
+    flexDirection: "column",
+    display: "none"
   },
   title: {
     width: 172,
@@ -230,7 +247,7 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   text2: {
-    color: "#000000"
+    color: "rgba(255,255,255,1)"
   },
   rect4: {
     left: 15,
@@ -380,5 +397,25 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)",
     margin: 5,
     textAlign: "right"
+  },
+  contentCodes: {
+    alignSelf: "stretch",
+    flex: 1,
+    flexDirection: "column"
+  },
+  titleFive: {
+    width: 359,
+    height: 16,
+    margin: 8,
+    alignSelf: "center"
+  },
+  descriptionFive: {
+    width: 359,
+    height: 47,
+    alignSelf: "center"
+  },
+  headerBack: {
+    width: 375,
+    height: 54
   }
 });
