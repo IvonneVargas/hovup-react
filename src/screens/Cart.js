@@ -18,6 +18,13 @@ import HeaderBack from "../symbols/HeaderBack";
 import Icon from "@builderx/icons";
 
 export default class Cart extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      selectedItem: ""
+    };
+  }
   render() {
     return (
       <View style={styles.root}>
@@ -179,6 +186,9 @@ export default class Cart extends Component {
                         style={styles.contentListReferenceItem}
                         onPress={() => {
                           console.log("CLICK ITEM KEY,", item.key);
+                          this.setState({
+                            selectedItem: item.key
+                          });
                         }}
                       >
                         <Text style={styles.textHash}>{item.name}</Text>
@@ -186,6 +196,7 @@ export default class Cart extends Component {
                           {item.percentage}
                         </Text>
                       </TouchableOpacity>
+                      {this.showSelected(item.key)}
                     </View>
                   );
                 }}
@@ -203,6 +214,18 @@ export default class Cart extends Component {
         </View>
       </View>
     );
+  }
+
+  showSelected(key){
+    if (key == this.state.selectedItem) {
+      return(
+        <Icon
+                        name="check"
+                        style={styles.icon3}
+                        type="MaterialCommunityIcons"
+                      />
+      );
+    }
   }
 }
 const styles = StyleSheet.create({
@@ -505,24 +528,24 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   contentListReferenceItem: {
-    height: 35.72,
+    height: 36,
     top: 9,
     left: 0,
     position: "absolute",
-    right: 0,
+    right: 29.72,
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "flex-start"
   },
   textHash: {
-    width: 360,
+    width: 312,
     height: 15,
     fontSize: 16,
     color: "rgba(255,255,255,1)",
     alignSelf: "center"
   },
   textDiscountPercentage: {
-    width: 360,
+    width: 312.38,
     height: 17,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
@@ -530,5 +553,13 @@ const styles = StyleSheet.create({
     margin: 0,
     padding: 0,
     alignSelf: "center"
+  },
+  icon3: {
+    top: 12.24,
+    left: 343,
+    position: "absolute",
+    backgroundColor: "transparent",
+    color: "rgba(126,211,33,1)",
+    fontSize: 23
   }
 });
