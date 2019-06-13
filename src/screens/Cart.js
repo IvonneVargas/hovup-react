@@ -135,16 +135,16 @@ export default class Cart extends Component {
             />
             <View style={styles.contentProducts}>
               <View style={styles.contentOne}>
-                <Text style={styles.AllText}>Subtotal</Text>
-                <Text style={styles.text4}>$ 20,000.00 MXN</Text>
+                <Text style={styles.textSubtotal}>Subtotal</Text>
+                <Text style={styles.textSubtotalT}>$ 20,000.00 MXN</Text>
               </View>
               <View style={styles.contentTwo}>
-                <Text style={styles.text6}>IVA</Text>
-                <Text style={styles.text3}>$ 3,000.00 MXN</Text>
+                <Text style={styles.textIva}>IVA</Text>
+                <Text style={styles.textIvaT}>$ 3,000.00 MXN</Text>
               </View>
               <View style={styles.contentThree}>
-                <Text style={styles.text5}>Totald</Text>
-                <Text style={styles.text2}>$ 23,000.00 MXN</Text>
+                <Text style={styles.textTotals}>Totald</Text>
+                <Text style={styles.textTotalT}>$ 23,000.00 MXN</Text>
               </View>
               <GenericButton
                 style={styles.addCodesBtn}
@@ -318,7 +318,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center"
   },
-  AllText: {
+  textSubtotal: {
     width: 75,
     height: 16,
     backgroundColor: "transparent",
@@ -341,7 +341,7 @@ const styles = StyleSheet.create({
     opacity: 1,
     alignSelf: "center"
   },
-  text2: {
+  textTotalT: {
     width: 130,
     height: 16,
     backgroundColor: "transparent",
@@ -349,7 +349,7 @@ const styles = StyleSheet.create({
     margin: 5,
     textAlign: "right"
   },
-  text3: {
+  textIvaT: {
     width: 130,
     height: 16,
     backgroundColor: "transparent",
@@ -357,7 +357,7 @@ const styles = StyleSheet.create({
     margin: 5,
     textAlign: "right"
   },
-  text4: {
+  textSubtotalT: {
     width: 130,
     height: 16,
     backgroundColor: "transparent",
@@ -365,7 +365,7 @@ const styles = StyleSheet.create({
     margin: 5,
     textAlign: "right"
   },
-  text5: {
+  textTotals: {
     width: 75,
     height: 16,
     backgroundColor: "transparent",
@@ -373,7 +373,7 @@ const styles = StyleSheet.create({
     margin: 5,
     textAlign: "right"
   },
-  text6: {
+  textIva: {
     width: 75,
     height: 16,
     backgroundColor: "transparent",
