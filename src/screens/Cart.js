@@ -92,6 +92,9 @@ export default class Cart extends Component {
                       <View style={styles.rect9}>
                         <Text style={styles.textKey}>{item.key}</Text>
                         <Text style={styles.textSub}>$ {item.sub} MXN</Text>
+                        <Text style={styles.textReferenceC}>
+                          - 10 % #FB10-2018
+                        </Text>
                         <View style={styles.contentPieces}>
                           <Text style={styles.textPieces}>
                             x {item.pieces} Pieza
@@ -216,14 +219,10 @@ export default class Cart extends Component {
     );
   }
 
-  showSelected(key){
+  showSelected(key) {
     if (key == this.state.selectedItem) {
-      return(
-        <Icon
-                        name="check"
-                        style={styles.icon3}
-                        type="MaterialCommunityIcons"
-                      />
+      return (
+        <Icon name="check" style={styles.icon3} type="MaterialCommunityIcons" />
       );
     }
   }
@@ -251,8 +250,7 @@ const styles = StyleSheet.create({
   content: {
     alignSelf: "stretch",
     flex: 1,
-    flexDirection: "column",
-    display: "none"
+    flexDirection: "column"
   },
   title: {
     width: 172,
@@ -306,7 +304,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     margin: 0,
-    height: 76
+    height: 80
   },
   icon: {
     top: Platform.OS === "android" ? 18 : 21.67,
@@ -323,9 +321,9 @@ const styles = StyleSheet.create({
     margin: 5
   },
   rect9: {
-    height: 56,
+    height: 70,
     width: 237,
-    top: 10,
+    top: 3,
     left: 80,
     position: "absolute",
     justifyContent: "space-around",
@@ -449,7 +447,8 @@ const styles = StyleSheet.create({
   contentCodes: {
     alignSelf: "stretch",
     flex: 1,
-    flexDirection: "column"
+    flexDirection: "column",
+    display: "none"
   },
   titleFive: {
     width: 359,
@@ -467,8 +466,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center",
-    display: "none"
+    alignItems: "center"
   },
   genericButton: {
     width: 265,
@@ -504,7 +502,8 @@ const styles = StyleSheet.create({
   },
   contentDetailCoupon: {
     height: 148.56,
-    alignSelf: "stretch"
+    alignSelf: "stretch",
+    display: "none"
   },
   listReferenceCoupons: {
     top: 0,
@@ -561,5 +560,11 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     color: "rgba(126,211,33,1)",
     fontSize: 23
+  },
+  textReferenceC: {
+    width: 237,
+    height: 14,
+    fontSize: 14,
+    color: "rgba(255,255,255,1)"
   }
 });
