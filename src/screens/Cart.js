@@ -790,15 +790,15 @@ const styles = StyleSheet.create({
     height: 17
   },
   lineView: {
-    width: 374,
-    height: 1
+    height: 1,
+    alignSelf: "stretch"
   },
   lineView2: {
-    width: 374,
-    height: 1
+    height: 1,
+    alignSelf: "stretch"
   },
   lineView3: {
-    width: 374,
-    height: 1
+    height: 1,
+    alignSelf: "stretch"
   }
 });
