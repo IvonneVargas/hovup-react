@@ -254,23 +254,6 @@ export default class Cart extends Component {
               text2="Para continuar ingresa el email de tu cliente y enviarle su certificado de compra"
             />
             <View style={styles.contentAdminClient}>
-              <GenericButton
-                style={styles.resumeBtn}
-                navigation={this.props.navigation}
-                text="Resumen"
-              />
-              <GenericButtonIcon
-                style={styles.paymentClientSelectBtn}
-                text="Forma de pago"
-                iconType="MaterialCommunityIcons"
-                iconName="check"
-                navigation={this.props.navigation}
-              />
-              <DescriptionFive
-                style={styles.descriptionFive2}
-                text2="Por favor selecciona la forma de pago."
-              />
-              <TitleFive style={styles.titleFive4} text2="Forma de pago" />
               <View
                 style={styles.contentInputsClient}
                 navigation={this.props.navigation}
@@ -284,6 +267,23 @@ export default class Cart extends Component {
                   iconName="check"
                 />
               </View>
+              <TitleFive style={styles.titleFive4} text2="Forma de pago" />
+              <DescriptionFive
+                style={styles.descriptionFive2}
+                text2="Por favor selecciona la forma de pago."
+              />
+              <GenericButtonIcon
+                style={styles.paymentClientSelectBtn}
+                text="Forma de pago"
+                iconType="MaterialCommunityIcons"
+                iconName="check"
+                navigation={this.props.navigation}
+              />
+              <GenericButton
+                style={styles.resumeBtn}
+                navigation={this.props.navigation}
+                text="Resumen"
+              />
             </View>
           </View>
         </View>
@@ -784,21 +784,9 @@ const styles = StyleSheet.create({
     marginTop: 10,
     alignSelf: "center"
   },
-  descriptionFive2: {
-    width: 359,
-    height: 22,
-    marginTop: 18,
-    alignSelf: "center"
-  },
-  titleFive4: {
-    width: 359,
-    height: 19,
-    marginTop: 20,
-    alignSelf: "center"
-  },
   contentInputsClient: {
     width: 374,
-    height: 155,
+    height: 154,
     alignItems: "center",
     justifyContent: "space-around"
   },
@@ -821,5 +809,17 @@ const styles = StyleSheet.create({
     height: 42,
     backgroundColor: "rgba(101,188,70,1)",
     opacity: 1
+  },
+  titleFive4: {
+    width: 359,
+    height: 19,
+    alignSelf: "center",
+    marginTop: 20
+  },
+  descriptionFive2: {
+    width: 359,
+    height: 22,
+    alignSelf: "center",
+    marginTop: 18
   }
 });
