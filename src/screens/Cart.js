@@ -118,6 +118,7 @@ export default class Cart extends Component {
                 return <View style={styles.rect4} />;
               }}
             />
+            <View style={styles.contentResume} />
             <View style={styles.contentProducts}>
               <View style={styles.contentOne}>
                 <Text style={styles.textSubtotal}>Subtotal</Text>
@@ -357,9 +358,8 @@ const styles = StyleSheet.create({
   },
   content: {
     alignSelf: "stretch",
-    flex: 1,
-    flexDirection: "column",
-    display: "none"
+    flex: 1.33,
+    flexDirection: "column"
   },
   title: {
     width: 172,
@@ -388,13 +388,13 @@ const styles = StyleSheet.create({
   },
   contentProducts: {
     alignSelf: "stretch",
-    flex: 0.53,
+    flex: 1,
     flexDirection: "column",
     justifyContent: "flex-start"
   },
   list: {
     alignSelf: "stretch",
-    flex: 0.47
+    flex: 1
   },
   rect: {
     backgroundColor: "rgba(29,41,53,1)",
@@ -555,7 +555,7 @@ const styles = StyleSheet.create({
   },
   contentCodes: {
     alignSelf: "stretch",
-    flex: 1,
+    flex: 1.33,
     flexDirection: "column",
     display: "none"
   },
@@ -678,8 +678,9 @@ const styles = StyleSheet.create({
   },
   contentClient: {
     alignSelf: "stretch",
-    flex: 1,
-    flexDirection: "column"
+    flex: -1.67,
+    flexDirection: "column",
+    display: "none"
   },
   titleFive3: {
     width: 360,
@@ -747,5 +748,9 @@ const styles = StyleSheet.create({
     opacity: 1,
     alignSelf: "center",
     marginTop: 20
+  },
+  contentResume: {
+    height: 99,
+    alignSelf: "stretch"
   }
 });
