@@ -253,35 +253,38 @@ export default class Cart extends Component {
               style={styles.descriptionFive}
               text2="Para continuar ingresa el email de tu cliente y enviarle su certificado de compra"
             />
-            <View style={styles.contentInputsClient}>
-              <TextInput style={styles.textInput2} placeholder="Email*" />
-              <TextInput style={styles.textInput3} placeholder="ID Externo" />
+            <View style={styles.contentAdminClient}>
+              <GenericButton
+                style={styles.resumeBtn}
+                navigation={this.props.navigation}
+                text="Resumen"
+              />
               <GenericButtonIcon
-                style={styles.takePhotoBtn}
-                text="Tomar foto"
+                style={styles.paymentClientSelectBtn}
+                text="Forma de pago"
                 iconType="MaterialCommunityIcons"
                 iconName="check"
+                navigation={this.props.navigation}
               />
+              <DescriptionFive
+                style={styles.descriptionFive2}
+                text2="Por favor selecciona la forma de pago."
+              />
+              <TitleFive style={styles.titleFive4} text2="Forma de pago" />
+              <View
+                style={styles.contentInputsClient}
+                navigation={this.props.navigation}
+              >
+                <TextInput style={styles.textInput2} placeholder="Email*" />
+                <TextInput style={styles.textInput3} placeholder="ID Externo" />
+                <GenericButtonIcon
+                  style={styles.takePhotoBtn}
+                  text="Tomar foto"
+                  iconType="MaterialCommunityIcons"
+                  iconName="check"
+                />
+              </View>
             </View>
-            <TitleFive style={styles.titleFive4} text2="Forma de pago" />
-            <DescriptionFive
-              style={styles.descriptionFive2}
-              text2="Por favor selecciona la forma de pago."
-            />
-            <GenericButtonIcon
-              style={styles.paymentClientSelectBtn}
-              button={() => {
-                this.showActionSheet();
-              }}
-              text="Forma de pago"
-              iconType="MaterialCommunityIcons"
-              iconName="check"
-            />
-            <GenericButton
-              style={styles.resumeBtn}
-              navigation={this.props.navigation}
-              text="Resumen"
-            />
           </View>
         </View>
       </View>
@@ -382,7 +385,8 @@ const styles = StyleSheet.create({
   content: {
     alignSelf: "stretch",
     flex: 1.33,
-    flexDirection: "column"
+    flexDirection: "column",
+    display: "none"
   },
   title: {
     width: 172,
@@ -701,9 +705,8 @@ const styles = StyleSheet.create({
   },
   contentClient: {
     alignSelf: "stretch",
-    flex: -1.67,
-    flexDirection: "column",
-    display: "none"
+    flex: 1,
+    flexDirection: "column"
   },
   titleFive3: {
     width: 360,
@@ -718,60 +721,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     margin: 10
   },
-  contentInputsClient: {
-    height: 154.68,
-    alignItems: "center",
-    justifyContent: "space-around",
-    alignSelf: "stretch"
-  },
-  textInput2: {
-    width: 262,
-    height: 42,
-    backgroundColor: "#E6E6E6",
-    borderRadius: 7,
-    textAlign: "center"
-  },
-  textInput3: {
-    width: 262,
-    height: 42,
-    backgroundColor: "#E6E6E6",
-    borderRadius: 7,
-    textAlign: "center"
-  },
-  takePhotoBtn: {
-    width: 263,
-    height: 42,
-    backgroundColor: "rgba(101,188,70,1)",
-    opacity: 1
-  },
-  titleFive4: {
-    width: 359,
-    height: 19,
-    alignSelf: "center",
-    marginTop: 20
-  },
-  descriptionFive2: {
-    width: 359,
-    height: 23,
-    alignSelf: "center",
-    marginTop: 18
-  },
-  paymentClientSelectBtn: {
-    width: 265,
-    height: 42,
-    backgroundColor: "rgba(101,188,70,1)",
-    opacity: 1,
-    alignSelf: "center",
-    marginTop: 10
-  },
-  resumeBtn: {
-    width: 265,
-    height: 42,
-    backgroundColor: "rgba(101,188,70,1)",
-    opacity: 1,
-    alignSelf: "center",
-    marginTop: 20
-  },
+
   contentResume: {
     height: 111.53,
     alignSelf: "stretch",
@@ -812,5 +762,64 @@ const styles = StyleSheet.create({
   lineView3: {
     height: 1,
     alignSelf: "stretch"
+  },
+  contentAdminClient: {
+    flexDirection: "column",
+    flex: 1,
+    alignSelf: "stretch"
+  },
+  resumeBtn: {
+    width: 265,
+    height: 42,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1,
+    marginTop: 20,
+    alignSelf: "center"
+  },
+  paymentClientSelectBtn: {
+    width: 265,
+    height: 41,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1,
+    marginTop: 10,
+    alignSelf: "center"
+  },
+  descriptionFive2: {
+    width: 359,
+    height: 22,
+    marginTop: 18,
+    alignSelf: "center"
+  },
+  titleFive4: {
+    width: 359,
+    height: 19,
+    marginTop: 20,
+    alignSelf: "center"
+  },
+  contentInputsClient: {
+    width: 374,
+    height: 155,
+    alignItems: "center",
+    justifyContent: "space-around"
+  },
+  textInput2: {
+    width: 262,
+    height: 42,
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    textAlign: "center"
+  },
+  textInput3: {
+    width: 262,
+    height: 42,
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    textAlign: "center"
+  },
+  takePhotoBtn: {
+    width: 263,
+    height: 42,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1
   }
 });
