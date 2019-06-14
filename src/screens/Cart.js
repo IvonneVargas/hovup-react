@@ -11,7 +11,8 @@ import {
   Image,
   TextInput,
   CameraRoll,
-  Alert
+  Alert,
+  ActionSheetIOS
 } from "react-native";
 import GenericButton from "../symbols/GenericButton";
 import TitleFive from "../symbols/TitleFive";
@@ -229,14 +230,8 @@ export default class Cart extends Component {
               text2="Para continuar ingresa el email de tu cliente y enviarle su certificado de compra"
             />
             <View style={styles.contentInputsClient}>
-              <TextInput
-                style={styles.textInput2}
-                placeholder="Confirmar contrasena*"
-              />
-              <TextInput
-                style={styles.textInput3}
-                placeholder="Confirmar contrasena*"
-              />
+              <TextInput style={styles.textInput2} placeholder="Email*" />
+              <TextInput style={styles.textInput3} placeholder="ID Externo" />
               <GenericButtonIcon
                 style={styles.takePhotoBtn}
                 text="Tomar foto"
@@ -252,7 +247,7 @@ export default class Cart extends Component {
             <GenericButtonIcon
               style={styles.paymentClientSelectBtn}
               button={() => {
-                this.props.navigation.push("Launcher");
+                this.showActionSheet();
               }}
               text="Forma de pago"
               iconType="MaterialCommunityIcons"
@@ -273,8 +268,8 @@ export default class Cart extends Component {
           "Pago con terminal",
           "Cancel"
         ],
-        destructiveButtonIndex: 1,
-        cancelButtonIndex: 0
+        destructiveButtonIndex: 3,
+        cancelButtonIndex: 3
       },
       buttonIndex => {
         if (buttonIndex === 1) {
