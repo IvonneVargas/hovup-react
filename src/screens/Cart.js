@@ -253,6 +253,11 @@ export default class Cart extends Component {
               iconType="MaterialCommunityIcons"
               iconName="check"
             />
+            <GenericButton
+              style={styles.resumeBtn}
+              navigation={this.props.navigation}
+              text="Resumen"
+            />
           </View>
         </View>
       </View>
@@ -680,7 +685,8 @@ const styles = StyleSheet.create({
     width: 360,
     height: 19,
     alignSelf: "center",
-    margin: 10
+    margin: 10,
+    marginTop: 30
   },
   descriptionFive: {
     width: 359,
@@ -733,5 +739,13 @@ const styles = StyleSheet.create({
     opacity: 1,
     alignSelf: "center",
     marginTop: 10
+  },
+  resumeBtn: {
+    width: 265,
+    height: 42,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1,
+    alignSelf: "center",
+    marginTop: 20
   }
 });
