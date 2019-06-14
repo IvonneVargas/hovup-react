@@ -245,6 +245,10 @@ export default class Cart extends Component {
             />
           </View>
           <View style={styles.contentClient}>
+            <HeaderBack
+              style={styles.headerBack2}
+              navigation={this.props.navigation}
+            />
             <TitleFive
               style={styles.titleFive3}
               text2="Informacion del cliente"
@@ -283,6 +287,44 @@ export default class Cart extends Component {
                 style={styles.resumeBtn}
                 navigation={this.props.navigation}
                 text="Resumen"
+              />
+            </View>
+            <View style={styles.contentNotAdminClient}>
+              <FlatList
+                style={styles.listCard}
+                renderItem={({ item, separators }) => {
+                  return (
+                    <View style={styles.rect14}>
+                      <Text style={styles.text4}>List Item</Text>
+                    </View>
+                  );
+                }}
+                ListHeaderComponent={({ highlighted }) => {
+                  return (
+                    <View style={styles.rect15}>
+                      <Text style={styles.text5}>List Header</Text>
+                    </View>
+                  );
+                }}
+                ListFooterComponent={({ highlighted }) => {
+                  return (
+                    <View style={styles.rect16}>
+                      <Text style={styles.text6}>List Footer</Text>
+                    </View>
+                  );
+                }}
+                ItemSeparatorComponent={({}) => {
+                  return <View style={styles.rect17} />;
+                }}
+              />
+              <Icon
+                style={styles.iconPlus}
+                name="plus-circle"
+                type="MaterialCommunityIcons"
+              />
+              <GenericButton
+                style={styles.paymentCardBtn}
+                navigation={this.props.navigation}
               />
             </View>
           </View>
@@ -766,7 +808,8 @@ const styles = StyleSheet.create({
   contentAdminClient: {
     flexDirection: "column",
     flex: 1,
-    alignSelf: "stretch"
+    alignSelf: "stretch",
+    display: "none"
   },
   resumeBtn: {
     width: 265,
@@ -821,5 +864,65 @@ const styles = StyleSheet.create({
     height: 22,
     alignSelf: "center",
     marginTop: 18
+  },
+  contentNotAdminClient: {
+    flex: 1,
+    alignSelf: "stretch",
+    flexDirection: "column"
+  },
+  headerBack2: {
+    width: 374,
+    height: 55
+  },
+  listCard: {
+    height: 320.79,
+    alignSelf: "stretch"
+  },
+  rect14: {
+    backgroundColor: "#ffffff",
+    padding: 15,
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  text4: {
+    color: "#000000"
+  },
+  rect15: {
+    backgroundColor: "#ffffff",
+    padding: 15
+  },
+  text5: {
+    fontSize: 13,
+    color: "#999999"
+  },
+  rect16: {
+    backgroundColor: "#ffffff",
+    padding: 15,
+    borderBottomColor: "#999999",
+    borderBottomWidth: 1
+  },
+  text6: {
+    fontSize: 14,
+    color: "#999999"
+  },
+  rect17: {
+    left: 15,
+    height: 2,
+    backgroundColor: "#999999"
+  },
+  iconPlus: {
+    width: 41,
+    height: 39,
+    backgroundColor: "transparent",
+    color: "rgba(101,188,70,1)",
+    fontSize: 40,
+    alignSelf: "center",
+    marginTop: 20
+  },
+  paymentCardBtn: {
+    width: 265,
+    height: 42,
+    alignSelf: "center",
+    marginTop: 15
   }
 });
