@@ -121,13 +121,25 @@ export default class Cart extends Component {
             />
             <View style={styles.contentResume}>
               <LineView style={styles.lineView3} />
-              <TitleFive style={styles.titleFive5} />
-              <DescriptionFive style={styles.descriptionFive4} />
-              <DescriptionFive style={styles.descriptionFive5} />
-              <DescriptionFive style={styles.descriptionFive6} />
+              <TitleFive style={styles.titleFive5} text2="Forma de pago" />
+              <DescriptionFive
+                style={styles.descriptionFive4}
+                text2="Email: ejemplo@yopmail.com"
+              />
+              <DescriptionFive
+                style={styles.descriptionFive5}
+                text2="ID Externo: ninguno"
+              />
+              <DescriptionFive
+                style={styles.descriptionFive6}
+                text2="Evidencia: Ninguna"
+              />
               <LineView style={styles.lineView2} />
-              <TitleFive style={styles.titleFive6} />
-              <DescriptionFive style={styles.descriptionFive7} />
+              <TitleFive style={styles.titleFive6} text2="Pago con terminal" />
+              <DescriptionFive
+                style={styles.descriptionFive7}
+                text2="Directo con el vendedor"
+              />
               <LineView style={styles.lineView} />
             </View>
             <View style={styles.contentProducts}>
