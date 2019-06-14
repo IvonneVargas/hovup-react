@@ -301,8 +301,8 @@ export default class Cart extends Component {
                       }}
                     >
                       <Image
-                        source={require("../assets/ic_200x200.png")}
-                        style={styles.image}
+                        source={require("../assets/ic_card_visa.png")}
+                        style={styles.imageCard}
                       />
                       <Icon
                         name="ios-arrow-forward"
@@ -499,6 +499,12 @@ const styles = StyleSheet.create({
   image: {
     width: 59,
     height: 60,
+    borderRadius: 6,
+    margin: 5
+  },
+  imageCard: {
+    width: 70.71,
+    height: 42.42,
     borderRadius: 6,
     margin: 5
   },
