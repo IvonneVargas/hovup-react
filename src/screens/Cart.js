@@ -20,6 +20,7 @@ import TitleFive from "../symbols/TitleFive";
 import HeaderBack from "../symbols/HeaderBack";
 import DescriptionFive from "../symbols/DescriptionFive";
 import GenericButtonIcon from "../symbols/GenericButtonIcon";
+import LineView from "../symbols/LineView";
 import Icon from "@builderx/icons";
 
 export default class Cart extends Component {
@@ -118,7 +119,17 @@ export default class Cart extends Component {
                 return <View style={styles.rect4} />;
               }}
             />
-            <View style={styles.contentResume} />
+            <View style={styles.contentResume}>
+              <LineView style={styles.lineView3} />
+              <TitleFive style={styles.titleFive5} />
+              <DescriptionFive style={styles.descriptionFive4} />
+              <DescriptionFive style={styles.descriptionFive5} />
+              <DescriptionFive style={styles.descriptionFive6} />
+              <LineView style={styles.lineView2} />
+              <TitleFive style={styles.titleFive6} />
+              <DescriptionFive style={styles.descriptionFive7} />
+              <LineView style={styles.lineView} />
+            </View>
             <View style={styles.contentProducts}>
               <View style={styles.contentOne}>
                 <Text style={styles.textSubtotal}>Subtotal</Text>
@@ -388,13 +399,13 @@ const styles = StyleSheet.create({
   },
   contentProducts: {
     alignSelf: "stretch",
-    flex: 1,
+    flex: 0.5,
     flexDirection: "column",
     justifyContent: "flex-start"
   },
   list: {
     alignSelf: "stretch",
-    flex: 1
+    flex: 0.5
   },
   rect: {
     backgroundColor: "rgba(29,41,53,1)",
@@ -750,7 +761,44 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   contentResume: {
-    height: 99,
-    alignSelf: "stretch"
+    height: 111.53,
+    alignSelf: "stretch",
+    flexDirection: "column"
+  },
+  titleFive5: {
+    width: 359,
+    height: 19
+  },
+  descriptionFive4: {
+    width: 359,
+    height: 17
+  },
+  descriptionFive5: {
+    width: 359,
+    height: 17
+  },
+  descriptionFive6: {
+    width: 359,
+    height: 17
+  },
+  titleFive6: {
+    width: 359,
+    height: 19
+  },
+  descriptionFive7: {
+    width: 359,
+    height: 17
+  },
+  lineView: {
+    width: 374,
+    height: 1
+  },
+  lineView2: {
+    width: 374,
+    height: 1
+  },
+  lineView3: {
+    width: 374,
+    height: 1
   }
 });
