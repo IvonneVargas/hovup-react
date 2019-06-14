@@ -244,9 +244,42 @@ export default class Cart extends Component {
                 iconName="check"
               />
             </View>
+            <TitleFive style={styles.titleFive4} text2="Forma de pago" />
+            <DescriptionFive
+              style={styles.descriptionFive2}
+              text2="Por favor selecciona la forma de pago."
+            />
+            <GenericButtonIcon
+              style={styles.paymentClientSelectBtn}
+              button={() => {
+                this.props.navigation.push("Launcher");
+              }}
+              text="Forma de pago"
+              iconType="MaterialCommunityIcons"
+              iconName="check"
+            />
           </View>
         </View>
       </View>
+    );
+  }
+
+  showActionSheet() {
+    ActionSheetIOS.showActionSheetWithOptions(
+      {
+        options: [
+          "Pago en efectivo",
+          "Pago con tarjeta",
+          "Pago con terminal",
+          "Cancel"
+        ],
+        destructiveButtonIndex: 1,
+        cancelButtonIndex: 0
+      },
+      buttonIndex => {
+        if (buttonIndex === 1) {
+        }
+      }
     );
   }
 
@@ -685,5 +718,25 @@ const styles = StyleSheet.create({
     height: 42,
     backgroundColor: "rgba(101,188,70,1)",
     opacity: 1
+  },
+  titleFive4: {
+    width: 359,
+    height: 19,
+    alignSelf: "center",
+    marginTop: 20
+  },
+  descriptionFive2: {
+    width: 359,
+    height: 23,
+    alignSelf: "center",
+    marginTop: 18
+  },
+  paymentClientSelectBtn: {
+    width: 265,
+    height: 42,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1,
+    alignSelf: "center",
+    marginTop: 10
   }
 });
