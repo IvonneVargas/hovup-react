@@ -143,6 +143,22 @@ export default class Cart extends Component {
               />
               <LineView style={styles.lineView} />
             </View>
+            <View style={styles.contentCardResume}>
+              <Image
+                source={require("../assets/ic_card_visa.png")}
+                style={styles.imageCardTwo}
+              />
+              <View style={styles.contentTextCard}>
+                <TitleFive
+                  style={styles.textCardResumen}
+                  text2={'XXXXXXXXXXX!"\xB7'}
+                />
+                <DescriptionFive
+                  style={styles.descriptionCardResumen}
+                  text2="12/12/20"
+                />
+              </View>
+            </View>
             <View style={styles.contentProducts}>
               <View style={styles.contentOne}>
                 <Text style={styles.textSubtotal}>Subtotal</Text>
@@ -447,8 +463,7 @@ const styles = StyleSheet.create({
   content: {
     alignSelf: "stretch",
     flex: 1.33,
-    flexDirection: "column",
-    display: "none"
+    flexDirection: "column"
   },
   title: {
     width: 172,
@@ -477,13 +492,13 @@ const styles = StyleSheet.create({
   },
   contentProducts: {
     alignSelf: "stretch",
-    flex: 0.5,
+    flex: 1,
     flexDirection: "column",
     justifyContent: "flex-start"
   },
   list: {
     alignSelf: "stretch",
-    flex: 0.5
+    flex: 1
   },
   rect: {
     backgroundColor: "rgba(29,41,53,1)",
@@ -519,6 +534,12 @@ const styles = StyleSheet.create({
     margin: 5
   },
   imageCard: {
+    width: 70.71,
+    height: 42.42,
+    borderRadius: 6,
+    margin: 5
+  },
+  imageCardTwo: {
     width: 70.71,
     height: 42.42,
     borderRadius: 6,
@@ -758,12 +779,14 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   icon3: {
-    top: 12.24,
-    left: 343,
+    top: 55,
+    left: 125,
     position: "absolute",
     backgroundColor: "transparent",
-    color: "rgba(126,211,33,1)",
-    fontSize: 23
+    color: "grey",
+    fontSize: 40,
+    width: 41,
+    height: 39
   },
   textReferenceC: {
     width: 237,
@@ -774,7 +797,8 @@ const styles = StyleSheet.create({
   contentClient: {
     alignSelf: "stretch",
     flex: 1,
-    flexDirection: "column"
+    flexDirection: "column",
+    display: "none"
   },
   titleFive3: {
     width: 360,
@@ -934,5 +958,26 @@ const styles = StyleSheet.create({
     marginTop: 15,
     backgroundColor: "rgba(101,188,70,1)",
     opacity: 1
+  },
+  contentCardResume: {
+    width: 374,
+    height: 54.6,
+    flexDirection: "row",
+    alignItems: "center",
+    display: "none"
+  },
+  contentTextCard: {
+    flexDirection: "column",
+    justifyContent: "space-around",
+    height: 55.17,
+    flex: 1
+  },
+  textCardResumen: {
+    alignSelf: "stretch",
+    height: 28
+  },
+  descriptionCardResumen: {
+    height: 27,
+    alignSelf: "stretch"
   }
 });
