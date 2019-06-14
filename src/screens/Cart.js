@@ -29,7 +29,8 @@ export default class Cart extends Component {
 
     this.state = {
       selectedItem: "",
-      selectedImage: ""
+      selectedImage: "",
+      selectedCard: ""
     };
   }
   render() {
@@ -292,26 +293,41 @@ export default class Cart extends Component {
             <View style={styles.contentNotAdminClient}>
               <FlatList
                 style={styles.listCard}
+                data={[
+                  {
+                    key: "123",
+                    name: "XXXXXXXXXXXXXXX123",
+                    date: "15/12/20"
+                  },
+                  {
+                    key: "456",
+                    name: "XXXXXXXXXXXXXXX124",
+                    date: "10/12/20"
+                  },
+                  {
+                    key: "789",
+                    name: "XXXXXXXXXXXXXXX125",
+                    date: "12/12/20"
+                  }
+                ]}
                 renderItem={({ item, separators }) => {
                   return (
                     <TouchableOpacity
                       style={styles.buttonsStyle}
                       onPress={() => {
-                        console.log("1Click,", item.level);
+                        this.setState({
+                          selectedCard: item.key
+                        });
                       }}
                     >
                       <Image
                         source={require("../assets/ic_card_visa.png")}
                         style={styles.imageCard}
                       />
-                      <Icon
-                        name="ios-arrow-forward"
-                        style={styles.icon}
-                        type="Ionicons"
-                      />
+                      {this.showSelected(item.key)}
                       <View style={styles.rect9}>
                         <Text style={styles.textKey}>{item.key}</Text>
-                        <Text style={styles.textSub}>{item.sub}</Text>
+                        <Text style={styles.textSub}>{item.name}</Text>
                       </View>
                     </TouchableOpacity>
                   );
@@ -357,7 +373,7 @@ export default class Cart extends Component {
   }
 
   showSelected(key) {
-    if (key == this.state.selectedItem) {
+    if (key == this.state.selectedItem || key == this.state.selectedCard) {
       return (
         <Icon name="check" style={styles.icon3} type="MaterialCommunityIcons" />
       );
