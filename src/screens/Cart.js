@@ -650,11 +650,15 @@ const styles = StyleSheet.create({
   },
   titleFive3: {
     width: 360,
-    height: 19
+    height: 19,
+    alignSelf: "center",
+    margin: 10
   },
   descriptionFive: {
     width: 359,
-    height: 37.66
+    height: 37.66,
+    alignSelf: "center",
+    margin: 10
   },
   contentInputsClient: {
     height: 154.68,

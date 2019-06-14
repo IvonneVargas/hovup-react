@@ -21,8 +21,10 @@ export default class GenericButtonIcon extends Component {
         </Center>
         <Icon
           style={styles.icon}
-          name="facebook"
-          type="MaterialCommunityIcons"
+          name={this.props.iconName ? this.props.iconName : "facebook"}
+          type={
+            this.props.iconType ? this.props.iconType : "MaterialCommunityIcons"
+          }
         />
       </TouchableOpacity>
     );
