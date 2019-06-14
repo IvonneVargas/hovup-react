@@ -17,6 +17,8 @@ import GenericButton from "../symbols/GenericButton";
 import TitleFive from "../symbols/TitleFive";
 
 import HeaderBack from "../symbols/HeaderBack";
+import DescriptionFive from "../symbols/DescriptionFive";
+import GenericButtonIcon from "../symbols/GenericButtonIcon";
 import Icon from "@builderx/icons";
 
 export default class Cart extends Component {
@@ -217,16 +219,33 @@ export default class Cart extends Component {
               text="Buscar promociones"
             />
           </View>
-          <View style={styles.contentClient} />
+          <View style={styles.contentClient}>
+            <TitleFive
+              style={styles.titleFive3}
+              text2="Informacion del cliente"
+            />
+            <DescriptionFive
+              style={styles.descriptionFive}
+              text2="Para continuar ingresa el email de tu cliente y enviarle su certificado de compra"
+            />
+            <View style={styles.contentInputsClient}>
+              <TextInput
+                style={styles.textInput2}
+                placeholder="Confirmar contrasena*"
+              />
+              <TextInput
+                style={styles.textInput3}
+                placeholder="Confirmar contrasena*"
+              />
+              <GenericButtonIcon
+                style={styles.takePhotoBtn}
+                text="Tomar foto"
+                iconType="MaterialCommunityIcons"
+                iconName="check"
+              />
+            </View>
+          </View>
         </View>
-        <Icon
-          name="home"
-          style={styles.icon3}
-          type="MaterialCommunityIcons"
-          onPress={() => {
-            this.showAlert()
-          }}
-        />
       </View>
     );
   }
@@ -265,24 +284,23 @@ export default class Cart extends Component {
   }
 
   getPhotosCamera() {
-    if (Platform.OS === 'android') {
-      RNFetchBlob
-        .config({
-          fileCache : true,
-          appendExt : 'jpg'
-        })
-        .fetch('GET', image.urls.small)
-        .then((res) => {
+    if (Platform.OS === "android") {
+      RNFetchBlob.config({
+        fileCache: true,
+        appendExt: "jpg"
+      })
+        .fetch("GET", image.urls.small)
+        .then(res => {
           CameraRoll.saveToCameraRoll(res.path())
-            .then(Alert.alert('Success', 'Photo added to camera roll!'))
-            .catch(err => console.log('err:', err))
-        })
+            .then(Alert.alert("Success", "Photo added to camera roll!"))
+            .catch(err => console.log("err:", err));
+        });
     } else {
-      CameraRoll.saveToCameraRoll(image.urls.small)
-        .then(Alert.alert('Success', 'Photo added to camera roll!'))
+      CameraRoll.saveToCameraRoll(image.urls.small).then(
+        Alert.alert("Success", "Photo added to camera roll!")
+      );
     }
   }
-
 }
 const styles = StyleSheet.create({
   root: {
@@ -627,14 +645,41 @@ const styles = StyleSheet.create({
   },
   contentClient: {
     alignSelf: "stretch",
-    flex: 1
+    flex: 1,
+    flexDirection: "column"
   },
-  icon3: {
-    top: 175.72,
-    left: 133.73,
-    position: "absolute",
-    backgroundColor: "transparent",
-    color: "grey",
-    fontSize: 40
+  titleFive3: {
+    width: 360,
+    height: 19
+  },
+  descriptionFive: {
+    width: 359,
+    height: 37.66
+  },
+  contentInputsClient: {
+    height: 154.68,
+    alignItems: "center",
+    justifyContent: "space-around",
+    alignSelf: "stretch"
+  },
+  textInput2: {
+    width: 262,
+    height: 42,
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    textAlign: "center"
+  },
+  textInput3: {
+    width: 262,
+    height: 42,
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    textAlign: "center"
+  },
+  takePhotoBtn: {
+    width: 263,
+    height: 42,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1
   }
 });
