@@ -5,7 +5,7 @@ export default class DescriptionFive extends Component {
   // Only for displaying symbol in BuilderX.
   static containerStyle = {
     width: 359,
-    height: 16
+    height: 6
   };
   render() {
     return (
