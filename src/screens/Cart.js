@@ -294,23 +294,26 @@ export default class Cart extends Component {
                 style={styles.listCard}
                 renderItem={({ item, separators }) => {
                   return (
-                    <View style={styles.rect14}>
-                      <Text style={styles.text4}>List Item</Text>
-                    </View>
-                  );
-                }}
-                ListHeaderComponent={({ highlighted }) => {
-                  return (
-                    <View style={styles.rect15}>
-                      <Text style={styles.text5}>List Header</Text>
-                    </View>
-                  );
-                }}
-                ListFooterComponent={({ highlighted }) => {
-                  return (
-                    <View style={styles.rect16}>
-                      <Text style={styles.text6}>List Footer</Text>
-                    </View>
+                    <TouchableOpacity
+                      style={styles.buttonsStyle}
+                      onPress={() => {
+                        console.log("1Click,", item.level);
+                      }}
+                    >
+                      <Image
+                        source={require("../assets/ic_200x200.png")}
+                        style={styles.image}
+                      />
+                      <Icon
+                        name="ios-arrow-forward"
+                        style={styles.icon}
+                        type="Ionicons"
+                      />
+                      <View style={styles.rect9}>
+                        <Text style={styles.textKey}>{item.key}</Text>
+                        <Text style={styles.textSub}>{item.sub}</Text>
+                      </View>
+                    </TouchableOpacity>
                   );
                 }}
                 ItemSeparatorComponent={({}) => {
@@ -325,6 +328,7 @@ export default class Cart extends Component {
               <GenericButton
                 style={styles.paymentCardBtn}
                 navigation={this.props.navigation}
+                text="Resumen de compra"
               />
             </View>
           </View>
@@ -887,24 +891,6 @@ const styles = StyleSheet.create({
   text4: {
     color: "#000000"
   },
-  rect15: {
-    backgroundColor: "#ffffff",
-    padding: 15
-  },
-  text5: {
-    fontSize: 13,
-    color: "#999999"
-  },
-  rect16: {
-    backgroundColor: "#ffffff",
-    padding: 15,
-    borderBottomColor: "#999999",
-    borderBottomWidth: 1
-  },
-  text6: {
-    fontSize: 14,
-    color: "#999999"
-  },
   rect17: {
     left: 15,
     height: 2,
@@ -923,6 +909,8 @@ const styles = StyleSheet.create({
     width: 265,
     height: 42,
     alignSelf: "center",
-    marginTop: 15
+    marginTop: 15,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1
   }
 });
