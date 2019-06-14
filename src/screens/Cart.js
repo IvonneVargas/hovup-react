@@ -9,7 +9,9 @@ import {
   Platform,
   TouchableOpacity,
   Image,
-  TextInput
+  TextInput,
+  CameraRoll,
+  Alert
 } from "react-native";
 import GenericButton from "../symbols/GenericButton";
 import TitleFive from "../symbols/TitleFive";
@@ -22,7 +24,8 @@ export default class Cart extends Component {
     super();
 
     this.state = {
-      selectedItem: ""
+      selectedItem: "",
+      selectedImage: ""
     };
   }
   render() {
@@ -214,7 +217,16 @@ export default class Cart extends Component {
               text="Buscar promociones"
             />
           </View>
+          <View style={styles.contentClient} />
         </View>
+        <Icon
+          name="home"
+          style={styles.icon3}
+          type="MaterialCommunityIcons"
+          onPress={() => {
+            this.showAlert()
+          }}
+        />
       </View>
     );
   }
@@ -226,6 +238,51 @@ export default class Cart extends Component {
       );
     }
   }
+
+  showAlert(title, msg) {
+    Alert.alert(
+      title,
+      msg,
+      [
+        {
+          text: "Tomar fotografía",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        {
+          text: "Seleccionar de la galería",
+          onPress: () => this.getPhotosFromGallery()
+        }
+      ],
+      { cancelable: false }
+    );
+  }
+
+  getPhotosFromGallery() {
+    CameraRoll.getPhotos({ first: 10 }).then(res => {
+      console.log(res, "images data");
+    });
+  }
+
+  getPhotosCamera() {
+    if (Platform.OS === 'android') {
+      RNFetchBlob
+        .config({
+          fileCache : true,
+          appendExt : 'jpg'
+        })
+        .fetch('GET', image.urls.small)
+        .then((res) => {
+          CameraRoll.saveToCameraRoll(res.path())
+            .then(Alert.alert('Success', 'Photo added to camera roll!'))
+            .catch(err => console.log('err:', err))
+        })
+    } else {
+      CameraRoll.saveToCameraRoll(image.urls.small)
+        .then(Alert.alert('Success', 'Photo added to camera roll!'))
+    }
+  }
+
 }
 const styles = StyleSheet.create({
   root: {
@@ -250,7 +307,8 @@ const styles = StyleSheet.create({
   content: {
     alignSelf: "stretch",
     flex: 1,
-    flexDirection: "column"
+    flexDirection: "column",
+    display: "none"
   },
   title: {
     width: 172,
@@ -566,5 +624,17 @@ const styles = StyleSheet.create({
     height: 14,
     fontSize: 14,
     color: "rgba(255,255,255,1)"
+  },
+  contentClient: {
+    alignSelf: "stretch",
+    flex: 1
+  },
+  icon3: {
+    top: 175.72,
+    left: 133.73,
+    position: "absolute",
+    backgroundColor: "transparent",
+    color: "grey",
+    fontSize: 40
   }
 });
