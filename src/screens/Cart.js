@@ -38,7 +38,24 @@ export default class Cart extends Component {
       <View style={styles.root}>
         <View style={styles.background}>
           <LayoutStatusBar style={styles.layoutStatusBar} />
-          <View style={styles.content}>
+          {this.displayContent()}
+        </View>
+      </View>
+    );
+  }
+
+  displayContent() {
+    var type = this.props.navigation.getParam("type", "content");
+    var typeUser = this.props.navigation.getParam(
+      "typeUser",
+      this.props.typeUser
+    );
+    console.log("TYPE CART: ", type);
+    console.log("ADMIN?: ", this.props);
+    console.log("typeUser?: ", this.props.typeUser);
+    if (type == "content") {
+      return (
+        <View style={styles.content}>
             <HeaderSingleLogo style={styles.headerSingleLogo} />
             <Text style={styles.title}>Productos en el carrito</Text>
             <Text style={styles.textDescription}>
@@ -134,164 +151,9 @@ export default class Cart extends Component {
                 <Text style={styles.textTotals}>Totald</Text>
                 <Text style={styles.textTotalT}>$ 23,000.00 MXN</Text>
               </View>
-              <GenericButton
-                style={styles.addCodesBtn}
-                navigation={this.props.navigation}
-                text="Agregar codigos"
-                root={() => {
-                  this.props.navigation.push("Cart", {
-                    type: "contentCodes",
-                    detail: "true"
-                  });
-                }}
-              />
-              <GenericButton
-                style={styles.paymentBtn}
-                navigation={this.props.navigation}
-                text="Forma de pago"
-                root={() => {
-                  this.props.navigation.push("Cart", {
-                    type: "contentPayment",
-                    typeUser: this.props.typeUser
-                  });
-                }}
-              />
+              {this.showButtonsPayment()}
             </View>
           </View>
-        </View>
-      </View>
-    );
-  }
-
-  displayContent() {
-    var type = this.props.navigation.getParam("type", "content");
-    var typeUser = this.props.navigation.getParam(
-      "typeUser",
-      this.props.typeUser
-    );
-    console.log("TYPE CART: ", type);
-    console.log("ADMIN?: ", this.props);
-    console.log("typeUser?: ", this.props.typeUser);
-    if (type == "content") {
-      return (
-        <View style={styles.content}>
-          <HeaderSingleLogo style={styles.headerSingleLogo} />
-          <Text style={styles.title}>Productos en el carrito</Text>
-          <Text style={styles.textDescription}>
-            Desliza el producto hacia la derecha para: borrar el producto editar
-            la cantidad del pedido o aplicar algún cupon disponible en tu
-            cartera.
-          </Text>
-          <FlatList
-            style={styles.list}
-            data={[
-              {
-                key: "Producto",
-                sub: "10.00",
-                pieces: 2
-              },
-              {
-                key: "Producto2",
-                sub: "30.00",
-                pieces: 2
-              },
-              {
-                key: "Producto3",
-                sub: "20.00",
-                pieces: 3
-              },
-              {
-                key: "Producto4",
-                sub: "40.00",
-                pieces: 5
-              },
-              {
-                key: "Producto5",
-                sub: "50.00",
-                pieces: 6
-              }
-            ]}
-            renderItem={({ item, separators }) => {
-              return (
-                <View style={styles.rect}>
-                  <TouchableOpacity
-                    style={styles.buttonsStyle}
-                    onPress={() => {
-                      console.log("1Click,", item.level);
-                      this.props.navigation.push("BrandsTab", {
-                        level: item.level,
-                        type: this.props.type
-                      });
-                    }}
-                  >
-                    <Image
-                      source={require("../assets/ic_200x200.png")}
-                      style={styles.image}
-                    />
-                    <Icon
-                      name="ios-arrow-forward"
-                      style={styles.icon}
-                      type="Ionicons"
-                    />
-                    <View style={styles.rect9}>
-                      <Text style={styles.textKey}>{item.key}</Text>
-                      <Text style={styles.textSub}>$ {item.sub} MXN</Text>
-                      <Text style={styles.textReferenceC}>
-                        - 10 % #FB10-2018
-                      </Text>
-                      <View style={styles.contentPieces}>
-                        <Text style={styles.textPieces}>
-                          x {item.pieces} Pieza
-                        </Text>
-                        <Text style={styles.textTotal}>$ {item.total} MXN</Text>
-                      </View>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-              );
-            }}
-            ItemSeparatorComponent={({}) => {
-              return <View style={styles.rect4} />;
-            }}
-          />
-          {this.displayUserContent()}
-          <View style={styles.contentProducts}>
-            <View style={styles.contentOne}>
-              <Text style={styles.textSubtotal}>Subtotal</Text>
-              <Text style={styles.textSubtotalT}>$ 20,000.00 MXN</Text>
-            </View>
-            <View style={styles.contentTwo}>
-              <Text style={styles.textIva}>IVA</Text>
-              <Text style={styles.textIvaT}>$ 3,000.00 MXN</Text>
-            </View>
-            <View style={styles.contentThree}>
-              <Text style={styles.textTotals}>Totald</Text>
-              <Text style={styles.textTotalT}>$ 23,000.00 MXN</Text>
-            </View>
-            <GenericButton
-              style={styles.addCodesBtn}
-              navigation={this.props.navigation}
-              text="Agregar codigos"
-              root={() => {
-                this.props.navigation.push("Cart", {
-                  type: "contentCodes",
-                  detail: "true"
-                });
-              }}
-            />
-            <GenericButton
-              style={styles.paymentBtn}
-              navigation={this.props.navigation}
-              text="Forma de pago"
-              root={() => {
-                this.props.navigation.push("Cart", {
-                  type: "contentPayment",
-                  typeUser: this.props.typeUser
-                });
-              }}
-            />
-          </View>
-        </View>
       );
     } else if (type == "contentCodes") {
       var detail = this.props.navigation.getParam("detail", this.props.detail);
@@ -483,6 +345,57 @@ export default class Cart extends Component {
             }}
           />
         </View>
+      );
+    }
+  }
+
+  showButtonsPayment(){
+    var typeUser = this.props.navigation.getParam(
+      "typeUser",
+      this.props.typeUser
+    );
+    console.log("typeUser11121212, ", typeUser)
+    if (typeUser == "Admin" || typeUser == "notAdmin") {
+      return(
+      <View style={styles.buttonPayments}>
+                <GenericButton
+                  style={styles.addCodesBtn}
+                  navigation={this.props.navigation}
+                  text="Hacer el pago"
+                  root={() => {
+                    this.props.navigation.push("Cart",{
+                      type: "success"
+                    });
+                  }}
+                />
+              </View>
+      );
+    } else {
+      return(
+      <View style={styles.buttonPayments}>
+      <GenericButton
+                  style={styles.addCodesBtn}
+                  navigation={this.props.navigation}
+                  text="Agregar codigos"
+                  root={() => {
+                    this.props.navigation.push("Cart", {
+                      type: "contentCodes",
+                      detail: "true"
+                    });
+                  }}
+                />
+                <GenericButton
+                  style={styles.paymentBtn}
+                  navigation={this.props.navigation}
+                  text="Forma de pago"
+                  root={() => {
+                    this.props.navigation.push("Cart", {
+                      type: "contentPayment",
+                      typeUser: this.props.typeUser
+                    });
+                  }}
+                />
+              </View>
       );
     }
   }
@@ -853,21 +766,7 @@ const styles = StyleSheet.create({
     margin: 5,
     textAlign: "right"
   },
-  addCodesBtn: {
-    width: 263,
-    height: 42,
-    backgroundColor: "rgba(101,188,70,1)",
-    opacity: 1,
-    alignSelf: "center",
-    margin: 8
-  },
-  paymentBtn: {
-    width: 263,
-    height: 42,
-    backgroundColor: "rgba(101,188,70,1)",
-    opacity: 1,
-    alignSelf: "center"
-  },
+
   textTotalT: {
     width: 130,
     height: 16,
@@ -1234,5 +1133,24 @@ const styles = StyleSheet.create({
     height: 60,
     position: "absolute",
     right: 0
+  },
+  buttonPayments: {
+    height: 101,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "stretch"
+  },
+  paymentBtn: {
+    width: 262,
+    height: 41,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1
+  },
+  addCodesBtn: {
+    width: 262,
+    height: 43,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1,
+    margin: 8
   }
 });
