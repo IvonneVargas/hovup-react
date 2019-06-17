@@ -16,7 +16,6 @@
         "/src/screens/BottomViewBar.js",
         "/src/screens/Favorites.js",
         "/src/screens/Wallet.js",
-        "/src/screens/Notifications.js",
         "/src/screens/Cart.js"
     ],
     "symbols": [
@@ -43,7 +42,10 @@
         "/src/symbols/TabView.js",
         "/src/symbols/TabViewButton.js",
         "/src/symbols/Title.js",
-        "/src/symbols/Subtitle.js"
+        "/src/symbols/Subtitle.js",
+        "/src/symbols/TitleFive.js",
+        "/src/symbols/DescriptionFive.js",
+        "/src/symbols/LineView.js"
     ],
     "assets": [],
     "defaultArtboardDirectory": "/src/screens",
@@ -356,7 +358,7 @@
                 "deviceName": "iPhone X",
                 "position": {
                     "x": -3232.5,
-                    "y": 309.1671826625387
+                    "y": 348.16408668730656
                 },
                 "horizontal": true
             },
@@ -374,7 +376,7 @@
                 "deviceName": "iPhone X",
                 "position": {
                     "x": -4062.5,
-                    "y": 82.33333333333333
+                    "y": 76
                 },
                 "horizontal": true
             },
@@ -390,7 +392,7 @@
                 "deviceName": "iPhone X",
                 "position": {
                     "x": -4062.5,
-                    "y": 88.16718266253869
+                    "y": 106.6656617795266
                 },
                 "horizontal": true
             }
@@ -577,8 +579,8 @@
             {
                 "deviceName": "iPhone X",
                 "position": {
-                    "x": -304.5,
-                    "y": 29
+                    "x": -5307.5,
+                    "y": 20.1671826625387
                 },
                 "horizontal": true
             },

@@ -21,7 +21,7 @@ import Privacy from "./src/screens/Privacy";
 import BottomViewBar from "./src/screens/BottomViewBar";
 import Favorites from "./src/screens/Favorites";
 import Wallet from "./src/screens/Wallet";
-import Notifications from "./src/screens/Notifications";
+
 import Cart from "./src/screens/Cart";
 import {
   StackNavigator,
@@ -77,9 +77,6 @@ const DrawerNavigation = DrawerNavigator({
   },
   Wallet: {
     screen: Wallet
-  },
-  Notifications: {
-    screen: Notifications
   },
   Cart: {
     screen: Cart
@@ -137,9 +134,6 @@ const StackNavigation = StackNavigator(
     },
     Wallet: {
       screen: Wallet
-    },
-    Notifications: {
-      screen: Notifications
     },
     Cart: {
       screen: Cart

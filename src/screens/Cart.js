@@ -364,6 +364,17 @@ export default class Cart extends Component {
               />
             </View>
           </View>
+          <View style={styles.contentSuccess}>
+            <HeaderSingleLogo style={styles.headerSingleLogoSuccess} />
+            <Image
+              style={styles.imageSuccess}
+              source={require("../assets/ic_gracias_compra.png")}
+            />
+            <DescriptionFive
+              style={styles.descriptionFiveSuccess}
+              text2="Gracias por su compra."
+            />
+          </View>
         </View>
       </View>
     );
@@ -443,17 +454,16 @@ export default class Cart extends Component {
 const styles = StyleSheet.create({
   root: {
     backgroundColor: "white",
-    flex: 1
+    flex: 1,
+    flexDirection: "column"
   },
   background: {
-    top: 0,
-    left: 0,
-    position: "absolute",
     backgroundColor: "rgba(29,41,53,1)",
-    right: 0,
-    bottom: 0,
+
     opacity: 1,
-    flexDirection: "column"
+    flexDirection: "column",
+    flex: 1,
+    alignSelf: "stretch"
   },
 
   layoutStatusBar: {
@@ -462,8 +472,9 @@ const styles = StyleSheet.create({
   },
   content: {
     alignSelf: "stretch",
-    flex: 1.33,
-    flexDirection: "column"
+    flex: 1,
+    flexDirection: "column",
+    display: "none"
   },
   title: {
     width: 172,
@@ -671,7 +682,7 @@ const styles = StyleSheet.create({
   },
   contentCodes: {
     alignSelf: "stretch",
-    flex: 1.33,
+    flex: 1,
     flexDirection: "column",
     display: "none"
   },
@@ -979,5 +990,26 @@ const styles = StyleSheet.create({
   descriptionCardResumen: {
     height: 27,
     alignSelf: "stretch"
+  },
+  contentSuccess: {
+    flex: 1,
+    alignSelf: "stretch"
+  },
+  imageSuccess: {
+    width: 167,
+    height: 170,
+    alignSelf: "center",
+    marginTop: 65
+  },
+  headerSingleLogoSuccess: {
+    height: 53,
+    alignSelf: "stretch"
+  },
+  descriptionFiveSuccess: {
+    top: 365,
+    left: 0,
+    height: 60,
+    position: "absolute",
+    right: 0
   }
 });
