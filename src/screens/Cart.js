@@ -153,7 +153,8 @@ export default class Cart extends Component {
                 text="Agregar codigos"
                 root={() => {
                   this.props.navigation.push("Cart", {
-                    type: "contentCodes"
+                    type: "contentCodes",
+                    detail: "true"
                   });
                 }}
               />
@@ -171,6 +172,8 @@ export default class Cart extends Component {
           </View>
       );
     } else if ( type == "contentCodes") {
+      var detail = this.props.navigation.getParam("detail", this.props.detail);
+      console.log("AAASH!: ", detail)
       return(
         <View style={styles.contentCodes}>
             <HeaderBack
@@ -186,27 +189,22 @@ export default class Cart extends Component {
               tu compra, recuerda que solo se aplica a los productos validos
               para cada codigo.
             </Text>
-            <View style={styles.contentInputs}>
-              <TextInput
-                style={styles.textInput}
-                placeholder="Codigo promocional"
-              />
-              <Icon
-                style={styles.icon2}
-                name="plus-circle-outline"
-                type="MaterialCommunityIcons"
-              />
-            </View>
             {this.showDetailCoupon()}
             <GenericButton
               style={styles.genericButton}
               navigation={this.props.navigation}
               text="Buscar promociones"
               root={() => {
-                this.props.navigation.push("Cart", {
-                  type: "contentCodes",
-                  detail: "true"
+                if (detail == "false") {
+                  this.props.navigation.push("Cart", {
+                  type: "content"
                 });
+                } else {
+                  this.props.navigation.push("Cart", {
+                  type: "contentCodes",
+                  detail: "false"
+                });
+                }
               }}
             />
           </View>
@@ -406,8 +404,9 @@ export default class Cart extends Component {
   }
 
   showDetailCoupon(){
-    var detail = this.props.navigation.getParam("detail", "true");
-    if (detail == "true") {
+    var detail = this.props.navigation.getParam("detail", this.props.detail);
+    console.log("detail: ", detail)
+    if (detail == "false") {
       return(
       <View style={styles.contentDetailCoupon}>
               <FlatList
@@ -453,6 +452,20 @@ export default class Cart extends Component {
                 ItemSeparatorComponent={({}) => {
                   return <View style={styles.rect13} />;
                 }}
+              />
+            </View>
+      );
+    } else {
+      return(
+        <View style={styles.contentInputs}>
+              <TextInput
+                style={styles.textInput}
+                placeholder="Codigo promocional"
+              />
+              <Icon
+                style={styles.icon2}
+                name="plus-circle-outline"
+                type="MaterialCommunityIcons"
               />
             </View>
       );
