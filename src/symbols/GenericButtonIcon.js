@@ -12,11 +12,18 @@ export default class GenericButtonIcon extends Component {
   };
   render() {
     return (
-      <TouchableOpacity style={[styles.root, this.props.style]}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={this.props.button ? this.props.button : null}
-        />
+      <TouchableOpacity
+        style={[styles.root, this.props.style]}
+        onPress={
+          this.props.root ? (
+            this.props.root
+          ) : (
+            () => {
+              this.props.navigation.push("Launcher");
+            }
+          )
+        }
+      >
         <Center vertical>
           <Text style={styles.text}>
             {this.props.text ? this.props.text : "Text Added"}
