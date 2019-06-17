@@ -38,20 +38,7 @@ export default class Cart extends Component {
       <View style={styles.root}>
         <View style={styles.background}>
           <LayoutStatusBar style={styles.layoutStatusBar} />
-          {this.displayContent()}
-        </View>
-      </View>
-    );
-  }
-
-  displayContent(){
-    var type = this.props.navigation.getParam("type", "content");
-    var typeUser = this.props.navigation.getParam("typeContent", "nothing");
-    console.log("TYPE CART: ", type);
-    console.log("ADMIN?: ", typeUser);
-    if (type == "content") {
-      return(
-      <View style={styles.content}>
+          <View style={styles.content}>
             <HeaderSingleLogo style={styles.headerSingleLogo} />
             <Text style={styles.title}>Productos en el carrito</Text>
             <Text style={styles.textDescription}>
@@ -164,310 +151,461 @@ export default class Cart extends Component {
                 text="Forma de pago"
                 root={() => {
                   this.props.navigation.push("Cart", {
-                    type: "contentPayment"
+                    type: "contentPayment",
+                    typeUser: this.props.typeUser
                   });
                 }}
               />
             </View>
           </View>
-      );
-    } else if ( type == "contentCodes") {
-      var detail = this.props.navigation.getParam("detail", this.props.detail);
-      console.log("AAASH!: ", detail)
-      return(
-        <View style={styles.contentCodes}>
-            <HeaderBack
-              style={styles.headerBack}
-              navigation={this.props.navigation}
-            />
-            <TitleFive style={styles.titleFive} text2="Codigos promocionales" />
-            <Text
-              style={styles.description}
-              selectionColor="rgba(255,255,255,1)"
-            >
-              Por favor ingresa los codigos promocionales que deseas usar para
-              tu compra, recuerda que solo se aplica a los productos validos
-              para cada codigo.
-            </Text>
-            {this.showDetailCoupon()}
+        </View>
+      </View>
+    );
+  }
+
+  displayContent() {
+    var type = this.props.navigation.getParam("type", "content");
+    var typeUser = this.props.navigation.getParam(
+      "typeUser",
+      this.props.typeUser
+    );
+    console.log("TYPE CART: ", type);
+    console.log("ADMIN?: ", this.props);
+    console.log("typeUser?: ", this.props.typeUser);
+    if (type == "content") {
+      return (
+        <View style={styles.content}>
+          <HeaderSingleLogo style={styles.headerSingleLogo} />
+          <Text style={styles.title}>Productos en el carrito</Text>
+          <Text style={styles.textDescription}>
+            Desliza el producto hacia la derecha para: borrar el producto editar
+            la cantidad del pedido o aplicar algún cupon disponible en tu
+            cartera.
+          </Text>
+          <FlatList
+            style={styles.list}
+            data={[
+              {
+                key: "Producto",
+                sub: "10.00",
+                pieces: 2
+              },
+              {
+                key: "Producto2",
+                sub: "30.00",
+                pieces: 2
+              },
+              {
+                key: "Producto3",
+                sub: "20.00",
+                pieces: 3
+              },
+              {
+                key: "Producto4",
+                sub: "40.00",
+                pieces: 5
+              },
+              {
+                key: "Producto5",
+                sub: "50.00",
+                pieces: 6
+              }
+            ]}
+            renderItem={({ item, separators }) => {
+              return (
+                <View style={styles.rect}>
+                  <TouchableOpacity
+                    style={styles.buttonsStyle}
+                    onPress={() => {
+                      console.log("1Click,", item.level);
+                      this.props.navigation.push("BrandsTab", {
+                        level: item.level,
+                        type: this.props.type
+                      });
+                    }}
+                  >
+                    <Image
+                      source={require("../assets/ic_200x200.png")}
+                      style={styles.image}
+                    />
+                    <Icon
+                      name="ios-arrow-forward"
+                      style={styles.icon}
+                      type="Ionicons"
+                    />
+                    <View style={styles.rect9}>
+                      <Text style={styles.textKey}>{item.key}</Text>
+                      <Text style={styles.textSub}>$ {item.sub} MXN</Text>
+                      <Text style={styles.textReferenceC}>
+                        - 10 % #FB10-2018
+                      </Text>
+                      <View style={styles.contentPieces}>
+                        <Text style={styles.textPieces}>
+                          x {item.pieces} Pieza
+                        </Text>
+                        <Text style={styles.textTotal}>$ {item.total} MXN</Text>
+                      </View>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+              );
+            }}
+            ItemSeparatorComponent={({}) => {
+              return <View style={styles.rect4} />;
+            }}
+          />
+          {this.displayUserContent()}
+          <View style={styles.contentProducts}>
+            <View style={styles.contentOne}>
+              <Text style={styles.textSubtotal}>Subtotal</Text>
+              <Text style={styles.textSubtotalT}>$ 20,000.00 MXN</Text>
+            </View>
+            <View style={styles.contentTwo}>
+              <Text style={styles.textIva}>IVA</Text>
+              <Text style={styles.textIvaT}>$ 3,000.00 MXN</Text>
+            </View>
+            <View style={styles.contentThree}>
+              <Text style={styles.textTotals}>Totald</Text>
+              <Text style={styles.textTotalT}>$ 23,000.00 MXN</Text>
+            </View>
             <GenericButton
-              style={styles.genericButton}
+              style={styles.addCodesBtn}
               navigation={this.props.navigation}
-              text="Buscar promociones"
+              text="Agregar codigos"
               root={() => {
-                if (detail == "false") {
-                  this.props.navigation.push("Cart", {
-                  type: "content"
-                });
-                } else {
-                  this.props.navigation.push("Cart", {
+                this.props.navigation.push("Cart", {
                   type: "contentCodes",
-                  detail: "false"
+                  detail: "true"
                 });
-                }
+              }}
+            />
+            <GenericButton
+              style={styles.paymentBtn}
+              navigation={this.props.navigation}
+              text="Forma de pago"
+              root={() => {
+                this.props.navigation.push("Cart", {
+                  type: "contentPayment",
+                  typeUser: this.props.typeUser
+                });
               }}
             />
           </View>
+        </View>
       );
-    } else if ( type == "contentPayment" ) {
-      return(
-      <View style={styles.contentClient}>
-            <HeaderBack
-              style={styles.headerBack2}
-              navigation={this.props.navigation}
-            />
-            <TitleFive
-              style={styles.titleFive3}
-              text2="Informacion del cliente"
-            />
-            <DescriptionFive
-              style={styles.descriptionFive}
-              text2="Para continuar ingresa el email de tu cliente y enviarle su certificado de compra"
-            />
-            <View style={styles.contentAdminClient}>
-              <View
-                style={styles.contentInputsClient}
-                navigation={this.props.navigation}
-              >
-                <TextInput style={styles.textInput2} placeholder="Email*" />
-                <TextInput style={styles.textInput3} placeholder="ID Externo" />
-                <GenericButtonIcon
-                  style={styles.takePhotoBtn}
-                  text="Tomar foto"
-                  iconType="MaterialCommunityIcons"
-                  iconName="check"
-                  root={() => {
-                    this.props.navigation.push("Cart", {
-                      type: "contentPayment"
-                    });
-                  }}
-                />
-              </View>
-              <TitleFive style={styles.titleFive4} text2="Forma de pago" />
-              <DescriptionFive
-                style={styles.descriptionFive2}
-                text2="Por favor selecciona la forma de pago."
-              />
-              <GenericButtonIcon
-                style={styles.paymentClientSelectBtn}
-                text="Forma de pago"
-                iconType="MaterialCommunityIcons"
-                iconName="check"
-                navigation={this.props.navigation}
-                root={() => {
-                    this.props.navigation.push("Cart", {
-                      type: "contentPayment"
-                    });
-                  }}
-              />
-              <GenericButton
-                style={styles.resumeBtn}
-                navigation={this.props.navigation}
-                text="Resumen"
-                root={() => {
-                  this.props.navigation.push("Cart", {
-                    type: "contentPayment"
-                  });
-                }}
-              />
-            </View>
-            <View style={styles.contentNotAdminClient}>
-              <FlatList
-                style={styles.listCard}
-                data={[
-                  {
-                    key: "123",
-                    name: "XXXXXXXXXXXXXXX123",
-                    date: "15/12/20"
-                  },
-                  {
-                    key: "456",
-                    name: "XXXXXXXXXXXXXXX124",
-                    date: "10/12/20"
-                  },
-                  {
-                    key: "789",
-                    name: "XXXXXXXXXXXXXXX125",
-                    date: "12/12/20"
-                  }
-                ]}
-                renderItem={({ item, separators }) => {
-                  return (
-                    <TouchableOpacity
-                      style={styles.buttonsStyle}
-                      onPress={() => {
-                        this.setState({
-                          selectedCard: item.key
-                        });
-                      }}
-                    >
-                      <Image
-                        source={require("../assets/ic_card_visa.png")}
-                        style={styles.imageCard}
-                      />
-                      {this.showSelected(item.key)}
-                      <View style={styles.rect9}>
-                        <Text style={styles.textKey}>{item.key}</Text>
-                        <Text style={styles.textSub}>{item.name}</Text>
-                      </View>
-                    </TouchableOpacity>
-                  );
-                }}
-                ItemSeparatorComponent={({}) => {
-                  return <View style={styles.rect17} />;
-                }}
-              />
-              <Icon
-                style={styles.iconPlus}
-                name="plus-circle"
-                type="MaterialCommunityIcons"
-              />
-              <GenericButton
-                style={styles.paymentCardBtn}
-                navigation={this.props.navigation}
-                text="Resumen de compra"
-                root={() => {
-                  this.props.navigation.push("Cart", {
-                    type: "contentPayment"
-                  });
-                }}
-              />
-            </View>
-          </View>
+    } else if (type == "contentCodes") {
+      var detail = this.props.navigation.getParam("detail", this.props.detail);
+      console.log("AAASH!: ", detail);
+      return (
+        <View style={styles.contentCodes}>
+          <HeaderBack
+            style={styles.headerBack}
+            navigation={this.props.navigation}
+          />
+          <TitleFive style={styles.titleFive} text2="Codigos promocionales" />
+          <Text style={styles.description} selectionColor="rgba(255,255,255,1)">
+            Por favor ingresa los codigos promocionales que deseas usar para tu
+            compra, recuerda que solo se aplica a los productos validos para
+            cada codigo.
+          </Text>
+          {this.showDetailCoupon()}
+          <GenericButton
+            style={styles.genericButton}
+            navigation={this.props.navigation}
+            text="Buscar promociones"
+            root={() => {
+              if (detail == "false") {
+                this.props.navigation.push("Cart", {
+                  type: "content"
+                });
+              } else {
+                this.props.navigation.push("Cart", {
+                  type: "contentCodes",
+                  detail: "false"
+                });
+              }
+            }}
+          />
+        </View>
       );
-    } else if ( type == "success" ) {
-      return(
-      <View style={styles.contentSuccess}>
-            <HeaderSingleLogo style={styles.headerSingleLogoSuccess} />
-            <Image
-              style={styles.imageSuccess}
-              source={require("../assets/ic_gracias_compra.png")}
-            />
-            <DescriptionFive
-              style={styles.descriptionFiveSuccess}
-              text2="Gracias por su compra."
-            />
-          </View>
+    } else if (type == "contentPayment") {
+      return (
+        <View style={styles.contentClient}>
+          <HeaderBack
+            style={styles.headerBack2}
+            navigation={this.props.navigation}
+          />
+          <TitleFive
+            style={styles.titleFive3}
+            text2="Informacion del cliente"
+          />
+          <DescriptionFive
+            style={styles.descriptionFive}
+            text2="Para continuar ingresa el email de tu cliente y enviarle su certificado de compra"
+          />
+          {this.showAdmin()}
+        </View>
+      );
+    } else if (type == "success") {
+      return (
+        <View style={styles.contentSuccess}>
+          <HeaderSingleLogo style={styles.headerSingleLogoSuccess} />
+          <Image
+            style={styles.imageSuccess}
+            source={require("../assets/ic_gracias_compra.png")}
+          />
+          <DescriptionFive
+            style={styles.descriptionFiveSuccess}
+            text2="Gracias por su compra."
+          />
+        </View>
       );
     }
   }
 
-  displayUserContent(){
-    var typeUser = this.props.navigation.getParam("typeContent", "nothing");
-    console.log("displayUserContent: ", typeUser)
-    if (typeUser == "Admin") {
-      return(
-      <View style={styles.contentResume}>
-              <LineView style={styles.lineView3} />
-              <TitleFive style={styles.titleFive5} text2="Forma de pago" />
-              <DescriptionFive
-                style={styles.descriptionFive4}
-                text2="Email: ejemplo@yopmail.com"
-              />
-              <DescriptionFive
-                style={styles.descriptionFive5}
-                text2="ID Externo: ninguno"
-              />
-              <DescriptionFive
-                style={styles.descriptionFive6}
-                text2="Evidencia: Ninguna"
-              />
-              <LineView style={styles.lineView2} />
-              <TitleFive style={styles.titleFive6} text2="Pago con terminal" />
-              <DescriptionFive
-                style={styles.descriptionFive7}
-                text2="Directo con el vendedor"
-              />
-              <LineView style={styles.lineView} />
-            </View>
-      );
-    } else if (typeUser == "notAdmin") {
-      return(
-            <View style={styles.contentCardResume}>
-              <Image
-                source={require("../assets/ic_card_visa.png")}
-                style={styles.imageCardTwo}
-              />
-              <View style={styles.contentTextCard}>
-                <TitleFive
-                  style={styles.textCardResumen}
-                  text2={'XXXXXXXXXXX!"\xB7'}
-                />
-                <DescriptionFive
-                  style={styles.descriptionCardResumen}
-                  text2="12/12/20"
-                />
-              </View>
-            </View>
-      );
-    }
-  }
-
-  showDetailCoupon(){
-    var detail = this.props.navigation.getParam("detail", this.props.detail);
-    console.log("detail: ", detail)
-    if (detail == "false") {
-      return(
-      <View style={styles.contentDetailCoupon}>
-              <FlatList
-                style={styles.listReferenceCoupons}
-                data={[
-                  {
-                    key: "123",
-                    name: "#3D15",
-                    percentage: "15"
-                  },
-                  {
-                    key: "456",
-                    name: "#FB10-2018",
-                    percentage: "10"
-                  },
-                  {
-                    key: "789",
-                    name: "#PRUEBA",
-                    percentage: "50"
-                  }
-                ]}
-                renderItem={({ item, separators }) => {
-                  return (
-                    <View style={styles.rect10}>
-                      <TouchableOpacity
-                        style={styles.contentListReferenceItem}
-                        onPress={() => {
-                          console.log("CLICK ITEM KEY,", item.key);
-                          this.setState({
-                            selectedItem: item.key
-                          });
-                        }}
-                      >
-                        <Text style={styles.textHash}>{item.name}</Text>
-                        <Text style={styles.textDiscountPercentage}>
-                          {item.percentage}
-                        </Text>
-                      </TouchableOpacity>
-                      {this.showSelected(item.key)}
-                    </View>
-                  );
-                }}
-                ItemSeparatorComponent={({}) => {
-                  return <View style={styles.rect13} />;
-                }}
-              />
-            </View>
+  showAdmin() {
+    var typeUser = this.props.navigation.getParam(
+      "typeUser",
+      this.props.typeUser
+    );
+    if (typeUser == "notAdmin") {
+      return (
+        <View style={styles.contentAdminClient}>
+          <View
+            style={styles.contentInputsClient}
+            navigation={this.props.navigation}
+          >
+            <TextInput style={styles.textInput2} placeholder="Email*" />
+            <TextInput style={styles.textInput3} placeholder="ID Externo" />
+            <GenericButtonIcon
+              style={styles.takePhotoBtn}
+              text="Tomar foto"
+              iconType="MaterialCommunityIcons"
+              iconName="check"
+              root={() => {
+                this.props.navigation.push("Cart", {
+                  type: "contentPayment"
+                });
+              }}
+            />
+          </View>
+          <TitleFive style={styles.titleFive4} text2="Forma de pago" />
+          <DescriptionFive
+            style={styles.descriptionFive2}
+            text2="Por favor selecciona la forma de pago."
+          />
+          <GenericButtonIcon
+            style={styles.paymentClientSelectBtn}
+            text="Forma de pago"
+            iconType="MaterialCommunityIcons"
+            iconName="check"
+            navigation={this.props.navigation}
+            root={() => {
+              this.props.navigation.push("Cart", {
+                type: "contentPayment"
+              });
+            }}
+          />
+          <GenericButton
+            style={styles.resumeBtn}
+            navigation={this.props.navigation}
+            text="Resumen"
+            root={() => {
+              this.props.navigation.push("Cart", {
+                type: "contentPayment"
+              });
+            }}
+          />
+        </View>
       );
     } else {
-      return(
+      return (
+        <View style={styles.contentNotAdminClient}>
+          <FlatList
+            style={styles.listCard}
+            data={[
+              {
+                key: "123",
+                name: "XXXXXXXXXXXXXXX123",
+                date: "15/12/20"
+              },
+              {
+                key: "456",
+                name: "XXXXXXXXXXXXXXX124",
+                date: "10/12/20"
+              },
+              {
+                key: "789",
+                name: "XXXXXXXXXXXXXXX125",
+                date: "12/12/20"
+              }
+            ]}
+            renderItem={({ item, separators }) => {
+              return (
+                <TouchableOpacity
+                  style={styles.buttonsStyle}
+                  onPress={() => {
+                    this.setState({
+                      selectedCard: item.key
+                    });
+                  }}
+                >
+                  <Image
+                    source={require("../assets/ic_card_visa.png")}
+                    style={styles.imageCard}
+                  />
+                  {this.showSelected(item.key)}
+                  <View style={styles.rect9}>
+                    <Text style={styles.textKey}>{item.key}</Text>
+                    <Text style={styles.textSub}>{item.name}</Text>
+                  </View>
+                </TouchableOpacity>
+              );
+            }}
+            ItemSeparatorComponent={({}) => {
+              return <View style={styles.rect17} />;
+            }}
+          />
+          <Icon
+            style={styles.iconPlus}
+            name="plus-circle"
+            type="MaterialCommunityIcons"
+          />
+          <GenericButton
+            style={styles.paymentCardBtn}
+            navigation={this.props.navigation}
+            text="Resumen de compras"
+            root={() => {
+              this.props.navigation.push("Cart", {
+                type: "content",
+                typeUser: "notAdmin"
+              });
+            }}
+          />
+        </View>
+      );
+    }
+  }
+
+  displayUserContent() {
+    var typeUser = this.props.navigation.getParam(
+      "typeUser",
+      this.props.typeUser
+    );
+    console.log("displayUserContent: ", typeUser);
+    if (typeUser == "Admin") {
+      return (
+        <View style={styles.contentResume}>
+          <LineView style={styles.lineView3} />
+          <TitleFive style={styles.titleFive5} text2="Forma de pago" />
+          <DescriptionFive
+            style={styles.descriptionFive4}
+            text2="Email: ejemplo@yopmail.com"
+          />
+          <DescriptionFive
+            style={styles.descriptionFive5}
+            text2="ID Externo: ninguno"
+          />
+          <DescriptionFive
+            style={styles.descriptionFive6}
+            text2="Evidencia: Ninguna"
+          />
+          <LineView style={styles.lineView2} />
+          <TitleFive style={styles.titleFive6} text2="Pago con terminal" />
+          <DescriptionFive
+            style={styles.descriptionFive7}
+            text2="Directo con el vendedor"
+          />
+          <LineView style={styles.lineView} />
+        </View>
+      );
+    } else if (typeUser == "notAdmin") {
+      return (
+        <View style={styles.contentCardResume}>
+          <Image
+            source={require("../assets/ic_card_visa.png")}
+            style={styles.imageCardTwo}
+          />
+          <View style={styles.contentTextCard}>
+            <TitleFive
+              style={styles.textCardResumen}
+              text2={'XXXXXXXXXXX!"\xB7'}
+            />
+            <DescriptionFive
+              style={styles.descriptionCardResumen}
+              text2="12/12/20"
+            />
+          </View>
+        </View>
+      );
+    }
+  }
+
+  showDetailCoupon() {
+    var detail = this.props.navigation.getParam("detail", this.props.detail);
+    console.log("detail: ", detail);
+    if (detail == "false") {
+      return (
+        <View style={styles.contentDetailCoupon}>
+          <FlatList
+            style={styles.listReferenceCoupons}
+            data={[
+              {
+                key: "123",
+                name: "#3D15",
+                percentage: "15"
+              },
+              {
+                key: "456",
+                name: "#FB10-2018",
+                percentage: "10"
+              },
+              {
+                key: "789",
+                name: "#PRUEBA",
+                percentage: "50"
+              }
+            ]}
+            renderItem={({ item, separators }) => {
+              return (
+                <View style={styles.rect10}>
+                  <TouchableOpacity
+                    style={styles.contentListReferenceItem}
+                    onPress={() => {
+                      console.log("CLICK ITEM KEY,", item.key);
+                      this.setState({
+                        selectedItem: item.key
+                      });
+                    }}
+                  >
+                    <Text style={styles.textHash}>{item.name}</Text>
+                    <Text style={styles.textDiscountPercentage}>
+                      {item.percentage}
+                    </Text>
+                  </TouchableOpacity>
+                  {this.showSelected(item.key)}
+                </View>
+              );
+            }}
+            ItemSeparatorComponent={({}) => {
+              return <View style={styles.rect13} />;
+            }}
+          />
+        </View>
+      );
+    } else {
+      return (
         <View style={styles.contentInputs}>
-              <TextInput
-                style={styles.textInput}
-                placeholder="Codigo promocional"
-              />
-              <Icon
-                style={styles.icon2}
-                name="plus-circle-outline"
-                type="MaterialCommunityIcons"
-              />
-            </View>
+          <TextInput
+            style={styles.textInput}
+            placeholder="Codigo promocional"
+          />
+          <Icon
+            style={styles.icon2}
+            name="plus-circle-outline"
+            type="MaterialCommunityIcons"
+          />
+        </View>
       );
     }
   }
@@ -773,7 +911,7 @@ const styles = StyleSheet.create({
   contentCodes: {
     alignSelf: "stretch",
     flex: 1,
-    flexDirection: "column",
+    flexDirection: "column"
   },
   titleFive: {
     width: 359,
@@ -878,14 +1016,12 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   icon3: {
-    top: 55,
-    left: 125,
+    top: 12.24,
+    left: 343,
     position: "absolute",
     backgroundColor: "transparent",
-    color: "grey",
-    fontSize: 40,
-    width: 41,
-    height: 39
+    color: "rgba(126,211,33,1)",
+    fontSize: 23
   },
   textReferenceC: {
     width: 237,
@@ -1015,7 +1151,9 @@ const styles = StyleSheet.create({
   contentNotAdminClient: {
     flex: 1,
     alignSelf: "stretch",
-    flexDirection: "column"
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center"
   },
   headerBack2: {
     width: 374,
