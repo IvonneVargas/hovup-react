@@ -38,7 +38,18 @@ export default class Cart extends Component {
       <View style={styles.root}>
         <View style={styles.background}>
           <LayoutStatusBar style={styles.layoutStatusBar} />
-          <View style={styles.content}>
+          {this.displayContent()}
+        </View>
+      </View>
+    );
+  }
+
+  displayContent(){
+    var type = this.props.navigation.getParam("type", "content");
+    console.log("TYPE CART: ", type)
+    if (type == "content") {
+      return(
+      <View style={styles.content}>
             <HeaderSingleLogo style={styles.headerSingleLogo} />
             <Text style={styles.title}>Productos en el carrito</Text>
             <Text style={styles.textDescription}>
@@ -176,15 +187,28 @@ export default class Cart extends Component {
                 style={styles.addCodesBtn}
                 navigation={this.props.navigation}
                 text="Agregar codigos"
+                root={() => {
+                  this.props.navigation.push("Cart", {
+                    type: "contentCodes"
+                  });
+                }}
               />
               <GenericButton
                 style={styles.paymentBtn}
                 navigation={this.props.navigation}
                 text="Forma de pago"
+                root={() => {
+                  this.props.navigation.push("Cart", {
+                    type: "contentPayment"
+                  });
+                }}
               />
             </View>
           </View>
-          <View style={styles.contentCodes}>
+      );
+    } else if ( type == "contentCodes") {
+      return(
+        <View style={styles.contentCodes}>
             <HeaderBack
               style={styles.headerBack}
               navigation={this.props.navigation}
@@ -259,9 +283,17 @@ export default class Cart extends Component {
               style={styles.genericButton}
               navigation={this.props.navigation}
               text="Buscar promociones"
+              root={() => {
+                this.props.navigation.push("Cart", {
+                  type: "contentPayment"
+                });
+              }}
             />
           </View>
-          <View style={styles.contentClient}>
+      );
+    } else if ( type == "contentPayment" ) {
+      return(
+      <View style={styles.contentClient}>
             <HeaderBack
               style={styles.headerBack2}
               navigation={this.props.navigation}
@@ -286,6 +318,11 @@ export default class Cart extends Component {
                   text="Tomar foto"
                   iconType="MaterialCommunityIcons"
                   iconName="check"
+                  root={() => {
+                    this.props.navigation.push("Cart", {
+                      type: "contentPayment"
+                    });
+                  }}
                 />
               </View>
               <TitleFive style={styles.titleFive4} text2="Forma de pago" />
@@ -299,11 +336,21 @@ export default class Cart extends Component {
                 iconType="MaterialCommunityIcons"
                 iconName="check"
                 navigation={this.props.navigation}
+                root={() => {
+                    this.props.navigation.push("Cart", {
+                      type: "contentPayment"
+                    });
+                  }}
               />
               <GenericButton
                 style={styles.resumeBtn}
                 navigation={this.props.navigation}
                 text="Resumen"
+                root={() => {
+                  this.props.navigation.push("Cart", {
+                    type: "contentPayment"
+                  });
+                }}
               />
             </View>
             <View style={styles.contentNotAdminClient}>
@@ -361,10 +408,18 @@ export default class Cart extends Component {
                 style={styles.paymentCardBtn}
                 navigation={this.props.navigation}
                 text="Resumen de compra"
+                root={() => {
+                  this.props.navigation.push("Cart", {
+                    type: "contentPayment"
+                  });
+                }}
               />
             </View>
           </View>
-          <View style={styles.contentSuccess}>
+      );
+    } else if ( type == "success" ) {
+      return(
+      <View style={styles.contentSuccess}>
             <HeaderSingleLogo style={styles.headerSingleLogoSuccess} />
             <Image
               style={styles.imageSuccess}
@@ -375,9 +430,8 @@ export default class Cart extends Component {
               text2="Gracias por su compra."
             />
           </View>
-        </View>
-      </View>
-    );
+      );
+    }
   }
 
   showActionSheet() {
@@ -473,8 +527,7 @@ const styles = StyleSheet.create({
   content: {
     alignSelf: "stretch",
     flex: 1,
-    flexDirection: "column",
-    display: "none"
+    flexDirection: "column"
   },
   title: {
     width: 172,
@@ -684,7 +737,6 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     flex: 1,
     flexDirection: "column",
-    display: "none"
   },
   titleFive: {
     width: 359,
@@ -738,8 +790,7 @@ const styles = StyleSheet.create({
   },
   contentDetailCoupon: {
     height: 148.56,
-    alignSelf: "stretch",
-    display: "none"
+    alignSelf: "stretch"
   },
   listReferenceCoupons: {
     top: 0,
@@ -808,8 +859,7 @@ const styles = StyleSheet.create({
   contentClient: {
     alignSelf: "stretch",
     flex: 1,
-    flexDirection: "column",
-    display: "none"
+    flexDirection: "column"
   },
   titleFive3: {
     width: 360,
@@ -869,8 +919,7 @@ const styles = StyleSheet.create({
   contentAdminClient: {
     flexDirection: "column",
     flex: 1,
-    alignSelf: "stretch",
-    display: "none"
+    alignSelf: "stretch"
   },
   resumeBtn: {
     width: 265,
@@ -974,8 +1023,7 @@ const styles = StyleSheet.create({
     width: 374,
     height: 54.6,
     flexDirection: "row",
-    alignItems: "center",
-    display: "none"
+    alignItems: "center"
   },
   contentTextCard: {
     flexDirection: "column",
