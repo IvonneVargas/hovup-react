@@ -21,9 +21,10 @@ import {
 
 import DateTimePicker from "react-native-modal-datetime-picker";
 
-var BUTTONS = ["Option 0", "Option 1", "Option 2", "Delete", "Cancel"];
-var DESTRUCTIVE_INDEX = 3;
-var CANCEL_INDEX = 4;
+var months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciempre"];
+var today = new Date();
+var year = today.getFullYear();
+var month = today.getMonth();
 
 export default class Wallet extends Component {
   constructor() {
@@ -39,12 +40,12 @@ export default class Wallet extends Component {
           type: "coupon"
         }
       ],
-      isDateTimePickerVisible: false
+      isDateTimePickerVisible: false,
+      selectedYear: year,
+      selectedMonth: months[month],
     };
   }
   render() {
-    //const active = this.props.navigation.getParam("active", 1);
-    console.log("active; ", this.state.active);
     return (
       <View style={styles.root}>
         <StatusBar
@@ -70,34 +71,15 @@ export default class Wallet extends Component {
   };
 
   handleDatePicked = date => {
-    this.setState({ selectedDate: date.toString() });
+    this.setState({
+      selectedYear: date.getFullYear(),
+      selectedMonth: months[date.getMonth()]
+    });
     this.hideDateTimePicker();
   };
-
-  showActionSheet() {
-    /*ActionSheetIOS.showActionSheetWithOptions(
-      {
-        options: ["Cancel", "Remove"],
-        destructiveButtonIndex: 1,
-        cancelButtonIndex: 0,
-        tintColor: "green"
-      },
-      buttonIndex => {
-        if (buttonIndex === 1) {
-        }
-      }
-    );*/
-
-  }
-
-  dataShow() {
-    if (this.state.active == 1) {
-    }
-  }
-
+  
   displayContent() {
     const typeT = this.props.navigation.getParam("type", "main");
-    console.log("type wallet: " + typeT);
     if (typeT == "main") {
       return (
         <View style={styles.rect5}>
@@ -217,7 +199,6 @@ export default class Wallet extends Component {
                     <TouchableOpacity
                       style={styles.buttonsStyle}
                       onPress={() => {
-                        console.log("1Click,", item.level);
                         this.props.navigation.push("BrandsTab", {
                           level: item.level,
                           type: this.props.type
@@ -267,13 +248,16 @@ export default class Wallet extends Component {
             style={styles.button}
             onPress={this.showDateTimePicker}
           >
-            <Text style={styles.month}>Junio</Text>
-            <Text style={styles.year}>2019</Text>
+            <Text style={styles.month}>{this.state.selectedMonth}</Text>
+            <Text style={styles.year}>{this.state.selectedYear}</Text>
           </TouchableOpacity>
           <DateTimePicker
             isVisible={this.state.isDateTimePickerVisible}
             onConfirm={this.handleDatePicked}
             onCancel={this.hideDateTimePicker}
+            cancelTextIOS="Cancelar"
+            confirmTextIOS="Seleccionar"
+            titleIOS="Selecciona la fecha"
           />
           <View style={styles.contentBuy}>
             <View style={styles.contentNotBuy}>
