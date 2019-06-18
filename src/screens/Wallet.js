@@ -19,6 +19,8 @@ import {
   Text
 } from "react-native";
 
+import DateTimePicker from "react-native-modal-datetime-picker";
+
 var BUTTONS = ["Option 0", "Option 1", "Option 2", "Delete", "Cancel"];
 var DESTRUCTIVE_INDEX = 3;
 var CANCEL_INDEX = 4;
@@ -37,7 +39,7 @@ export default class Wallet extends Component {
           type: "coupon"
         }
       ],
-      clicked: "none"
+      isDateTimePickerVisible: false
     };
   }
   render() {
@@ -59,8 +61,21 @@ export default class Wallet extends Component {
     );
   }
 
+  showDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: true });
+  };
+
+  hideDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: false });
+  };
+
+  handleDatePicked = date => {
+    this.setState({ selectedDate: date.toString() });
+    this.hideDateTimePicker();
+  };
+
   showActionSheet() {
-    ActionSheetIOS.showActionSheetWithOptions(
+    /*ActionSheetIOS.showActionSheetWithOptions(
       {
         options: ["Cancel", "Remove"],
         destructiveButtonIndex: 1,
@@ -71,7 +86,8 @@ export default class Wallet extends Component {
         if (buttonIndex === 1) {
         }
       }
-    );
+    );*/
+
   }
 
   dataShow() {
@@ -249,11 +265,16 @@ export default class Wallet extends Component {
           </View>
           <TouchableOpacity
             style={styles.button}
-            onPress={this.showActionSheet}
+            onPress={this.showDateTimePicker}
           >
             <Text style={styles.month}>Junio</Text>
             <Text style={styles.year}>2019</Text>
           </TouchableOpacity>
+          <DateTimePicker
+            isVisible={this.state.isDateTimePickerVisible}
+            onConfirm={this.handleDatePicked}
+            onCancel={this.hideDateTimePicker}
+          />
           <View style={styles.contentBuy}>
             <View style={styles.contentNotBuy}>
               <Image
