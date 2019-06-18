@@ -21,7 +21,20 @@ import {
 
 import DateTimePicker from "react-native-modal-datetime-picker";
 
-var months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciempre"];
+var months = [
+  "Enero",
+  "Febrero",
+  "Marzo",
+  "Abril",
+  "Mayo",
+  "Junio",
+  "Julio",
+  "Agosto",
+  "Septiembre",
+  "Octubre",
+  "Noviembre",
+  "Diciempre"
+];
 var today = new Date();
 var year = today.getFullYear();
 var month = today.getMonth();
@@ -42,7 +55,7 @@ export default class Wallet extends Component {
       ],
       isDateTimePickerVisible: false,
       selectedYear: year,
-      selectedMonth: months[month],
+      selectedMonth: months[month]
     };
   }
   render() {
@@ -77,7 +90,7 @@ export default class Wallet extends Component {
     });
     this.hideDateTimePicker();
   };
-  
+
   displayContent() {
     const typeT = this.props.navigation.getParam("type", "main");
     if (typeT == "main") {
