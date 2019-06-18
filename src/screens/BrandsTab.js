@@ -6,6 +6,7 @@ import CatDown from "../symbols/CatDown";
 import LayoutStatusBar from "../symbols/LayoutStatusBar";
 import HeaderBack from "../symbols/HeaderBack";
 import Icon from "@builderx/icons";
+import NumericInput from 'react-native-numeric-input'
 
 import GenericButton from "../symbols/GenericButton";
 import {
@@ -19,6 +20,13 @@ import {
 } from "react-native";
 
 export default class BrandsTab extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      pieces: 1
+    };
+  }
   render() {
     return (
       <View style={styles.root}>
@@ -59,6 +67,19 @@ export default class BrandsTab extends Component {
             Descripción del producto agregado desde la tienda la cual fue que se
             de hovup.
           </Text>
+          <NumericInput
+            style={styles.picker}
+            value={this.state.pieces}
+            onChange={value => this.setState({pieces: value})}
+            onLimitReached={(isMax,msg) => console.log(isMax,msg)}
+            textColor='#FFFFFF'
+            totalWidth={140}
+            totalHeight={40}
+            iconSize={25}
+            rounded
+            iconStyle={{ color: 'white' }}
+            rightButtonBackgroundColor='#65BC46'
+            leftButtonBackgroundColor='#65BC46'/>
           <View style={styles.containerItems}>
             <View style={styles.viewItem}>
               <Image
@@ -1251,5 +1272,10 @@ const styles = StyleSheet.create({
     height: 32,
     alignItems: "flex-start",
     paddingLeft: 35
+  },
+  picker: {
+    backgroundColor: "rgba(255,255,255,1)",
+    marginBottom: 20,
+    paddingBottom: 35
   }
 });

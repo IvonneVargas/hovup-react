@@ -29,7 +29,8 @@
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
     "react-native-modal-datetime-picker": "^7.4.2",
-    "react-navigation": "1.2.1"
+    "react-navigation": "1.2.1",
+    "react-native-numeric-input": "1.8.0"
   },
   "rnpm": {
     "assets": [
