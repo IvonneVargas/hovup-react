@@ -6,7 +6,7 @@ import CatDown from "../symbols/CatDown";
 import LayoutStatusBar from "../symbols/LayoutStatusBar";
 import HeaderBack from "../symbols/HeaderBack";
 import Icon from "@builderx/icons";
-import NumericInput from 'react-native-numeric-input'
+import NumericInput from "react-native-numeric-input";
 
 import GenericButton from "../symbols/GenericButton";
 import {
@@ -70,16 +70,17 @@ export default class BrandsTab extends Component {
           <NumericInput
             style={styles.picker}
             value={this.state.pieces}
-            onChange={value => this.setState({pieces: value})}
-            onLimitReached={(isMax,msg) => console.log(isMax,msg)}
-            textColor='#FFFFFF'
+            onChange={value => this.setState({ pieces: value })}
+            onLimitReached={(isMax, msg) => console.log(isMax, msg)}
+            textColor="#FFFFFF"
             totalWidth={140}
             totalHeight={40}
             iconSize={25}
             rounded
-            iconStyle={{ color: 'white' }}
-            rightButtonBackgroundColor='#65BC46'
-            leftButtonBackgroundColor='#65BC46'/>
+            iconStyle={{ color: "white" }}
+            rightButtonBackgroundColor="#65BC46"
+            leftButtonBackgroundColor="#65BC46"
+          />
           <View style={styles.containerItems}>
             <View style={styles.viewItem}>
               <Image
