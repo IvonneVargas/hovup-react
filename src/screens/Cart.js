@@ -22,7 +22,6 @@ import Icon from "@builderx/icons";
 import HeaderBack from "../symbols/HeaderBack";
 import TitleFive from "../symbols/TitleFive";
 import DescriptionFive from "../symbols/DescriptionFive";
-
 import GenericButton from "../symbols/GenericButton";
 import Swipeout from "react-native-swipeout";
 
@@ -368,6 +367,45 @@ export default class Cart extends Component {
             />
           </View>
         </View>
+      );
+    } else if (type == "addCard") {
+      return(
+      <View style={styles.contentAddCard}>
+            <HeaderBack
+              style={styles.headerBackAddCard}
+              navigation={this.props.navigation}
+            />
+            <TitleFive style={styles.titleFiveAddCard} text2="Nueva tarjeta" />
+            <DescriptionFive
+              style={styles.descriptionFiveAddCard}
+              text2="Por favor proporciona la siguiente informacion"
+            />
+            <View style={styles.contentInputsAddCard}>
+              <TextInput
+                style={styles.textInputProp}
+                placeholder="Nombre del propietario*"
+              />
+              <TextInput
+                style={styles.textInputNumberCard}
+                placeholder="Numero de tarjeta*"
+              />
+              <View style={styles.contentDateAddCard}>
+                <TextInput style={styles.textInputMonth} placeholder="MM" />
+                <TextInput style={styles.textInputYear} placeholder="YYYY" />
+                <TextInput style={styles.textInputCvc} placeholder="CVC" />
+              </View>
+              <GenericButton
+                style={styles.genericButtonSaveCard}
+                navigation={this.props.navigation}
+                text="Guardar"
+                root={() => {
+                  this.props.navigation.push("Cart", {
+                    type: "contentPayment"
+                  });
+                }}
+              />
+            </View>
+          </View>
       );
     }
   }
@@ -1416,6 +1454,84 @@ const styles = StyleSheet.create({
     width: 263,
     height: 42,
     marginTop: 18,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1
+  },
+  contentAddCard: {
+    flex: 1,
+    alignSelf: "stretch",
+    flexDirection: "column"
+  },
+  headerBackAddCard: {
+    height: 55,
+    alignSelf: "stretch"
+  },
+  titleFiveAddCard: {
+    height: 19,
+    alignSelf: "stretch",
+    marginTop: 25
+  },
+  descriptionFiveAddCard: {
+    height: 60,
+    alignSelf: "stretch",
+    marginTop: 13
+  },
+  contentInputsAddCard: {
+    alignSelf: "stretch",
+    flexDirection: "column",
+    alignItems: "center",
+    height: 217.63,
+    justifyContent: "space-between"
+  },
+  textInputProp: {
+    width: 262,
+    height: 42,
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    textAlign: "center",
+    marginTop: 0
+  },
+  textInputNumberCard: {
+    width: 262,
+    height: 41,
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    textAlign: "center",
+    margin: 0
+  },
+  contentDateAddCard: {
+    height: 49.87,
+    alignSelf: "stretch",
+    flexDirection: "row",
+    justifyContent: "space-around"
+  },
+  textInputMonth: {
+    width: "30%",
+    height: 42,
+    backgroundColor: "#E6E6E6",
+    marginTop: 0,
+    borderRadius: 7,
+    textAlign: "center"
+  },
+  textInputYear: {
+    width: "30%",
+    height: 42,
+    backgroundColor: "#E6E6E6",
+    marginTop: 0,
+    borderRadius: 7,
+    textAlign: "center"
+  },
+  textInputCvc: {
+    width: "30%",
+    height: 42,
+    backgroundColor: "#E6E6E6",
+    marginTop: 0,
+    borderRadius: 7,
+    textAlign: "center"
+  },
+  genericButtonSaveCard: {
+    width: 265,
+    height: 41,
     backgroundColor: "rgba(101,188,70,1)",
     opacity: 1
   }
