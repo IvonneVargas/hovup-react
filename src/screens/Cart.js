@@ -106,6 +106,9 @@ export default class Cart extends Component {
                                               style={styles.deleteIcon}
                                               name="trash"
                                               type="SimpleLineIcons"
+                                              onPress={() => {
+                                                console.log("Click remove");
+                                              }}
                                             />
                                             <Text style={styles.textSwipeDes}>Eliminar</Text>
                                           </View>
@@ -118,8 +121,11 @@ export default class Cart extends Component {
                                               style={styles.editIcon}
                                               name="pencil"
                                               type="SimpleLineIcons"
+                                              onPress={() => {
+                                                console.log("Click Edit");
+                                              }}
                                             />
-                                            <Text style={styles.textSwipeEdit}>Eliminar</Text>
+                                            <Text style={styles.textSwipeEdit}>Editar</Text>
                                           </View>
                                         )
                                     },
@@ -130,8 +136,11 @@ export default class Cart extends Component {
                                               style={styles.couponIcon}
                                               name="tag"
                                               type="SimpleLineIcons"
+                                              onPress={() => {
+                                                console.log("Click coupon");
+                                              }}
                                             />
-                                            <Text style={styles.textSwipeCupon}>Eliminar</Text>
+                                            <Text style={styles.textSwipeCupon}>Cupon</Text>
                                           </View>
                                         )
                                     }
