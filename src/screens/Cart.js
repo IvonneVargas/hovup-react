@@ -15,14 +15,14 @@ import {
   ActionSheetIOS
 } from "react-native";
 import GenericButton from "../symbols/GenericButton";
-import TitleFive from "../symbols/TitleFive";
 
-import HeaderBack from "../symbols/HeaderBack";
-import DescriptionFive from "../symbols/DescriptionFive";
 import GenericButtonIcon from "../symbols/GenericButtonIcon";
 import LineView from "../symbols/LineView";
 import Icon from "@builderx/icons";
 
+import HeaderBack from "../symbols/HeaderBack";
+import TitleFive from "../symbols/TitleFive";
+import DescriptionFive from "../symbols/DescriptionFive";
 import Swipeout from "react-native-swipeout";
 
 export default class Cart extends Component {
@@ -34,32 +34,32 @@ export default class Cart extends Component {
       selectedImage: "",
       selectedCard: "",
       data: [
-              {
-                key: "Producto",
-                sub: "10.00",
-                pieces: 2
-              },
-              {
-                key: "Producto2",
-                sub: "30.00",
-                pieces: 2
-              },
-              {
-                key: "Producto3",
-                sub: "20.00",
-                pieces: 3
-              },
-              {
-                key: "Producto4",
-                sub: "40.00",
-                pieces: 5
-              },
-              {
-                key: "Producto5",
-                sub: "50.00",
-                pieces: 6
-              }
-            ]
+        {
+          key: "Producto",
+          sub: "10.00",
+          pieces: 2
+        },
+        {
+          key: "Producto2",
+          sub: "30.00",
+          pieces: 2
+        },
+        {
+          key: "Producto3",
+          sub: "20.00",
+          pieces: 3
+        },
+        {
+          key: "Producto4",
+          sub: "40.00",
+          pieces: 5
+        },
+        {
+          key: "Producto5",
+          sub: "50.00",
+          pieces: 6
+        }
+      ]
     };
   }
   render() {
@@ -99,60 +99,61 @@ export default class Cart extends Component {
             renderItem={({ item, separators }) => {
               return (
                 <View style={styles.rect}>
-                  <Swipeout left={[
-                                    {
-                                        component: (
-                                          <View style={styles.swipeoutSide}>
-                                            <Icon
-                                              style={styles.deleteIcon}
-                                              name="trash"
-                                              type="SimpleLineIcons"
-                                              onPress={() => {
-                                                this.deleteItemById(item.key);
-                                              }}
-                                            />
-                                            <Text style={styles.textSwipeDes}>Eliminar</Text>
-                                          </View>
-                                        )
-                                    },
-                                    {
-                                        component: (
-                                          <View style={styles.swipeoutSide}>
-                                            <Icon
-                                              style={styles.editIcon}
-                                              name="pencil"
-                                              type="SimpleLineIcons"
-                                              onPress={() => {
-                                                console.log("Click Edit");
-                                                this.props.navigation.push("Cart", {
-                                                  type: "edit"
-                                                });
-                                              }}
-                                            />
-                                            <Text style={styles.textSwipeEdit}>Editar</Text>
-                                          </View>
-                                        )
-                                    },
-                                    {
-                                        component: (
-                                          <View style={styles.swipeoutSide}>
-                                            <Icon
-                                              style={styles.couponIcon}
-                                              name="tag"
-                                              type="SimpleLineIcons"
-                                              onPress={() => {
-                                                console.log("Click coupon");
-                                                this.props.navigation.push("Cart", {
-                                                  type: "coupon"
-                                                });
-                                              }}
-                                            />
-                                            <Text style={styles.textSwipeCupon}>Cupon</Text>
-                                          </View>
-                                        )
-                                    }
-                                  ]}
-                                  backgroundColor="#1D2935"
+                  <Swipeout
+                    left={[
+                      {
+                        component: (
+                          <View style={styles.swipeoutSide}>
+                            <Icon
+                              style={styles.deleteIcon}
+                              name="trash"
+                              type="SimpleLineIcons"
+                              onPress={() => {
+                                this.deleteItemById(item.key);
+                              }}
+                            />
+                            <Text style={styles.textSwipeDes}>Eliminar</Text>
+                          </View>
+                        )
+                      },
+                      {
+                        component: (
+                          <View style={styles.swipeoutSide}>
+                            <Icon
+                              style={styles.editIcon}
+                              name="pencil"
+                              type="SimpleLineIcons"
+                              onPress={() => {
+                                console.log("Click Edit");
+                                this.props.navigation.push("Cart", {
+                                  type: "edit"
+                                });
+                              }}
+                            />
+                            <Text style={styles.textSwipeEdit}>Editar</Text>
+                          </View>
+                        )
+                      },
+                      {
+                        component: (
+                          <View style={styles.swipeoutSide}>
+                            <Icon
+                              style={styles.couponIcon}
+                              name="tag"
+                              type="SimpleLineIcons"
+                              onPress={() => {
+                                console.log("Click coupon");
+                                this.props.navigation.push("Cart", {
+                                  type: "coupon"
+                                });
+                              }}
+                            />
+                            <Text style={styles.textSwipeCupon}>Cupon</Text>
+                          </View>
+                        )
+                      }
+                    ]}
+                    backgroundColor="#1D2935"
                   >
                     <View style={styles.buttonsStyle}>
                       <Image
@@ -270,6 +271,68 @@ export default class Cart extends Component {
             text2="Gracias por su compra."
           />
         </View>
+      );
+    } else if (type == "coupon") {
+      return(
+      <View style={styles.contentCoupon}>
+            <HeaderBack
+              style={styles.headerBackCoupon}
+              navigation={this.props.navigation}
+            />
+            <TitleFive
+              style={styles.titleFiveCoupon}
+              text2="Cupones disponibles"
+            />
+            <DescriptionFive
+              style={styles.descriptionFiveCoupon}
+              text2="Selecciona el cupon que deseas aplicar a tu producto, luego da clic en 'Utilizar cupon'. En esta pantalla"
+            />
+            <FlatList
+            style={styles.listCard}
+            data={[
+              {
+                key: "123",
+                name: "XXXXXXXXXXXXXXX123",
+                date: "15/12/20"
+              },
+              {
+                key: "456",
+                name: "XXXXXXXXXXXXXXX124",
+                date: "10/12/20"
+              },
+              {
+                key: "789",
+                name: "XXXXXXXXXXXXXXX125",
+                date: "12/12/20"
+              }
+            ]}
+            renderItem={({ item, separators }) => {
+              return (
+                <TouchableOpacity
+                  style={styles.buttonsStyle}
+                  onPress={() => {
+                    this.setState({
+                      selectedCard: item.key
+                    });
+                  }}
+                >
+                  <Image
+                    source={require("../assets/ic_card_visa.png")}
+                    style={styles.imageCard}
+                  />
+                  {this.showSelected(item.key)}
+                  <View style={styles.rect9}>
+                    <Text style={styles.textKey}>{item.key}</Text>
+                    <Text style={styles.textSub}>{item.name}</Text>
+                  </View>
+                </TouchableOpacity>
+              );
+            }}
+            ItemSeparatorComponent={({}) => {
+              return <View style={styles.rect17} />;
+            }}
+          />
+          </View>
       );
     }
   }
@@ -575,7 +638,7 @@ export default class Cart extends Component {
   deleteItemById = key => {
     const filteredData = this.state.data.filter(item => item.key !== key);
     this.setState({ data: filteredData });
-  }
+  };
   showActionSheet() {
     ActionSheetIOS.showActionSheetWithOptions(
       {
@@ -1252,5 +1315,24 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     fontSize: 12,
     color: "rgba(255,255,255,1)"
+  },
+  contentCoupon: {
+    flex: 1,
+    alignSelf: "stretch",
+    flexDirection: "column"
+  },
+  headerBackCoupon: {
+    width: 376,
+    height: 54
+  },
+  titleFiveCoupon: {
+    height: 19,
+    alignSelf: "stretch",
+    marginTop: 15
+  },
+  descriptionFiveCoupon: {
+    height: 59,
+    alignSelf: "stretch",
+    marginTop: 18
   }
 });
