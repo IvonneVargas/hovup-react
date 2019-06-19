@@ -110,6 +110,30 @@ export default class Cart extends Component {
                                             <Text style={styles.textSwipeDes}>Eliminar</Text>
                                           </View>
                                         )
+                                    },
+                                    {
+                                        component: (
+                                          <View style={styles.swipeoutSide}>
+                                            <Icon
+                                              style={styles.editIcon}
+                                              name="pencil"
+                                              type="SimpleLineIcons"
+                                            />
+                                            <Text style={styles.textSwipeEdit}>Eliminar</Text>
+                                          </View>
+                                        )
+                                    },
+                                    {
+                                        component: (
+                                          <View style={styles.swipeoutSide}>
+                                            <Icon
+                                              style={styles.couponIcon}
+                                              name="tag"
+                                              type="SimpleLineIcons"
+                                            />
+                                            <Text style={styles.textSwipeCupon}>Eliminar</Text>
+                                          </View>
+                                        )
                                     }
                                   ]}
                                   backgroundColor="#1D2935"
@@ -1176,6 +1200,32 @@ const styles = StyleSheet.create({
     width: 30
   },
   textSwipeDes: {
+    width: 45,
+    height: 12,
+    backgroundColor: "transparent",
+    fontSize: 12,
+    color: "rgba(255,255,255,1)"
+  },
+  editIcon: {
+    width: 30,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 28
+  },
+  textSwipeEdit: {
+    width: 45,
+    height: 12,
+    backgroundColor: "transparent",
+    fontSize: 12,
+    color: "rgba(255,255,255,1)"
+  },
+  couponIcon: {
+    width: 30,
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 28
+  },
+  textSwipeCupon: {
     width: 45,
     height: 12,
     backgroundColor: "transparent",
