@@ -23,6 +23,21 @@ import GenericButtonIcon from "../symbols/GenericButtonIcon";
 import LineView from "../symbols/LineView";
 import Icon from "@builderx/icons";
 
+import Swipeout from 'react-native-swipeout';
+
+var swipeoutBtns = [
+  {
+    component: (
+      <View>
+        <Icon
+          name="ios-checkmark-circle-outline"
+          type="Ionicons"
+        />
+      </View>
+    )
+  }
+]
+
 export default class Cart extends Component {
   constructor() {
     super();
@@ -96,15 +111,9 @@ export default class Cart extends Component {
             renderItem={({ item, separators }) => {
               return (
                 <View style={styles.rect}>
-                  <TouchableOpacity
+                <Swipeout left={swipeoutBtns} backgroundColor="#1D2935">
+                  <View
                     style={styles.buttonsStyle}
-                    onPress={() => {
-                      console.log("1Click,", item.level);
-                      this.props.navigation.push("BrandsTab", {
-                        level: item.level,
-                        type: this.props.type
-                      });
-                    }}
                   >
                     <Image
                       source={require("../assets/ic_200x200.png")}
@@ -125,10 +134,11 @@ export default class Cart extends Component {
                         <Text style={styles.textPieces}>
                           x {item.pieces} Pieza
                         </Text>
-                        <Text style={styles.textTotal}>$ {item.total} MXN</Text>
+                        <Text style={styles.textTotal}>$ {item.sub} MXN</Text>
                       </View>
                     </View>
-                  </TouchableOpacity>
+                  </View>
+                  </Swipeout>
                 </View>
               );
             }}
@@ -1151,5 +1161,35 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(101,188,70,1)",
     opacity: 1,
     margin: 8
+  },
+  swipeoutSide: {
+    backgroundColor: '#fff',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  listContainer: {
+    borderRadius: 2,
+    borderWidth: 1.5,
+    borderColor: '#6772e5',
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: 5,
+    marginBottom: 5,
+    height: 124
+  },
+  listHeader: {
+    flex: 1,
+    justifyContent: 'center',
+    marginLeft: 20
+  },
+  listTitle: {
+    fontSize: 22,
+    color: '#999999',
+    marginBottom: 2
+  },
+  listSubTitle: {
+    fontSize: 14,
+    color: '#a6a6a6'
   }
 });
