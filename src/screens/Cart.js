@@ -60,7 +60,8 @@ export default class Cart extends Component {
           sub: "50.00",
           pieces: 6
         }
-      ]
+      ],
+      textInput: []
     };
   }
   render() {
@@ -73,6 +74,14 @@ export default class Cart extends Component {
       </View>
     );
   }
+
+  addTextInput = key => {
+    let textInput = this.state.textInput;
+    textInput.push(
+      <TextInput style={styles.textInput} placeholder="Codigo promocional" />
+    );
+    this.setState({ textInput });
+  };
 
   displayContent() {
     var type = this.props.navigation.getParam("type", "content");
@@ -651,10 +660,14 @@ export default class Cart extends Component {
             style={styles.textInput}
             placeholder="Codigo promocional"
           />
+          {this.state.textInput.map((value, index) => {
+            return value;
+          })}
           <Icon
             style={styles.icon2}
             name="plus-circle-outline"
             type="MaterialCommunityIcons"
+            onPress={() => this.addTextInput(this.state.textInput.length + 1)}
           />
         </View>
       );
@@ -968,10 +981,9 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   contentInputs: {
-    height: 143.86,
     alignSelf: "stretch",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center"
   },
   genericButton: {
