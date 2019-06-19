@@ -999,7 +999,8 @@ const styles = StyleSheet.create({
     height: 42,
     backgroundColor: "#E6E6E6",
     borderRadius: 7,
-    textAlign: "center"
+    textAlign: "center",
+    marginBottom: 35
   },
   icon2: {
     width: 41,
