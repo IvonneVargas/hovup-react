@@ -124,6 +124,9 @@ export default class Cart extends Component {
                                               type="SimpleLineIcons"
                                               onPress={() => {
                                                 console.log("Click Edit");
+                                                this.props.navigation.push("Cart", {
+                                                  type: "edit"
+                                                });
                                               }}
                                             />
                                             <Text style={styles.textSwipeEdit}>Editar</Text>
@@ -139,6 +142,9 @@ export default class Cart extends Component {
                                               type="SimpleLineIcons"
                                               onPress={() => {
                                                 console.log("Click coupon");
+                                                this.props.navigation.push("Cart", {
+                                                  type: "coupon"
+                                                });
                                               }}
                                             />
                                             <Text style={styles.textSwipeCupon}>Cupon</Text>
