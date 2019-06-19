@@ -377,7 +377,7 @@ export default class Cart extends Component {
       "typeUser",
       this.props.typeUser
     );
-    if (typeUser == "notAdmin") {
+    if (typeUser == "Admin") {
       return (
         <View style={styles.contentAdminClient}>
           <View
@@ -479,6 +479,11 @@ export default class Cart extends Component {
             style={styles.iconPlus}
             name="plus-circle"
             type="MaterialCommunityIcons"
+            onPress={() => {
+              this.props.navigation.push("Cart", {
+                type: "addCard"
+              });
+            }}
           />
           <GenericButton
             style={styles.paymentCardBtn}
@@ -487,7 +492,7 @@ export default class Cart extends Component {
             root={() => {
               this.props.navigation.push("Cart", {
                 type: "content",
-                typeUser: "notAdmin"
+                typeUser: "Admin"
               });
             }}
           />
