@@ -273,21 +273,21 @@ export default class Cart extends Component {
         </View>
       );
     } else if (type == "coupon") {
-      return(
-      <View style={styles.contentCoupon}>
-            <HeaderBack
-              style={styles.headerBackCoupon}
-              navigation={this.props.navigation}
-            />
-            <TitleFive
-              style={styles.titleFiveCoupon}
-              text2="Cupones disponibles"
-            />
-            <DescriptionFive
-              style={styles.descriptionFiveCoupon}
-              text2="Selecciona el cupon que deseas aplicar a tu producto, luego da clic en 'Utilizar cupon'. En esta pantalla"
-            />
-            <FlatList
+      return (
+        <View style={styles.contentCoupon}>
+          <HeaderBack
+            style={styles.headerBackCoupon}
+            navigation={this.props.navigation}
+          />
+          <TitleFive
+            style={styles.titleFiveCoupon}
+            text2="Cupones disponibles"
+          />
+          <DescriptionFive
+            style={styles.descriptionFiveCoupon}
+            text2="Selecciona el cupon que deseas aplicar a tu producto, luego da clic en 'Utilizar cupon'. En esta pantalla"
+          />
+          <FlatList
             style={styles.listCard}
             data={[
               {
@@ -332,7 +332,7 @@ export default class Cart extends Component {
               return <View style={styles.rect17} />;
             }}
           />
-          </View>
+        </View>
       );
     }
   }
