@@ -9,12 +9,11 @@ import {
   Platform,
   TouchableOpacity,
   Image,
-  TextInput,
   CameraRoll,
   Alert,
-  ActionSheetIOS
+  ActionSheetIOS,
+  TextInput
 } from "react-native";
-import GenericButton from "../symbols/GenericButton";
 
 import GenericButtonIcon from "../symbols/GenericButtonIcon";
 import LineView from "../symbols/LineView";
@@ -23,6 +22,8 @@ import Icon from "@builderx/icons";
 import HeaderBack from "../symbols/HeaderBack";
 import TitleFive from "../symbols/TitleFive";
 import DescriptionFive from "../symbols/DescriptionFive";
+
+import GenericButton from "../symbols/GenericButton";
 import Swipeout from "react-native-swipeout";
 
 export default class Cart extends Component {
@@ -332,6 +333,31 @@ export default class Cart extends Component {
               return <View style={styles.rect17} />;
             }}
           />
+        </View>
+      );
+    } else if (type == "edit") {
+      return (
+        <View style={styles.contentEdit}>
+          <HeaderBack
+            style={styles.headerBackEdit}
+            navigation={this.props.navigation}
+          />
+          <TitleFive style={styles.titleFiveEdit} text2="Numero de piezas" />
+          <DescriptionFive
+            style={styles.descriptionFiveEdit}
+            text2="Agregarlo disminuye el numero de piezas para tu producto"
+          />
+          <View style={styles.contentEditInput}>
+            <TextInput
+              style={styles.textInputEditNumber}
+              placeholder="contrasena*"
+            />
+            <GenericButton
+              style={styles.genericButtonEdit}
+              navigation={this.props.navigation}
+              text="Guardar"
+            />
+          </View>
         </View>
       );
     }
@@ -1334,5 +1360,45 @@ const styles = StyleSheet.create({
     height: 59,
     alignSelf: "stretch",
     marginTop: 18
+  },
+  contentEdit: {
+    flex: 1,
+    alignSelf: "stretch",
+    flexDirection: "column"
+  },
+  headerBackEdit: {
+    height: 54,
+    alignSelf: "stretch"
+  },
+  titleFiveEdit: {
+    height: 19,
+    alignSelf: "stretch",
+    marginTop: 15
+  },
+  descriptionFiveEdit: {
+    height: 61,
+    alignSelf: "stretch",
+    marginTop: 10
+  },
+  contentEditInput: {
+    flex: 1,
+    alignSelf: "stretch",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "flex-start"
+  },
+  textInputEditNumber: {
+    width: 262,
+    height: 41,
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    textAlign: "center"
+  },
+  genericButtonEdit: {
+    width: 263,
+    height: 42,
+    marginTop: 18,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1
   }
 });
