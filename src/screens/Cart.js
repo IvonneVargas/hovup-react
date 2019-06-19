@@ -23,20 +23,7 @@ import GenericButtonIcon from "../symbols/GenericButtonIcon";
 import LineView from "../symbols/LineView";
 import Icon from "@builderx/icons";
 
-import Swipeout from 'react-native-swipeout';
-
-var swipeoutBtns = [
-  {
-    component: (
-      <View>
-        <Icon
-          name="ios-checkmark-circle-outline"
-          type="Ionicons"
-        />
-      </View>
-    )
-  }
-]
+import Swipeout from "react-native-swipeout";
 
 export default class Cart extends Component {
   constructor() {
@@ -111,33 +98,46 @@ export default class Cart extends Component {
             renderItem={({ item, separators }) => {
               return (
                 <View style={styles.rect}>
-                <Swipeout left={swipeoutBtns} backgroundColor="#1D2935">
-                  <View
-                    style={styles.buttonsStyle}
+                  <Swipeout left={[
+                                    {
+                                        component: (
+                                          <View style={styles.swipeoutSide}>
+                                            <Icon
+                                              style={styles.deleteIcon}
+                                              name="trash"
+                                              type="SimpleLineIcons"
+                                            />
+                                            <Text style={styles.textSwipeDes}>Eliminar</Text>
+                                          </View>
+                                        )
+                                    }
+                                  ]}
+                                  backgroundColor="#1D2935"
                   >
-                    <Image
-                      source={require("../assets/ic_200x200.png")}
-                      style={styles.image}
-                    />
-                    <Icon
-                      name="ios-arrow-forward"
-                      style={styles.icon}
-                      type="Ionicons"
-                    />
-                    <View style={styles.rect9}>
-                      <Text style={styles.textKey}>{item.key}</Text>
-                      <Text style={styles.textSub}>$ {item.sub} MXN</Text>
-                      <Text style={styles.textReferenceC}>
-                        - 10 % #FB10-2018
-                      </Text>
-                      <View style={styles.contentPieces}>
-                        <Text style={styles.textPieces}>
-                          x {item.pieces} Pieza
+                    <View style={styles.buttonsStyle}>
+                      <Image
+                        source={require("../assets/ic_200x200.png")}
+                        style={styles.image}
+                      />
+                      <Icon
+                        name="ios-arrow-forward"
+                        style={styles.icon}
+                        type="Ionicons"
+                      />
+                      <View style={styles.rect9}>
+                        <Text style={styles.textKey}>{item.key}</Text>
+                        <Text style={styles.textSub}>$ {item.sub} MXN</Text>
+                        <Text style={styles.textReferenceC}>
+                          - 10 % #FB10-2018
                         </Text>
-                        <Text style={styles.textTotal}>$ {item.sub} MXN</Text>
+                        <View style={styles.contentPieces}>
+                          <Text style={styles.textPieces}>
+                            x {item.pieces} Pieza
+                          </Text>
+                          <Text style={styles.textTotal}>$ {item.sub} MXN</Text>
+                        </View>
                       </View>
                     </View>
-                  </View>
                   </Swipeout>
                 </View>
               );
@@ -602,6 +602,7 @@ export default class Cart extends Component {
     }
   }
 }
+
 const styles = StyleSheet.create({
   root: {
     backgroundColor: "white",
@@ -1163,33 +1164,22 @@ const styles = StyleSheet.create({
     margin: 8
   },
   swipeoutSide: {
-    backgroundColor: '#fff',
+    backgroundColor: "#1D2935",
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: "center",
+    justifyContent: "center"
   },
-  listContainer: {
-    borderRadius: 2,
-    borderWidth: 1.5,
-    borderColor: '#6772e5',
-    marginLeft: 15,
-    marginRight: 15,
-    marginTop: 5,
-    marginBottom: 5,
-    height: 124
+  deleteIcon: {
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 28,
+    width: 30
   },
-  listHeader: {
-    flex: 1,
-    justifyContent: 'center',
-    marginLeft: 20
-  },
-  listTitle: {
-    fontSize: 22,
-    color: '#999999',
-    marginBottom: 2
-  },
-  listSubTitle: {
-    fontSize: 14,
-    color: '#a6a6a6'
+  textSwipeDes: {
+    width: 45,
+    height: 12,
+    backgroundColor: "transparent",
+    fontSize: 12,
+    color: "rgba(255,255,255,1)"
   }
 });
