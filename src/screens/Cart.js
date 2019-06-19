@@ -32,7 +32,34 @@ export default class Cart extends Component {
     this.state = {
       selectedItem: "",
       selectedImage: "",
-      selectedCard: ""
+      selectedCard: "",
+      data: [
+              {
+                key: "Producto",
+                sub: "10.00",
+                pieces: 2
+              },
+              {
+                key: "Producto2",
+                sub: "30.00",
+                pieces: 2
+              },
+              {
+                key: "Producto3",
+                sub: "20.00",
+                pieces: 3
+              },
+              {
+                key: "Producto4",
+                sub: "40.00",
+                pieces: 5
+              },
+              {
+                key: "Producto5",
+                sub: "50.00",
+                pieces: 6
+              }
+            ]
     };
   }
   render() {
@@ -68,33 +95,7 @@ export default class Cart extends Component {
           <FlatList
             showsHorizontalScrollIndicator={false}
             style={styles.list}
-            data={[
-              {
-                key: "Producto",
-                sub: "10.00",
-                pieces: 2
-              },
-              {
-                key: "Producto2",
-                sub: "30.00",
-                pieces: 2
-              },
-              {
-                key: "Producto3",
-                sub: "20.00",
-                pieces: 3
-              },
-              {
-                key: "Producto4",
-                sub: "40.00",
-                pieces: 5
-              },
-              {
-                key: "Producto5",
-                sub: "50.00",
-                pieces: 6
-              }
-            ]}
+            data={this.state.data}
             renderItem={({ item, separators }) => {
               return (
                 <View style={styles.rect}>
@@ -107,7 +108,7 @@ export default class Cart extends Component {
                                               name="trash"
                                               type="SimpleLineIcons"
                                               onPress={() => {
-                                                console.log("Click remove");
+                                                this.deleteItemById(item.key);
                                               }}
                                             />
                                             <Text style={styles.textSwipeDes}>Eliminar</Text>
@@ -563,6 +564,11 @@ export default class Cart extends Component {
         </View>
       );
     }
+  }
+
+  deleteItemById = key => {
+    const filteredData = this.state.data.filter(item => item.key !== key);
+    this.setState({ data: filteredData });
   }
   showActionSheet() {
     ActionSheetIOS.showActionSheetWithOptions(
