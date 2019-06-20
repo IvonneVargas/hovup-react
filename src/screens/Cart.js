@@ -24,7 +24,7 @@ import TitleFive from "../symbols/TitleFive";
 import DescriptionFive from "../symbols/DescriptionFive";
 import GenericButton from "../symbols/GenericButton";
 import Swipeout from "react-native-swipeout";
-import { Constants, ImagePicker, Permissions } from 'expo';
+import { Constants, ImagePicker, Permissions } from "expo";
 
 export default class Cart extends Component {
   constructor() {
@@ -67,9 +67,7 @@ export default class Cart extends Component {
     };
   }
   render() {
-    let {
-      image
-    } = this.state;
+    let { image } = this.state;
     return (
       <View style={styles.root}>
         <View style={styles.background}>
@@ -90,10 +88,7 @@ export default class Cart extends Component {
 
   displayContent() {
     var type = this.props.navigation.getParam("type", "content");
-    var typeUser = this.props.navigation.getParam(
-      "typeUser",
-      "default"
-    );
+    var typeUser = this.props.navigation.getParam("typeUser", "default");
     console.log("TYPE CART: ", type);
     console.log("ADMIN?: ", this.props);
     console.log("typeUser?: ", typeUser);
@@ -375,52 +370,49 @@ export default class Cart extends Component {
         </View>
       );
     } else if (type == "addCard") {
-      return(
-      <View style={styles.contentAddCard}>
-            <HeaderBack
-              style={styles.headerBackAddCard}
-              navigation={this.props.navigation}
+      return (
+        <View style={styles.contentAddCard}>
+          <HeaderBack
+            style={styles.headerBackAddCard}
+            navigation={this.props.navigation}
+          />
+          <TitleFive style={styles.titleFiveAddCard} text2="Nueva tarjeta" />
+          <DescriptionFive
+            style={styles.descriptionFiveAddCard}
+            text2="Por favor proporciona la siguiente informacion"
+          />
+          <View style={styles.contentInputsAddCard}>
+            <TextInput
+              style={styles.textInputProp}
+              placeholder="Nombre del propietario*"
             />
-            <TitleFive style={styles.titleFiveAddCard} text2="Nueva tarjeta" />
-            <DescriptionFive
-              style={styles.descriptionFiveAddCard}
-              text2="Por favor proporciona la siguiente informacion"
+            <TextInput
+              style={styles.textInputNumberCard}
+              placeholder="Numero de tarjeta*"
             />
-            <View style={styles.contentInputsAddCard}>
-              <TextInput
-                style={styles.textInputProp}
-                placeholder="Nombre del propietario*"
-              />
-              <TextInput
-                style={styles.textInputNumberCard}
-                placeholder="Numero de tarjeta*"
-              />
-              <View style={styles.contentDateAddCard}>
-                <TextInput style={styles.textInputMonth} placeholder="MM" />
-                <TextInput style={styles.textInputYear} placeholder="YYYY" />
-                <TextInput style={styles.textInputCvc} placeholder="CVC" />
-              </View>
-              <GenericButton
-                style={styles.genericButtonSaveCard}
-                navigation={this.props.navigation}
-                text="Guardar"
-                root={() => {
-                  this.props.navigation.push("Cart", {
-                    type: "contentPayment"
-                  });
-                }}
-              />
+            <View style={styles.contentDateAddCard}>
+              <TextInput style={styles.textInputMonth} placeholder="MM" />
+              <TextInput style={styles.textInputYear} placeholder="YYYY" />
+              <TextInput style={styles.textInputCvc} placeholder="CVC" />
             </View>
+            <GenericButton
+              style={styles.genericButtonSaveCard}
+              navigation={this.props.navigation}
+              text="Guardar"
+              root={() => {
+                this.props.navigation.push("Cart", {
+                  type: "contentPayment"
+                });
+              }}
+            />
           </View>
+        </View>
       );
     }
   }
 
   showAdmin() {
-    var typeUser = this.props.navigation.getParam(
-      "typeUser",
-      "default"
-    );
+    var typeUser = this.props.navigation.getParam("typeUser", "default");
     if (typeUser == "Admin") {
       return (
         <View style={styles.contentAdminClient}>
@@ -544,10 +536,7 @@ export default class Cart extends Component {
   }
 
   showButtonsPayment() {
-    var typeUser = this.props.navigation.getParam(
-      "typeUser",
-      "default"
-    );
+    var typeUser = this.props.navigation.getParam("typeUser", "default");
     console.log("typeUser11121212, ", typeUser);
     if (typeUser == "Admin" || typeUser == "notAdmin") {
       return (
@@ -595,10 +584,7 @@ export default class Cart extends Component {
   }
 
   displayUserContent() {
-    var typeUser = this.props.navigation.getParam(
-      "typeUser",
-      "default"
-    );
+    var typeUser = this.props.navigation.getParam("typeUser", "default");
     console.log("displayUserContent: ", typeUser);
     if (typeUser == "Admin") {
       return (
@@ -772,14 +758,14 @@ export default class Cart extends Component {
   }
 
   getPhotosFromGallery = async () => {
-    const {
-      status: cameraRollPerm
-    } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+    const { status: cameraRollPerm } = await Permissions.askAsync(
+      Permissions.CAMERA_ROLL
+    );
 
-    if (cameraRollPerm === 'granted') {
+    if (cameraRollPerm === "granted") {
       let pickerResult = await ImagePicker.launchImageLibraryAsync({
         allowsEditing: true,
-        aspect: [4, 3],
+        aspect: [4, 3]
       });
 
       this._handleImagePicked(pickerResult);
@@ -787,18 +773,18 @@ export default class Cart extends Component {
   };
 
   getPhotosCamera = async () => {
-    const {
-      status: cameraPerm
-    } = await Permissions.askAsync(Permissions.CAMERA);
+    const { status: cameraPerm } = await Permissions.askAsync(
+      Permissions.CAMERA
+    );
 
-    const {
-      status: cameraRollPerm
-    } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+    const { status: cameraRollPerm } = await Permissions.askAsync(
+      Permissions.CAMERA_ROLL
+    );
 
-    if (cameraPerm === 'granted' && cameraRollPerm === 'granted') {
+    if (cameraPerm === "granted" && cameraRollPerm === "granted") {
       let pickerResult = await ImagePicker.launchCameraAsync({
         allowsEditing: true,
-        aspect: [4, 3],
+        aspect: [4, 3]
       });
 
       this._handleImagePicked(pickerResult);
@@ -825,7 +811,7 @@ export default class Cart extends Component {
       console.log({ uploadResponse });
       console.log({ uploadResult });
       console.log({ e });
-      alert('Upload failed, sorry :(');
+      alert("Upload failed, sorry :(");
     } finally {
       this.setState({
         uploading: false
