@@ -25,6 +25,7 @@ import DescriptionFive from "../symbols/DescriptionFive";
 import GenericButton from "../symbols/GenericButton";
 import Swipeout from "react-native-swipeout";
 
+
 export default class Cart extends Component {
   constructor() {
     super();
@@ -86,11 +87,11 @@ export default class Cart extends Component {
     var type = this.props.navigation.getParam("type", "content");
     var typeUser = this.props.navigation.getParam(
       "typeUser",
-      this.props.typeUser
+      "default"
     );
     console.log("TYPE CART: ", type);
     console.log("ADMIN?: ", this.props);
-    console.log("typeUser?: ", this.props.typeUser);
+    console.log("typeUser?: ", typeUser);
     if (type == "content") {
       return (
         <View style={styles.content}>
@@ -413,7 +414,7 @@ export default class Cart extends Component {
   showAdmin() {
     var typeUser = this.props.navigation.getParam(
       "typeUser",
-      this.props.typeUser
+      "default"
     );
     if (typeUser == "Admin") {
       return (
@@ -430,9 +431,7 @@ export default class Cart extends Component {
               iconType="MaterialCommunityIcons"
               iconName="check"
               root={() => {
-                this.props.navigation.push("Cart", {
-                  type: "contentPayment"
-                });
+                this.showAlert();
               }}
             />
           </View>
@@ -542,7 +541,7 @@ export default class Cart extends Component {
   showButtonsPayment() {
     var typeUser = this.props.navigation.getParam(
       "typeUser",
-      this.props.typeUser
+      "default"
     );
     console.log("typeUser11121212, ", typeUser);
     if (typeUser == "Admin" || typeUser == "notAdmin") {
@@ -581,7 +580,7 @@ export default class Cart extends Component {
             root={() => {
               this.props.navigation.push("Cart", {
                 type: "contentPayment",
-                typeUser: this.props.typeUser
+                typeUser: "Admin"
               });
             }}
           />
@@ -593,7 +592,7 @@ export default class Cart extends Component {
   displayUserContent() {
     var typeUser = this.props.navigation.getParam(
       "typeUser",
-      this.props.typeUser
+      "default"
     );
     console.log("displayUserContent: ", typeUser);
     if (typeUser == "Admin") {
@@ -1255,8 +1254,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   headerBack2: {
-    width: 374,
-    height: 55
+    height: 54,
+    alignSelf: "stretch"
   },
   listCard: {
     height: 320.79,
@@ -1404,7 +1403,7 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   headerBackCoupon: {
-    width: 376,
+    alignSelf: "stretch",
     height: 54
   },
   titleFiveCoupon: {
