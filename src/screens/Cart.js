@@ -24,7 +24,7 @@ import TitleFive from "../symbols/TitleFive";
 import DescriptionFive from "../symbols/DescriptionFive";
 import GenericButton from "../symbols/GenericButton";
 import Swipeout from "react-native-swipeout";
-
+import { Constants, ImagePicker, Permissions } from 'expo';
 
 export default class Cart extends Component {
   constructor() {
@@ -61,10 +61,15 @@ export default class Cart extends Component {
           pieces: 6
         }
       ],
-      textInput: []
+      textInput: [],
+      image: null,
+      uploading: false
     };
   }
   render() {
+    let {
+      image
+    } = this.state;
     return (
       <View style={styles.root}>
         <View style={styles.background}>
@@ -754,7 +759,7 @@ export default class Cart extends Component {
       [
         {
           text: "Tomar fotografía",
-          onPress: () => console.log("Cancel Pressed"),
+          onPress: () => this.getPhotosCamera(),
           style: "cancel"
         },
         {
@@ -766,31 +771,102 @@ export default class Cart extends Component {
     );
   }
 
-  getPhotosFromGallery() {
-    CameraRoll.getPhotos({ first: 10 }).then(res => {
-      console.log(res, "images data");
-    });
-  }
+  getPhotosFromGallery = async () => {
+    const {
+      status: cameraRollPerm
+    } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
 
-  getPhotosCamera() {
-    if (Platform.OS === "android") {
-      RNFetchBlob.config({
-        fileCache: true,
-        appendExt: "jpg"
-      })
-        .fetch("GET", image.urls.small)
-        .then(res => {
-          CameraRoll.saveToCameraRoll(res.path())
-            .then(Alert.alert("Success", "Photo added to camera roll!"))
-            .catch(err => console.log("err:", err));
-        });
-    } else {
-      CameraRoll.saveToCameraRoll(image.urls.small).then(
-        Alert.alert("Success", "Photo added to camera roll!")
-      );
+    if (cameraRollPerm === 'granted') {
+      let pickerResult = await ImagePicker.launchImageLibraryAsync({
+        allowsEditing: true,
+        aspect: [4, 3],
+      });
+
+      this._handleImagePicked(pickerResult);
     }
-  }
+  };
+
+  getPhotosCamera = async () => {
+    const {
+      status: cameraPerm
+    } = await Permissions.askAsync(Permissions.CAMERA);
+
+    const {
+      status: cameraRollPerm
+    } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+
+    if (cameraPerm === 'granted' && cameraRollPerm === 'granted') {
+      let pickerResult = await ImagePicker.launchCameraAsync({
+        allowsEditing: true,
+        aspect: [4, 3],
+      });
+
+      this._handleImagePicked(pickerResult);
+    }
+  };
+
+  _handleImagePicked = async pickerResult => {
+    let uploadResponse, uploadResult;
+
+    try {
+      this.setState({
+        uploading: true
+      });
+
+      if (!pickerResult.cancelled) {
+        uploadResponse = await uploadImageAsync(pickerResult.uri);
+        uploadResult = await uploadResponse.json();
+
+        this.setState({
+          image: uploadResult.location
+        });
+      }
+    } catch (e) {
+      console.log({ uploadResponse });
+      console.log({ uploadResult });
+      console.log({ e });
+      alert('Upload failed, sorry :(');
+    } finally {
+      this.setState({
+        uploading: false
+      });
+    }
+  };
 }
+
+/*async function uploadImageAsync(uri) {
+  let apiUrl = 'https://file-upload-example-backend-dkhqoilqqn.now.sh/upload';
+
+  // Note:
+  // Uncomment this if you want to experiment with local server
+  //
+  // if (Constants.isDevice) {
+  //   apiUrl = `https://your-ngrok-subdomain.ngrok.io/upload`;
+  // } else {
+  //   apiUrl = `http://localhost:3000/upload`
+  // }
+
+  let uriParts = uri.split('.');
+  let fileType = uriParts[uriParts.length - 1];
+
+  let formData = new FormData();
+  formData.append('photo', {
+    uri,
+    name: `photo.${fileType}`,
+    type: `image/${fileType}`,
+  });
+
+  let options = {
+    method: 'POST',
+    body: formData,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'multipart/form-data',
+    },
+  };
+
+  return fetch(apiUrl, options);
+}*/
 
 const styles = StyleSheet.create({
   root: {
