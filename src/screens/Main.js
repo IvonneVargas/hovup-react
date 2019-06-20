@@ -24,7 +24,7 @@ export default class Main extends Component {
           style={styles.tab}
           tabBarStyle={styles.tab_tabBarStyle}
           tabIndicatorStyle={styles.tab_tabIndicatorStyle}
-          activeTabIndex={1}
+          activeTabIndex={0}
           tabLabelStyle={styles.tab_tabLabelStyle}
         >
           <TabContent title="Membresias">
