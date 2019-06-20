@@ -16,7 +16,8 @@
         "/src/screens/BottomViewBar.js",
         "/src/screens/Favorites.js",
         "/src/screens/Wallet.js",
-        "/src/screens/Cart.js"
+        "/src/screens/Cart.js",
+        "/src/screens/MembershipTab.js"
     ],
     "symbols": [
         "/src/symbols/GenericButton.js",

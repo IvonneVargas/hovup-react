@@ -23,6 +23,7 @@ import Favorites from "./src/screens/Favorites";
 import Wallet from "./src/screens/Wallet";
 
 import Cart from "./src/screens/Cart";
+import MembershipTab from "./src/screens/MembershipTab";
 import {
   StackNavigator,
   DrawerNavigator,
@@ -80,6 +81,9 @@ const DrawerNavigation = DrawerNavigator({
   },
   Cart: {
     screen: Cart
+  },
+  MembershipTab: {
+    screen: MembershipTab
   }
 });
 const StackNavigation = StackNavigator(
@@ -137,6 +141,9 @@ const StackNavigation = StackNavigator(
     },
     Cart: {
       screen: Cart
+    },
+    MembershipTab: {
+      screen: MembershipTab
     }
   },
   {
