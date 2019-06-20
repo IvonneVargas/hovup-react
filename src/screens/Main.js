@@ -7,7 +7,7 @@ import { TabView, TabContent } from "@builderx/tab-view";
 
 import Colors from "../assets/colors";
 import Zones from "./ZonesTab";
-
+import Membership from "./MembershipTab";
 import Brands from "./BrandsTab";
 
 export default class Main extends Component {
@@ -29,7 +29,10 @@ export default class Main extends Component {
         >
           <TabContent title="Membresias">
             <View style={styles.rect}>
-              <Text style={styles.text}>card stack membresias</Text>
+              <Membership
+                style={styles.text2}
+                navigation={this.props.navigation}
+              />
             </View>
           </TabContent>
           <TabContent title="Marcas">
