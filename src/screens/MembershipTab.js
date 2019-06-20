@@ -6,7 +6,8 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Image
+  Image,
+  TextInput
 } from "react-native";
 import { Constants } from "expo";
 import * as Animatable from "react-native-animatable";
@@ -20,37 +21,44 @@ const CONTENT = [
   {
     title: "First",
     content: BACON_IPSUM,
-    color: "#F9060A"
+    color: "#F9060A",
+    points: "10"
   },
   {
     title: "Second",
     content: BACON_IPSUM,
-    color: "#DC045E"
+    color: "#DC045E",
+    points: "20"
   },
   {
     title: "Third",
     content: BACON_IPSUM,
-    color: "#7D09F9"
+    color: "#7D09F9",
+    points: "30"
   },
   {
     title: "Fourth",
     content: BACON_IPSUM,
-    color: "#020AF4"
+    color: "#020AF4",
+    points: "40"
   },
   {
     title: "Fifth",
     content: BACON_IPSUM,
-    color: "#10FA03"
+    color: "#10FA03",
+    points: "50"
   },
   {
     title: "Six",
     content: BACON_IPSUM,
-    color: "#F4E301"
+    color: "#F4E301",
+    points: "60"
   },
   {
     title: "Seven",
     content: BACON_IPSUM,
-    color: "#F74302"
+    color: "#F74302",
+    points: "70"
   }
 ];
 
@@ -77,33 +85,45 @@ export default class MembershipTab extends Component {
 
   renderHeader = (section, _, isActive) => {
     return (
-      <View
-          style={[styles.header, isActive ? styles.active : styles.inactive]}
-        >
-          <Image
-            style={styles.image}
-            source={require("../assets/ic_200x200.png")}
-          />
-          <View style={styles.label}>
-            <View style={styles.level}>
-              <Text style={styles.levelTextK}>1</Text>
-              <Text style={styles.textLevelL}>LVL</Text>
-            </View>
-            <View style={styles.totalLevel}>
-              <Text style={styles.levelText}>1/10</Text>
-            </View>
+      <View style={[styles.header, isActive ? styles.active : styles.inactive]}>
+        <Image
+          style={styles.image}
+          source={require("../assets/ic_200x200.png")}
+        />
+        <View style={styles.label}>
+          <View style={styles.level}>
+            <Text style={styles.levelTextK}>1</Text>
+            <Text style={styles.textLevelL}>LVL</Text>
+          </View>
+          <View style={styles.totalLevel}>
+            <Text style={styles.levelText}>1/10</Text>
           </View>
         </View>
+      </View>
     );
   };
 
   renderContent(section, _, isActive) {
     return (
       <View
-        style={[styles.content, isActive ? styles.active : styles.inactive]}
-      >
-        <Text>{section.content}</Text>
-      </View>
+          style={[styles.content, isActive ? styles.active : styles.inactive]}
+        >
+          <Image
+            style={styles.imageUser}
+            source={require("../assets/user.jpg")}
+          />
+          <View style={styles.contentPoints}>
+            <Text style={styles.textPointsD}>{section.points}</Text>
+            <Text style={styles.text}>puntos</Text>
+          </View>
+          <View style={styles.contentId}>
+            <Text style={styles.textMembershipId}>Membership ID</Text>
+            <TextInput style={styles.textInput} placeholder="1234 5678" />
+            <Text style={styles.textDateExpiration}>
+              Fecha de expiración: 01/2018
+            </Text>
+          </View>
+        </View>
     );
   }
 
@@ -111,7 +131,16 @@ export default class MembershipTab extends Component {
     const { multipleSelect, activeSections } = this.state;
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>card stack membresias</Text>
+        <Accordion
+            activeSections={activeSections}
+            sections={CONTENT}
+            touchableComponent={TouchableOpacity}
+            expandMultiple={multipleSelect}
+            renderHeader={this.renderHeader}
+            renderContent={this.renderContent}
+            duration={400}
+            onChange={this.setSections}
+          />
       </View>
     );
   }
@@ -142,7 +171,8 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 20,
-    backgroundColor: "rgba(25,39,52,1)"
+    backgroundColor: "rgba(25,39,52,1)",
+    flexDirection: "row"
   },
   active: {
     backgroundColor: "rgba(48,61,73,1)"
@@ -223,5 +253,55 @@ const styles = StyleSheet.create({
     height: 13,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)"
+  },
+  imageUser: {
+    width: 100,
+    height: 120
+  },
+  contentPoints: {
+    height: 48.97,
+    flexDirection: "column",
+    flex: 1
+  },
+  textPointsD: {
+    width: 163,
+    height: 32.84,
+    fontSize: 25,
+    color: "rgba(232,232,232,1)"
+  },
+  text: {
+    width: 152,
+    height: 13,
+    color: "rgba(255,255,255,1)",
+    fontSize: 14
+  },
+  contentId: {
+    height: 55.24,
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+    alignSelf: "flex-end"
+  },
+  textMembershipId: {
+    height: 15.77,
+    fontSize: 14,
+    color: "rgba(232,232,232,1)",
+    width: 100
+  },
+  textInput: {
+    width: 131.37,
+    height: 22,
+    fontSize: 20,
+    color: "rgba(0,0,0,1)",
+    backgroundColor: "rgba(255,255,255,1)",
+    opacity: 1,
+    textAlign: "right"
+  },
+  textDateExpiration: {
+    width: 200,
+    height: 16,
+    fontSize: 14,
+    color: "rgba(232,232,232,1)"
   }
 });
