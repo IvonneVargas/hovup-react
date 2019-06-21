@@ -83,74 +83,74 @@ export default class MembershipTab extends Component {
 
   renderHeader = (section, _, isActive) => {
     return (
-       <View
-          style={[styles.header, isActive ? styles.active : styles.inactive]}
-        >
-          <Image
-            style={styles.image}
-            source={require("../assets/ic_200x200.png")}
-          />
-          <View style={styles.label}>
-            <View style={this.customStyles(section.color)}>
-              <Text style={styles.levelTextK}>1</Text>
-              <Text style={styles.textLevelL}>LVL</Text>
-            </View>
-            <View style={styles.totalLevel}>
-              <Text style={styles.levelText}>1/10</Text>
-            </View>
+      <View style={[styles.header, isActive ? styles.active : styles.inactive]}>
+        <Image
+          style={styles.image}
+          source={require("../assets/ic_200x200.png")}
+        />
+        <View style={styles.label}>
+          <View style={this.customStyles(section.color)}>
+            <Text style={styles.levelTextK}>1</Text>
+            <Text style={styles.textLevelL}>LVL</Text>
+          </View>
+          <View style={styles.totalLevel}>
+            <Text style={styles.levelText}>1/10</Text>
           </View>
         </View>
+      </View>
     );
   };
 
   renderContent(section, _, isActive) {
     return (
-      <ImageBackground
-        source={require("../assets/front_corners.png")}
-        resizeMode="stretch"
-        style={[styles.content, isActive ? styles.active : styles.inactive]}
-      >
-        <View style={styles.contentTop}>
-          <Image
-            style={styles.imageUser}
-            source={require("../assets/user.jpg")}
-          />
-          <View style={styles.contentTopInfo}>
-            <View style={styles.contentPoints}>
-              <Text style={styles.textPointsD}>{section.points}</Text>
-              <Text style={styles.text}>puntos</Text>
-            </View>
-            <View style={styles.contentId}>
-              <Text style={styles.textMembershipId}>Membership ID</Text>
-              <TextInput style={styles.textInput} placeholder="1234 5678" />
-              <Text style={styles.textDateExpiration}>
-                Fecha de expiración: 01/2018
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View style={styles.contentCenter}>
-          <View style={styles.contentCenterLeft}>
-            <Text style={styles.textLevelVer}>Nombre Nivel</Text>
-          </View>
-          <View style={styles.contentCenterCenter}>
-            <Text style={styles.textName}>Nombre ApellidoP</Text>
+      <View style={styles.containerContent}>
+        <ImageBackground
+          source={require("../assets/front_corners.png")}
+          resizeMode="stretch"
+          style={[styles.content, isActive ? {backgroundColor: section.color} : styles.inactive]}
+        >
+          <View style={styles.contentTop}>
             <Image
-              style={styles.imageQr}
-              source={require("../assets/qr.png")}
+              style={styles.imageUser}
+              source={require("../assets/user.jpg")}
             />
-          </View>
-          <View style={styles.contentCenterRight}>
-            <View style={styles.contentSplit}>
-              <Image
-                style={styles.imageFlip}
-                source={require("../assets/flip.png")}
-              />
-              <Text style={styles.textFlip}>Flip</Text>
+            <View style={styles.contentTopInfo}>
+              <View style={styles.contentPoints}>
+                <Text style={styles.textPointsD}>{section.points}</Text>
+                <Text style={styles.text}>puntos</Text>
+              </View>
+              <View style={styles.contentId}>
+                <Text style={styles.textMembershipId}>Membership ID</Text>
+                <TextInput style={styles.textInput} placeholder="1234 5678" />
+                <Text style={styles.textDateExpiration}>
+                  Fecha de expiración: 01/2018
+                </Text>
+              </View>
             </View>
           </View>
-        </View>
-      </ImageBackground>
+          <View style={styles.contentCenter}>
+            <View style={styles.contentCenterLeft}>
+              <Text style={styles.textLevelVer}>Nombre Nivel</Text>
+            </View>
+            <View style={styles.contentCenterCenter}>
+              <Text style={styles.textName}>Nombre ApellidoP</Text>
+              <Image
+                style={styles.imageQr}
+                source={require("../assets/qr.png")}
+              />
+            </View>
+            <View style={styles.contentCenterRight}>
+              <View style={styles.contentSplit}>
+                <Image
+                  style={styles.imageFlip}
+                  source={require("../assets/flip.png")}
+                />
+                <Text style={styles.textFlip}>Flip</Text>
+              </View>
+            </View>
+          </View>
+        </ImageBackground>
+      </View>
     );
   }
 
@@ -158,7 +158,7 @@ export default class MembershipTab extends Component {
     const { multipleSelect, activeSections } = this.state;
     return (
       <View style={styles.container}>
-       <Accordion
+        <Accordion
             activeSections={activeSections}
             sections={CONTENT}
             touchableComponent={TouchableOpacity}
@@ -174,12 +174,15 @@ export default class MembershipTab extends Component {
 
   customStyles(color) {
     return {
-      width: 100,
-      height: "70%",
       backgroundColor: color,
-      opacity: 1,
-      flexDirection: "column",
-      alignItems: "center"
+      alignSelf: "stretch",
+      flexDirection: "column"
+    };
+  }
+
+  customContentStyle(color) {
+    return {
+      backgroundColor: color
     };
   }
 }
@@ -188,6 +191,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "rgba(25,39,52,1)",
     paddingTop: Constants.statusBarHeight
+  },
+  containerContent: {
+    flex: 1,
+    backgroundColor: "rgba(255,255,255,1)",
+    opacity: 1
   },
   title: {
     textAlign: "center",
