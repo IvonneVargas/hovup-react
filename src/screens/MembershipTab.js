@@ -107,7 +107,10 @@ export default class MembershipTab extends Component {
         <ImageBackground
           source={require("../assets/front_corners.png")}
           resizeMode="stretch"
-          style={[styles.content, isActive ? {backgroundColor: section.color} : styles.inactive]}
+          style={[
+            styles.content,
+            isActive ? { backgroundColor: section.color } : styles.inactive
+          ]}
         >
           <View style={styles.contentTop}>
             <Image
@@ -140,13 +143,18 @@ export default class MembershipTab extends Component {
               />
             </View>
             <View style={styles.contentCenterRight}>
-              <View style={styles.contentSplit}>
+              <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => {
+                    console.log("click to flip")
+                  }}
+                >
                 <Image
                   style={styles.imageFlip}
                   source={require("../assets/flip.png")}
                 />
                 <Text style={styles.textFlip}>Flip</Text>
-              </View>
+              </TouchableOpacity>
             </View>
           </View>
         </ImageBackground>
@@ -427,7 +435,7 @@ const styles = StyleSheet.create({
       }
     ]
   },
-  contentSplit: {
+  button: {
     height: 52.72,
     alignSelf: "stretch",
     alignItems: "center",
