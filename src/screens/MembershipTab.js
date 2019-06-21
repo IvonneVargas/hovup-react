@@ -7,56 +7,54 @@ import {
   View,
   TouchableOpacity,
   Image,
-  TextInput
+  TextInput,
+  ImageBackground
 } from "react-native";
 import { Constants } from "expo";
 import * as Animatable from "react-native-animatable";
 import Collapsible from "react-native-collapsible";
 import Accordion from "react-native-collapsible/Accordion";
 
-const BACON_IPSUM =
-  "Bacon ipsum dolor amet chuck turducken landjaeger tongue spare ribs. Picanha beef prosciutto meatball turkey shoulder shank salami cupim doner jowl pork belly cow. Chicken shankle rump swine tail frankfurter meatloaf ground round flank ham hock tongue shank andouille boudin brisket. ";
-
 const CONTENT = [
   {
     title: "First",
-    content: BACON_IPSUM,
+    id: "1234 5671",
     color: "#F9060A",
     points: "10"
   },
   {
     title: "Second",
-    content: BACON_IPSUM,
+    id: "1234 5672",
     color: "#DC045E",
     points: "20"
   },
   {
     title: "Third",
-    content: BACON_IPSUM,
+    id: "1234 5673",
     color: "#7D09F9",
     points: "30"
   },
   {
     title: "Fourth",
-    content: BACON_IPSUM,
+    id: "1234 5674",
     color: "#020AF4",
     points: "40"
   },
   {
     title: "Fifth",
-    content: BACON_IPSUM,
+    id: "1234 5675",
     color: "#10FA03",
     points: "50"
   },
   {
     title: "Six",
-    content: BACON_IPSUM,
+    id: "1234 5676",
     color: "#F4E301",
     points: "60"
   },
   {
     title: "Seven",
-    content: BACON_IPSUM,
+    id: "1234 5677",
     color: "#F74302",
     points: "70"
   }
@@ -91,7 +89,7 @@ export default class MembershipTab extends Component {
           source={require("../assets/ic_200x200.png")}
         />
         <View style={styles.label}>
-          <View style={styles.level}>
+          <View style={this.customStyles(section.color)}>
             <Text style={styles.levelTextK}>1</Text>
             <Text style={styles.textLevelL}>LVL</Text>
           </View>
@@ -105,25 +103,51 @@ export default class MembershipTab extends Component {
 
   renderContent(section, _, isActive) {
     return (
-      <View
-          style={[styles.content, isActive ? styles.active : styles.inactive]}
-        >
+      <ImageBackground 
+        source={require("../assets/front_corners.png")}
+        resizeMode= 'stretch'
+        style={[styles.content, isActive ? styles.active : styles.inactive]}>
+         <View style={styles.contentTop}>
           <Image
             style={styles.imageUser}
             source={require("../assets/user.jpg")}
           />
-          <View style={styles.contentPoints}>
-            <Text style={styles.textPointsD}>{section.points}</Text>
-            <Text style={styles.text}>puntos</Text>
-          </View>
-          <View style={styles.contentId}>
-            <Text style={styles.textMembershipId}>Membership ID</Text>
-            <TextInput style={styles.textInput} placeholder="1234 5678" />
-            <Text style={styles.textDateExpiration}>
-              Fecha de expiración: 01/2018
-            </Text>
+          <View style={styles.contentTopInfo}>
+            <View style={styles.contentPoints}>
+              <Text style={styles.textPointsD}>{section.points}</Text>
+              <Text style={styles.text}>puntos</Text>
+            </View>
+            <View style={styles.contentId}>
+              <Text style={styles.textMembershipId}>Membership ID</Text>
+              <TextInput style={styles.textInput} placeholder="1234 5678" />
+              <Text style={styles.textDateExpiration}>
+                Fecha de expiración: 01/2018
+              </Text>
+            </View>
           </View>
         </View>
+        <View style={styles.contentCenter}>
+          <View style={styles.contentCenterLeft}>
+            <Text style={styles.textLevelVer}>Nombre Nivel</Text>
+          </View>
+          <View style={styles.contentCenterCenter}>
+            <Text style={styles.textName}>Nombre ApellidoP</Text>
+            <Image
+              style={styles.imageQr}
+              source={require("../assets/qr.png")}
+            />
+          </View>
+          <View style={styles.contentCenterRight}>
+            <View style={styles.contentSplit}>
+              <Image
+                style={styles.imageFlip}
+                source={require("../assets/flip.png")}
+              />
+              <Text style={styles.textFlip}>Flip</Text>
+            </View>
+          </View>
+        </View>
+      </ImageBackground>
     );
   }
 
@@ -131,7 +155,7 @@ export default class MembershipTab extends Component {
     const { multipleSelect, activeSections } = this.state;
     return (
       <View style={styles.container}>
-        <Accordion
+      <Accordion
             activeSections={activeSections}
             sections={CONTENT}
             touchableComponent={TouchableOpacity}
@@ -143,6 +167,17 @@ export default class MembershipTab extends Component {
           />
       </View>
     );
+  }
+
+  customStyles(color) {
+    return {
+      width: 100,
+      height: "70%",
+      backgroundColor: color,
+      opacity: 1,
+      flexDirection: "column",
+      alignItems: "center"
+   }
   }
 }
 const styles = StyleSheet.create({
@@ -171,8 +206,7 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 20,
-    backgroundColor: "rgba(25,39,52,1)",
-    flexDirection: "row"
+    flexDirection: "column"
   },
   active: {
     backgroundColor: "rgba(48,61,73,1)"
@@ -209,7 +243,8 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 95,
-    height: 54
+    height: 54,
+    borderRadius: 6
   },
   label: {
     width: 100,
@@ -254,54 +289,154 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)"
   },
+  contentTop: {
+    height: 129.93,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignSelf: "stretch"
+  },
   imageUser: {
     width: 100,
     height: 120
   },
-  contentPoints: {
-    height: 48.97,
+  contentTopInfo: {
+    height: 100,
     flexDirection: "column",
     flex: 1
   },
-  textPointsD: {
-    width: 163,
-    height: 32.84,
-    fontSize: 25,
-    color: "rgba(232,232,232,1)"
-  },
-  text: {
-    width: 152,
-    height: 13,
-    color: "rgba(255,255,255,1)",
-    fontSize: 14
-  },
   contentId: {
-    height: 55.24,
-    flex: 1,
+    width: 231.5,
+    height: 66,
     flexDirection: "column",
-    justifyContent: "flex-end",
+    justifyContent: "space-between",
     alignItems: "flex-end",
     alignSelf: "flex-end"
   },
   textMembershipId: {
+    width: 100,
     height: 15.77,
     fontSize: 14,
-    color: "rgba(232,232,232,1)",
-    width: 100
+    color: "rgba(49,48,48,1)"
   },
   textInput: {
     width: 131.37,
     height: 22,
-    fontSize: 20,
-    color: "rgba(0,0,0,1)",
     backgroundColor: "rgba(255,255,255,1)",
     opacity: 1,
-    textAlign: "right"
+    fontSize: 20,
+    textAlign: "right",
+    color: "rgba(0,0,0,1)"
   },
   textDateExpiration: {
-    width: 200,
-    height: 16,
+    width: 227.04,
+    height: 20.06,
     fontSize: 14,
-    color: "rgba(232,232,232,1)"
+    color: "rgba(232,232,232,1)",
+    textAlign: "right",
+    marginTop: 0
+  },
+  contentPoints: {
+    height: 66,
+    flexDirection: "column",
+    alignItems: "flex-end",
+    width: 223.26,
+    alignSelf: "flex-start",
+    justifyContent: "flex-start"
+  },
+  textPointsD: {
+    width: 191.1,
+    height: 32,
+    fontSize: 25,
+    color: "rgba(4,4,4,1)",
+    paddingLeft: 10,
+    alignSelf: "flex-start"
+  },
+  text: {
+    width: 152,
+    height: 13,
+    fontSize: 14,
+    color: "rgba(14,0,0,1)",
+    alignSelf: "flex-start",
+    paddingLeft: 10
+  },
+  contentCenter: {
+    height: 201.19,
+    alignSelf: "stretch",
+    flexDirection: "row",
+    alignItems: "center"
+  },
+
+  contentCenterLeft: {
+    width: "15%",
+    alignSelf: "stretch",
+    alignItems: "center"
+  },
+  contentCenterCenter: {
+    width: "60%",
+    alignSelf: "stretch",
+    alignItems: "center",
+    flexDirection: "column"
+  },
+  contentCenterRight: {
+    width: "25%",
+    alignSelf: "stretch",
+    flexDirection: "column",
+    justifyContent: "flex-end"
+  },
+  imageQr: {
+    width: 150,
+    height: 150,
+    marginTop: 13
+  },
+  textName: {
+    width: 160.82,
+    height: 20,
+    backgroundColor: "transparent",
+    marginTop: 10,
+    paddingTop: 0,
+    fontSize: 20,
+    color: "rgba(255,255,255,1)"
+  },
+  textLevelVer: {
+    height: 15,
+    backgroundColor: "transparent",
+    fontSize: 16,
+    lineHeight: 14,
+    letterSpacing: 0,
+    color: "rgba(255,255,255,1)",
+    marginTop: 100,
+    marginRight: 100,
+    alignSelf: "stretch",
+    paddingRight: 0,
+    transform: [
+      {
+        rotate: "-90deg"
+      }
+    ]
+  },
+  contentSplit: {
+    height: 52.72,
+    alignSelf: "stretch",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    backgroundColor: "rgba(255,255,255,1)",
+    opacity: 1
+  },
+  imageFlip: {
+    width: 59,
+    height: 27
+  },
+  textFlip: {
+    height: 14,
+    backgroundColor: "transparent",
+    color: "rgba(0,0,0,1)",
+    alignSelf: "center"
+  },
+  backgroundImages: {
+    top: 0,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    bottom: 0
   }
 });
