@@ -83,31 +83,34 @@ export default class MembershipTab extends Component {
 
   renderHeader = (section, _, isActive) => {
     return (
-      <View style={[styles.header, isActive ? styles.active : styles.inactive]}>
-        <Image
-          style={styles.image}
-          source={require("../assets/ic_200x200.png")}
-        />
-        <View style={styles.label}>
-          <View style={this.customStyles(section.color)}>
-            <Text style={styles.levelTextK}>1</Text>
-            <Text style={styles.textLevelL}>LVL</Text>
-          </View>
-          <View style={styles.totalLevel}>
-            <Text style={styles.levelText}>1/10</Text>
+       <View
+          style={[styles.header, isActive ? styles.active : styles.inactive]}
+        >
+          <Image
+            style={styles.image}
+            source={require("../assets/ic_200x200.png")}
+          />
+          <View style={styles.label}>
+            <View style={this.customStyles(section.color)}>
+              <Text style={styles.levelTextK}>1</Text>
+              <Text style={styles.textLevelL}>LVL</Text>
+            </View>
+            <View style={styles.totalLevel}>
+              <Text style={styles.levelText}>1/10</Text>
+            </View>
           </View>
         </View>
-      </View>
     );
   };
 
   renderContent(section, _, isActive) {
     return (
-      <ImageBackground 
+      <ImageBackground
         source={require("../assets/front_corners.png")}
-        resizeMode= 'stretch'
-        style={[styles.content, isActive ? styles.active : styles.inactive]}>
-         <View style={styles.contentTop}>
+        resizeMode="stretch"
+        style={[styles.content, isActive ? styles.active : styles.inactive]}
+      >
+        <View style={styles.contentTop}>
           <Image
             style={styles.imageUser}
             source={require("../assets/user.jpg")}
@@ -155,7 +158,7 @@ export default class MembershipTab extends Component {
     const { multipleSelect, activeSections } = this.state;
     return (
       <View style={styles.container}>
-      <Accordion
+       <Accordion
             activeSections={activeSections}
             sections={CONTENT}
             touchableComponent={TouchableOpacity}
@@ -177,7 +180,7 @@ export default class MembershipTab extends Component {
       opacity: 1,
       flexDirection: "column",
       alignItems: "center"
-   }
+    };
   }
 }
 const styles = StyleSheet.create({
@@ -247,7 +250,7 @@ const styles = StyleSheet.create({
     borderRadius: 6
   },
   label: {
-    width: 100,
+    width: 67.73,
     alignSelf: "stretch",
     flexDirection: "column"
   },
@@ -260,11 +263,12 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   totalLevel: {
-    width: 100,
-    height: "30%",
+    height: "34.58%",
     backgroundColor: "rgba(255,255,255,1)",
     opacity: 1,
-    alignItems: "center"
+    alignItems: "center",
+    alignSelf: "stretch",
+    flexDirection: "column"
   },
   levelText: {
     height: 13,
@@ -275,7 +279,7 @@ const styles = StyleSheet.create({
   },
   levelTextK: {
     width: 75,
-    height: 38.93,
+    height: 31.17,
 
     backgroundColor: "transparent",
     fontSize: 30,
@@ -287,7 +291,8 @@ const styles = StyleSheet.create({
     width: 25,
     height: 13,
     backgroundColor: "transparent",
-    color: "rgba(255,255,255,1)"
+    color: "rgba(255,255,255,1)",
+    alignSelf: "center"
   },
   contentTop: {
     height: 129.93,
@@ -438,5 +443,9 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 0,
     bottom: 0
+  },
+  contentLevelTexts: {
+    alignSelf: "stretch",
+    flexDirection: "column"
   }
 });
