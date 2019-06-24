@@ -3,16 +3,26 @@ import {
   Switch,
   ScrollView,
   StyleSheet,
-  Text,
   View,
+  TextInput,
+  ImageBackground,
   TouchableOpacity,
   Image,
-  TextInput,
-  ImageBackground
+  Text
 } from "react-native";
 import { Constants } from "expo";
 import * as Animatable from "react-native-animatable";
 import Collapsible from "react-native-collapsible";
+import {
+  Table,
+  TableWrapper,
+  Row,
+  Rows,
+  Col,
+  Cols,
+  Cell
+} from "react-native-table-component";
+import { Center } from "@builderx/utils";
 import Accordion from "react-native-collapsible/Accordion";
 
 const CONTENT = [
@@ -67,7 +77,14 @@ export default class MembershipTab extends Component {
     this.state = {
       activeSections: [],
       collapsed: true,
-      multipleSelect: false
+      multipleSelect: false,
+      tableHead: ["Head", "Head2", "Head3", "Head4"],
+      tableData: [
+        ["1", "2", "3", "4"],
+        ["a", "b", "c", "d"],
+        ["1", "2", "3", "4"],
+        ["a", "b", "c", "d"]
+      ]
     };
   }
 
@@ -144,11 +161,11 @@ export default class MembershipTab extends Component {
             </View>
             <View style={styles.contentCenterRight}>
               <TouchableOpacity
-                  style={styles.button}
-                  onPress={() => {
-                    console.log("click to flip")
-                  }}
-                >
+                style={styles.button}
+                onPress={() => {
+                  console.log("click to flip");
+                }}
+              >
                 <Image
                   style={styles.imageFlip}
                   source={require("../assets/flip.png")}
@@ -226,6 +243,11 @@ const styles = StyleSheet.create({
   content: {
     padding: 20,
     flexDirection: "column"
+  },
+  contentBack: {
+    padding: 20,
+    flexDirection: "column",
+    flex: 1
   },
   active: {
     backgroundColor: "rgba(48,61,73,1)"
@@ -316,6 +338,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignSelf: "stretch"
   },
+
   imageUser: {
     width: 100,
     height: 120
@@ -372,14 +395,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     alignSelf: "flex-start"
   },
-  text: {
-    width: 152,
-    height: 13,
-    fontSize: 14,
-    color: "rgba(14,0,0,1)",
-    alignSelf: "flex-start",
-    paddingLeft: 10
-  },
+
   contentCenter: {
     height: 201.19,
     alignSelf: "stretch",
@@ -463,5 +479,95 @@ const styles = StyleSheet.create({
   contentLevelTexts: {
     alignSelf: "stretch",
     flexDirection: "column"
+  },
+  contentPointsList: {
+    top: 0,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    bottom: 0,
+    flexDirection: "row"
+  },
+  contentCenterBack: {
+    height: 140.73,
+    alignSelf: "stretch"
+  },
+  contentCenterBottom: {
+    height: 100,
+    alignSelf: "stretch"
+  },
+  contentTopBack: {
+    height: 81.54,
+    alignSelf: "stretch",
+    flexDirection: "row"
+  },
+  contentTopBackLeft: {
+    width: "50%",
+    height: "100%",
+    alignItems: "flex-start"
+  },
+  contentTopBackRigth: {
+    width: "50%",
+    alignSelf: "stretch",
+    flexDirection: "column",
+    alignItems: "flex-end"
+  },
+  textNextLevel: {
+    width: 186,
+    height: 13,
+    backgroundColor: "transparent"
+  },
+  textPointsTop: {
+    width: 68,
+    height: 29,
+    backgroundColor: "transparent",
+    fontSize: 30
+  },
+  contentFlipTop: {
+    width: 100,
+    flex: 1,
+    flexDirection: "column"
+  },
+  flipTop: {
+    height: "70%",
+    alignSelf: "stretch",
+    backgroundColor: "rgba(251,0,0,1)",
+    opacity: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  fliptTopLevel: {
+    height: "30%",
+    alignSelf: "stretch",
+    backgroundColor: "#E6E6E6",
+    alignItems: "center"
+  },
+  textLvl: {
+    width: 76,
+    height: 13,
+    backgroundColor: "transparent"
+  },
+  textLevelTop: {
+    width: 76,
+    height: 31.91,
+    backgroundColor: "transparent",
+    fontSize: 40,
+    textAlign: "center"
+  },
+  text2: {
+    width: 76,
+    height: 13,
+    backgroundColor: "transparent",
+    fontSize: 14,
+    textAlign: "center"
+  },
+  text3: {
+    top: 61,
+    left: 93,
+    width: 76,
+    height: 13,
+    position: "absolute",
+    backgroundColor: "transparent"
   }
 });
