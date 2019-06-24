@@ -24,7 +24,7 @@ import {
 } from "react-native-table-component";
 import { Center } from "@builderx/utils";
 import Accordion from "react-native-collapsible/Accordion";
-import FlipCard from 'react-native-flip-card';
+import FlipCard from "react-native-flip-card";
 
 const CONTENT = [
   {
@@ -78,6 +78,20 @@ const CONTENT = [
   }
 ];
 
+const tableHead = ["Nombre", "Eventos", "Puntos", "Detalles"];
+const tableData = [
+        ["Impactos", "23", "23", "Ver"],
+        ["CheckIns en Store", "1", "1", "Ver"],
+        ["CheckIns Georeferencia", "2", "2", "Ver"],
+        ["Lecturas de Qr", "5", "5", "Ver"],
+        ["Generación de cupones", "7", "7", "Ver"],
+        ["Lectura de cupones", "5", "5", "Ver"],
+        ["Realizar compra", "3", "3", "Ver"],
+        ["Recoger compra", "3", "3", "Ver"],
+        ["Web services", "5", "5", "Ver"],
+        ["Total", "5", "5", "Ver"]
+      ];
+
 export default class MembershipTab extends Component {
   constructor() {
     super();
@@ -86,13 +100,6 @@ export default class MembershipTab extends Component {
       activeSections: [],
       collapsed: true,
       multipleSelect: false,
-      tableHead: ["Head", "Head2", "Head3", "Head4"],
-      tableData: [
-        ["1", "2", "3", "4"],
-        ["a", "b", "c", "d"],
-        ["1", "2", "3", "4"],
-        ["a", "b", "c", "d"]
-      ],
       flip: false
     };
   }
@@ -129,78 +136,119 @@ export default class MembershipTab extends Component {
 
   renderContent(section, _, isActive) {
     console.log(_, "******************************this.state ", isActive);
-    return(
+    return (
       <FlipCard
-      style={styles.card}
-      friction={6}
-      perspective={1000}
-      flipHorizontal={true}
-      flipVertical={false}
-      flip={false}
-      clickable={true}
-      onFlipEnd={(isFlipEnd)=>{console.log('isFlipEnd', isFlipEnd)}}
+        style={styles.card}
+        friction={6}
+        perspective={1000}
+        flipHorizontal={true}
+        flipVertical={false}
+        flip={false}
+        clickable={true}
+        onFlipEnd={isFlipEnd => {
+          console.log("isFlipEnd", isFlipEnd);
+        }}
       >
-        <View style={styles.containerContent}>
-            <ImageBackground
-              source={require("../assets/front_rounded_copy.png")}
-              resizeMode="stretch"
-              style={[
-                styles.content,
-                isActive ? { backgroundColor: section.color } : styles.inactive
-              ]}
-            >
-              <View style={styles.contentTop}>
+        <View style={styles.front}>
+          <View style={styles.containerContent}>
+          <ImageBackground
+            source={require("../assets/front_rounded_copy.png")}
+            resizeMode="stretch"
+            style={[
+              styles.content,
+              isActive ? { backgroundColor: section.color } : styles.inactive
+            ]}
+          >
+            <View style={styles.contentTop}>
+              <Image
+                style={styles.imageUser}
+                source={require("../assets/user.jpg")}
+              />
+              <View style={styles.contentTopInfo}>
+                <View style={styles.contentPoints}>
+                  <Text style={styles.textPointsD}>{section.points}</Text>
+                  <Text style={styles.textPointsDd} /*locked*/>puntos</Text>
+                </View>
+                <View style={styles.contentId}>
+                  <Text style={styles.textMembershipId}>Membership ID</Text>
+                  <TextInput style={styles.textInput} placeholder="1234 5678" />
+                  <Text style={styles.textDateExpiration}>
+                    Fecha de expiración: 01/2018
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View style={styles.contentCenter}>
+              <View style={styles.contentCenterLeft}>
+                <Text style={styles.textLevelVer}>Nombre Nivel</Text>
+              </View>
+              <View style={styles.contentCenterCenter}>
+                <Text style={styles.textName}>Nombre ApellidoP</Text>
                 <Image
-                  style={styles.imageUser}
-                  source={require("../assets/user.jpg")}
+                  style={styles.imageQr}
+                  source={require("../assets/qr.png")}
                 />
-                <View style={styles.contentTopInfo}>
-                  <View style={styles.contentPoints}>
-                    <Text style={styles.textPointsD}>{section.points}</Text>
-                    <Text style={styles.textPointsDd} /*locked*/>puntos</Text>
-                  </View>
-                  <View style={styles.contentId}>
-                    <Text style={styles.textMembershipId}>Membership ID</Text>
-                    <TextInput
-                      style={styles.textInput}
-                      placeholder="1234 5678"
-                    />
-                    <Text style={styles.textDateExpiration}>
-                      Fecha de expiración: 01/2018
-                    </Text>
-                  </View>
-                </View>
               </View>
-              <View style={styles.contentCenter}>
-                <View style={styles.contentCenterLeft}>
-                  <Text style={styles.textLevelVer}>Nombre Nivel</Text>
-                </View>
-                <View style={styles.contentCenterCenter}>
-   isFlipEnd               <Text style={styles.textName}>Nombre ApellidoP</Text>
+              <View style={styles.contentCenterRight}>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => {
+                    console.log("this: ", this.state);
+                  }}
+                >
                   <Image
-                    style={styles.imageQr}
-                    source={require("../assets/qr.png")}
+                    style={styles.imageFlip}
+                    source={require("../assets/flip.png")}
                   />
-                </View>
-                <View style={styles.contentCenterRight}>
-                  <TouchableOpacity
-                    style={styles.button}
-                    onPress={()=>{
-                      console.log("this: ", this.state)
-                    }}
-                  >
-                    <Image
-                      style={styles.imageFlip}
-                      source={require("../assets/flip.png")}
-                    />
-                    <Text style={styles.textFlip}>Flip</Text>
-                  </TouchableOpacity>
+                  <Text style={styles.textFlip}>Flip</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </ImageBackground>
+        </View>
+        </View>
+        <View style={styles.back}>
+          <View style={styles.allContentBack}>
+          <View style={styles.contentBack}>
+            <View style={styles.containerTopBack}>
+              <View style={styles.containerTopBackLeft}>
+                <Text style={styles.tittleTexPoints}>
+                  Puntos para el siguiente nivel
+                </Text>
+                <View style={styles.containerTopBackBottom}>
+                  <View style={styles.containerTopBackLeftLeft}>
+                    <Text style={styles.pointsText}>1800</Text>
+                    <Text style={styles.pointsTextT}>puntos</Text>
+                  </View>
                 </View>
               </View>
-            </ImageBackground>
+              <View style={styles.containerTopBackRight}>
+                <TouchableOpacity
+                  style={styles.buttonBack}
+                  onPress={() => {
+                    console.log("FLIP TO FRONT");
+                  }}
+                >
+                  <Image
+                    style={styles.imageFlipBack}
+                    source={require("../assets/flip.png")}
+                  />
+                  <Text style={styles.textFlipBack}>Flip</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View style={styles.containerBottomBack}>
+              <Table borderStyle={styles.tableStyle}>
+                <Row
+                  data={tableHead}
+                  style={styles.head}
+                  textStyle={styles.textHead}
+                />
+                <Rows data={tableData} textStyle={styles.textData} />
+              </Table>
+            </View>
           </View>
-        <View style={styles.back}>
-          <Text>The Back</Text>
+        </View>
         </View>
       </FlipCard>
     );
@@ -276,11 +324,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignSelf: "stretch"
   },
-  contentBack: {
-    padding: 20,
-    flexDirection: "column",
-    flex: 1
-  },
+
   active: {
     backgroundColor: "rgba(48,61,73,1)"
   },
@@ -496,12 +540,30 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     opacity: 1
   },
+  buttonBack: {
+    height: 46,
+    alignSelf: "stretch",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    backgroundColor: "transparent",
+    opacity: 1
+  },
   imageFlip: {
+    width: 51,
+    height: 22
+  },
+  imageFlipBack: {
     width: 51,
     height: 22
   },
   textFlip: {
     height: 14,
+    backgroundColor: "transparent",
+    color: "rgba(0,0,0,1)",
+    alignSelf: "center"
+  },
+  textFlipBack: {
+    height: 16,
     backgroundColor: "transparent",
     color: "rgba(0,0,0,1)",
     alignSelf: "center"
@@ -612,5 +674,87 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 0,
     bottom: 0
+  },
+  allContentBack: {
+    flex: 1,
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1,
+    flexDirection: "column"
+  },
+  contentBack: {
+    width: 374,
+    height: 404,
+    flexDirection: "column",
+    borderRadius: 20
+  },
+  containerTopBack: {
+    height: 74.93,
+    alignSelf: "stretch",
+    flexDirection: "row"
+  },
+  containerTopBackLeft: {
+    alignSelf: "stretch",
+    width: "85%",
+    flexDirection: "column",
+    justifyContent: "flex-end"
+  },
+  containerTopBackRight: {
+    alignSelf: "stretch",
+    width: "15%"
+  },
+  containerTopBackBottom: {
+    height: 42.89,
+    alignSelf: "stretch",
+    flexDirection: "row"
+  },
+  tittleTexPoints: {
+    height: 17,
+    backgroundColor: "transparent",
+    color: "rgba(10,10,10,1)",
+    fontSize: 16,
+    alignSelf: "stretch",
+    paddingLeft: 28
+  },
+  containerTopBackLeftLeft: {
+    flex: 1,
+    alignSelf: "stretch",
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  pointsText: {
+    width: 107,
+    height: 31,
+    backgroundColor: "transparent",
+    fontSize: 30,
+    color: "rgba(247,242,242,1)",
+    textAlign: "right"
+  },
+  pointsTextT: {
+    height: 16,
+    backgroundColor: "transparent",
+    color: "rgba(6,6,6,1)",
+    fontSize: 14,
+    paddingLeft: 15,
+    flex: 1
+  },
+  containerBottomBack: {
+    flex: 1,
+    alignSelf: "stretch"
+  },
+  head: { 
+    height: 40,
+    backgroundColor: "#f1f8ff" 
+  },
+  textHead: { 
+    margin: 6,
+    color: "rgba(6,6,6,1)",
+  },
+  textData: { 
+    margin: 6,
+    color: "rgba(247,242,242,1)"
+  },
+  tableStyle: {
+    borderWidth: 2,
+    borderColor: "#c8e1ff"
   }
 });
