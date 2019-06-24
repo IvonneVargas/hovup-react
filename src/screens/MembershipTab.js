@@ -176,7 +176,7 @@ export default class MembershipTab extends Component {
                   <Text style={styles.textLevelVer}>Nombre Nivel</Text>
                 </View>
                 <View style={styles.contentCenterCenter}>
-                  <Text style={styles.textName}>Nombre ApellidoP</Text>
+   isFlipEnd               <Text style={styles.textName}>Nombre ApellidoP</Text>
                   <Image
                     style={styles.imageQr}
                     source={require("../assets/qr.png")}
