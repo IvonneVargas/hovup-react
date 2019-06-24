@@ -30,43 +30,50 @@ const CONTENT = [
     title: "First",
     id: "1234 5671",
     color: "#F9060A",
-    points: "10"
+    points: "10",
+    flip: "front"
   },
   {
     title: "Second",
     id: "1234 5672",
     color: "#DC045E",
-    points: "20"
+    points: "20",
+    flip: "front"
   },
   {
     title: "Third",
     id: "1234 5673",
     color: "#7D09F9",
-    points: "30"
+    points: "30",
+    flip: "front"
   },
   {
     title: "Fourth",
     id: "1234 5674",
     color: "#020AF4",
-    points: "40"
+    points: "40",
+    flip: "front"
   },
   {
     title: "Fifth",
     id: "1234 5675",
     color: "#10FA03",
-    points: "50"
+    points: "50",
+    flip: "front"
   },
   {
     title: "Six",
     id: "1234 5676",
     color: "#F4E301",
-    points: "60"
+    points: "60",
+    flip: "front"
   },
   {
     title: "Seven",
     id: "1234 5677",
     color: "#F74302",
-    points: "70"
+    points: "70",
+    flip: "front"
   }
 ];
 
@@ -84,8 +91,16 @@ export default class MembershipTab extends Component {
         ["a", "b", "c", "d"],
         ["1", "2", "3", "4"],
         ["a", "b", "c", "d"]
-      ]
+      ],
+      flip: "front"
     };
+  }
+
+  setFlip() {
+    console.log("set back");
+    this.setState({
+      flip: "back"
+    });
   }
 
   toggleExpanded = () => {
@@ -93,6 +108,9 @@ export default class MembershipTab extends Component {
   };
 
   setSections = sections => {
+    console.log(
+      "setSectionssetSectionssetSectionssetSectionssetSectionssetSectionssetSectionssetSectionssetSectionssetSections"
+    );
     this.setState({
       activeSections: sections.includes(undefined) ? [] : sections
     });
@@ -119,68 +137,77 @@ export default class MembershipTab extends Component {
   };
 
   renderContent(section, _, isActive) {
-    return (
-      <View style={styles.containerContent}>
-        <ImageBackground
-          source={require("../assets/front_corners.png")}
-          resizeMode="stretch"
-          style={[
-            styles.content,
-            isActive ? { backgroundColor: section.color } : styles.inactive
-          ]}
-        >
-          <View style={styles.contentTop}>
-            <Image
-              style={styles.imageUser}
-              source={require("../assets/user.jpg")}
-            />
-            <View style={styles.contentTopInfo}>
-              <View style={styles.contentPoints}>
-                <Text style={styles.textPointsD}>{section.points}</Text>
-                <Text style={styles.text}>puntos</Text>
-              </View>
-              <View style={styles.contentId}>
-                <Text style={styles.textMembershipId}>Membership ID</Text>
-                <TextInput style={styles.textInput} placeholder="1234 5678" />
-                <Text style={styles.textDateExpiration}>
-                  Fecha de expiración: 01/2018
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View style={styles.contentCenter}>
-            <View style={styles.contentCenterLeft}>
-              <Text style={styles.textLevelVer}>Nombre Nivel</Text>
-            </View>
-            <View style={styles.contentCenterCenter}>
-              <Text style={styles.textName}>Nombre ApellidoP</Text>
+    console.log(_, "******************************this.state ", isActive);
+    if (section.flip == "front") {
+      return (
+        <View style={styles.containerContent}>
+          <ImageBackground
+            source={require("../assets/front_rounded_copy.png")}
+            resizeMode="stretch"
+            style={[
+              styles.content,
+              isActive ? { backgroundColor: section.color } : styles.inactive
+            ]}
+          >
+            <View style={styles.contentTop}>
               <Image
-                style={styles.imageQr}
-                source={require("../assets/qr.png")}
+                style={styles.imageUser}
+                source={require("../assets/user.jpg")}
               />
+              <View style={styles.contentTopInfo}>
+                <View style={styles.contentPoints}>
+                  <Text style={styles.textPointsD}>{section.points}</Text>
+                  <Text style={styles.textPointsDd} /*locked*/>puntos</Text>
+                </View>
+                <View style={styles.contentId}>
+                  <Text style={styles.textMembershipId}>Membership ID</Text>
+                  <TextInput style={styles.textInput} placeholder="1234 5678" />
+                  <Text style={styles.textDateExpiration}>
+                    Fecha de expiración: 01/2018
+                  </Text>
+                </View>
+              </View>
             </View>
-            <View style={styles.contentCenterRight}>
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => {
-                  console.log("click to flip");
-                }}
-              >
+            <View style={styles.contentCenter}>
+              <View style={styles.contentCenterLeft}>
+                <Text style={styles.textLevelVer}>Nombre Nivel</Text>
+              </View>
+              <View style={styles.contentCenterCenter}>
+                <Text style={styles.textName}>Nombre ApellidoP</Text>
                 <Image
-                  style={styles.imageFlip}
-                  source={require("../assets/flip.png")}
+                  style={styles.imageQr}
+                  source={require("../assets/qr.png")}
                 />
-                <Text style={styles.textFlip}>Flip</Text>
-              </TouchableOpacity>
+              </View>
+              <View style={styles.contentCenterRight}>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => {
+                    console.log("click to flip");
+                    section.flip = "back";
+                    console.log("section: ", section);
+                    console.log("sections: ", CONTENT);
+                  }}
+                >
+                  <Image
+                    style={styles.imageFlip}
+                    source={require("../assets/flip.png")}
+                  />
+                  <Text style={styles.textFlip}>Flip</Text>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
-        </ImageBackground>
-      </View>
-    );
+          </ImageBackground>
+        </View>
+      );
+    } else {
+      console.log("BACK!!!");
+    }
   }
 
   render() {
     const { multipleSelect, activeSections } = this.state;
+    console.log("2******************************this.state ", this.state);
     return (
       <View style={styles.container}>
         <Accordion
@@ -219,7 +246,7 @@ const styles = StyleSheet.create({
   },
   containerContent: {
     flex: 1,
-    backgroundColor: "rgba(255,255,255,1)",
+    backgroundColor: "rgba(25,39,52,1)",
     opacity: 1
   },
   title: {
@@ -241,8 +268,11 @@ const styles = StyleSheet.create({
     fontWeight: "500"
   },
   content: {
-    padding: 20,
-    flexDirection: "column"
+    flex: 1,
+    height: "60%",
+    flexDirection: "column",
+    borderRadius: 20,
+    alignSelf: "stretch"
   },
   contentBack: {
     padding: 20,
@@ -333,15 +363,21 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   contentTop: {
-    height: 129.93,
     flexDirection: "row",
     justifyContent: "space-between",
-    alignSelf: "stretch"
+    alignSelf: "stretch",
+    paddingLeft: 0,
+    paddingTop: 0,
+    paddingRight: 0,
+    height: 150
   },
 
   imageUser: {
     width: 100,
-    height: 120
+    height: 120,
+    margin: 0,
+    marginLeft: 15,
+    marginTop: 15
   },
   contentTopInfo: {
     height: 100,
@@ -349,7 +385,6 @@ const styles = StyleSheet.create({
     flex: 1
   },
   contentId: {
-    width: 231.5,
     height: 66,
     flexDirection: "column",
     justifyContent: "space-between",
@@ -382,18 +417,18 @@ const styles = StyleSheet.create({
   contentPoints: {
     height: 66,
     flexDirection: "column",
-    alignItems: "flex-end",
-    width: 223.26,
+    alignItems: "flex-start",
+
     alignSelf: "flex-start",
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
+    paddingLeft: 8,
+    marginTop: 15
   },
   textPointsD: {
-    width: 191.1,
-    height: 32,
     fontSize: 25,
     color: "rgba(4,4,4,1)",
-    paddingLeft: 10,
-    alignSelf: "flex-start"
+    height: 27,
+    alignSelf: "stretch"
   },
 
   contentCenter: {
@@ -409,13 +444,13 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   contentCenterCenter: {
-    width: "60%",
+    width: "70%",
     alignSelf: "stretch",
     alignItems: "center",
     flexDirection: "column"
   },
   contentCenterRight: {
-    width: "25%",
+    width: "15%",
     alignSelf: "stretch",
     flexDirection: "column",
     justifyContent: "flex-end"
@@ -426,13 +461,13 @@ const styles = StyleSheet.create({
     marginTop: 13
   },
   textName: {
-    width: 160.82,
     height: 20,
     backgroundColor: "transparent",
     marginTop: 10,
     paddingTop: 0,
     fontSize: 20,
-    color: "rgba(255,255,255,1)"
+    color: "rgba(255,255,255,1)",
+    alignSelf: "center"
   },
   textLevelVer: {
     height: 15,
@@ -452,7 +487,7 @@ const styles = StyleSheet.create({
     ]
   },
   button: {
-    height: 52.72,
+    height: 46,
     alignSelf: "stretch",
     alignItems: "center",
     justifyContent: "flex-end",
@@ -460,8 +495,8 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   imageFlip: {
-    width: 59,
-    height: 27
+    width: 51,
+    height: 22
   },
   textFlip: {
     height: 14,
@@ -555,12 +590,11 @@ const styles = StyleSheet.create({
     fontSize: 40,
     textAlign: "center"
   },
-  text2: {
-    width: 76,
-    height: 13,
+  textPointsDd: {
+    width: 43,
+    height: 14,
     backgroundColor: "transparent",
-    fontSize: 14,
-    textAlign: "center"
+    fontSize: 14
   },
   text3: {
     top: 61,
