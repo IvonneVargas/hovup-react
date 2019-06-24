@@ -24,6 +24,7 @@ import {
 } from "react-native-table-component";
 import { Center } from "@builderx/utils";
 import Accordion from "react-native-collapsible/Accordion";
+import FlipCard from 'react-native-flip-card';
 
 const CONTENT = [
   {
@@ -92,15 +93,8 @@ export default class MembershipTab extends Component {
         ["1", "2", "3", "4"],
         ["a", "b", "c", "d"]
       ],
-      flip: "front"
+      flip: false
     };
-  }
-
-  setFlip() {
-    console.log("set back");
-    this.setState({
-      flip: "back"
-    });
   }
 
   toggleExpanded = () => {
@@ -135,8 +129,17 @@ export default class MembershipTab extends Component {
 
   renderContent(section, _, isActive) {
     console.log(_, "******************************this.state ", isActive);
-    if (section.flip == "front") {
-      return (
+    return(
+      <FlipCard
+      style={styles.card}
+      friction={6}
+      perspective={1000}
+      flipHorizontal={true}
+      flipVertical={false}
+      flip={false}
+      clickable={true}
+      onFlipEnd={(isFlipEnd)=>{console.log('isFlipEnd', isFlipEnd)}}
+      >
         <View style={styles.containerContent}>
             <ImageBackground
               source={require("../assets/front_rounded_copy.png")}
@@ -182,11 +185,8 @@ export default class MembershipTab extends Component {
                 <View style={styles.contentCenterRight}>
                   <TouchableOpacity
                     style={styles.button}
-                    onPress={() => {
-                      console.log("click to flip");
-                      section.flip = "back";
-                      console.log("section: ", section);
-                      console.log("sections: ", CONTENT);
+                    onPress={()=>{
+                      console.log("this: ", this.state)
                     }}
                   >
                     <Image
@@ -199,10 +199,11 @@ export default class MembershipTab extends Component {
               </View>
             </ImageBackground>
           </View>
-      );
-    } else {
-      console.log("BACK!!!");
-    }
+        <View style={styles.back}>
+          <Text>The Back</Text>
+        </View>
+      </FlipCard>
+    );
   }
 
   render() {
