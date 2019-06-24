@@ -108,9 +108,6 @@ export default class MembershipTab extends Component {
   };
 
   setSections = sections => {
-    console.log(
-      "setSectionssetSectionssetSectionssetSectionssetSectionssetSectionssetSectionssetSectionssetSectionssetSections"
-    );
     this.setState({
       activeSections: sections.includes(undefined) ? [] : sections
     });
@@ -141,64 +138,67 @@ export default class MembershipTab extends Component {
     if (section.flip == "front") {
       return (
         <View style={styles.containerContent}>
-          <ImageBackground
-            source={require("../assets/front_rounded_copy.png")}
-            resizeMode="stretch"
-            style={[
-              styles.content,
-              isActive ? { backgroundColor: section.color } : styles.inactive
-            ]}
-          >
-            <View style={styles.contentTop}>
-              <Image
-                style={styles.imageUser}
-                source={require("../assets/user.jpg")}
-              />
-              <View style={styles.contentTopInfo}>
-                <View style={styles.contentPoints}>
-                  <Text style={styles.textPointsD}>{section.points}</Text>
-                  <Text style={styles.textPointsDd} /*locked*/>puntos</Text>
-                </View>
-                <View style={styles.contentId}>
-                  <Text style={styles.textMembershipId}>Membership ID</Text>
-                  <TextInput style={styles.textInput} placeholder="1234 5678" />
-                  <Text style={styles.textDateExpiration}>
-                    Fecha de expiración: 01/2018
-                  </Text>
-                </View>
-              </View>
-            </View>
-            <View style={styles.contentCenter}>
-              <View style={styles.contentCenterLeft}>
-                <Text style={styles.textLevelVer}>Nombre Nivel</Text>
-              </View>
-              <View style={styles.contentCenterCenter}>
-                <Text style={styles.textName}>Nombre ApellidoP</Text>
+            <ImageBackground
+              source={require("../assets/front_rounded_copy.png")}
+              resizeMode="stretch"
+              style={[
+                styles.content,
+                isActive ? { backgroundColor: section.color } : styles.inactive
+              ]}
+            >
+              <View style={styles.contentTop}>
                 <Image
-                  style={styles.imageQr}
-                  source={require("../assets/qr.png")}
+                  style={styles.imageUser}
+                  source={require("../assets/user.jpg")}
                 />
+                <View style={styles.contentTopInfo}>
+                  <View style={styles.contentPoints}>
+                    <Text style={styles.textPointsD}>{section.points}</Text>
+                    <Text style={styles.textPointsDd} /*locked*/>puntos</Text>
+                  </View>
+                  <View style={styles.contentId}>
+                    <Text style={styles.textMembershipId}>Membership ID</Text>
+                    <TextInput
+                      style={styles.textInput}
+                      placeholder="1234 5678"
+                    />
+                    <Text style={styles.textDateExpiration}>
+                      Fecha de expiración: 01/2018
+                    </Text>
+                  </View>
+                </View>
               </View>
-              <View style={styles.contentCenterRight}>
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={() => {
-                    console.log("click to flip");
-                    section.flip = "back";
-                    console.log("section: ", section);
-                    console.log("sections: ", CONTENT);
-                  }}
-                >
+              <View style={styles.contentCenter}>
+                <View style={styles.contentCenterLeft}>
+                  <Text style={styles.textLevelVer}>Nombre Nivel</Text>
+                </View>
+                <View style={styles.contentCenterCenter}>
+                  <Text style={styles.textName}>Nombre ApellidoP</Text>
                   <Image
-                    style={styles.imageFlip}
-                    source={require("../assets/flip.png")}
+                    style={styles.imageQr}
+                    source={require("../assets/qr.png")}
                   />
-                  <Text style={styles.textFlip}>Flip</Text>
-                </TouchableOpacity>
+                </View>
+                <View style={styles.contentCenterRight}>
+                  <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => {
+                      console.log("click to flip");
+                      section.flip = "back";
+                      console.log("section: ", section);
+                      console.log("sections: ", CONTENT);
+                    }}
+                  >
+                    <Image
+                      style={styles.imageFlip}
+                      source={require("../assets/flip.png")}
+                    />
+                    <Text style={styles.textFlip}>Flip</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-            </View>
-          </ImageBackground>
-        </View>
+            </ImageBackground>
+          </View>
       );
     } else {
       console.log("BACK!!!");
@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
     fontWeight: "500"
   },
   content: {
-    height: 400,
+    height: 405,
     flexDirection: "column",
     borderRadius: 20,
     alignSelf: "stretch"
@@ -370,7 +370,7 @@ const styles = StyleSheet.create({
     paddingLeft: 0,
     paddingTop: 0,
     paddingRight: 0,
-    height: 158
+    height: 164
   },
 
   imageUser: {
@@ -386,7 +386,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   contentId: {
-    height: 66,
+    height: 80,
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "flex-end",
@@ -399,12 +399,12 @@ const styles = StyleSheet.create({
     color: "rgba(49,48,48,1)"
   },
   textInput: {
-    width: 131.37,
-    height: 22,
+    width: 131,
+    height: 30,
     backgroundColor: "rgba(255,255,255,1)",
     opacity: 1,
     fontSize: 20,
-    textAlign: "right",
+    textAlign: "center",
     color: "rgba(0,0,0,1)"
   },
   textDateExpiration: {
