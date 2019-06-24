@@ -210,7 +210,8 @@ export default class MembershipTab extends Component {
     console.log("2******************************this.state ", this.state);
     return (
       <View style={styles.container}>
-        <Accordion
+        <ScrollView style={styles.scrollArea}>
+          <Accordion
             activeSections={activeSections}
             sections={CONTENT}
             touchableComponent={TouchableOpacity}
@@ -220,6 +221,7 @@ export default class MembershipTab extends Component {
             duration={400}
             onChange={this.setSections}
           />
+        </ScrollView>
       </View>
     );
   }
@@ -268,8 +270,7 @@ const styles = StyleSheet.create({
     fontWeight: "500"
   },
   content: {
-    flex: 1,
-    height: "60%",
+    height: 400,
     flexDirection: "column",
     borderRadius: 20,
     alignSelf: "stretch"
@@ -369,7 +370,7 @@ const styles = StyleSheet.create({
     paddingLeft: 0,
     paddingTop: 0,
     paddingRight: 0,
-    height: 150
+    height: 158
   },
 
   imageUser: {
@@ -432,7 +433,7 @@ const styles = StyleSheet.create({
   },
 
   contentCenter: {
-    height: 201.19,
+    height: 241,
     alignSelf: "stretch",
     flexDirection: "row",
     alignItems: "center"
@@ -458,12 +459,12 @@ const styles = StyleSheet.create({
   imageQr: {
     width: 150,
     height: 150,
-    marginTop: 13
+    marginTop: 28
   },
   textName: {
-    height: 20,
+    height: 22,
     backgroundColor: "transparent",
-    marginTop: 10,
+    marginTop: 20,
     paddingTop: 0,
     fontSize: 20,
     color: "rgba(255,255,255,1)",
@@ -491,7 +492,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     alignItems: "center",
     justifyContent: "flex-end",
-    backgroundColor: "rgba(255,255,255,1)",
+    backgroundColor: "transparent",
     opacity: 1
   },
   imageFlip: {
@@ -592,7 +593,7 @@ const styles = StyleSheet.create({
   },
   textPointsDd: {
     width: 43,
-    height: 14,
+    height: 16,
     backgroundColor: "transparent",
     fontSize: 14
   },
@@ -603,5 +604,12 @@ const styles = StyleSheet.create({
     height: 13,
     position: "absolute",
     backgroundColor: "transparent"
+  },
+  scrollArea: {
+    top: 0,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    bottom: 0
   }
 });
