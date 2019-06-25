@@ -8,7 +8,8 @@ import {
   ImageBackground,
   TouchableOpacity,
   Image,
-  Text
+  Text,
+  Animated
 } from "react-native";
 import { Constants } from "expo";
 import * as Animatable from "react-native-animatable";
@@ -23,60 +24,8 @@ import {
   Cell
 } from "react-native-table-component";
 import { Center } from "@builderx/utils";
-import Accordion from "react-native-collapsible/Accordion";
-import FlipCard from "react-native-flip-card";
-
-const CONTENT = [
-  {
-    title: "First",
-    id: "1234 5671",
-    color: "#F9060A",
-    points: "10",
-    flip: "front"
-  },
-  {
-    title: "Second",
-    id: "1234 5672",
-    color: "#DC045E",
-    points: "20",
-    flip: "front"
-  },
-  {
-    title: "Third",
-    id: "1234 5673",
-    color: "#7D09F9",
-    points: "30",
-    flip: "front"
-  },
-  {
-    title: "Fourth",
-    id: "1234 5674",
-    color: "#020AF4",
-    points: "40",
-    flip: "front"
-  },
-  {
-    title: "Fifth",
-    id: "1234 5675",
-    color: "#10FA03",
-    points: "50",
-    flip: "front"
-  },
-  {
-    title: "Six",
-    id: "1234 5676",
-    color: "#F4E301",
-    points: "60",
-    flip: "front"
-  },
-  {
-    title: "Seven",
-    id: "1234 5677",
-    color: "#F74302",
-    points: "70",
-    flip: "front"
-  }
-];
+import CardFlip from 'react-native-card-flip';
+import {AccordionList} from 'accordion-collapse-react-native';
 
 const tableHead = ["Nombre", "Eventos", "Puntos", "Detalles"];
 const tableData = [
@@ -95,34 +44,72 @@ const tableData = [
 export default class MembershipTab extends Component {
   constructor() {
     super();
-
     this.state = {
-      activeSections: [],
-      collapsed: true,
-      multipleSelect: false,
-      flip: false
+      flip: false,
+      list:[
+        {
+          title: 'Getting Started',
+          id: "1234 5671",
+          color: "#F9060A",
+          points: "10"
+        },
+        {
+          title: 'Getting Started',
+          id: "1234 5671",
+          color: "#DC045E",
+          points: "20"
+        },
+        {
+          title: 'Getting Started',
+          id: "1234 5671",
+          color: "#7D09F9",
+          points: "30"
+        },
+        {
+          title: 'Getting Started',
+          id: "1234 5671",
+          color: "#10FA03",
+          points: "40"
+        },
+        {
+          title: 'Getting Started',
+          id: "1234 5671",
+          color: "#10FA03",
+          points: "50"
+        },
+        {
+          title: 'Getting Started',
+          id: "1234 5671",
+          color: "#F4E301",
+          points: "60"
+        },
+        {
+          title: 'Getting Started',
+          id: "1234 5671",
+          color: "#F74302",
+          points: "60"
+        }
+      ],
     };
   }
 
-  toggleExpanded = () => {
-    this.setState({ collapsed: !this.state.collapsed });
-  };
+  customStyles(color) {
+    return {
+      backgroundColor: color,
+      alignSelf: "stretch",
+      flexDirection: "column"
+    };
+  }
 
-  setSections = sections => {
-    this.setState({
-      activeSections: sections.includes(undefined) ? [] : sections
-    });
-  };
-
-  renderHeader = (section, _, isActive) => {
+  renderHeader(section) {
     return (
-      <View style={[styles.header, isActive ? styles.active : styles.inactive]}>
+      <View style={styles.header}>
         <Image
           style={styles.image}
           source={require("../assets/ic_200x200.png")}
         />
         <View style={styles.label}>
-          <View style={this.customStyles(section.color)}>
+          <View style={[styles.tag, {backgroundColor: section.color}]}>
             <Text style={styles.levelTextK}>1</Text>
             <Text style={styles.textLevelL}>LVL</Text>
           </View>
@@ -134,159 +121,123 @@ export default class MembershipTab extends Component {
     );
   };
 
-  renderContent(section, _, isActive) {
-    console.log(_, "******************************this.state ", isActive);
+  renderContent(section) {
+    console.log("section: ", section)
     return (
-      <FlipCard
-        style={styles.card}
-        friction={6}
-        perspective={1000}
-        flipHorizontal={true}
-        flipVertical={false}
-        flip={false}
-        clickable={true}
-        onFlipEnd={isFlipEnd => {
-          console.log("isFlipEnd", isFlipEnd);
-        }}
-      >
-        <View style={styles.front}>
+      <CardFlip style={styles.cardContainer} ref={(card) => flip = card} >
           <View style={styles.containerContent}>
-          <ImageBackground
-            source={require("../assets/front_rounded_copy.png")}
-            resizeMode="stretch"
-            style={[
-              styles.content,
-              isActive ? { backgroundColor: section.color } : styles.inactive
-            ]}
-          >
-            <View style={styles.contentTop}>
-              <Image
-                style={styles.imageUser}
-                source={require("../assets/user.jpg")}
-              />
-              <View style={styles.contentTopInfo}>
-                <View style={styles.contentPoints}>
-                  <Text style={styles.textPointsD}>{section.points}</Text>
-                  <Text style={styles.textPointsDd} /*locked*/>puntos</Text>
-                </View>
-                <View style={styles.contentId}>
-                  <Text style={styles.textMembershipId}>Membership ID</Text>
-                  <TextInput style={styles.textInput} placeholder="1234 5678" />
-                  <Text style={styles.textDateExpiration}>
-                    Fecha de expiración: 01/2018
-                  </Text>
-                </View>
-              </View>
-            </View>
-            <View style={styles.contentCenter}>
-              <View style={styles.contentCenterLeft}>
-                <Text style={styles.textLevelVer}>Nombre Nivel</Text>
-              </View>
-              <View style={styles.contentCenterCenter}>
-                <Text style={styles.textName}>Nombre ApellidoP</Text>
+            <ImageBackground
+              source={require("../assets/front_rounded_copy.png")}
+              resizeMode="stretch"
+              style={[styles.content, {backgroundColor: section.color}]}
+            >
+              <View style={styles.contentTop}>
                 <Image
-                  style={styles.imageQr}
-                  source={require("../assets/qr.png")}
+                  style={styles.imageUser}
+                  source={require("../assets/user.jpg")}
                 />
-              </View>
-              <View style={styles.contentCenterRight}>
-                <TouchableOpacity
-                  style={styles.button}
-                  onPress={() => {
-                    console.log("this: ", this.state);
-                  }}
-                >
-                  <Image
-                    style={styles.imageFlip}
-                    source={require("../assets/flip.png")}
-                  />
-                  <Text style={styles.textFlip}>Flip</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </ImageBackground>
-        </View>
-        </View>
-        <View style={styles.back}>
-          <View style={styles.allContentBack}>
-          <View style={styles.contentBack}>
-            <View style={styles.containerTopBack}>
-              <View style={styles.containerTopBackLeft}>
-                <Text style={styles.tittleTexPoints}>
-                  Puntos para el siguiente nivel
-                </Text>
-                <View style={styles.containerTopBackBottom}>
-                  <View style={styles.containerTopBackLeftLeft}>
-                    <Text style={styles.pointsText}>1800</Text>
-                    <Text style={styles.pointsTextT}>puntos</Text>
+                <View style={styles.contentTopInfo}>
+                  <View style={styles.contentPoints}>
+                    <Text style={styles.textPointsD}>{section.points}</Text>
+                    <Text style={styles.textPointsDd}>puntos</Text>
+                  </View>
+                  <View style={styles.contentId}>
+                    <Text style={styles.textMembershipId}>Membership ID</Text>
+                    <TextInput style={styles.textInput} placeholder="1234 5678" />
+                    <Text style={styles.textDateExpiration}>
+                      Fecha de expiración: 01/2018
+                    </Text>
                   </View>
                 </View>
               </View>
-              <View style={styles.containerTopBackRight}>
-                <TouchableOpacity
-                  style={styles.buttonBack}
-                  onPress={() => {
-                    console.log("FLIP TO FRONT");
-                  }}
-                >
+              <View style={styles.contentCenter}>
+                <View style={styles.contentCenterLeft}>
+                  <Text style={styles.textLevelVer}>Nombre Nivel</Text>
+                </View>
+                <View style={styles.contentCenterCenter}>
+                  <Text style={styles.textName}>Nombre ApellidoP</Text>
                   <Image
-                    style={styles.imageFlipBack}
-                    source={require("../assets/flip.png")}
+                    style={styles.imageQr}
+                    source={require("../assets/qr.png")}
                   />
-                  <Text style={styles.textFlipBack}>Flip</Text>
-                </TouchableOpacity>
+                </View>
+                <View style={styles.contentCenterRight}>
+                  <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => {
+                      console.log("this: ", this.state);
+                      flip.flip();
+                    }}
+                  >
+                    <Image
+                      style={styles.imageFlip}
+                      source={require("../assets/flip.png")}
+                    />
+                    <Text style={styles.textFlip}>Flip</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </ImageBackground>
+          </View>
+
+          <View style={styles.allContentBack}>
+            <View style={styles.contentBack}>
+              <View style={styles.containerTopBack}>
+                <View style={styles.containerTopBackLeft}>
+                  <Text style={styles.tittleTexPoints}>
+                    Puntos para el siguiente nivel
+                  </Text>
+                  <View style={styles.containerTopBackBottom}>
+                    <View style={styles.containerTopBackLeftLeft}>
+                      <Text style={styles.pointsText}>1800</Text>
+                      <Text style={styles.pointsTextT}>puntos</Text>
+                    </View>
+                  </View>
+                </View>
+                <View style={styles.containerTopBackRight}>
+                  <TouchableOpacity
+                    style={styles.buttonBack}
+                    onPress={() => {
+                      console.log("FLIP TO FRONT");
+                      flip.flip();
+                    }}
+                  >
+                    <Image
+                      style={styles.imageFlipBack}
+                      source={require("../assets/flip.png")}
+                    />
+                    <Text style={styles.textFlipBack}>Flip</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+              <View style={styles.containerBottomBack}>
+                <Table borderStyle={styles.tableStyle}>
+                  <Row
+                    data={tableHead}
+                    style={styles.head}
+                    textStyle={styles.textHead}
+                  />
+                  <Rows data={tableData} textStyle={styles.textData} />
+                </Table>
               </View>
             </View>
-            <View style={styles.containerBottomBack}>
-              <Table borderStyle={styles.tableStyle}>
-                <Row
-                  data={tableHead}
-                  style={styles.head}
-                  textStyle={styles.textHead}
-                />
-                <Rows data={tableData} textStyle={styles.textData} />
-              </Table>
-            </View>
           </View>
-        </View>
-        </View>
-      </FlipCard>
+      </CardFlip>
     );
   }
 
   render() {
-    const { multipleSelect, activeSections } = this.state;
-    console.log("2******************************this.state ", this.state);
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollArea}>
-          <Accordion
-            activeSections={activeSections}
-            sections={CONTENT}
-            touchableComponent={TouchableOpacity}
-            expandMultiple={multipleSelect}
-            renderHeader={this.renderHeader}
-            renderContent={this.renderContent}
-            duration={400}
-            onChange={this.setSections}
+          <AccordionList
+            list={this.state.list}
+            header={this.renderHeader}
+            body={this.renderContent}
           />
         </ScrollView>
       </View>
     );
-  }
-
-  customStyles(color) {
-    return {
-      backgroundColor: color,
-      alignSelf: "stretch",
-      flexDirection: "column"
-    };
-  }
-
-  customContentStyle(color) {
-    return {
-      backgroundColor: color
-    };
   }
 }
 const styles = StyleSheet.create({
@@ -319,7 +270,7 @@ const styles = StyleSheet.create({
     fontWeight: "500"
   },
   content: {
-    height: 405,
+    height: 500,
     flexDirection: "column",
     borderRadius: 20,
     alignSelf: "stretch"
@@ -756,5 +707,16 @@ const styles = StyleSheet.create({
   tableStyle: {
     borderWidth: 2,
     borderColor: "#c8e1ff"
+  },
+  tag: {
+    backgroundColor: "rgba(247,242,242,1)",
+    alignSelf: "stretch",
+    flexDirection: "column"
+  },
+  cardContainer:{
+    height: 500,
+    flexDirection: "column",
+    borderRadius: 20,
+    alignSelf: "stretch"
   }
 });
