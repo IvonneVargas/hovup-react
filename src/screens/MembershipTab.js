@@ -12,8 +12,6 @@ import {
   Animated
 } from "react-native";
 import { Constants } from "expo";
-import * as Animatable from "react-native-animatable";
-import Collapsible from "react-native-collapsible";
 import {
   Table,
   TableWrapper,

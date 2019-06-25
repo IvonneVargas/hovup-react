@@ -52,29 +52,13 @@
     "defaultArtboardDirectory": "/src/screens",
     "defaultSymbolDirectory": "/src/symbols",
     "defaultAssetDirectory": "/src/assets",
-    "deviceName": "iPhone X",
+    "deviceName": "Samsung Note 8",
     "deviceOrientation": "portrait",
     "basePath": "/Users/ivonne/native/hovup-react",
     "tempPath": "/var/folders/3q/5_vntp2d5w773kcscg179xbc0000gn/T/BuilderAKjHBlN",
     "useStylesheet": true,
     "rulers": {
         "/src/screens/SuccessCreateAccount.js": [
-            {
-                "deviceName": "iPhone X",
-                "position": {
-                    "x": -1572.5,
-                    "y": -27
-                },
-                "horizontal": true
-            },
-            {
-                "deviceName": "iPhone X",
-                "position": {
-                    "x": -1572.5,
-                    "y": -54.26006191950466
-                },
-                "horizontal": true
-            },
             {
                 "deviceName": "iPhone X",
                 "position": {
@@ -358,46 +342,13 @@
             {
                 "deviceName": "iPhone X",
                 "position": {
-                    "x": -3232.5,
-                    "y": 348.16408668730656
-                },
-                "horizontal": true
-            },
-            {
-                "deviceName": "iPhone X",
-                "position": {
                     "x": 0.6428571428573377,
                     "y": 125.61904761904762
                 },
                 "horizontal": false
             }
         ],
-        "/src/screens/OptionsProfile.js": [
-            {
-                "deviceName": "iPhone X",
-                "position": {
-                    "x": -4062.5,
-                    "y": 76
-                },
-                "horizontal": true
-            },
-            {
-                "deviceName": "iPhone X",
-                "position": {
-                    "x": -4062.5,
-                    "y": 28.20123839009282
-                },
-                "horizontal": true
-            },
-            {
-                "deviceName": "iPhone X",
-                "position": {
-                    "x": -4062.5,
-                    "y": 106.6656617795266
-                },
-                "horizontal": true
-            }
-        ],
+        "/src/screens/OptionsProfile.js": [],
         "/src/symbols/HeaderIcon.js": [
             {
                 "deviceName": "iPhone X",
@@ -577,14 +528,6 @@
             }
         ],
         "/src/screens/Privacy.js": [
-            {
-                "deviceName": "iPhone X",
-                "position": {
-                    "x": -5307.5,
-                    "y": 20.1671826625387
-                },
-                "horizontal": true
-            },
             {
                 "deviceName": "iPhone X",
                 "position": {
