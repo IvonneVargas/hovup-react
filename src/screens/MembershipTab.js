@@ -24,72 +24,72 @@ import {
   Cell
 } from "react-native-table-component";
 import { Center } from "@builderx/utils";
-import CardFlip from 'react-native-card-flip';
-import {AccordionList} from 'accordion-collapse-react-native';
+import CardFlip from "react-native-card-flip";
+import { AccordionList } from "accordion-collapse-react-native";
 
 const tableHead = ["Nombre", "Eventos", "Puntos", "Detalles"];
 const tableData = [
-        ["Impactos", "23", "23", "Ver"],
-        ["CheckIns en Store", "1", "1", "Ver"],
-        ["CheckIns Georeferencia", "2", "2", "Ver"],
-        ["Lecturas de Qr", "5", "5", "Ver"],
-        ["Generación de cupones", "7", "7", "Ver"],
-        ["Lectura de cupones", "5", "5", "Ver"],
-        ["Realizar compra", "3", "3", "Ver"],
-        ["Recoger compra", "3", "3", "Ver"],
-        ["Web services", "5", "5", "Ver"],
-        ["Total", "5", "5", "Ver"]
-      ];
+  ["Impactos", "23", "23", "Ver"],
+  ["CheckIns en Store", "1", "1", "Ver"],
+  ["CheckIns Georeferencia", "2", "2", "Ver"],
+  ["Lecturas de Qr", "5", "5", "Ver"],
+  ["Generación de cupones", "7", "7", "Ver"],
+  ["Lectura de cupones", "5", "5", "Ver"],
+  ["Realizar compra", "3", "3", "Ver"],
+  ["Recoger compra", "3", "3", "Ver"],
+  ["Web services", "5", "5", "Ver"],
+  ["Total", "5", "5", "Ver"]
+];
 
 export default class MembershipTab extends Component {
   constructor() {
     super();
     this.state = {
       flip: false,
-      list:[
+      list: [
         {
-          title: 'Getting Started',
+          title: "Getting Started",
           id: "1234 5671",
           color: "#F9060A",
           points: "10"
         },
         {
-          title: 'Getting Started',
+          title: "Getting Started",
           id: "1234 5671",
           color: "#DC045E",
           points: "20"
         },
         {
-          title: 'Getting Started',
+          title: "Getting Started",
           id: "1234 5671",
           color: "#7D09F9",
           points: "30"
         },
         {
-          title: 'Getting Started',
+          title: "Getting Started",
           id: "1234 5671",
           color: "#10FA03",
           points: "40"
         },
         {
-          title: 'Getting Started',
+          title: "Getting Started",
           id: "1234 5671",
           color: "#10FA03",
           points: "50"
         },
         {
-          title: 'Getting Started',
+          title: "Getting Started",
           id: "1234 5671",
           color: "#F4E301",
           points: "60"
         },
         {
-          title: 'Getting Started',
+          title: "Getting Started",
           id: "1234 5671",
           color: "#F74302",
           points: "60"
         }
-      ],
+      ]
     };
   }
 
@@ -109,7 +109,7 @@ export default class MembershipTab extends Component {
           source={require("../assets/ic_200x200.png")}
         />
         <View style={styles.label}>
-          <View style={[styles.tag, {backgroundColor: section.color}]}>
+          <View style={[styles.tag, { backgroundColor: section.color }]}>
             <Text style={styles.levelTextK}>1</Text>
             <Text style={styles.textLevelL}>LVL</Text>
           </View>
@@ -119,109 +119,111 @@ export default class MembershipTab extends Component {
         </View>
       </View>
     );
-  };
+  }
 
   renderContent(section) {
-    console.log("section: ", section)
+    console.log("section: ", section);
     return (
-      <CardFlip style={styles.cardContainer} ref={(card) => flip = card} >
-          <View style={styles.containerContent}>
-            <ImageBackground
-              source={require("../assets/front_rounded_copy.png")}
-              resizeMode="stretch"
-              style={[styles.content, {backgroundColor: section.color}]}
-            >
-              <View style={styles.contentTop}>
-                <Image
-                  style={styles.imageUser}
-                  source={require("../assets/user.jpg")}
-                />
-                <View style={styles.contentTopInfo}>
-                  <View style={styles.contentPoints}>
-                    <Text style={styles.textPointsD}>{section.points}</Text>
-                    <Text style={styles.textPointsDd}>puntos</Text>
-                  </View>
-                  <View style={styles.contentId}>
-                    <Text style={styles.textMembershipId}>Membership ID</Text>
-                    <TextInput style={styles.textInput} placeholder="1234 5678" />
-                    <Text style={styles.textDateExpiration}>
-                      Fecha de expiración: 01/2018
-                    </Text>
-                  </View>
+      <CardFlip style={styles.cardContainer} ref={card => (flip = card)}>
+        <View style={styles.containerContent}>
+          <ImageBackground
+            source={require("../assets/front_rounded_copy.png")}
+            resizeMode="stretch"
+            style={[styles.content, { backgroundColor: section.color }]}
+          >
+            <View style={styles.contentTop}>
+              <Image
+                style={styles.imageUser}
+                source={require("../assets/user.jpg")}
+              />
+              <View style={styles.contentTopInfo}>
+                <View style={styles.contentPoints}>
+                  <Text style={styles.textPointsD}>{section.points}</Text>
+                  <Text style={styles.textPointsDd}>puntos</Text>
                 </View>
-              </View>
-              <View style={styles.contentCenter}>
-                <View style={styles.contentCenterLeft}>
-                  <Text style={styles.textLevelVer}>Nombre Nivel</Text>
-                </View>
-                <View style={styles.contentCenterCenter}>
-                  <Text style={styles.textName}>Nombre ApellidoP</Text>
-                  <Image
-                    style={styles.imageQr}
-                    source={require("../assets/qr.png")}
+                <View style={styles.contentId}>
+                  <Text style={styles.textMembershipId}>Membership ID</Text>
+                  <TextInput
+                    style={[styles.textInput, { borderColor: section.color }]}
+                    placeholder="1234 5678"
                   />
-                </View>
-                <View style={styles.contentCenterRight}>
-                  <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => {
-                      console.log("this: ", this.state);
-                      flip.flip();
-                    }}
-                  >
-                    <Image
-                      style={styles.imageFlip}
-                      source={require("../assets/flip.png")}
-                    />
-                    <Text style={styles.textFlip}>Flip</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </ImageBackground>
-          </View>
-
-          <View style={styles.allContentBack}>
-            <View style={styles.contentBack}>
-              <View style={styles.containerTopBack}>
-                <View style={styles.containerTopBackLeft}>
-                  <Text style={styles.tittleTexPoints}>
-                    Puntos para el siguiente nivel
+                  <Text style={styles.textDateExpiration}>
+                    Fecha de expiración: 01/2018
                   </Text>
-                  <View style={styles.containerTopBackBottom}>
-                    <View style={styles.containerTopBackLeftLeft}>
-                      <Text style={styles.pointsText}>1800</Text>
-                      <Text style={styles.pointsTextT}>puntos</Text>
-                    </View>
-                  </View>
                 </View>
-                <View style={styles.containerTopBackRight}>
-                  <TouchableOpacity
-                    style={styles.buttonBack}
-                    onPress={() => {
-                      console.log("FLIP TO FRONT");
-                      flip.flip();
-                    }}
-                  >
-                    <Image
-                      style={styles.imageFlipBack}
-                      source={require("../assets/flip.png")}
-                    />
-                    <Text style={styles.textFlipBack}>Flip</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-              <View style={styles.containerBottomBack}>
-                <Table borderStyle={styles.tableStyle}>
-                  <Row
-                    data={tableHead}
-                    style={styles.head}
-                    textStyle={styles.textHead}
-                  />
-                  <Rows data={tableData} textStyle={styles.textData} />
-                </Table>
               </View>
             </View>
+            <View style={styles.contentCenter}>
+              <View style={styles.contentCenterLeft}>
+                <Text style={styles.textLevelVer}>Nombre Nivel</Text>
+              </View>
+              <View style={styles.contentCenterCenter}>
+                <Text style={styles.textName}>Nombre ApellidoP</Text>
+                <Image
+                  style={styles.imageQr}
+                  source={require("../assets/qr.png")}
+                />
+              </View>
+              <View style={styles.contentCenterRight}>
+                <TouchableOpacity
+                  style={styles.button}
+                  onPress={() => {
+                    console.log("this: ", this.state);
+                    flip.flip();
+                  }}
+                >
+                  <Image
+                    style={styles.imageFlip}
+                    source={require("../assets/flip.png")}
+                  />
+                  <Text style={styles.textFlip}>Flip</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </ImageBackground>
+        </View>
+        <View style={styles.allContentBack}>
+          <View style={styles.contentBack}>
+            <View style={styles.containerTopBack}>
+              <View style={styles.containerTopBackLeft}>
+                <Text style={styles.tittleTexPoints}>
+                  Puntos para el siguiente nivel
+                </Text>
+                <View style={styles.containerTopBackBottom}>
+                  <View style={styles.containerTopBackLeftLeft}>
+                    <Text style={styles.pointsText}>1800</Text>
+                    <Text style={styles.pointsTextT}>puntos</Text>
+                  </View>
+                </View>
+              </View>
+              <View style={styles.containerTopBackRight}>
+                <TouchableOpacity
+                  style={styles.buttonBack}
+                  onPress={() => {
+                    console.log("FLIP TO FRONT");
+                    flip.flip();
+                  }}
+                >
+                  <Image
+                    style={styles.imageFlipBack}
+                    source={require("../assets/flip.png")}
+                  />
+                  <Text style={styles.textFlipBack}>Flip</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View style={styles.containerBottomBack}>
+              <Table borderStyle={styles.tableStyle}>
+                <Row
+                  data={tableHead}
+                  style={styles.head}
+                  textStyle={styles.textHead}
+                />
+                <Rows data={tableData} textStyle={styles.textData} />
+              </Table>
+            </View>
           </View>
+        </View>
       </CardFlip>
     );
   }
@@ -270,7 +272,7 @@ const styles = StyleSheet.create({
     fontWeight: "500"
   },
   content: {
-    height: 500,
+    height: 450,
     flexDirection: "column",
     borderRadius: 20,
     alignSelf: "stretch"
@@ -377,7 +379,7 @@ const styles = StyleSheet.create({
     marginTop: 15
   },
   contentTopInfo: {
-    height: 100,
+    height: 163.8,
     flexDirection: "column",
     flex: 1
   },
@@ -396,11 +398,12 @@ const styles = StyleSheet.create({
   },
   textInput: {
     width: 131,
-    height: 30,
+    height: 40,
     backgroundColor: "rgba(255,255,255,1)",
     opacity: 1,
     fontSize: 20,
     textAlign: "center",
+    borderWidth: 2,
     color: "rgba(0,0,0,1)"
   },
   textDateExpiration: {
@@ -429,7 +432,7 @@ const styles = StyleSheet.create({
   },
 
   contentCenter: {
-    height: 241,
+    height: 281,
     alignSelf: "stretch",
     flexDirection: "row",
     alignItems: "center"
@@ -692,15 +695,15 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: "stretch"
   },
-  head: { 
+  head: {
     height: 40,
-    backgroundColor: "#f1f8ff" 
+    backgroundColor: "#f1f8ff"
   },
-  textHead: { 
+  textHead: {
     margin: 6,
-    color: "rgba(6,6,6,1)",
+    color: "rgba(6,6,6,1)"
   },
-  textData: { 
+  textData: {
     margin: 6,
     color: "rgba(247,242,242,1)"
   },
@@ -713,8 +716,8 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     flexDirection: "column"
   },
-  cardContainer:{
-    height: 500,
+  cardContainer: {
+    height: 450,
     flexDirection: "column",
     borderRadius: 20,
     alignSelf: "stretch"
