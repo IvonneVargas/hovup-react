@@ -183,7 +183,11 @@ export default class MembershipTab extends Component {
           </ImageBackground>
         </View>
         <View style={styles.allContentBack}>
-          <View style={styles.contentBack}>
+          <ImageBackground
+            source={require("../assets/back_rounded_copy.png")}
+            resizeMode="stretch"
+            style={[styles.contentBack, { backgroundColor: section.color }]}
+          >
             <View style={styles.containerTopBack}>
               <View style={styles.containerTopBackLeft}>
                 <Text style={styles.tittleTexPoints}>
@@ -191,7 +195,7 @@ export default class MembershipTab extends Component {
                 </Text>
                 <View style={styles.containerTopBackBottom}>
                   <View style={styles.containerTopBackLeftLeft}>
-                    <Text style={styles.pointsText}>1800</Text>
+                    <Text style={[styles.pointsText],{color: section.color, fontSize: 30}}>1800</Text>
                     <Text style={styles.pointsTextT}>puntos</Text>
                   </View>
                 </View>
@@ -222,7 +226,7 @@ export default class MembershipTab extends Component {
                 <Rows data={tableData} textStyle={styles.textData} />
               </Table>
             </View>
-          </View>
+          </ImageBackground>
         </View>
       </CardFlip>
     );
@@ -636,10 +640,10 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   contentBack: {
-    width: 374,
-    height: 404,
+    height: 450,
     flexDirection: "column",
-    borderRadius: 20
+    borderRadius: 20,
+    alignSelf: "stretch"
   },
   containerTopBack: {
     height: 74.93,
@@ -696,7 +700,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   head: {
-    height: 40,
+    height: 30,
     backgroundColor: "#f1f8ff"
   },
   textHead: {
