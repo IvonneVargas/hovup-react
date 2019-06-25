@@ -30,16 +30,16 @@ import { AccordionList } from "accordion-collapse-react-native";
 const tableHead = ["Nombre", "Eventos", "Puntos", "Detalles"];
 const tableData = [
   ["Impactos", "23", "23", "Ver"],
-  ["CheckIns en Store", "1", "1", "Ver"],
-  ["CheckIns Georeferencia", "2", "2", "Ver"],
-  ["Lecturas de Qr", "5", "5", "Ver"],
+  ["CheckIns", "1", "1", "Ver"],
+  ["Geo CheckIns", "2", "2", "Ver"],
+  ["Lecturas Qr", "5", "5", "Ver"],
   ["Generación de cupones", "7", "7", "Ver"],
   ["Lectura de cupones", "5", "5", "Ver"],
   ["Realizar compra", "3", "3", "Ver"],
   ["Recoger compra", "3", "3", "Ver"],
-  ["Web services", "5", "5", "Ver"],
-  ["Total", "5", "5", "Ver"]
+  ["Web services", "5", "5", "Ver"]
 ];
+const tableTotal = ["Total", "5", "5", ""];
 
 export default class MembershipTab extends Component {
   constructor() {
@@ -220,10 +220,23 @@ export default class MembershipTab extends Component {
               <Table borderStyle={styles.tableStyle}>
                 <Row
                   data={tableHead}
+                  flexArr={[2, 1, 1, 1]}
                   style={styles.head}
                   textStyle={styles.textHead}
                 />
-                <Rows data={tableData} textStyle={styles.textData} />
+                <TableWrapper style={styles.wrapper}>
+                  <Rows 
+                    data={tableData}
+                    textStyle={styles.textData}
+                    flexArr={[2, 1, 1, 1]}
+                  />
+                </TableWrapper>
+                <Row
+                  data={tableTotal}
+                  flexArr={[2, 1, 1, 1]}
+                  style={styles.head}
+                  textStyle={styles.textHead}
+                />
               </Table>
             </View>
           </ImageBackground>
@@ -701,10 +714,9 @@ const styles = StyleSheet.create({
   },
   head: {
     height: 30,
-    backgroundColor: "#f1f8ff"
+    backgroundColor: "#ffffff"
   },
   textHead: {
-    margin: 6,
     color: "rgba(6,6,6,1)"
   },
   textData: {
@@ -725,5 +737,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     borderRadius: 20,
     alignSelf: "stretch"
-  }
+  },
+  wrapper: { flexDirection: 'row' },
 });
