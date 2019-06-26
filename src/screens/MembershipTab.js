@@ -25,8 +25,11 @@ import { Center } from "@builderx/utils";
 import CardFlip from "react-native-card-flip";
 import { AccordionList } from "accordion-collapse-react-native";
 
-const elementButton = (value) => (
-      <TouchableOpacity onPress={() => {console.log("Click to: ", value)}}>
+const elementButton = (value, flipT) => (
+      <TouchableOpacity onPress={() => {
+        console.log("Click to: ", flipT)
+        flipT.flip();
+      }}>
         <View>
           <Text>Ver</Text>
         </View>
@@ -34,21 +37,21 @@ const elementButton = (value) => (
     );
 const tableHead = ["Nombre", "Eventos", "Puntos", "Detalles"];
 const tableData = [
-  ["Impactos", "23", "23", elementButton('1')],
-  ["CheckIns", "1", "1", elementButton('2')],
-  ["Geo CheckIns", "2", "2", elementButton('3')],
-  ["Lecturas Qr", "5", "5", elementButton('4')],
-  ["Generación de cupones", "7", "7", elementButton('5')],
-  ["Lectura de cupones", "5", "5", elementButton('6')],
-  ["Realizar compra", "3", "3", elementButton('7')],
-  ["Recoger compra", "3", "3", elementButton('8')],
-  ["Web services", "5", "5", elementButton('9')]
+  ["Impacto", "23", "23", ""],
+  ["CheckIn", "1", "1", ""],
+  ["G. CheckIn", "2", "2", ""],
+  ["Lecturas Qr", "5", "5", ""],
+  ["Gen. cupon", "7", "7", ""],
+  ["Lec. cupon", "5", "5", ""],
+  ["Realizar compra", "3", "3", ""],
+  ["Recoger compra", "3", "3", ""],
+  ["Web services", "5", "5", ""]
 ];
 const tableTotal = ["Total", "5", "5", ""];
 
 export default class MembershipTab extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       flip: false,
       list: [
@@ -119,7 +122,15 @@ export default class MembershipTab extends Component {
   }
 
   renderContent(section) {
-    console.log("section: ", section);
+    const element = (data, index) => (
+      <TouchableOpacity onPress={() => {
+        console.log("index: ", index, " data: ")
+      }}>
+        <View style={styles.btn}>
+          <Text style={styles.btnText}>Versh</Text>
+        </View>
+      </TouchableOpacity>
+    );
     return (
       <CardFlip style={styles.cardContainer} ref={card => (flip = card)}>
         <View style={styles.containerContent}>
@@ -165,7 +176,7 @@ export default class MembershipTab extends Component {
                 <TouchableOpacity
                   style={styles.button}
                   onPress={() => {
-                    console.log("this: ", this.state);
+                    console.log("FLIP!!!!: ", flip.flip())
                     flip.flip();
                   }}
                 >
@@ -179,7 +190,9 @@ export default class MembershipTab extends Component {
             </View>
           </ImageBackground>
         </View>
-        <View style={styles.allContentBack}>
+       <View>
+         <CardFlip style={styles.cardContainer} ref={cardInto => (flipT = cardInto)}>
+           <View style={styles.allContentBack}>
           <ImageBackground
             source={require("../assets/back_rounded_copy.png")}
             resizeMode="stretch"
@@ -201,7 +214,6 @@ export default class MembershipTab extends Component {
                 <TouchableOpacity
                   style={styles.buttonBack}
                   onPress={() => {
-                    console.log("FLIP TO FRONT");
                     flip.flip();
                   }}
                 >
@@ -221,13 +233,17 @@ export default class MembershipTab extends Component {
                   style={styles.head}
                   textStyle={styles.textHead}
                 />
-                <TableWrapper style={styles.wrapper}>
-                  <Rows 
-                    data={tableData}
-                    textStyle={styles.textData}
-                    flexArr={[2, 1, 1, 1]}
-                  />
-                </TableWrapper>
+                {
+                  tableData.map((rowData, index) => (
+                    <TableWrapper key={index} style={styles.wrapper}>
+                      {
+                        rowData.map((cellData, cellIndex) => (
+                            <Cell style={cellIndex === 0 ? {width: 162} : ""} key={cellIndex} data={cellIndex === 3 ? <TouchableOpacity onPress={() => flipT.flip()} ><Text style={styles.textData}>Ver</Text></TouchableOpacity> : cellData} textStyle={styles.textData}/>
+                        ))
+                      }
+                    </TableWrapper>
+                  ))
+                }
                 <Row
                   data={tableTotal}
                   flexArr={[2, 1, 1, 1]}
@@ -238,8 +254,15 @@ export default class MembershipTab extends Component {
             </View>
           </ImageBackground>
         </View>
+        <TouchableOpacity style={styles.card} onPress={() => flipT.flip()} ><Text>CD</Text></TouchableOpacity>
+        </CardFlip>
+       </View>
       </CardFlip>
     );
+  }
+
+  _alertIndex(index) {
+    Alert.alert('This is row ${index + 1}');
   }
 
   render() {
@@ -736,4 +759,18 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   wrapper: { flexDirection: 'row' },
+  card:{
+    width: 320,
+    height: 470,
+    backgroundColor: '#FE474C',
+    borderRadius: 5,
+    shadowColor: 'rgba(0,0,0,0.5)',
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowOpacity:0.5,
+  },
+  row: { flexDirection: 'row', backgroundColor: '#FFF1C1' },
+  singleHead: { width: 130 },
 });
