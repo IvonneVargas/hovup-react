@@ -190,73 +190,73 @@ export default class MembershipTab extends Component {
             </View>
           </ImageBackground>
         </View>
-       <View>
-         <CardFlip style={styles.cardContainer} ref={cardInto => (flipT = cardInto)}>
-           <View style={styles.allContentBack}>
-          <ImageBackground
-            source={require("../assets/back_rounded_copy.png")}
-            resizeMode="stretch"
-            style={[styles.contentBack, { backgroundColor: section.color }]}
-          >
-            <View style={styles.containerTopBack}>
-              <View style={styles.containerTopBackLeft}>
-                <Text style={styles.tittleTexPoints}>
-                  Puntos para el siguiente nivel
-                </Text>
-                <View style={styles.containerTopBackBottom}>
-                  <View style={styles.containerTopBackLeftLeft}>
-                    <Text style={[styles.pointsText],{color: section.color, fontSize: 30}}>1800</Text>
-                    <Text style={styles.pointsTextT}>puntos</Text>
+        <View>
+          <CardFlip style={styles.cardContainer} ref={cardInto => (flipT = cardInto)}>
+            <View style={styles.allContentBack}>
+              <ImageBackground
+                source={require("../assets/back_rounded_copy.png")}
+                resizeMode="stretch"
+                style={[styles.contentBack, { backgroundColor: section.color }]}
+              >
+                <View style={styles.containerTopBack}>
+                  <View style={styles.containerTopBackLeft}>
+                    <Text style={styles.tittleTexPoints}>
+                      Puntos para el siguiente nivel
+                    </Text>
+                    <View style={styles.containerTopBackBottom}>
+                      <View style={styles.containerTopBackLeftLeft}>
+                        <Text style={[styles.pointsText],{color: section.color, fontSize: 30}}>1800</Text>
+                        <Text style={styles.pointsTextT}>puntos</Text>
+                      </View>
+                    </View>
+                  </View>
+                  <View style={styles.containerTopBackRight}>
+                    <TouchableOpacity
+                      style={styles.buttonBack}
+                      onPress={() => {
+                        flip.flip();
+                      }}
+                    >
+                      <Image
+                        style={styles.imageFlipBack}
+                        source={require("../assets/flip.png")}
+                      />
+                      <Text style={styles.textFlipBack}>Flip</Text>
+                    </TouchableOpacity>
                   </View>
                 </View>
-              </View>
-              <View style={styles.containerTopBackRight}>
-                <TouchableOpacity
-                  style={styles.buttonBack}
-                  onPress={() => {
-                    flip.flip();
-                  }}
-                >
-                  <Image
-                    style={styles.imageFlipBack}
-                    source={require("../assets/flip.png")}
-                  />
-                  <Text style={styles.textFlipBack}>Flip</Text>
-                </TouchableOpacity>
-              </View>
+                <View style={styles.containerBottomBack}>
+                  <Table borderStyle={styles.tableStyle}>
+                    <Row
+                      data={tableHead}
+                      flexArr={[2, 1, 1, 1]}
+                      style={styles.head}
+                      textStyle={styles.textHead}
+                    />
+                    {
+                      tableData.map((rowData, index) => (
+                        <TableWrapper key={index} style={styles.wrapper}>
+                          {
+                            rowData.map((cellData, cellIndex) => (
+                              <Cell style={cellIndex === 0 ? {width: 162} : ""} key={cellIndex} data={cellIndex === 3 ? <TouchableOpacity onPress={() => flipT.flip()} ><Text style={styles.textData}>Ver</Text></TouchableOpacity> : cellData} textStyle={styles.textData}/>
+                            ))
+                          }
+                        </TableWrapper>
+                      ))
+                    }
+                    <Row
+                      data={tableTotal}
+                      flexArr={[2, 1, 1, 1]}
+                      style={styles.head}
+                      textStyle={styles.textHead}
+                    />
+                  </Table>
+                </View>
+              </ImageBackground>
             </View>
-            <View style={styles.containerBottomBack}>
-              <Table borderStyle={styles.tableStyle}>
-                <Row
-                  data={tableHead}
-                  flexArr={[2, 1, 1, 1]}
-                  style={styles.head}
-                  textStyle={styles.textHead}
-                />
-                {
-                  tableData.map((rowData, index) => (
-                    <TableWrapper key={index} style={styles.wrapper}>
-                      {
-                        rowData.map((cellData, cellIndex) => (
-                            <Cell style={cellIndex === 0 ? {width: 162} : ""} key={cellIndex} data={cellIndex === 3 ? <TouchableOpacity onPress={() => flipT.flip()} ><Text style={styles.textData}>Ver</Text></TouchableOpacity> : cellData} textStyle={styles.textData}/>
-                        ))
-                      }
-                    </TableWrapper>
-                  ))
-                }
-                <Row
-                  data={tableTotal}
-                  flexArr={[2, 1, 1, 1]}
-                  style={styles.head}
-                  textStyle={styles.textHead}
-                />
-              </Table>
-            </View>
-          </ImageBackground>
+            <TouchableOpacity style={styles.card} onPress={() => flipT.flip()} ><Text>CD</Text></TouchableOpacity>
+          </CardFlip>
         </View>
-        <TouchableOpacity style={styles.card} onPress={() => flipT.flip()} ><Text>CD</Text></TouchableOpacity>
-        </CardFlip>
-       </View>
       </CardFlip>
     );
   }
@@ -269,11 +269,7 @@ export default class MembershipTab extends Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollArea}>
-          <AccordionList
-            list={this.state.list}
-            header={this.renderHeader}
-            body={this.renderContent}
-          />
+          <TouchableOpacity style={styles.card} onPress={() => flipT.flip()} ><Text>CD</Text></TouchableOpacity>
         </ScrollView>
       </View>
     );
