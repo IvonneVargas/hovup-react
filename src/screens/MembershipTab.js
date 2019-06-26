@@ -25,17 +25,24 @@ import { Center } from "@builderx/utils";
 import CardFlip from "react-native-card-flip";
 import { AccordionList } from "accordion-collapse-react-native";
 
+const elementButton = (value) => (
+      <TouchableOpacity onPress={() => {console.log("Click to: ", value)}}>
+        <View>
+          <Text>Ver</Text>
+        </View>
+      </TouchableOpacity>
+    );
 const tableHead = ["Nombre", "Eventos", "Puntos", "Detalles"];
 const tableData = [
-  ["Impactos", "23", "23", "Ver"],
-  ["CheckIns", "1", "1", "Ver"],
-  ["Geo CheckIns", "2", "2", "Ver"],
-  ["Lecturas Qr", "5", "5", "Ver"],
-  ["Generación de cupones", "7", "7", "Ver"],
-  ["Lectura de cupones", "5", "5", "Ver"],
-  ["Realizar compra", "3", "3", "Ver"],
-  ["Recoger compra", "3", "3", "Ver"],
-  ["Web services", "5", "5", "Ver"]
+  ["Impactos", "23", "23", elementButton('1')],
+  ["CheckIns", "1", "1", elementButton('2')],
+  ["Geo CheckIns", "2", "2", elementButton('3')],
+  ["Lecturas Qr", "5", "5", elementButton('4')],
+  ["Generación de cupones", "7", "7", elementButton('5')],
+  ["Lectura de cupones", "5", "5", elementButton('6')],
+  ["Realizar compra", "3", "3", elementButton('7')],
+  ["Recoger compra", "3", "3", elementButton('8')],
+  ["Web services", "5", "5", elementButton('9')]
 ];
 const tableTotal = ["Total", "5", "5", ""];
 
@@ -88,14 +95,6 @@ export default class MembershipTab extends Component {
           points: "60"
         }
       ]
-    };
-  }
-
-  customStyles(color) {
-    return {
-      backgroundColor: color,
-      alignSelf: "stretch",
-      flexDirection: "column"
     };
   }
 
