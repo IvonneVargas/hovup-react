@@ -7,9 +7,9 @@ import {
   TextInput,
   ImageBackground,
   TouchableOpacity,
-  Image,
+  Animated,
   Text,
-  Animated
+  Image
 } from "react-native";
 import { Constants } from "expo";
 import {
@@ -25,17 +25,8 @@ import { Center } from "@builderx/utils";
 import CardFlip from "react-native-card-flip";
 import { AccordionList } from "accordion-collapse-react-native";
 
-const elementButton = (value, flipT) => (
-      <TouchableOpacity onPress={() => {
-        console.log("Click to: ", flipT)
-        flipT.flip();
-      }}>
-        <View>
-          <Text>Ver</Text>
-        </View>
-      </TouchableOpacity>
-    );
 const tableHead = ["Nombre", "Eventos", "Puntos", "Detalles"];
+const tableHeadRedeem = ["Fecha", "Eventos", "Puntos", "Expiracion"];
 const tableData = [
   ["Impacto", "23", "23", ""],
   ["CheckIn", "1", "1", ""],
@@ -47,7 +38,19 @@ const tableData = [
   ["Recoger compra", "3", "3", ""],
   ["Web services", "5", "5", ""]
 ];
+const tableDataRedeem = [
+  ["15/06/2018", "23", "23", "1 dias"],
+  ["02/02/2018", "1", "23", "2 dias"],
+  ["23/03/2018", "2", "23", "3 dias"],
+  ["06/04/2018", "3", "23", "5 dias"],
+  ["04/05/2018", "4", "23", "6 dias"],
+  ["31/06/2018", "5", "23", "9 dias"],
+  ["22/07/2018", "7", "23", "10 dias"],
+  ["18/08/2018", "9", "23", "15 dias"],
+  ["01/09/2018", "10", "23", "658 dias"],
+];
 const tableTotal = ["Total", "5", "5", ""];
+const tableTotalRedeem = ["Hoy", "100", "100", "365 dias"];
 
 export default class MembershipTab extends Component {
   constructor(props) {
@@ -121,16 +124,14 @@ export default class MembershipTab extends Component {
     );
   }
 
+  addColor = (index) => {
+      if (index%2!=0)
+        return true;
+      else
+        return false;
+    };
+
   renderContent(section) {
-    const element = (data, index) => (
-      <TouchableOpacity onPress={() => {
-        console.log("index: ", index, " data: ")
-      }}>
-        <View style={styles.btn}>
-          <Text style={styles.btnText}>Versh</Text>
-        </View>
-      </TouchableOpacity>
-    );
     return (
       <CardFlip style={styles.cardContainer} ref={card => (flip = card)}>
         <View style={styles.containerContent}>
@@ -176,7 +177,7 @@ export default class MembershipTab extends Component {
                 <TouchableOpacity
                   style={styles.button}
                   onPress={() => {
-                    console.log("FLIP!!!!: ", flip.flip())
+                    console.log("FLIP!!!!: ", flip.flip());
                     flip.flip();
                   }}
                 >
@@ -191,7 +192,10 @@ export default class MembershipTab extends Component {
           </ImageBackground>
         </View>
         <View>
-          <CardFlip style={styles.cardContainer} ref={cardInto => (flipT = cardInto)}>
+          <CardFlip
+            style={styles.cardContainer}
+            ref={cardInto => (flipT = cardInto)}
+          >
             <View style={styles.allContentBack}>
               <ImageBackground
                 source={require("../assets/back_rounded_copy.png")}
@@ -205,7 +209,14 @@ export default class MembershipTab extends Component {
                     </Text>
                     <View style={styles.containerTopBackBottom}>
                       <View style={styles.containerTopBackLeftLeft}>
-                        <Text style={[styles.pointsText],{color: section.color, fontSize: 30}}>1800</Text>
+                        <Text
+                          style={
+                            ([styles.pointsText],
+                            { color: section.color, fontSize: 30 })
+                          }
+                        >
+                          1800
+                        </Text>
                         <Text style={styles.pointsTextT}>puntos</Text>
                       </View>
                     </View>
@@ -233,17 +244,26 @@ export default class MembershipTab extends Component {
                       style={styles.head}
                       textStyle={styles.textHead}
                     />
-                    {
-                      tableData.map((rowData, index) => (
-                        <TableWrapper key={index} style={styles.wrapper}>
-                          {
-                            rowData.map((cellData, cellIndex) => (
-                              <Cell style={cellIndex === 0 ? {width: 162} : ""} key={cellIndex} data={cellIndex === 3 ? <TouchableOpacity onPress={() => flipT.flip()} ><Text style={styles.textData}>Ver</Text></TouchableOpacity> : cellData} textStyle={styles.textData}/>
-                            ))
-                          }
-                        </TableWrapper>
-                      ))
-                    }
+                    {tableData.map((rowData, index) => (
+                      <TableWrapper key={index} style={styles.wrapper}>
+                        {rowData.map((cellData, cellIndex) => (
+                          <Cell
+                            style={cellIndex === 0 ? { width: 162 } : ""}
+                            key={cellIndex}
+                            data={
+                              cellIndex === 3 ? (
+                                <TouchableOpacity onPress={() => flipT.flip()}>
+                                  <Text style={styles.textData}>Ver</Text>
+                                </TouchableOpacity>
+                              ) : (
+                                cellData
+                              )
+                            }
+                            textStyle={styles.textData}
+                          />
+                        ))}
+                      </TableWrapper>
+                    ))}
                     <Row
                       data={tableTotal}
                       flexArr={[2, 1, 1, 1]}
@@ -254,22 +274,76 @@ export default class MembershipTab extends Component {
                 </View>
               </ImageBackground>
             </View>
-            <TouchableOpacity style={styles.card} onPress={() => flipT.flip()} ><Text>CD</Text></TouchableOpacity>
+            <View style={styles.contentDetail}>
+              <View style={styles.imageBackGround}>
+                <View style={styles.contentTopDetail}>
+                  <Text style={styles.textCoupondRedeem}>Cupones redimidos</Text>
+                  <TouchableOpacity
+                    style={styles.contentDetailBack}
+                    onPress={() => {
+                      flipT.flip();
+                    }}
+                  >
+                    <Image
+                      style={styles.flipDetail}
+                      source={require("../assets/flip.png")}
+                    />
+                    <Text style={styles.textBack}>Back</Text>
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.contentBottomDetail}>
+                  <Table borderStyle={styles.tableStyle}>
+                    <Row
+                      data={tableHeadRedeem}
+                      flexArr={[2, 1, 1, 1]}
+                      style={[styles.headDetail, {backgroundColor: section.color}]}
+                      textStyle={styles.textHeadDetail}
+                    />
+                    {tableDataRedeem.map((rowData, index) => (
+                      <TableWrapper key={index} style={ index%2!=0 ? [styles.wrapperDetail, {backgroundColor: section.color}]: styles.wrapperDetail}>
+                        {rowData.map((cellData, cellIndex) => (
+                          <Cell
+                            style={cellIndex === 0 ? styles.cellStyleT : styles.cellStyle}
+                            key={cellIndex}
+                            data={
+                              cellIndex === 3 ? (
+                                <TouchableOpacity onPress={() => flipT.flip()}>
+                                  <Text style={styles.textDataDetail}>Ver</Text>
+                                </TouchableOpacity>
+                              ) : (
+                                cellData
+                              )
+                            }
+                            textStyle={styles.textDataDetail}
+                          />
+                        ))}
+                      </TableWrapper>
+                    ))}
+                    <Row
+                      data={tableTotalRedeem}
+                      flexArr={[2, 1, 1, 1]}
+                      style={styles.head}
+                      textStyle={styles.textHead}
+                    />
+                  </Table>
+                </View>
+              </View>
+            </View>
           </CardFlip>
         </View>
       </CardFlip>
     );
   }
 
-  _alertIndex(index) {
-    Alert.alert('This is row ${index + 1}');
-  }
-
   render() {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollArea}>
-          <TouchableOpacity style={styles.card} onPress={() => flipT.flip()} ><Text>CD</Text></TouchableOpacity>
+          <AccordionList
+            list={this.state.list}
+            header={this.renderHeader}
+            body={this.renderContent}
+          />
         </ScrollView>
       </View>
     );
@@ -732,14 +806,28 @@ const styles = StyleSheet.create({
     height: 30,
     backgroundColor: "#ffffff"
   },
+  headDetail: {
+    height: 30,
+    backgroundColor: "#ffffff"
+  },
   textHead: {
     color: "rgba(6,6,6,1)"
+  },
+  textHeadDetail: {
+    color: "rgba(255,255,255,1)"
   },
   textData: {
     margin: 6,
     color: "rgba(247,242,242,1)"
   },
+  textDataDetail: {
+    margin: 6
+  },
   tableStyle: {
+    borderWidth: 0,
+    borderColor: "#ffffff"
+  },
+  tableStyleD: {
     borderWidth: 2,
     borderColor: "#c8e1ff"
   },
@@ -754,19 +842,77 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignSelf: "stretch"
   },
-  wrapper: { flexDirection: 'row' },
-  card:{
+  wrapper: { flexDirection: "row" },
+  wrapperDetail: { flexDirection: "row" },
+  card: {
     width: 320,
     height: 470,
-    backgroundColor: '#FE474C',
+    backgroundColor: "#FE474C",
     borderRadius: 5,
-    shadowColor: 'rgba(0,0,0,0.5)',
+    shadowColor: "rgba(0,0,0,0.5)",
     shadowOffset: {
       width: 0,
       height: 1
     },
-    shadowOpacity:0.5,
+    shadowOpacity: 0.5
   },
-  row: { flexDirection: 'row', backgroundColor: '#FFF1C1' },
+  row: { flexDirection: "row", backgroundColor: "#FFF1C1" },
   singleHead: { width: 130 },
+  contentDetail: {
+    top: 0,
+    left: 0,
+    height: 500,
+    position: "absolute",
+    right: 0
+  },
+  imageBackGround: {
+    height: 450,
+    flexDirection: "column",
+    borderRadius: 20,
+    alignSelf: "stretch",
+    backgroundColor: "rgba(255,255,255,1)",
+  },
+  contentTopDetail: {
+    height: 74,
+
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "stretch"
+  },
+  textCoupondRedeem: {
+    height: 14,
+
+    backgroundColor: "transparent",
+    flex: 1,
+    paddingLeft: 15
+  },
+  contentDetailBack: {
+    width: "15%",
+    alignSelf: "stretch",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  flipDetail: {
+    width: 51,
+    height: 22
+  },
+  textBack: {
+    width: 31,
+    height: 14,
+    backgroundColor: "transparent"
+  },
+  contentBottomDetail: {
+    alignSelf: "stretch",
+    flex: 1
+  },
+  cellStyle: {
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    width: "20%",
+  },
+  cellStyleT: {
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    width: "40%",
+  }
 });
