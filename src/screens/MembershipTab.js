@@ -8,8 +8,9 @@ import {
   ImageBackground,
   TouchableOpacity,
   Animated,
-  Text,
-  Image
+  Image,
+  FlatList,
+  Text
 } from "react-native";
 import { Constants } from "expo";
 import {
@@ -47,7 +48,7 @@ const tableDataRedeem = [
   ["31/06/2018", "5", "23", "9 dias"],
   ["22/07/2018", "7", "23", "10 dias"],
   ["18/08/2018", "9", "23", "15 dias"],
-  ["01/09/2018", "10", "23", "658 dias"],
+  ["01/09/2018", "10", "23", "658 dias"]
 ];
 const tableTotal = ["Total", "5", "5", ""];
 const tableTotalRedeem = ["Hoy", "100", "100", "365 dias"];
@@ -57,6 +58,13 @@ export default class MembershipTab extends Component {
     super(props);
     this.state = {
       flip: false,
+      list: []
+    };
+  }
+
+  componentDidMount() {
+    console.log("El componente está disponible en el DOM");
+    this.setState({
       list: [
         {
           title: "Getting Started",
@@ -101,7 +109,7 @@ export default class MembershipTab extends Component {
           points: "60"
         }
       ]
-    };
+    });
   }
 
   renderHeader(section) {
@@ -124,14 +132,13 @@ export default class MembershipTab extends Component {
     );
   }
 
-  addColor = (index) => {
-      if (index%2!=0)
-        return true;
-      else
-        return false;
-    };
+  displayContent() {
+    console.log("ççççççççççççççççççççthis content!: ", this.state);
+    return true;
+  }
 
-  renderContent(section) {
+  renderContent = section => {
+    console.log("renderContentSTATE-----------------------this: ", this.state);
     return (
       <CardFlip style={styles.cardContainer} ref={card => (flip = card)}>
         <View style={styles.containerContent}>
@@ -277,7 +284,9 @@ export default class MembershipTab extends Component {
             <View style={styles.contentDetail}>
               <View style={styles.imageBackGround}>
                 <View style={styles.contentTopDetail}>
-                  <Text style={styles.textCoupondRedeem}>Cupones redimidos</Text>
+                  <Text style={styles.textCoupondRedeem}>
+                    Cupones redimidos
+                  </Text>
                   <TouchableOpacity
                     style={styles.contentDetailBack}
                     onPress={() => {
@@ -296,14 +305,35 @@ export default class MembershipTab extends Component {
                     <Row
                       data={tableHeadRedeem}
                       flexArr={[2, 1, 1, 1]}
-                      style={[styles.headDetail, {backgroundColor: section.color}]}
+                      style={[
+                        styles.headDetail,
+                        { backgroundColor: section.color }
+                      ]}
                       textStyle={styles.textHeadDetail}
                     />
                     {tableDataRedeem.map((rowData, index) => (
-                      <TableWrapper key={index} style={ index%2!=0 ? [styles.wrapperDetail, {backgroundColor: section.color}]: styles.wrapperDetail}>
+                      <TableWrapper
+                        key={index}
+                        style={
+                          index % 2 != 0 ? (
+                            [
+                              styles.wrapperDetail,
+                              { backgroundColor: section.color }
+                            ]
+                          ) : (
+                            styles.wrapperDetail
+                          )
+                        }
+                      >
                         {rowData.map((cellData, cellIndex) => (
                           <Cell
-                            style={cellIndex === 0 ? styles.cellStyleT : styles.cellStyle}
+                            style={
+                              cellIndex === 0 ? (
+                                styles.cellStyleT
+                              ) : (
+                                styles.cellStyle
+                              )
+                            }
                             key={cellIndex}
                             data={
                               cellIndex === 3 ? (
@@ -326,6 +356,14 @@ export default class MembershipTab extends Component {
                       textStyle={styles.textHead}
                     />
                   </Table>
+                  <TouchableOpacity
+                    onPress={() => {
+                      this.setState({ flip: true });
+                      console.log("cargar mas,", this.state.flip);
+                    }}
+                  >
+                    <Text style={styles.textDataDetailLoad}>Cargas mas</Text>
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
@@ -333,18 +371,14 @@ export default class MembershipTab extends Component {
         </View>
       </CardFlip>
     );
-  }
+  };
 
   render() {
+    console.log("render-----------------------this: ", this.state);
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.scrollArea}>
-          <AccordionList
-            list={this.state.list}
-            header={this.renderHeader}
-            body={this.renderContent}
-          />
-        </ScrollView>
+        <ScrollView style={styles.scrollArea} />
+        
       </View>
     );
   }
@@ -817,11 +851,21 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)"
   },
   textData: {
+    margin: 6
+  },
+  textDataData: {
     margin: 6,
-    color: "rgba(247,242,242,1)"
+    color: "#000000",
+    height: 16,
+    alignSelf: "stretch",
+    fontSize: 13
   },
   textDataDetail: {
     margin: 6
+  },
+  textDataDetailLoad: {
+    margin: 6,
+    textAlign: "center"
   },
   tableStyle: {
     borderWidth: 0,
@@ -870,7 +914,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     borderRadius: 20,
     alignSelf: "stretch",
-    backgroundColor: "rgba(255,255,255,1)",
+    backgroundColor: "rgba(255,255,255,1)"
   },
   contentTopDetail: {
     height: 74,
@@ -908,11 +952,73 @@ const styles = StyleSheet.create({
     flex: 1
   },
   cellStyle: {
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    width: "20%",
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    width: "20%"
   },
   cellStyleT: {
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    width: "40%"
+  },
+  tableData: {
+    top: 0,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    bottom: 0
+  },
+  row: {
+    backgroundColor: "#ffffff",
+    padding: 15,
+    paddingTop: 10,
+    paddingBottom: 10,
+    flexDirection: "row",
+    height: 40
+  },
+
+  rect4: {
+    backgroundColor: "#999999",
+    left: 15,
+    height: 2
+  },
+  cellOne: {
     width: "40%",
+    alignSelf: "stretch",
+    flexDirection: "column"
+  },
+  cellTwo: {
+    width: "20%",
+    alignSelf: "stretch"
+  },
+  cellThree: {
+    width: "20%",
+    alignSelf: "stretch"
+  },
+  cellFour: {
+    width: "20%",
+    alignSelf: "stretch"
+  },
+  textEvent: {
+    height: 12,
+    backgroundColor: "transparent",
+    alignSelf: "stretch",
+    fontSize: 13
+  },
+  textPointsData: {
+    top: 0,
+    left: 0,
+    height: 11,
+    position: "absolute",
+    backgroundColor: "transparent",
+    right: 0,
+    fontSize: 13
+  },
+  textView: {
+    top: 0,
+    left: 0,
+    height: 11,
+    position: "absolute",
+    backgroundColor: "transparent",
+    right: 0,
+    fontSize: 13
   }
 });
