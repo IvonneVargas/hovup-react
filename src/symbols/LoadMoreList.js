@@ -41,7 +41,6 @@ export default class LoadMoreList extends Component {
     
     for (; currLayer < loadLayer; currLayer++) {
 
-      //list.push({num: Math.random(), layer: currLayer});
       list.push({
         key: "1",
         date: "01/09/2018",
