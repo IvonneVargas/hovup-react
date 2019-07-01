@@ -25,6 +25,12 @@ import {
 import { Center } from "@builderx/utils";
 import CardFlip from "react-native-card-flip";
 import { AccordionList } from "accordion-collapse-react-native";
+import { ListView, GotoTopCreator } from 'react-native-refreshable-useful';
+const ListViewWithScrollController = GotoTopCreator ( ListView );
+
+import LoadMoreList from "../symbols/LoadMoreList";
+
+import ExampleSwipeout from 'react-native-refreshable-useful/example/listView';
 
 const tableHead = ["Nombre", "Eventos", "Puntos", "Detalles"];
 const tableHeadRedeem = ["Fecha", "Eventos", "Puntos", "Expiracion"];
@@ -52,21 +58,7 @@ const tableDataRedeem = [
 ];
 const tableTotal = ["Total", "5", "5", ""];
 const tableTotalRedeem = ["Hoy", "100", "100", "365 dias"];
-
-export default class MembershipTab extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      flip: false,
-      list: []
-    };
-  }
-
-  componentDidMount() {
-    console.log("El componente está disponible en el DOM");
-    this.setState({
-      list: [
-        {
+const dataFlip = [{
           title: "Getting Started",
           id: "1234 5671",
           color: "#F9060A",
@@ -107,10 +99,10 @@ export default class MembershipTab extends Component {
           id: "1234 5671",
           color: "#F74302",
           points: "60"
-        }
-      ]
-    });
-  }
+        }];
+
+
+export default class MembershipTab extends Component {
 
   renderHeader(section) {
     return (
@@ -132,13 +124,7 @@ export default class MembershipTab extends Component {
     );
   }
 
-  displayContent() {
-    console.log("ççççççççççççççççççççthis content!: ", this.state);
-    return true;
-  }
-
   renderContent = section => {
-    console.log("renderContentSTATE-----------------------this: ", this.state);
     return (
       <CardFlip style={styles.cardContainer} ref={card => (flip = card)}>
         <View style={styles.containerContent}>
@@ -301,69 +287,8 @@ export default class MembershipTab extends Component {
                   </TouchableOpacity>
                 </View>
                 <View style={styles.contentBottomDetail}>
-                  <Table borderStyle={styles.tableStyle}>
-                    <Row
-                      data={tableHeadRedeem}
-                      flexArr={[2, 1, 1, 1]}
-                      style={[
-                        styles.headDetail,
-                        { backgroundColor: section.color }
-                      ]}
-                      textStyle={styles.textHeadDetail}
-                    />
-                    {tableDataRedeem.map((rowData, index) => (
-                      <TableWrapper
-                        key={index}
-                        style={
-                          index % 2 != 0 ? (
-                            [
-                              styles.wrapperDetail,
-                              { backgroundColor: section.color }
-                            ]
-                          ) : (
-                            styles.wrapperDetail
-                          )
-                        }
-                      >
-                        {rowData.map((cellData, cellIndex) => (
-                          <Cell
-                            style={
-                              cellIndex === 0 ? (
-                                styles.cellStyleT
-                              ) : (
-                                styles.cellStyle
-                              )
-                            }
-                            key={cellIndex}
-                            data={
-                              cellIndex === 3 ? (
-                                <TouchableOpacity onPress={() => flipT.flip()}>
-                                  <Text style={styles.textDataDetail}>Ver</Text>
-                                </TouchableOpacity>
-                              ) : (
-                                cellData
-                              )
-                            }
-                            textStyle={styles.textDataDetail}
-                          />
-                        ))}
-                      </TableWrapper>
-                    ))}
-                    <Row
-                      data={tableTotalRedeem}
-                      flexArr={[2, 1, 1, 1]}
-                      style={styles.head}
-                      textStyle={styles.textHead}
-                    />
-                  </Table>
-                  <TouchableOpacity
-                    onPress={() => {
-                      this.setState({ flip: true });
-                      console.log("cargar mas,", this.state.flip);
-                    }}
-                  >
-                    <Text style={styles.textDataDetailLoad}>Cargas mas</Text>
-                  </TouchableOpacity>
+                  <LoadMoreList/>
+                  <Text style={styles.textDataDetailLoad}>Cargas mas</Text>
                 </View>
               </View>
             </View>
@@ -377,8 +302,13 @@ export default class MembershipTab extends Component {
     console.log("render-----------------------this: ", this.state);
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.scrollArea} />
-        
+        <ScrollView style={styles.scrollArea}>
+          <AccordionList
+            list={dataFlip}
+            header={this.renderHeader}
+            body={this.renderContent}
+          />
+        </ScrollView>
       </View>
     );
   }
@@ -851,14 +781,8 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)"
   },
   textData: {
-    margin: 6
-  },
-  textDataData: {
     margin: 6,
-    color: "#000000",
-    height: 16,
-    alignSelf: "stretch",
-    fontSize: 13
+    color: "rgba(255,255,255,1)"
   },
   textDataDetail: {
     margin: 6
@@ -965,60 +889,5 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 0,
     bottom: 0
-  },
-  row: {
-    backgroundColor: "#ffffff",
-    padding: 15,
-    paddingTop: 10,
-    paddingBottom: 10,
-    flexDirection: "row",
-    height: 40
-  },
-
-  rect4: {
-    backgroundColor: "#999999",
-    left: 15,
-    height: 2
-  },
-  cellOne: {
-    width: "40%",
-    alignSelf: "stretch",
-    flexDirection: "column"
-  },
-  cellTwo: {
-    width: "20%",
-    alignSelf: "stretch"
-  },
-  cellThree: {
-    width: "20%",
-    alignSelf: "stretch"
-  },
-  cellFour: {
-    width: "20%",
-    alignSelf: "stretch"
-  },
-  textEvent: {
-    height: 12,
-    backgroundColor: "transparent",
-    alignSelf: "stretch",
-    fontSize: 13
-  },
-  textPointsData: {
-    top: 0,
-    left: 0,
-    height: 11,
-    position: "absolute",
-    backgroundColor: "transparent",
-    right: 0,
-    fontSize: 13
-  },
-  textView: {
-    top: 0,
-    left: 0,
-    height: 11,
-    position: "absolute",
-    backgroundColor: "transparent",
-    right: 0,
-    fontSize: 13
   }
 });

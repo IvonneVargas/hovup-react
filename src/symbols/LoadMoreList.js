@@ -223,5 +223,36 @@ const S = StyleSheet.create({
   cellFour: {
     width: "20%",
     alignSelf: "stretch"
+  },
+  textEvent: {
+    height: 16,
+    backgroundColor: "transparent",
+    alignSelf: "stretch",
+    fontSize: 13
+  },
+  textPointsData: {
+    top: 0,
+    left: 0,
+    height: 16,
+    position: "absolute",
+    backgroundColor: "transparent",
+    right: 0,
+    fontSize: 13
+  },
+  textView: {
+    top: 0,
+    left: 0,
+    height: 16,
+    position: "absolute",
+    backgroundColor: "transparent",
+    right: 0,
+    fontSize: 13
+  },
+  textDataData: {
+    margin: 6,
+    color: "#000000",
+    height: 16,
+    alignSelf: "stretch",
+    fontSize: 13
   }
 });
