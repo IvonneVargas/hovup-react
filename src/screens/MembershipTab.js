@@ -25,12 +25,8 @@ import {
 import { Center } from "@builderx/utils";
 import CardFlip from "react-native-card-flip";
 import { AccordionList } from "accordion-collapse-react-native";
-import { ListView, GotoTopCreator } from 'react-native-refreshable-useful';
-const ListViewWithScrollController = GotoTopCreator ( ListView );
 
 import LoadMoreList from "../symbols/LoadMoreList";
-
-import ExampleSwipeout from 'react-native-refreshable-useful/example/listView';
 
 const tableHead = ["Nombre", "Eventos", "Puntos", "Detalles"];
 const tableHeadRedeem = ["Fecha", "Eventos", "Puntos", "Expiracion"];
@@ -287,7 +283,17 @@ export default class MembershipTab extends Component {
                   </TouchableOpacity>
                 </View>
                 <View style={styles.contentBottomDetail}>
-                  <LoadMoreList/>
+                <Table borderStyle={styles.tableStyle}>
+                    <Row
+                      data={tableHeadRedeem}
+                      flexArr={[2, 1, 1, 1]}
+                      style={[styles.headDetail, {backgroundColor: section.color}]}
+                      textStyle={styles.textHeadDetail}
+                    />
+                </Table>
+                  <LoadMoreList
+                    section={section}
+                  />
                   <Text style={styles.textDataDetailLoad}>Cargas mas</Text>
                 </View>
               </View>
