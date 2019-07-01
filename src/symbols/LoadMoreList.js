@@ -38,7 +38,7 @@ export default class LoadMoreList extends Component {
     let loadLayer = currLayer + this.pageSize;
 
     if ( loadLayer > 100 ) loadLayer -= 1; // hasMore = false
-
+    
     for (; currLayer < loadLayer; currLayer++) {
 
       //list.push({num: Math.random(), layer: currLayer});
@@ -68,9 +68,16 @@ export default class LoadMoreList extends Component {
 
   renderRow ( { item, index } ) {
 
-    return (<View style={S.row}>
+    return (<View style={index % 2 != 0 ? (
+                            [
+                              S.row,
+                              { backgroundColor: this.props.section.color + "1A" }
+                            ]
+                          ) : (
+                            S.row
+                          )}>
                 <View style={S.cellOne}>
-                  <Text style={S.textDataData}>{item.name}</Text>
+                  <Text style={S.textDataData}>{item.date}</Text>
                 </View>
                 <View style={S.cellTwo}>
                   <Text style={S.textEvent}>{item.events}</Text>
@@ -173,7 +180,7 @@ const S = StyleSheet.create({
   },
   row: {
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     flexDirection: 'row',
     padding: 6
   },
@@ -193,15 +200,6 @@ const S = StyleSheet.create({
     height: 40,
     resizeMode: 'contain'
   },
-  row: {
-    backgroundColor: "#ffffff",
-    padding: 15,
-    paddingTop: 10,
-    paddingBottom: 10,
-    flexDirection: "row",
-    height: 40
-  },
-
   rect4: {
     backgroundColor: "#999999",
     left: 15,
