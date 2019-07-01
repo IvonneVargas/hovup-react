@@ -32,6 +32,7 @@
     "react-native-card-flip": "^1.0.4",
     "react-native-modal-datetime-picker": "^7.4.2",
     "react-native-numeric-input": "1.8.0",
+    "react-native-refreshable-useful": "^1.5.2",
     "react-native-swipeout": "^2.3.6",
     "react-native-table-component": "^1.2.0",
     "react-navigation": "1.2.1"
