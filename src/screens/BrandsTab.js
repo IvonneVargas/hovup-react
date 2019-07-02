@@ -33,7 +33,7 @@ export default class BrandsTab extends Component {
     return (
       <View style={styles.root}>
         <View style={styles.background} />
-          {this.displayContent()}
+        {this.displayContent()}
       </View>
     );
   }
@@ -134,7 +134,7 @@ export default class BrandsTab extends Component {
           </Text>
           <Icon
             style={styles.iconmembership}
-            name="bookmark-remove"
+            name="star-circle"
             type="MaterialCommunityIcons"
           />
         </View>
@@ -791,7 +791,8 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
 
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "space-around",
+    flexDirection: "column"
   },
   listContentBrand: {
     height: "60%",
@@ -943,11 +944,11 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   iconmembership: {
-    width: 40,
-    height: 40,
+    width: 33,
+    height: 35,
     backgroundColor: "transparent",
     color: "rgba(253,0,0,1)",
-    fontSize: 40,
+    fontSize: 35,
     alignSelf: "flex-start"
   },
   all: {
