@@ -57,13 +57,6 @@ export default class BottomViewBar extends Component {
     );
   }
 
-  changeFav() {
-    this.setState({
-      display: "fav"
-    });
-    console.log("this.setState, ", this.state.display);
-  }
-
   displayContent() {
     var typeT = this.props.navigation.getParam("type", this.props.type);
     console.log("this.state.display, ", this.state.display);
