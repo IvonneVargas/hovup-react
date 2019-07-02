@@ -316,7 +316,7 @@ export default class MembershipTab extends Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollArea}>
-           <AccordionList
+          <AccordionList
             list={dataFlip}
             header={this.renderHeader}
             body={this.renderContent}
