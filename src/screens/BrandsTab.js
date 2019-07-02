@@ -9,6 +9,7 @@ import Icon from "@builderx/icons";
 import NumericInput from "react-native-numeric-input";
 
 import GenericButton from "../symbols/GenericButton";
+import TabViewButton from "../symbols/TabViewButton";
 import {
   View,
   StyleSheet,
@@ -24,14 +25,15 @@ export default class BrandsTab extends Component {
     super();
 
     this.state = {
-      pieces: 1
+      pieces: 1,
+      active: 1
     };
   }
   render() {
     return (
       <View style={styles.root}>
         <View style={styles.background} />
-        {this.displayContent()}
+          {this.displayContent()}
       </View>
     );
   }
@@ -250,9 +252,32 @@ export default class BrandsTab extends Component {
         <View style={styles.all}>
           <View style={styles.rectTabs} navigation={this.props.navigation}>
             <View style={styles.rectTabsContainer}>
-              <TabB style={styles.tabB} text="Publico" />
-              <TabB style={styles.tabB3} text="VIP" />
-              <TabB style={styles.tabB2} text="Privado" />
+              <TabViewButton
+                style={styles.tabViewButton}
+                navigation={this.props.navigation}
+                text="Publico"
+                active={this.state.active}
+                button={() => {
+                  console.log("pres publico");
+                  this.setState({
+                    active: 1
+                  });
+                }}
+                text2="VIP"
+                button2={() => {
+                  console.log("pres vip");
+                  this.setState({
+                    active: 2
+                  });
+                }}
+                text3="Privado"
+                button3={() => {
+                  console.log("pres priv");
+                  this.setState({
+                    active: 3
+                  });
+                }}
+              />
             </View>
             <View style={styles.rectCatDown}>
               <CatDown
@@ -681,9 +706,10 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     top: 84,
-    bottom: 0,
-    height: 728,
-    alignSelf: "stretch"
+    bottom: 0.4,
+
+    alignSelf: "stretch",
+    height: 656.6
   },
   fav: {
     alignItems: "center",
@@ -958,7 +984,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "rgba(101,188,70,1)",
     borderBottomLeftRadius: 8,
-    borderTopLeftRadius: 8
+    borderTopLeftRadius: 8,
+    display: "none"
   },
   tabB3: {
     width: 100,
@@ -966,7 +993,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(25,39,52,1)",
     opacity: 1,
     borderWidth: 1,
-    borderColor: "rgba(101,188,70,1)"
+    borderColor: "rgba(101,188,70,1)",
+    display: "none"
   },
   tabB2: {
     width: 100,
@@ -976,7 +1004,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "rgba(101,188,70,1)",
     borderBottomRightRadius: 8,
-    borderTopRightRadius: 8
+    borderTopRightRadius: 8,
+    display: "none"
   },
   rect3: {
     width: 375,
@@ -1262,11 +1291,13 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   rectTabsContainer: {
-    width: 375,
-    height: 32,
-    flexDirection: "row",
+    width: 376,
+
+    flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    height: 67.7,
+    alignSelf: "center"
   },
   rectCatDown: {
     width: 375,
@@ -1278,5 +1309,9 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,1)",
     marginBottom: 20,
     paddingBottom: 35
+  },
+  tabViewButton: {
+    alignSelf: "center",
+    flex: 1
   }
 });
