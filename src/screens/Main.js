@@ -4,6 +4,7 @@ import { Center } from "@builderx/utils";
 import LayoutStatusBar from "../symbols/LayoutStatusBar";
 import HeaderSettings from "../symbols/HeaderSettings";
 import { TabView, TabContent } from "@builderx/tab-view";
+import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 
 import Colors from "../assets/colors";
 import Zones from "./ZonesTab";
@@ -11,7 +12,29 @@ import Membership from "./MembershipTab";
 import Brands from "./BrandsTab";
 
 export default class Main extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      index: 0,
+      routes: [
+        { key: 'first', title: 'Membresias' },
+        { key: 'second', title: 'Marcas' },
+        { key: 'third', title: 'Tiendas' },
+        { key: 'fourth', title: 'Zonas' },
+      ]
+    };
+  }
   render() {
+    const BrandTab = () => (
+      <Brands style={styles.text2} navigation={this.props.navigation} type={"Brand"}/>
+    );
+    const MembershipTab = () => (
+      <Membership style={styles.text2} navigation={this.props.navigation} />
+    );
+    const ZonesTab = () => (
+      <Zones style={styles.text2} />
+    );
     return (
       <View style={styles.root}>
         <StatusBar barStyle="light-content" style={styles.statusBar} />
@@ -20,45 +43,25 @@ export default class Main extends Component {
           style={styles.headerSettings}
           navigation={this.props.navigation}
         />
-        <TabView
+        <TabViewAnimated
           style={styles.tab}
-          tabBarStyle={styles.tab_tabBarStyle}
-          tabIndicatorStyle={styles.tab_tabIndicatorStyle}
-          activeTabIndex={0}
-          tabLabelStyle={styles.tab_tabLabelStyle}
-        >
-          <TabContent title="Membresias">
-            <View style={styles.rect}>
-              <Membership
-                style={styles.text2}
-                navigation={this.props.navigation}
-              />
-            </View>
-          </TabContent>
-          <TabContent title="Marcas">
-            <View style={styles.rect2}>
-              <Brands
-                style={styles.text2}
-                navigation={this.props.navigation}
-                type={"Brand"}
-              />
-            </View>
-          </TabContent>
-          <TabContent title="Tiendas">
-            <View style={styles.B5Rgjj}>
-              <Brands
-                style={styles.text2}
-                navigation={this.props.navigation}
-                type={"Store"}
-              />
-            </View>
-          </TabContent>
-          <TabContent title="Zonas">
-            <View style={styles.R4vQBS}>
-              <Zones style={styles.text2} />
-            </View>
-          </TabContent>
-        </TabView>
+          navigationState={this.state}
+          renderScene={SceneMap({
+              first: MembershipTab,
+              second: BrandTab,
+              third: BrandTab,
+              fourth: ZonesTab,
+            })}
+          onIndexChange={index => this.setState({ index })}
+          renderHeader={(props: any) => (
+            <TabBar
+              {...props}
+              style={styles.tab_tabBarStyle}
+              indicatorStyle={styles.tab_tabIndicatorStyle}
+              labelStyle={styles.tab_tabLabelStyle}
+            />
+          )}
+        />
       </View>
     );
   }
