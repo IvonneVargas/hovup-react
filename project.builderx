@@ -46,13 +46,14 @@
         "/src/symbols/Subtitle.js",
         "/src/symbols/TitleFive.js",
         "/src/symbols/DescriptionFive.js",
-        "/src/symbols/LineView.js"
+        "/src/symbols/LineView.js",
+        "/src/symbols/LoadMoreList.js"
     ],
     "assets": [],
     "defaultArtboardDirectory": "/src/screens",
     "defaultSymbolDirectory": "/src/symbols",
     "defaultAssetDirectory": "/src/assets",
-    "deviceName": "Samsung Note 8",
+    "deviceName": "iPhone X",
     "deviceOrientation": "portrait",
     "basePath": "/Users/ivonne/native/hovup-react",
     "tempPath": "/var/folders/3q/5_vntp2d5w773kcscg179xbc0000gn/T/BuilderAKjHBlN",
