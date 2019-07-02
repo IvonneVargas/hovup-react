@@ -4,7 +4,7 @@ import { Center } from "@builderx/utils";
 import LayoutStatusBar from "../symbols/LayoutStatusBar";
 import HeaderSettings from "../symbols/HeaderSettings";
 import { TabView, TabContent } from "@builderx/tab-view";
-import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
+import { TabViewAnimated, TabBar, SceneMap } from "react-native-tab-view";
 
 import Colors from "../assets/colors";
 import Zones from "./ZonesTab";
@@ -18,23 +18,25 @@ export default class Main extends Component {
     this.state = {
       index: 0,
       routes: [
-        { key: 'first', title: 'Membresias' },
-        { key: 'second', title: 'Marcas' },
-        { key: 'third', title: 'Tiendas' },
-        { key: 'fourth', title: 'Zonas' },
+        { key: "first", title: "Membresias" },
+        { key: "second", title: "Marcas" },
+        { key: "third", title: "Tiendas" },
+        { key: "fourth", title: "Zonas" }
       ]
     };
   }
   render() {
     const BrandTab = () => (
-      <Brands style={styles.text2} navigation={this.props.navigation} type={"Brand"}/>
+      <Brands
+        style={styles.text2}
+        navigation={this.props.navigation}
+        type={"Brand"}
+      />
     );
     const MembershipTab = () => (
       <Membership style={styles.text2} navigation={this.props.navigation} />
     );
-    const ZonesTab = () => (
-      <Zones style={styles.text2} />
-    );
+    const ZonesTab = () => <Zones style={styles.text2} />;
     return (
       <View style={styles.root}>
         <StatusBar barStyle="light-content" style={styles.statusBar} />
@@ -47,11 +49,11 @@ export default class Main extends Component {
           style={styles.tab}
           navigationState={this.state}
           renderScene={SceneMap({
-              first: MembershipTab,
-              second: BrandTab,
-              third: BrandTab,
-              fourth: ZonesTab,
-            })}
+            first: MembershipTab,
+            second: BrandTab,
+            third: BrandTab,
+            fourth: ZonesTab
+          })}
           onIndexChange={index => this.setState({ index })}
           renderHeader={(props: any) => (
             <TabBar
