@@ -16,8 +16,7 @@ export default class TabViewButton extends Component {
             styles.button,
             {
               backgroundColor:
-                this.props.active == 1 ? "rgba(126,211,33,1)" : "transparent",
-              opacity: 1
+                this.props.active == 1 ? "rgba(101,188,70,1)" : "transparent"
             }
           ]}
           onPress={this.props.button ? this.props.button : null}
@@ -31,8 +30,7 @@ export default class TabViewButton extends Component {
             styles.button2,
             {
               backgroundColor:
-                this.props.active == 2 ? "rgba(126,211,33,1)" : "transparent",
-              opacity: 1
+                this.props.active == 2 ? "rgba(101,188,70,1)" : "transparent"
             }
           ]}
           onPress={this.props.button2 ? this.props.button2 : null}
@@ -46,8 +44,7 @@ export default class TabViewButton extends Component {
             styles.button3,
             {
               backgroundColor:
-                this.props.active == 3 ? "rgba(126,211,33,1)" : "transparent",
-              opacity: 1
+                this.props.active == 3 ? "rgba(101,188,70,1)" : "transparent"
             }
           ]}
           onPress={this.props.button3 ? this.props.button3 : null}
@@ -69,9 +66,10 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     borderWidth: 1,
     borderColor: "rgba(126,211,33,1)",
-    borderRadius: 5,
-    borderBottomLeftRadius: 5,
-    borderTopLeftRadius: 5
+    borderRadius: 0,
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 5,
+    borderBottomLeftRadius: 5
   },
   text: {
     width: 97.55,
@@ -105,8 +103,9 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     borderWidth: 1,
     borderColor: "rgba(126,211,33,1)",
-    borderBottomRightRadius: 5,
-    borderTopRightRadius: 5
+    borderRadius: 0,
+    borderTopRightRadius: 5,
+    borderBottomRightRadius: 5
   },
   text3: {
     width: 99,
