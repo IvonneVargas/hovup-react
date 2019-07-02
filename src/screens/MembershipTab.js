@@ -96,6 +96,12 @@ const dataFlip = [
     id: "1234 5671",
     color: "#F74302",
     points: "60"
+  },
+  {
+    title: "Getting Started",
+    id: "1234 5671",
+    color: "#F74302",
+    points: "60"
   }
 ];
 
@@ -277,7 +283,7 @@ export default class MembershipTab extends Component {
                   >
                     <Image
                       style={styles.flipDetail}
-                      source={require("../assets/flip.png")}
+                      source={require("../assets/reload.png")}
                     />
                     <Text style={styles.textBack}>Back</Text>
                   </TouchableOpacity>
@@ -870,8 +876,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   flipDetail: {
-    width: 51,
-    height: 22
+    width: 30,
+    height: 30
   },
   textBack: {
     width: 31,
