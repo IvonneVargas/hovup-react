@@ -54,52 +54,52 @@ const tableDataRedeem = [
 ];
 const tableTotal = ["Total", "5", "5", ""];
 const tableTotalRedeem = ["Hoy", "100", "100", "365 dias"];
-const dataFlip = [{
-          title: "Getting Started",
-          id: "1234 5671",
-          color: "#F9060A",
-          points: "10"
-        },
-        {
-          title: "Getting Started",
-          id: "1234 5671",
-          color: "#DC045E",
-          points: "20"
-        },
-        {
-          title: "Getting Started",
-          id: "1234 5671",
-          color: "#7D09F9",
-          points: "30"
-        },
-        {
-          title: "Getting Started",
-          id: "1234 5671",
-          color: "#10FA03",
-          points: "40"
-        },
-        {
-          title: "Getting Started",
-          id: "1234 5671",
-          color: "#10FA03",
-          points: "50"
-        },
-        {
-          title: "Getting Started",
-          id: "1234 5671",
-          color: "#F4E301",
-          points: "60"
-        },
-        {
-          title: "Getting Started",
-          id: "1234 5671",
-          color: "#F74302",
-          points: "60"
-        }];
-
+const dataFlip = [
+  {
+    title: "Getting Started",
+    id: "1234 5671",
+    color: "#F9060A",
+    points: "10"
+  },
+  {
+    title: "Getting Started",
+    id: "1234 5671",
+    color: "#DC045E",
+    points: "20"
+  },
+  {
+    title: "Getting Started",
+    id: "1234 5671",
+    color: "#7D09F9",
+    points: "30"
+  },
+  {
+    title: "Getting Started",
+    id: "1234 5671",
+    color: "#10FA03",
+    points: "40"
+  },
+  {
+    title: "Getting Started",
+    id: "1234 5671",
+    color: "#10FA03",
+    points: "50"
+  },
+  {
+    title: "Getting Started",
+    id: "1234 5671",
+    color: "#F4E301",
+    points: "60"
+  },
+  {
+    title: "Getting Started",
+    id: "1234 5671",
+    color: "#F74302",
+    points: "60"
+  }
+];
 
 export default class MembershipTab extends Component {
-
   renderHeader(section) {
     return (
       <View style={styles.header}>
@@ -283,17 +283,18 @@ export default class MembershipTab extends Component {
                   </TouchableOpacity>
                 </View>
                 <View style={styles.contentBottomDetail}>
-                <Table borderStyle={styles.tableStyle}>
+                  <Table borderStyle={styles.tableStyle}>
                     <Row
                       data={tableHeadRedeem}
                       flexArr={[2, 1, 1, 1]}
-                      style={[styles.headDetail, {backgroundColor: section.color}]}
+                      style={[
+                        styles.headDetail,
+                        { backgroundColor: section.color }
+                      ]}
                       textStyle={styles.textHeadDetail}
                     />
-                </Table>
-                  <LoadMoreList
-                    section={section}
-                  />
+                  </Table>
+                  <LoadMoreList section={section} />
                   <Text style={styles.textDataDetailLoad}>Cargas mas</Text>
                 </View>
               </View>
@@ -309,7 +310,7 @@ export default class MembershipTab extends Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.scrollArea}>
-          <AccordionList
+           <AccordionList
             list={dataFlip}
             header={this.renderHeader}
             body={this.renderContent}
