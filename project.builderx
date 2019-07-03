@@ -636,6 +636,22 @@
                     "y": 77.02209918002302
                 },
                 "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 250.81850552172568,
+                    "y": 126.98668593250068
+                },
+                "horizontal": true
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 271.11038290845283,
+                    "y": 245.35597068840943
+                },
+                "horizontal": true
             }
         ]
     },
