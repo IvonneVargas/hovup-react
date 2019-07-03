@@ -27,7 +27,10 @@ export default class Launcher extends Component {
         <StatusBar barStyle="light-content" style={styles.statusBar} />
         <View style={styles.background}>
           <LayoutStatusBar style={styles.layoutStatusBar} />
-          <View style={styles.rect} navigation={this.props.navigation}>
+          <ScrollView
+            style={styles.scrollArea}
+            navigation={this.props.navigation}
+          >
             <LogoR style={styles.logoR} />
             <View style={styles.containerButtons}>
               <Text style={styles.text2}>Inicia sesion o crea una cuenta</Text>
@@ -62,7 +65,7 @@ export default class Launcher extends Component {
                 text="Iniciar como invitado"
               />
             </View>
-          </View>
+          </ScrollView>
         </View>
       </View>
     );
@@ -118,26 +121,25 @@ const styles = StyleSheet.create({
     height: Platform.OS === "android" ? 26.25 : 34,
     alignSelf: "stretch"
   },
-  rect: {
-    alignItems: "center",
+  scrollArea: {
     backgroundColor: "#192734",
     opacity: 1,
     alignSelf: "stretch",
     flex: 1,
-    justifyContent: "center",
     flexGrow: undefined
   },
   logoR: {
     width: 265,
     height: 164,
-    marginTop: 0,
+    marginTop: 60,
     alignSelf: "center"
   },
   containerButtons: {
-    width: 375,
     height: 336,
+    flexDirection: "column",
     alignItems: "center",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    alignSelf: "stretch"
   },
   text2: {
     width: 262,
