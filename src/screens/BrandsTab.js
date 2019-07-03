@@ -1282,29 +1282,28 @@ const styles = StyleSheet.create({
   rectTabs: {
     top: 2,
     left: 0,
-    width: 376,
+
     height: 80,
     position: "absolute",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "rgba(25,39,52,1)",
-    opacity: 1
+    opacity: 1,
+    right: 0
   },
   rectTabsContainer: {
-    width: 376,
-
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     height: 67.7,
-    alignSelf: "center"
+    alignSelf: "stretch"
   },
   rectCatDown: {
-    width: 375,
     height: 32,
     alignItems: "flex-start",
-    paddingLeft: 35
+    paddingLeft: 35,
+    alignSelf: "stretch"
   },
   picker: {
     backgroundColor: "rgba(255,255,255,1)",
@@ -1312,7 +1311,7 @@ const styles = StyleSheet.create({
     paddingBottom: 35
   },
   tabViewButton: {
-    alignSelf: "center",
+    alignSelf: "stretch",
     flex: 1
   }
 });
