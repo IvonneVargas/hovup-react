@@ -368,16 +368,16 @@ export default class BrandsTab extends Component {
                       source={require("../assets/ic_200x200.png")}
                       style={styles.image}
                     />
-                    <Icon
-                      name="ios-arrow-forward"
-                      style={styles.icon}
-                      type="Ionicons"
-                    />
                     <View style={styles.rect9}>
                       <Text style={styles.text2}>{item.key}</Text>
                       <Text style={styles.text}>{item.sub}</Text>
                       {this.showStar()}
                     </View>
+                    <Icon
+                      style={styles.icon}
+                      name="ios-arrow-forward"
+                      type="Ionicons"
+                    />
                   </TouchableOpacity>
                 </View>
               );
@@ -730,9 +730,8 @@ const styles = StyleSheet.create({
   },
 
   icon: {
-    top: Platform.OS === "android" ? 18 : 21.67,
-    left: Platform.OS === "android" ? 329 : 344,
-    position: "absolute",
+    top: Platform.OS === "android" ? 18 : undefined,
+    left: Platform.OS === "android" ? 329 : undefined,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     fontSize: 20
@@ -759,11 +758,9 @@ const styles = StyleSheet.create({
   },
   rect9: {
     height: 41,
-    width: 220,
-    top: 10,
-    left: 104,
-    position: "absolute",
-    justifyContent: "space-between"
+
+    justifyContent: "space-between",
+    flex: 1
   },
   rect11: {
     height: 39,
@@ -918,7 +915,8 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     opacity: 1,
-    width: Platform.OS === "android" ? 360 : undefined
+    width: Platform.OS === "android" ? 360 : undefined,
+    alignSelf: "stretch"
   },
   rect10: {
     backgroundColor: "rgba(25,39,52,1)",
@@ -1021,7 +1019,8 @@ const styles = StyleSheet.create({
   buttonsStyle: {
     alignItems: "center",
     flexDirection: "row",
-    margin: 0
+    margin: 0,
+    alignSelf: "stretch"
   },
   headerBack: {
     height: "7%",
