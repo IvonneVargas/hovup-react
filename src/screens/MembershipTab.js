@@ -422,16 +422,14 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   levelText: {
-    height: 13,
-
+    height: 16,
     backgroundColor: "transparent",
     textAlign: "center",
     width: 66.43
   },
   levelTextK: {
     width: 75,
-    height: 31.17,
-
+    height: 30,
     backgroundColor: "transparent",
     fontSize: 30,
     color: "rgba(249,249,249,1)",
@@ -440,7 +438,7 @@ const styles = StyleSheet.create({
   },
   textLevelL: {
     width: 25,
-    height: 13,
+    height: 16,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     alignSelf: "center"
