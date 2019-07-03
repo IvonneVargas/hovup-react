@@ -33,6 +33,13 @@ export default class Main extends Component {
         type={"Brand"}
       />
     );
+    const StoreTab = () => (
+      <Brands
+        style={styles.text2}
+        navigation={this.props.navigation}
+        type={"Store"}
+      />
+    );
     const MembershipTab = () => (
       <Membership style={styles.text2} navigation={this.props.navigation} />
     );
@@ -51,7 +58,7 @@ export default class Main extends Component {
           renderScene={SceneMap({
             first: MembershipTab,
             second: BrandTab,
-            third: BrandTab,
+            third: StoreTab,
             fourth: ZonesTab
           })}
           onIndexChange={index => this.setState({ index })}
