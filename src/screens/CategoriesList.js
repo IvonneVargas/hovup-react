@@ -7,6 +7,7 @@ import { View, StyleSheet, Platform, FlatList, Text } from "react-native";
 export default class CategoriesList extends Component {
   render() {
     const itemId = this.props.navigation.getParam("id", "NO-ID");
+    console.log("itemId:", itemId)
     var title = "";
     if (itemId === "1") {
       title = "Categorias";
@@ -20,14 +21,64 @@ export default class CategoriesList extends Component {
           <Header
             style={styles.header}
             navigation={this.props.navigation}
-            text="title"
+            text={title}
           />
           <FlatList
             style={styles.list}
+            data={[
+              {
+                key: "Titulo",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo2",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo3",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo4",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo5",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo6",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo7",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo8",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo9",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo10",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo11",
+                sub: "Descripcion"
+              },
+              {
+                key: "Titulo12",
+                sub: "Descripcion"
+              }
+            ]}
             renderItem={({ item, separators }) => {
               return (
                 <View style={styles.rect}>
-                  <Text style={styles.text}>List Item</Text>
+                  <Text style={styles.text}>{item.sub}</Text>
                 </View>
               );
             }}
