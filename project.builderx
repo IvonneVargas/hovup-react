@@ -134,8 +134,8 @@
             {
                 "deviceName": "iPhone X",
                 "position": {
-                    "x": -1277.5,
-                    "y": 915
+                    "x": -1284.5,
+                    "y": -287.977900819977
                 },
                 "horizontal": false
             }
@@ -600,6 +600,40 @@
                 "position": {
                     "x": 177.54334038054975,
                     "y": -200
+                },
+                "horizontal": false
+            }
+        ],
+        "/src/screens/Launcher.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 1.226374072620672,
+                    "y": 193.29469912948076
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 186.5,
+                    "y": -287.977900819977
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 54.5,
+                    "y": 83.02209918002302
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 320.5,
+                    "y": 77.02209918002302
                 },
                 "horizontal": false
             }
