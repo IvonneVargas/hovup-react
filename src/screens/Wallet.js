@@ -222,15 +222,15 @@ export default class Wallet extends Component {
                         source={require("../assets/ic_60x60.png")}
                         style={styles.imageS}
                       />
-                      <Icon
-                        name="ios-arrow-forward"
-                        style={styles.icon}
-                        type="Ionicons"
-                      />
                       <View style={styles.rect9}>
                         <Text style={styles.text6}>{item.key}</Text>
                         <Text style={styles.text7}>{item.sub}</Text>
                       </View>
+                      <Icon
+                        style={styles.icon}
+                        name="ios-arrow-forward"
+                        type="Ionicons"
+                      />
                     </TouchableOpacity>
                   </View>
                 );
@@ -436,12 +436,9 @@ const styles = StyleSheet.create({
     margin: 5
   },
   icon: {
-    top: Platform.OS === "android" ? 18 : 21.67,
-    left: Platform.OS === "android" ? 329 : 344,
-    position: "absolute",
     backgroundColor: "transparent",
-    color: "rgba(255,255,255,1)",
-    fontSize: 20
+    color: "grey",
+    fontSize: 40
   },
   buttonsStyle: {
     alignItems: "center",
@@ -529,12 +526,9 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   icon: {
-    top: 263.44,
-    left: 78.76,
-    position: "absolute",
     backgroundColor: "transparent",
     color: "grey",
-    fontSize: 40
+    fontSize: 30
   },
   button: {
     height: 64,
@@ -578,8 +572,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   headerBackSales: {
-    width: 376,
-    height: 55
+    height: 55,
+    alignSelf: "stretch"
   },
   contentSalesInto: {
     alignSelf: "stretch",
@@ -598,6 +592,7 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     padding: 0,
-    margin: 25
+    margin: 25,
+    textAlign: "center"
   }
 });
