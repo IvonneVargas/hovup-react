@@ -1,21 +1,24 @@
 import React, { Component } from "react";
 //import Background from "../symbols/Background";
-import LogoR from "../symbols/LogoR";
+
 import { Center } from "@builderx/utils";
 
-import Icon from "@builderx/icons";
 import { Constants } from "expo";
 
 import GenericButtonTransparent from "../symbols/GenericButtonTransparent";
 import GenericButton from "../symbols/GenericButton";
+import LayoutStatusBar from "../symbols/LayoutStatusBar";
+import LogoR from "../symbols/LogoR";
+import Icon from "@builderx/icons";
 import {
   View,
   StyleSheet,
-  ScrollView,
   StatusBar,
   Platform,
   Text,
-  TextInput
+  TextInput,
+  TouchableOpacity,
+  ScrollView
 } from "react-native";
 
 export default class Login extends Component {
@@ -23,18 +26,21 @@ export default class Login extends Component {
     return (
       <View style={styles.root}>
         <StatusBar barStyle="light-content" style={styles.statusBar} />
-        <ScrollView style={styles.scrollArea} />
-        <LogoR style={styles.logoR} />
-        {this.displayContent()}
-        <Icon
-          name="ios-arrow-back"
-          style={styles.icon}
-          type="Ionicons"
-          onPress={() => {
-            this.props.navigation.pop();
-          }}
-        />
-        <View style={styles.rect2} />
+        <View style={styles.background}>
+          <LayoutStatusBar style={styles.layoutStatusBar} />
+          <ScrollView style={styles.scrollArea}>
+            <Icon
+              style={styles.icon}
+              name="ios-arrow-back"
+              onPress={() => {
+                this.props.navigation.pop();
+              }}
+              type="Ionicons"
+            />
+            <LogoR style={styles.logoR} />
+            {this.displayContent()}
+          </ScrollView>
+        </View>
       </View>
     );
   }
@@ -139,7 +145,7 @@ export default class Login extends Component {
             navigation={this.props.navigation}
             text="Continuar"
             root={() => {
-              this.props.navigation.push("Launcher");
+              this.props.navigation.push("Login");
             }}
           />
         </View>
@@ -152,41 +158,17 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     flex: 1
   },
-  scrollArea: {
-    top: 0,
-    left: 0,
-    position: "absolute",
-    backgroundColor: "#192734",
-    right: 0,
-    bottom: 0,
-    opacity: 1
-  },
-  logoR: {
-    top: 107,
-    position: "absolute",
-    height: 163,
-    width: 268.13,
-    left: "14.71%"
-  },
-
-  icon: {
-    left: 18,
-    position: "absolute",
-    backgroundColor: "transparent",
-    color: "rgba(255,255,255,1)",
-    fontSize: 40,
-    top: "4.68%"
-  },
 
   statusBar: {},
-  rect2: {
-    height: Platform.OS === "android" ? 25 : 32,
+  background: {
+    height: Platform.OS === "android" ? 25 : undefined,
     top: 0,
     left: 0,
     position: "absolute",
-    backgroundColor: "rgba(48,61,73,1)",
+
     right: 0,
-    opacity: 1
+    bottom: 0,
+    flexDirection: "column"
   },
   rect3: {
     height: 202,
@@ -243,5 +225,32 @@ const styles = StyleSheet.create({
     height: 72.46,
     textAlign: "center",
     color: "rgba(243,243,243,1)"
+  },
+  layoutStatusBar: {
+    height: 34,
+    alignSelf: "stretch"
+  },
+  scrollArea: {
+    backgroundColor: "#192734",
+    opacity: 1,
+    flex: 1,
+    alignSelf: "stretch"
+  },
+  logoR: {
+    width: 265,
+    height: 164,
+    margin: 0,
+    marginTop: 60,
+    alignSelf: "center"
+  },
+  icon: {
+    top: 4,
+    left: 18,
+    width: 15,
+    height: 39,
+    position: "absolute",
+    backgroundColor: "transparent",
+    color: "rgba(255,255,255,1)",
+    fontSize: 40
   }
 });
