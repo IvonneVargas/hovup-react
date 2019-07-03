@@ -495,15 +495,15 @@ export default class BrandsTab extends Component {
                         source={require("../assets/ic_60x60.png")}
                         style={styles.image2}
                       />
+                      <View style={styles.rect11}>
+                        <Text style={styles.text2}>{item.key}</Text>
+                        <Text style={styles.text}>{item.sub}</Text>
+                      </View>
                       <Icon
                         name="ios-arrow-forward"
                         style={styles.icon}
                         type="Ionicons"
                       />
-                      <View style={styles.rect11}>
-                        <Text style={styles.text2}>{item.key}</Text>
-                        <Text style={styles.text}>{item.sub}</Text>
-                      </View>
                     </TouchableOpacity>
                   </View>
                 );
@@ -614,7 +614,7 @@ export default class BrandsTab extends Component {
                     <TouchableOpacity
                       style={styles.buttonsStyle}
                       onPress={() => {
-                        console.log("3Click,", item.level);
+                        console.log("2Click,", item.level);
                         this.props.navigation.push("BrandsTab", {
                           level: item.level,
                           type: typeT
@@ -625,15 +625,15 @@ export default class BrandsTab extends Component {
                         source={require("../assets/ic_60x60.png")}
                         style={styles.image2}
                       />
+                      <View style={styles.rect11}>
+                        <Text style={styles.text2}>{item.key}</Text>
+                        <Text style={styles.text}>{item.sub}</Text>
+                      </View>
                       <Icon
                         name="ios-arrow-forward"
                         style={styles.icon}
                         type="Ionicons"
                       />
-                      <View style={styles.rect11}>
-                        <Text style={styles.text2}>{item.key}</Text>
-                        <Text style={styles.text}>{item.sub}</Text>
-                      </View>
                     </TouchableOpacity>
                   </View>
                 );
@@ -715,9 +715,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     margin: 0,
-    width: "40%",
+
     alignSelf: "stretch",
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
+    flex: 1
   },
 
   rect8: {
@@ -734,7 +735,8 @@ const styles = StyleSheet.create({
     left: Platform.OS === "android" ? 329 : undefined,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    fontSize: 20
+    fontSize: 20,
+    alignSelf: "stretch"
   },
   image: {
     width: 95,
@@ -764,11 +766,9 @@ const styles = StyleSheet.create({
   },
   rect11: {
     height: 39,
-    width: 238,
-    top: 22.45,
-    left: 85.1,
-    position: "absolute",
-    justifyContent: "space-around"
+
+    justifyContent: "space-around",
+    flex: 1
   },
   text: {
     width: 237,
@@ -807,12 +807,11 @@ const styles = StyleSheet.create({
     marginRight: 19
   },
   otherItems: {
-    width: "60%",
-
     alignSelf: "center",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    flex: 1
   },
   email: {
     width: 25,
