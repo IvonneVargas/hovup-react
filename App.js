@@ -5,8 +5,6 @@ import Launcher from "./src/screens/Launcher";
 import Login from "./src/screens/Login";
 import CreateAccount from "./src/screens/CreateAccount";
 
-import SuccessCreateAccount from "./src/screens/SuccessCreateAccount";
-
 import Options from "./src/screens/Options";
 import Main from "./src/screens/Main";
 
@@ -39,9 +37,6 @@ const DrawerNavigation = DrawerNavigator({
   },
   CreateAccount: {
     screen: CreateAccount
-  },
-  SuccessCreateAccount: {
-    screen: SuccessCreateAccount
   },
   Main: {
     screen: Main
@@ -99,9 +94,6 @@ const StackNavigation = StackNavigator(
     },
     CreateAccount: {
       screen: CreateAccount
-    },
-    SuccessCreateAccount: {
-      screen: SuccessCreateAccount
     },
     Main: {
       screen: Main

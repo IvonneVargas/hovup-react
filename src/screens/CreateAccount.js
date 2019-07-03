@@ -88,31 +88,31 @@ export default class CreateAccount extends Component {
     } else {
       return (
         <View style={styles.rect3}>
-            <Text style={styles.infoText}>
-              Se te ha enviado un correo electronico a tu cuenta:
-            </Text>
-            <Text style={styles.textEmail}>ejemplo@yopmail.com</Text>
-            <Text style={styles.textInstructions}>
-              Sigue las instrucciones y activa tu cuenta.
-            </Text>
-            <GenericButton
-              style={styles.genericButton}
-              navigation={this.props.navigation}
-              text="Continuar"
-            />
-            <GenericButtonBorder
-              style={styles.genericButtonBorder}
-              text4="Reenviar correo de verificacion"
-            />
-            <ButtonTransparent
-              style={styles.buttonTransparent}
-              navigation={this.props.navigation}
-              text="Cambiar de usuario"
-              button={() => {
-                this.props.navigation.push("Launcher");
-              }}
-            />
-          </View>
+          <Text style={styles.infoText}>
+            Se te ha enviado un correo electronico a tu cuenta:
+          </Text>
+          <Text style={styles.textEmail}>ejemplo@yopmail.com</Text>
+          <Text style={styles.textInstructions}>
+            Sigue las instrucciones y activa tu cuenta.
+          </Text>
+          <GenericButton
+            style={styles.genericButton}
+            navigation={this.props.navigation}
+            text="Continuar"
+          />
+          <GenericButtonBorder
+            style={styles.genericButtonBorder}
+            text4="Reenviar correo de verificacion"
+          />
+          <ButtonTransparent
+            style={styles.buttonTransparent}
+            navigation={this.props.navigation}
+            text="Cambiar de usuario"
+            button={() => {
+              this.props.navigation.push("Launcher");
+            }}
+          />
+        </View>
       );
     }
   }

@@ -3,7 +3,6 @@
         "/src/screens/Launcher.js",
         "/src/screens/Login.js",
         "/src/screens/CreateAccount.js",
-        "/src/screens/SuccessCreateAccount.js",
         "/src/screens/Main.js",
         "/src/screens/Options.js",
         "/src/screens/ZonesTab.js",
@@ -59,24 +58,7 @@
     "tempPath": "/var/folders/3q/5_vntp2d5w773kcscg179xbc0000gn/T/BuilderAKjHBlN",
     "useStylesheet": true,
     "rulers": {
-        "/src/screens/SuccessCreateAccount.js": [
-            {
-                "deviceName": "iPhone X",
-                "position": {
-                    "x": 22.233746130030887,
-                    "y": -100
-                },
-                "horizontal": false
-            },
-            {
-                "deviceName": "iPhone X",
-                "position": {
-                    "x": 351.23993808049545,
-                    "y": 265.0092879256966
-                },
-                "horizontal": false
-            }
-        ],
+        "/src/screens/SuccessCreateAccount.js": [],
         "/src/symbols/GenericButtonImage.js": [
             {
                 "deviceName": "iPhone X",
