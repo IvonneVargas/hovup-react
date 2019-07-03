@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import LayoutStatusBar from "../symbols/LayoutStatusBar";
 import Header from "../symbols/Header";
 import GenericButton from "../symbols/GenericButton";
+import ButtonTransparent from "../symbols/ButtonTransparent";
+import GenericButtonBorder from "../symbols/GenericButtonBorder";
+import { Constants } from "expo";
 
 import {
   View,
@@ -16,62 +19,102 @@ import {
 
 export default class CreateAccount extends Component {
   render() {
+    const type = this.props.navigation.getParam("type", "main");
     return (
       <View style={styles.root}>
         <StatusBar barStyle="light-content" style={styles.statusBar} />
-        {}
         <View style={styles.background}>
           <LayoutStatusBar style={styles.layoutStatusBar} />
           <Header
             style={styles.header}
             navigation={this.props.navigation}
-            text="Crear cuentas"
+            text={type == "main" ? "Crear cuenta" : "Verificacion"}
           />
-          <ScrollView style={styles.scrollArea}>
-            <View style={styles.rect} navigation={this.props.navigation}>
-              <TextInput style={styles.textInput2} placeholder="Nombre*" />
-              <TextInput
-                style={styles.textInput3}
-                placeholder="Apellido paterno*"
-              />
-              <TextInput style={styles.textInput4} placeholder="Genero*" />
-              <TextInput
-                style={styles.textInput5}
-                placeholder="Codigo Hovup (opcional)"
-              />
-              <Text style={styles.text6}>
-                \n \n Con este código podrás dirigir a tus seguidores y amigos a
-                tu\n marca\n y/o tienda. Comprobar disponibilidad.\n{" "}
-              </Text>
-              <TextInput
-                style={styles.textInput6}
-                placeholder="Correo electronico*"
-              />
-              <TextInput style={styles.textInput7} placeholder="contrasena*" />
-              <TextInput
-                style={styles.textInput8}
-                placeholder="Confirmar contrasena*"
-              />
-              <TextInput style={styles.textInput9} placeholder="Pais*" />
-              <TextInput style={styles.textInput10} placeholder="Estado*" />
-              <TextInput style={styles.textInput11} placeholder="Ciudad*" />
-              <Text style={styles.text12}>* Campos obligatorios</Text>
-              <GenericButton
-                style={styles.nextButton}
-                navigation={this.props.navigation}
-                root={() => {
-                  this.props.navigation.push("SuccessCreateAccount");
-                }}
-                text="Siguiente"
-              />
-              <Text style={styles.text13}>
-                \n \n Al registrarte aceptas los terminos y condiciones\n{" "}
-              </Text>
-            </View>
-          </ScrollView>
+          {this.displayContent()}
         </View>
       </View>
     );
+  }
+
+  displayContent() {
+    const type = this.props.navigation.getParam("type", "main");
+    if (type == "main") {
+      return (
+        <ScrollView style={styles.scrollArea}>
+          <View style={styles.rect} navigation={this.props.navigation}>
+            <TextInput style={styles.textInput2} placeholder="Nombre*" />
+            <TextInput
+              style={styles.textInput3}
+              placeholder="Apellido paterno*"
+            />
+            <TextInput style={styles.textInput4} placeholder="Genero*" />
+            <TextInput
+              style={styles.textInput5}
+              placeholder="Codigo Hovup (opcional)"
+            />
+            <Text style={styles.text6}>
+              Con este código podrás dirigir a tus seguidores y amigos a tu
+              marca y/o tienda. Comprobar disponibilidad.
+            </Text>
+            <TextInput
+              style={styles.textInput6}
+              placeholder="Correo electronico*"
+            />
+            <TextInput style={styles.textInput7} placeholder="contrasena*" />
+            <TextInput
+              style={styles.textInput8}
+              placeholder="Confirmar contrasena*"
+            />
+            <TextInput style={styles.textInput9} placeholder="Pais*" />
+            <TextInput style={styles.textInput10} placeholder="Estado*" />
+            <TextInput style={styles.textInput11} placeholder="Ciudad*" />
+            <Text style={styles.text12}>* Campos obligatorios</Text>
+            <GenericButton
+              style={styles.nextButton}
+              navigation={this.props.navigation}
+              root={() => {
+                this.props.navigation.push("CreateAccount", {
+                  type: "success"
+                });
+              }}
+              text="Siguiente"
+            />
+            <Text style={styles.text13}>
+              Al registrarte aceptas los terminos y condiciones
+            </Text>
+          </View>
+        </ScrollView>
+      );
+    } else {
+      return (
+        <View style={styles.rect3}>
+            <Text style={styles.infoText}>
+              Se te ha enviado un correo electronico a tu cuenta:
+            </Text>
+            <Text style={styles.textEmail}>ejemplo@yopmail.com</Text>
+            <Text style={styles.textInstructions}>
+              Sigue las instrucciones y activa tu cuenta.
+            </Text>
+            <GenericButton
+              style={styles.genericButton}
+              navigation={this.props.navigation}
+              text="Continuar"
+            />
+            <GenericButtonBorder
+              style={styles.genericButtonBorder}
+              text4="Reenviar correo de verificacion"
+            />
+            <ButtonTransparent
+              style={styles.buttonTransparent}
+              navigation={this.props.navigation}
+              text="Cambiar de usuario"
+              button={() => {
+                this.props.navigation.push("Launcher");
+              }}
+            />
+          </View>
+      );
+    }
   }
 }
 const styles = StyleSheet.create({
@@ -287,5 +330,51 @@ const styles = StyleSheet.create({
     paddingTop: 0,
     textAlign: "center",
     color: "rgba(249,249,249,1)"
+  },
+  rect3: {
+    height: 333.85,
+
+    top: 84.15,
+    left: 0,
+    position: "absolute",
+
+    justifyContent: "space-around",
+    right: 0,
+    alignItems: "center"
+  },
+  buttonTransparent: {
+    width: 260,
+    height: 42
+  },
+  genericButtonBorder: {
+    width: 264,
+    height: 42
+  },
+  genericButton: {
+    width: 264,
+    height: 42,
+    backgroundColor: "rgba(101,188,70,1)",
+    opacity: 1
+  },
+  infoText: {
+    width: 335,
+    height: 31.8,
+    backgroundColor: "transparent",
+    color: "rgba(247,247,247,1)",
+    textAlign: "center"
+  },
+  textEmail: {
+    width: 335,
+    height: 13,
+    backgroundColor: "transparent",
+    color: "rgba(247,247,247,1)",
+    textAlign: "center"
+  },
+  textInstructions: {
+    width: 335,
+    height: 13,
+    backgroundColor: "transparent",
+    textAlign: "center",
+    color: "rgba(247,247,247,1)"
   }
 });
