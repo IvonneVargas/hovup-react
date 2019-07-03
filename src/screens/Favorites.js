@@ -98,10 +98,7 @@ export default class Favorites extends Component {
                     style={styles.buttonsStyle}
                     onPress={() => {
                       console.log("1Click,", item.level);
-                      this.props.navigation.push("BrandsTab", {
-                        level: item.level,
-                        type: this.props.type
-                      });
+                      this.props.navigation.push("BrandsTab");
                     }}
                   >
                     {this.showImage(item.type)}
