@@ -25,7 +25,7 @@ export default class CreateAccount extends Component {
           <Header
             style={styles.header}
             navigation={this.props.navigation}
-            text="Crear cuenta"
+            text="Crear cuentas"
           />
           <ScrollView style={styles.scrollArea}>
             <View style={styles.rect} navigation={this.props.navigation}>
@@ -116,8 +116,8 @@ const styles = StyleSheet.create({
     margin: 0,
     marginTop: 13,
     padding: 0,
-    width: 374,
-    height: 713
+    height: 713,
+    right: 0
   },
   textInput2: {
     width: 264,
