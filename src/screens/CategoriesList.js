@@ -7,7 +7,7 @@ import { View, StyleSheet, Platform, FlatList, Text } from "react-native";
 export default class CategoriesList extends Component {
   render() {
     const itemId = this.props.navigation.getParam("id", "NO-ID");
-    console.log("itemId:", itemId)
+    console.log("itemId:", itemId);
     var title = "";
     if (itemId === "1") {
       title = "Categorias";
