@@ -486,7 +486,8 @@ export default class Cart extends Component {
             text="Resumen"
             root={() => {
               this.props.navigation.push("Cart", {
-                type: "contentPayment"
+                type: "content",
+                typeUser: typeUser
               });
             }}
           />
@@ -605,7 +606,7 @@ export default class Cart extends Component {
             root={() => {
               this.props.navigation.push("Cart", {
                 type: "contentPayment",
-                typeUser: "notAdmin"
+                typeUser: "Admin"
               });
             }}
           />
@@ -643,7 +644,7 @@ export default class Cart extends Component {
           <LineView style={styles.lineView} />
         </View>
       );
-    } else if (typeUser == "notAdmin") {
+    } else if (typeUser == "Admin") {
       return (
         <View style={styles.contentCardResume}>
           <Image
