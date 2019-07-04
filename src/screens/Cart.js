@@ -90,12 +90,11 @@ export default class Cart extends Component {
     var type = this.props.navigation.getParam("type", "content");
     var typeUser = this.props.navigation.getParam("typeUser", "default");
     console.log("TYPE CART: ", type);
-    console.log("ADMIN?: ", this.props);
     console.log("typeUser?: ", typeUser);
     if (type == "content") {
       return (
         <View style={styles.content}>
-          <HeaderSingleLogo style={styles.headerSingleLogo} />
+          {this.contentHeader()}
           <Text style={styles.title}>Productos en el carrito</Text>
           <Text style={styles.textDescription}>
             Desliza el producto hacia la derecha para: borrar el producto editar
@@ -234,7 +233,7 @@ export default class Cart extends Component {
           <GenericButton
             style={styles.genericButton}
             navigation={this.props.navigation}
-            text="Buscar promociones"
+            text={detail == "false" ? "Agregar codigos":"Buscar promociones"}
             root={() => {
               if (detail == "false") {
                 this.props.navigation.push("Cart", {
@@ -419,6 +418,20 @@ export default class Cart extends Component {
             />
           </View>
         </View>
+      );
+    }
+  }
+
+  contentHeader() {
+    var typeUser = this.props.navigation.getParam("typeUser", "default");
+    if (typeUser == "default") {
+      return(<HeaderSingleLogo style={styles.headerSingleLogo} />);
+    } else {
+      return(
+      <HeaderBack
+            style={styles.headerBack}
+            navigation={this.props.navigation}
+          />
       );
     }
   }
