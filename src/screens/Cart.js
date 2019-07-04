@@ -259,11 +259,23 @@ export default class Cart extends Component {
           />
           <TitleFive
             style={styles.titleFive3}
-            text2="Informacion del cliente"
+            text2={
+              typeUser == "notAdmin" ? (
+                "Forma de pago"
+              ) : (
+                "Informacion del cliente"
+              )
+            }
           />
           <DescriptionFive
             style={styles.descriptionFive}
-            text2="Para continuar ingresa el email de tu cliente y enviarle su certificado de compra"
+            text2={
+              typeUser == "notAdmin" ? (
+                ""
+              ) : (
+                "Para continuar ingresa el email de tu cliente y enviarle su certificado de compra"
+              )
+            }
           />
           {this.showAdmin()}
         </View>
@@ -1271,10 +1283,10 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   contentInputsClient: {
-    width: 374,
     height: 154,
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    alignSelf: "stretch"
   },
   textInput2: {
     width: 262,
