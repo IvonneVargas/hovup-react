@@ -271,7 +271,7 @@ export default class Cart extends Component {
             style={styles.descriptionFive}
             text2={
               typeUser == "notAdmin" ? (
-                ""
+                "Selecciona la tarjeta con la cual quieres hacer el cargo de tu compra. Desliza hacia la derecha para editar o borrar una tarjeta que hayas dado de alta anteriormente."
               ) : (
                 "Para continuar ingresa el email de tu cliente y enviarle su certificado de compra"
               )
@@ -456,9 +456,7 @@ export default class Cart extends Component {
             iconName="check"
             navigation={this.props.navigation}
             root={() => {
-              this.props.navigation.push("Cart", {
-                type: "contentPayment"
-              });
+              this.showActionSheet();
             }}
           />
           <GenericButton
@@ -538,7 +536,7 @@ export default class Cart extends Component {
             root={() => {
               this.props.navigation.push("Cart", {
                 type: "content",
-                typeUser: "Admin"
+                typeUser: "notAdmin"
               });
             }}
           />
@@ -586,7 +584,7 @@ export default class Cart extends Component {
             root={() => {
               this.props.navigation.push("Cart", {
                 type: "contentPayment",
-                typeUser: "Admin"
+                typeUser: "notAdmin"
               });
             }}
           />
@@ -627,21 +625,15 @@ export default class Cart extends Component {
     } else if (typeUser == "notAdmin") {
       return (
         <View style={styles.contentCardResume}>
-          <Image
-            source={require("../assets/ic_card_visa.png")}
-            style={styles.imageCardTwo}
-          />
-          <View style={styles.contentTextCard}>
-            <TitleFive
-              style={styles.textCardResumen}
-              text2={'XXXXXXXXXXX!"\xB7'}
+            <Image
+              source={require("../assets/ic_card_visa.png")}
+              style={styles.imageCardTwo}
             />
-            <DescriptionFive
-              style={styles.descriptionCardResumen}
-              text2="12/12/20"
-            />
+            <View style={styles.contentTextCard}>
+              <Text style={styles.textKeyT}>XXXXXXXXXXXXX123</Text>
+              <Text style={styles.textSubT}>12/12/20</Text>
+            </View>
           </View>
-        </View>
       );
     }
   }
@@ -968,7 +960,8 @@ const styles = StyleSheet.create({
     width: 70.71,
     height: 42.42,
     borderRadius: 6,
-    margin: 5
+    margin: 5,
+    marginLeft: 15
   },
   rect9: {
     height: 70,
@@ -990,6 +983,20 @@ const styles = StyleSheet.create({
     height: 17,
     fontSize: 16,
     color: "rgba(255,255,255,1)"
+  },
+  textSubT: {
+    width: 237,
+    height: 17,
+    fontSize: 14,
+    color: "rgba(255,255,255,1)",
+    textAlign: "right"
+  },
+  textKeyT: {
+    width: 237,
+    height: 17,
+    fontSize: 16,
+    color: "rgba(255,255,255,1)",
+    textAlign: "right"
   },
   contentPieces: {
     width: 237,
@@ -1321,11 +1328,8 @@ const styles = StyleSheet.create({
     marginTop: 18
   },
   contentNotAdminClient: {
-    flex: 1,
-    alignSelf: "stretch",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "center"
+    height: 350,
+    alignSelf: "stretch"
   },
   headerBack2: {
     height: 54,
@@ -1367,16 +1371,19 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   contentCardResume: {
-    width: 374,
     height: 54.6,
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+    alignSelf: "stretch",
+    justifyContent: "space-around"
   },
   contentTextCard: {
     flexDirection: "column",
     justifyContent: "space-around",
     height: 55.17,
-    flex: 1
+    flex: 1,
+    alignItems: "flex-end",
+    marginRight: 10
   },
   textCardResumen: {
     alignSelf: "stretch",
