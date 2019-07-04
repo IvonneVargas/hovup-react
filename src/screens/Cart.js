@@ -4,7 +4,6 @@ import HeaderSingleLogo from "../symbols/HeaderSingleLogo";
 import {
   View,
   StyleSheet,
-  Text,
   FlatList,
   Platform,
   TouchableOpacity,
@@ -12,7 +11,8 @@ import {
   CameraRoll,
   Alert,
   ActionSheetIOS,
-  TextInput
+  TextInput,
+  Text
 } from "react-native";
 
 import GenericButtonIcon from "../symbols/GenericButtonIcon";
@@ -233,7 +233,7 @@ export default class Cart extends Component {
           <GenericButton
             style={styles.genericButton}
             navigation={this.props.navigation}
-            text={detail == "false" ? "Agregar codigos":"Buscar promociones"}
+            text={detail == "false" ? "Agregar codigos" : "Buscar promociones"}
             root={() => {
               if (detail == "false") {
                 this.props.navigation.push("Cart", {
@@ -282,16 +282,24 @@ export default class Cart extends Component {
     } else if (type == "success") {
       return (
         <View style={styles.contentSuccess}>
-          <HeaderSingleLogo style={styles.headerSingleLogoSuccess} />
-          <Image
-            style={styles.imageSuccess}
-            source={require("../assets/ic_gracias_compra.png")}
-          />
-          <DescriptionFive
-            style={styles.descriptionFiveSuccess}
-            text2="Gracias por su compra."
-          />
-        </View>
+            <HeaderSingleLogo style={styles.headerSingleLogoSuccess} />
+            <Image
+              style={styles.imageSuccess}
+              source={require("../assets/ic_gracias_compra.png")}
+            />
+            <Text style={styles.text}>
+              Gracias por su compra le hemos enviado su recibo al correo
+              electronico registrado
+            </Text>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => {
+                this.props.navigation.push("Cart");
+              }}
+            >
+              <Text style={styles.text2}>Regresar al carrito</Text>
+            </TouchableOpacity>
+          </View>
       );
     } else if (type == "coupon") {
       return (
@@ -425,13 +433,13 @@ export default class Cart extends Component {
   contentHeader() {
     var typeUser = this.props.navigation.getParam("typeUser", "default");
     if (typeUser == "default") {
-      return(<HeaderSingleLogo style={styles.headerSingleLogo} />);
+      return <HeaderSingleLogo style={styles.headerSingleLogo} />;
     } else {
-      return(
-      <HeaderBack
-            style={styles.headerBack}
-            navigation={this.props.navigation}
-          />
+      return (
+        <HeaderBack
+          style={styles.headerBack}
+          navigation={this.props.navigation}
+        />
       );
     }
   }
@@ -638,15 +646,15 @@ export default class Cart extends Component {
     } else if (typeUser == "notAdmin") {
       return (
         <View style={styles.contentCardResume}>
-            <Image
-              source={require("../assets/ic_card_visa.png")}
-              style={styles.imageCardTwo}
-            />
-            <View style={styles.contentTextCard}>
-              <Text style={styles.textKeyT}>XXXXXXXXXXXXX123</Text>
-              <Text style={styles.textSubT}>12/12/20</Text>
-            </View>
+          <Image
+            source={require("../assets/ic_card_visa.png")}
+            style={styles.imageCardTwo}
+          />
+          <View style={styles.contentTextCard}>
+            <Text style={styles.textKeyT}>XXXXXXXXXXXXX123</Text>
+            <Text style={styles.textSubT}>12/12/20</Text>
           </View>
+        </View>
       );
     }
   }
@@ -1131,7 +1139,7 @@ const styles = StyleSheet.create({
     margin: 13
   },
   textInput: {
-    width: 262,
+    width: 122,
     height: 42,
     backgroundColor: "#E6E6E6",
     borderRadius: 7,
@@ -1408,7 +1416,9 @@ const styles = StyleSheet.create({
   },
   contentSuccess: {
     flex: 1,
-    alignSelf: "stretch"
+    alignSelf: "stretch",
+    flexDirection: "column",
+    alignItems: "center"
   },
   imageSuccess: {
     width: 167,
@@ -1421,11 +1431,9 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   descriptionFiveSuccess: {
-    top: 365,
-    left: 0,
     height: 60,
-    position: "absolute",
-    right: 0
+    display: "none",
+    alignSelf: "stretch"
   },
   buttonPayments: {
     height: 101,
@@ -1627,5 +1635,25 @@ const styles = StyleSheet.create({
     height: 41,
     backgroundColor: "rgba(101,188,70,1)",
     opacity: 1
+  },
+  text: {
+    width: 296,
+    height: 47.23,
+    backgroundColor: "transparent",
+    alignSelf: "center",
+    color: "rgba(255,255,255,1)"
+  },
+  button: {
+    height: 17.55,
+    alignSelf: "stretch",
+    alignItems: "center"
+  },
+  text2: {
+    width: 122,
+    height: 13,
+    backgroundColor: "transparent",
+    color: "rgba(126,211,33,1)",
+    textAlign: "center",
+    alignSelf: "center"
   }
 });
