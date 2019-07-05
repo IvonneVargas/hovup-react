@@ -52,7 +52,7 @@
     "defaultArtboardDirectory": "/src/screens",
     "defaultSymbolDirectory": "/src/symbols",
     "defaultAssetDirectory": "/src/assets",
-    "deviceName": "The iPad 2017",
+    "deviceName": "iPhone X",
     "deviceOrientation": "portrait",
     "basePath": "/Users/ivonne/native/hovup-react",
     "tempPath": "/var/folders/3q/5_vntp2d5w773kcscg179xbc0000gn/T/BuilderAKjHBlN",

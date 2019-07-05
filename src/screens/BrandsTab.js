@@ -751,12 +751,13 @@ const styles = StyleSheet.create({
     margin: 5
   },
   imageBig: {
-    height: "65%",
     borderRadius: 6,
     margin: 5,
-    alignSelf: "stretch",
+
     marginLeft: 20,
-    marginRight: 20
+    marginRight: 20,
+    flex: 1,
+    alignSelf: "center"
   },
   rect9: {
     height: 41,
@@ -785,11 +786,8 @@ const styles = StyleSheet.create({
   brandPrincipal: {
     height: "30%",
 
-    alignSelf: "stretch",
-
-    alignItems: "center",
-    justifyContent: "space-around",
-    flexDirection: "column"
+    flexDirection: "column",
+    alignSelf: "stretch"
   },
   listContentBrand: {
     height: "60%",
@@ -1203,11 +1201,11 @@ const styles = StyleSheet.create({
     width: 305
   },
   containerStars: {
-    width: 100,
+    width: 110,
     alignSelf: "flex-start",
     flexDirection: "row",
     justifyContent: "space-between",
-    height: 25
+    height: 33
   },
   containerItems: {
     alignSelf: "center",
