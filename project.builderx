@@ -52,7 +52,7 @@
     "defaultArtboardDirectory": "/src/screens",
     "defaultSymbolDirectory": "/src/symbols",
     "defaultAssetDirectory": "/src/assets",
-    "deviceName": "iPhone X",
+    "deviceName": "The iPad 2017",
     "deviceOrientation": "portrait",
     "basePath": "/Users/ivonne/native/hovup-react",
     "tempPath": "/var/folders/3q/5_vntp2d5w773kcscg179xbc0000gn/T/BuilderAKjHBlN",
@@ -331,7 +331,16 @@
                 "horizontal": false
             }
         ],
-        "/src/screens/OptionsProfile.js": [],
+        "/src/screens/OptionsProfile.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 601.9176169297889,
+                    "y": 354.1988913011403
+                },
+                "horizontal": false
+            }
+        ],
         "/src/symbols/HeaderIcon.js": [
             {
                 "deviceName": "iPhone X",
@@ -634,6 +643,84 @@
                     "y": 245.35597068840943
                 },
                 "horizontal": true
+            }
+        ],
+        "/src/symbols/HeaderSettings.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -0.4969040247677867,
+                    "y": 23.284829721362257
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 375.97368421052636,
+                    "y": 64.15170278637771
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 212.50619195046443,
+                    "y": 111.21052631578948
+                },
+                "horizontal": false
+            }
+        ],
+        "/src/symbols/HeaderSingleLogo.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -0.5650154798761378,
+                    "y": -5.698142414860683
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 373.42879256965944,
+                    "y": -37.89628482972137
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 185.97678018575854,
+                    "y": -373.5
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 140.6114551083591,
+                    "y": -51.518575851393166
+                },
+                "horizontal": false
+            },
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": 227.29876160990716,
+                    "y": -30.465944272445824
+                },
+                "horizontal": false
+            }
+        ],
+        "/src/screens/Cart.js": [
+            {
+                "deviceName": "iPhone X",
+                "position": {
+                    "x": -2487.8396707628112,
+                    "y": 314.48470796534787
+                },
+                "horizontal": false
             }
         ]
     },
