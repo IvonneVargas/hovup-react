@@ -102,15 +102,15 @@ export default class Favorites extends Component {
                     }}
                   >
                     {this.showImage(item.type)}
-                    <Icon
-                      name="ios-arrow-forward"
-                      style={styles.icon}
-                      type="Ionicons"
-                    />
                     <View style={styles.rect9}>
                       <Text style={styles.text2}>{item.key}</Text>
                       <Text style={styles.text}>{item.sub}</Text>
                     </View>
+                    <Icon
+                      style={styles.icon}
+                      name="ios-arrow-forward"
+                      type="Ionicons"
+                    />
                   </TouchableOpacity>
                 </View>
               );
@@ -166,12 +166,12 @@ const styles = StyleSheet.create({
     bottom: 0
   },
   layoutStatusBar: {
-    width: 376,
-    height: 34
+    height: 34,
+    alignSelf: "stretch"
   },
   headerSettings: {
-    width: 376,
-    height: 54
+    height: 54,
+    alignSelf: "stretch"
   },
   list: {
     flex: 1,
@@ -193,15 +193,17 @@ const styles = StyleSheet.create({
   buttonsStyle: {
     alignItems: "center",
     flexDirection: "row",
-    margin: 0
+    margin: 0,
+    justifyContent: "space-between"
   },
   icon: {
-    top: Platform.OS === "android" ? 18 : 21.67,
-    left: Platform.OS === "android" ? 329 : 344,
-    position: "absolute",
+    top: Platform.OS === "android" ? 18 : undefined,
+    left: Platform.OS === "android" ? 329 : undefined,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    fontSize: 20
+    fontSize: 20,
+    height: 15,
+    width: 10
   },
   image: {
     width: 95,
