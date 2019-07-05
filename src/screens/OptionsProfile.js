@@ -26,9 +26,7 @@ export default class OptionsProfile extends Component {
           <LayoutStatusBar style={styles.layoutStatusBar} />
           <HeaderIcon
             style={styles.headerIcon}
-            navigation={
-              Platform.OS === "ios" ? "this.props.navigation" : undefined
-            }
+            navigation={this.props.navigation}
           />
           <View style={styles.rect4}>
             <View style={styles.rect2}>
@@ -36,7 +34,19 @@ export default class OptionsProfile extends Component {
               <Text style={styles.text2}>{desc}</Text>
             </View>
             <ScrollView style={styles.scrollArea}>
-              <View style={styles.rect6}>
+              {this.displayContent()}
+            </ScrollView>
+          </View>
+        </View>
+      </View>
+    );
+  }
+
+  displayContent() {
+    const itemId = this.props.navigation.getParam("id", "");
+    if (itemId == 1) {
+      return (
+        <View style={styles.rect6}>
                 <TextInput style={styles.textInput} placeholder="Nombre*" />
                 <TextInput
                   style={styles.textInput8}
@@ -70,48 +80,6 @@ export default class OptionsProfile extends Component {
                 />
                 <TextInput style={styles.textInput2} placeholder="Telefono*" />
               </View>
-            </ScrollView>
-          </View>
-        </View>
-      </View>
-    );
-  }
-
-  displayContent() {
-    const itemId = this.props.navigation.getParam("id", "");
-    if (itemId == 1) {
-      return (
-        <View style={styles.rect6}>
-          <TextInput style={styles.textInput} placeholder="Nombre*" />
-          <TextInput style={styles.textInput} placeholder="Apellido paterno*" />
-          <TextInput style={styles.textInput} placeholder="Genero*" />
-          <TextInput
-            style={styles.textInput}
-            placeholder="Pais*"
-            onFocus={() => {
-              this.props.navigation.push("CountryStateCityLists");
-            }}
-          />
-          <TextInput
-            style={styles.textInput}
-            placeholder="Estado*"
-            onFocus={() => {
-              this.props.navigation.push("CountryStateCityLists");
-            }}
-          />
-          <TextInput
-            style={styles.textInput}
-            placeholder="Ciudad*"
-            onFocus={() => {
-              this.props.navigation.push("CountryStateCityLists");
-            }}
-          />
-          <TextInput
-            style={styles.textInput}
-            placeholder="Correo electronico*"
-          />
-          <TextInput style={styles.textInput} placeholder="Telefono*" />
-        </View>
       );
     } else if (itemId == 2) {
       return (
