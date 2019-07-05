@@ -1,9 +1,17 @@
 import React, { Component } from "react";
-import LayoutStatusBar from "../symbols/LayoutStatusBar";
-import HeaderIcon from "../symbols/HeaderIcon";
-import { View, StyleSheet, Text, Platform, TextInput } from "react-native";
+
+import {
+  View,
+  StyleSheet,
+  Platform,
+  TextInput,
+  Text,
+  ScrollView
+} from "react-native";
 import GenericButton from "../symbols/GenericButton";
 
+import LayoutStatusBar from "../symbols/LayoutStatusBar";
+import HeaderIcon from "../symbols/HeaderIcon";
 import Texts from "../assets/texts";
 
 export default class OptionsProfile extends Component {
@@ -14,19 +22,57 @@ export default class OptionsProfile extends Component {
     console.log("itemId options profile", itemId);
     return (
       <View style={styles.root}>
-        <LayoutStatusBar style={styles.layoutStatusBar} />
-        <HeaderIcon
-          style={styles.headerIcon}
-          navigation={Platform.OS === "ios" ? this.props.navigation : undefined}
-        />
-        <View style={styles.rect4}>
-          <View style={styles.rect} />
+        <View style={styles.background}>
+          <LayoutStatusBar style={styles.layoutStatusBar} />
+          <HeaderIcon
+            style={styles.headerIcon}
+            navigation={
+              Platform.OS === "ios" ? "this.props.navigation" : undefined
+            }
+          />
+          <View style={styles.rect4}>
+            <View style={styles.rect2}>
+              <Text style={styles.text}>{title}</Text>
+              <Text style={styles.text2}>{desc}</Text>
+            </View>
+            <ScrollView style={styles.scrollArea}>
+              <View style={styles.rect6}>
+                <TextInput style={styles.textInput} placeholder="Nombre*" />
+                <TextInput
+                  style={styles.textInput8}
+                  placeholder="Apellido paterno*"
+                />
+                <TextInput style={styles.textInput7} placeholder="Genero*" />
+                <TextInput
+                  style={styles.textInput6}
+                  placeholder="Pais*"
+                  onFocus={() => {
+                    this.props.navigation.push("CountryStateCityLists");
+                  }}
+                />
+                <TextInput
+                  style={styles.textInput5}
+                  placeholder="Estado*"
+                  onFocus={() => {
+                    this.props.navigation.push("CountryStateCityLists");
+                  }}
+                />
+                <TextInput
+                  style={styles.textInput4}
+                  placeholder="Ciudad*"
+                  onFocus={() => {
+                    this.props.navigation.push("CountryStateCityLists");
+                  }}
+                />
+                <TextInput
+                  style={styles.textInput3}
+                  placeholder="Correo electronico*"
+                />
+                <TextInput style={styles.textInput2} placeholder="Telefono*" />
+              </View>
+            </ScrollView>
+          </View>
         </View>
-        <View style={styles.rect2}>
-          <Text style={styles.text}>{title}</Text>
-          <Text style={styles.text2}>{desc}</Text>
-        </View>
-        <View style={styles.rect3}>{this.displayContent()}</View>
       </View>
     );
   }
@@ -106,70 +152,18 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     flex: 1
   },
-  layoutStatusBar: {
-    top: 0,
-    left: 0,
-    position: "absolute",
-    height: Platform.OS === "android" ? 25 : 33,
-    right: 0
-  },
-  headerIcon: {
-    position: "absolute",
-    top: Platform.OS === "android" ? 25 : 28,
-    left: 0,
-    right: 0,
-    height: 53
-  },
 
-  rect2: {
-    height: Platform.OS === "android" ? 81 : 81.4,
-    top: Platform.OS === "android" ? 83 : 83,
-    left: Platform.OS === "android" ? 0 : 0,
-    position: "absolute",
-    right: Platform.OS === "android" ? 0 : 0,
-    flexDirection: "column",
-    alignItems: "flex-start",
-    justifyContent: "center"
-  },
-  text: {
-    height: 16,
-    backgroundColor: "transparent",
-    fontWeight: "bold",
-    color: "rgba(255,255,255,1)",
-    alignSelf: "stretch",
-    width: 354,
-    margin: 10,
-    padding: 0
-  },
-  text2: {
-    height: 59.3,
-    backgroundColor: "transparent",
-    alignSelf: "stretch",
-    width: 357,
-    margin: 10,
-    padding: 0,
-    color: "rgba(255,255,255,1)"
-  },
-  rect3: {
-    top: 174.81,
-    left: -360.88,
-    position: "absolute",
-    backgroundColor: "rgba(25,39,52,1)",
-    right: 360.88,
-    bottom: -15.81,
-    opacity: 1,
-
-    alignItems: "center",
-    justifyContent: "space-between",
-    flexDirection: "column"
-  },
   rect4: {
-    height: 100,
-    alignSelf: "stretch",
-    justifyContent: "space-around",
+    top: 71,
+    left: 0,
+    position: "absolute",
+    right: 0,
     alignItems: "center",
-    paddingBottom: 0,
-    marginBottom: 0
+    justifyContent: "space-around",
+    bottom: 366,
+    width: 375,
+    height: 740,
+    flexDirection: "column"
   },
   rect5: {
     width: 374,
@@ -178,10 +172,15 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   rect6: {
-    alignItems: "center",
-    justifyContent: "space-around",
-    alignSelf: "stretch",
-    flex: 1
+    top: 0,
+    left: 0,
+    position: "absolute",
+    justifyContent: "space-between",
+    margin: 0,
+    marginTop: 13,
+    padding: 0,
+    height: 713,
+    right: 0
   },
   rect7: {
     width: 376,
@@ -200,7 +199,8 @@ const styles = StyleSheet.create({
     height: 42,
     textAlign: "center",
     backgroundColor: "#E6E6E6",
-    borderRadius: 7
+    borderRadius: 7,
+    alignSelf: "center"
   },
   genericButton: {
     width: 264,
@@ -210,28 +210,127 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   rect4: {
+    alignItems: "center",
+
+    alignSelf: "stretch",
+    flex: 1
+  },
+
+  rect: {
+    top: Platform.OS === "android" ? 77 : undefined,
+
+    bottom: Platform.OS === "android" ? 3 : undefined,
+
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1,
+    flex: 1,
+    alignSelf: "stretch"
+  },
+  background: {
     top: 0,
     left: 0,
     position: "absolute",
     right: 0,
-    alignItems: "center",
+    bottom: 0,
+    flexDirection: "column"
+  },
+  layoutStatusBar: {
+    height: Platform.OS === "android" ? 25 : 33,
+    alignSelf: "stretch"
+  },
+  headerIcon: {
+    top: Platform.OS === "android" ? 25 : undefined,
+    height: 54,
+    alignSelf: "stretch"
+  },
+  rect2: {
+    height: Platform.OS === "android" ? 81 : 81.4,
+    flexDirection: "column",
+    alignItems: "flex-start",
     justifyContent: "space-around",
-    bottom: 366
-  },
-  rect4: {
-    height: 740,
-    width: 379,
-    top: 72,
-    left: 0,
-    position: "absolute"
-  },
-  rect: {
-    top: Platform.OS === "android" ? 77 : 0,
-    left: 0,
-    bottom: Platform.OS === "android" ? 3 : 0,
-    right: 0,
-    position: "absolute",
+    alignSelf: "stretch",
     backgroundColor: "rgba(25,39,52,1)",
     opacity: 1
+  },
+  text: {
+    width: 354,
+    height: 16,
+    alignSelf: "stretch",
+    backgroundColor: "transparent",
+    margin: 10,
+    padding: 0,
+    fontWeight: "bold",
+    color: "rgba(255,255,255,1)"
+  },
+  text2: {
+    width: 357,
+    height: 59.3,
+    alignSelf: "stretch",
+    backgroundColor: "transparent",
+    margin: 10,
+    padding: 0,
+    color: "rgba(255,255,255,1)"
+  },
+  scrollArea: {
+    alignSelf: "stretch",
+    flex: 1,
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1
+  },
+  textInput2: {
+    width: 264,
+    height: 42,
+    textAlign: "center",
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    alignSelf: "center"
+  },
+  textInput3: {
+    width: 264,
+    height: 42,
+    textAlign: "center",
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    alignSelf: "center"
+  },
+  textInput4: {
+    width: 264,
+    height: 42,
+    textAlign: "center",
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    alignSelf: "center"
+  },
+  textInput5: {
+    width: 264,
+    height: 42,
+    textAlign: "center",
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    alignSelf: "center"
+  },
+  textInput6: {
+    width: 264,
+    height: 42,
+    textAlign: "center",
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    alignSelf: "center"
+  },
+  textInput7: {
+    width: 264,
+    height: 42,
+    textAlign: "center",
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    alignSelf: "center"
+  },
+  textInput8: {
+    width: 264,
+    height: 42,
+    textAlign: "center",
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    alignSelf: "center"
   }
 });
