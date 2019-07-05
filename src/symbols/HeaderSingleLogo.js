@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import LogoSigle from "./LogoSigle";
+
 import { View, StyleSheet } from "react-native";
 
 export default class HeaderSingleLogo extends Component {
@@ -11,8 +12,9 @@ export default class HeaderSingleLogo extends Component {
   render() {
     return (
       <View style={[this.props.style]}>
-        <View style={styles.rect} />
-        <LogoSigle style={styles.logoSigle} />
+        <View style={styles.rect}>
+          <LogoSigle style={styles.logoSigle} />
+        </View>
       </View>
     );
   }
@@ -25,13 +27,12 @@ const styles = StyleSheet.create({
     height: 53,
     position: "absolute",
     backgroundColor: "rgba(48,61,73,1)",
-    opacity: 1
+    opacity: 1,
+    flexDirection: "column",
+    alignItems: "center"
   },
   logoSigle: {
-    top: 0,
-    left: 143,
     width: 94,
-    height: 50,
-    position: "absolute"
+    height: 50
   }
 });
