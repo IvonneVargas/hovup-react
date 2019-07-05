@@ -344,7 +344,7 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   header: {
-    backgroundColor: "rgba(48,61,73,1)",
+    backgroundColor: "rgba(29,41,53,1)",
     padding: 10,
     flexDirection: "row",
     justifyContent: "space-between",
