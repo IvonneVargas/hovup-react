@@ -47,39 +47,39 @@ export default class OptionsProfile extends Component {
     if (itemId == 1) {
       return (
         <View style={styles.rect6}>
-                <TextInput style={styles.textInput} placeholder="Nombre*" />
-                <TextInput
-                  style={styles.textInput8}
-                  placeholder="Apellido paterno*"
-                />
-                <TextInput style={styles.textInput7} placeholder="Genero*" />
-                <TextInput
-                  style={styles.textInput6}
-                  placeholder="Pais*"
-                  onFocus={() => {
-                    this.props.navigation.push("CountryStateCityLists");
-                  }}
-                />
-                <TextInput
-                  style={styles.textInput5}
-                  placeholder="Estado*"
-                  onFocus={() => {
-                    this.props.navigation.push("CountryStateCityLists");
-                  }}
-                />
-                <TextInput
-                  style={styles.textInput4}
-                  placeholder="Ciudad*"
-                  onFocus={() => {
-                    this.props.navigation.push("CountryStateCityLists");
-                  }}
-                />
-                <TextInput
-                  style={styles.textInput3}
-                  placeholder="Correo electronico*"
-                />
-                <TextInput style={styles.textInput2} placeholder="Telefono*" />
-              </View>
+          <TextInput style={styles.textInput} placeholder="Nombre*" />
+          <TextInput
+            style={styles.textInput8}
+            placeholder="Apellido paterno*"
+          />
+          <TextInput style={styles.textInput7} placeholder="Genero*" />
+          <TextInput
+            style={styles.textInput6}
+            placeholder="Pais*"
+            onFocus={() => {
+              this.props.navigation.push("CountryStateCityLists");
+            }}
+          />
+          <TextInput
+            style={styles.textInput5}
+            placeholder="Estado*"
+            onFocus={() => {
+              this.props.navigation.push("CountryStateCityLists");
+            }}
+          />
+          <TextInput
+            style={styles.textInput4}
+            placeholder="Ciudad*"
+            onFocus={() => {
+              this.props.navigation.push("CountryStateCityLists");
+            }}
+          />
+          <TextInput
+            style={styles.textInput3}
+            placeholder="Correo electronico*"
+          />
+          <TextInput style={styles.textInput2} placeholder="Telefono*" />
+        </View>
       );
     } else if (itemId == 2) {
       return (
@@ -98,9 +98,12 @@ export default class OptionsProfile extends Component {
       );
     } else if (itemId == 3) {
       return (
-        <View style={styles.rect4}>
-          <TextInput style={styles.textInput} placeholder="Contrasena actual" />
-          <TextInput style={styles.textInput} placeholder="Nueva contrasena" />
+        <View style={styles.rect9}>
+          <TextInput
+            style={styles.textInput2}
+            placeholder="Contrasena actual"
+          />
+          <TextInput style={styles.textInput3} placeholder="Nueva contrasena" />
           <TextInput
             style={styles.textInput}
             placeholder="Confirma nueva contrasena"
@@ -151,10 +154,10 @@ const styles = StyleSheet.create({
     right: 0
   },
   rect7: {
-    width: 376,
     height: 184,
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    alignSelf: "stretch"
   },
   text3: {
     width: 200,
@@ -163,19 +166,20 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)"
   },
   textInput: {
-    width: 264,
-    height: 42,
+    width: 265,
+    height: 41,
     textAlign: "center",
     backgroundColor: "#E6E6E6",
     borderRadius: 7,
     alignSelf: "center"
   },
   genericButton: {
-    width: 264,
+    width: 265,
     height: 42,
     marginBottom: 45,
     backgroundColor: "rgba(101,188,70,1)",
-    opacity: 1
+    opacity: 1,
+    alignSelf: "center"
   },
   rect4: {
     alignItems: "center",
@@ -300,5 +304,29 @@ const styles = StyleSheet.create({
     backgroundColor: "#E6E6E6",
     borderRadius: 7,
     alignSelf: "center"
+  },
+  textInput2: {
+    width: 265,
+    height: 42,
+    textAlign: "center",
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    alignSelf: "center"
+  },
+  textInput3: {
+    width: 265,
+    height: 42,
+    textAlign: "center",
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    alignSelf: "center"
+  },
+  rect9: {
+    alignItems: "center",
+
+    alignSelf: "stretch",
+    height: 254.86,
+    flexDirection: "column",
+    justifyContent: "space-around"
   }
 });
