@@ -59,7 +59,6 @@ export default class TabViewButton extends Component {
 }
 const styles = StyleSheet.create({
   button: {
-    width: "33.5%",
     flexDirection: "column",
     alignItems: "baseline",
     justifyContent: "flex-start",
@@ -69,53 +68,54 @@ const styles = StyleSheet.create({
     borderRadius: 0,
     borderTopRightRadius: 0,
     borderTopLeftRadius: 5,
-    borderBottomLeftRadius: 5
+    borderBottomLeftRadius: 5,
+    flex: 1
   },
   text: {
-    width: 97.55,
     height: 20,
     backgroundColor: "transparent",
     margin: 9,
     padding: 0,
     textAlign: "center",
-    color: "rgba(255,255,255,1)"
+    color: "rgba(255,255,255,1)",
+    alignSelf: "center"
   },
   button2: {
-    width: "33.5%",
     flexDirection: "column",
     alignSelf: "stretch",
     borderWidth: 1,
-    borderColor: "rgba(126,211,33,1)"
+    borderColor: "rgba(126,211,33,1)",
+    flex: 1
   },
   text2: {
-    width: 98,
     height: 15.24,
     backgroundColor: "transparent",
     margin: 9,
     padding: 0,
     fontSize: 15,
     textAlign: "center",
-    color: "rgba(255,255,255,1)"
+    color: "rgba(255,255,255,1)",
+    alignSelf: "center"
   },
   button3: {
-    width: "33.5%",
     flexDirection: "column",
     alignSelf: "stretch",
     borderWidth: 1,
     borderColor: "rgba(126,211,33,1)",
     borderRadius: 0,
     borderTopRightRadius: 5,
-    borderBottomRightRadius: 5
+    borderBottomRightRadius: 5,
+    flex: 1
   },
   text3: {
-    width: 99,
     height: 16.36,
     backgroundColor: "transparent",
     margin: 9,
     padding: 0,
     fontSize: 15,
     textAlign: "center",
-    color: "rgba(255,255,255,1)"
+    color: "rgba(255,255,255,1)",
+    alignSelf: "center"
   },
   root: {
     flexDirection: "row",
