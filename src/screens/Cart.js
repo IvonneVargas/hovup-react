@@ -169,11 +169,6 @@ export default class Cart extends Component {
                         source={require("../assets/ic_200x200.png")}
                         style={styles.image}
                       />
-                      <Icon
-                        name="ios-arrow-forward"
-                        style={styles.icon}
-                        type="Ionicons"
-                      />
                       <View style={styles.rect9}>
                         <Text style={styles.textKey}>{item.key}</Text>
                         <Text style={styles.textSub}>$ {item.sub} MXN</Text>
@@ -187,6 +182,11 @@ export default class Cart extends Component {
                           <Text style={styles.textTotal}>$ {item.sub} MXN</Text>
                         </View>
                       </View>
+                      <Icon
+                        style={styles.icon}
+                        name="ios-arrow-forward"
+                        type="Ionicons"
+                      />
                     </View>
                   </Swipeout>
                 </View>
@@ -282,24 +282,24 @@ export default class Cart extends Component {
     } else if (type == "success") {
       return (
         <View style={styles.contentSuccess}>
-            <HeaderSingleLogo style={styles.headerSingleLogoSuccess} />
-            <Image
-              style={styles.imageSuccess}
-              source={require("../assets/ic_gracias_compra.png")}
-            />
-            <Text style={styles.text}>
-              Gracias por su compra le hemos enviado su recibo al correo
-              electronico registrado
-            </Text>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => {
-                this.props.navigation.push("Cart");
-              }}
-            >
-              <Text style={styles.text2}>Regresar al carrito</Text>
-            </TouchableOpacity>
-          </View>
+          <HeaderSingleLogo style={styles.headerSingleLogoSuccess} />
+          <Image
+            style={styles.imageSuccess}
+            source={require("../assets/ic_gracias_compra.png")}
+          />
+          <Text style={styles.text}>
+            Gracias por su compra le hemos enviado su recibo al correo
+            electronico registrado
+          </Text>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              this.props.navigation.push("Cart");
+            }}
+          >
+            <Text style={styles.text2}>Regresar al carrito</Text>
+          </TouchableOpacity>
+        </View>
       );
     } else if (type == "coupon") {
       return (
@@ -953,18 +953,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#999999"
   },
   buttonsStyle: {
-    alignItems: "center",
     flexDirection: "row",
     margin: 0,
-    height: 80
+    height: 80,
+    justifyContent: "space-around"
   },
   icon: {
-    top: Platform.OS === "android" ? 18 : 21.67,
-    left: Platform.OS === "android" ? 329 : 344,
-    position: "absolute",
+    top: Platform.OS === "android" ? 18 : undefined,
+    left: Platform.OS === "android" ? 329 : undefined,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    fontSize: 20
+    fontSize: 20,
+    alignSelf: "center"
   },
   image: {
     width: 59,
@@ -988,9 +988,7 @@ const styles = StyleSheet.create({
   rect9: {
     height: 70,
     width: 237,
-    top: 3,
-    left: 80,
-    position: "absolute",
+
     justifyContent: "space-around",
     flexDirection: "column"
   },

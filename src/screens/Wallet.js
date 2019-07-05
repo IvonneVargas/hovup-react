@@ -324,7 +324,7 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   layoutStatusBar: {
-    height: 34,
+    height: 33,
     alignSelf: "stretch"
   },
   statusBar: {},

@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     position: "absolute",
-    height: Platform.OS === "android" ? 25 : 32,
+    height: Platform.OS === "android" ? 25 : 33,
     right: 0
   },
   headerIcon: {
@@ -157,12 +157,12 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)"
   },
   rect3: {
-    top: 160,
-    left: 0,
+    top: 174.81,
+    left: -360.88,
     position: "absolute",
     backgroundColor: "rgba(25,39,52,1)",
-    right: 0,
-    bottom: -2,
+    right: 360.88,
+    bottom: -15.81,
     opacity: 1,
 
     alignItems: "center",

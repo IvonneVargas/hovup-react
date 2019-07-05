@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     position: "absolute",
-    height: Platform.OS === "android" ? 25 : 32,
+    height: Platform.OS === "android" ? 25 : 33,
     right: 0
   },
   headerSettings: {

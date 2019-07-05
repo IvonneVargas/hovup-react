@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   },
 
   list: {
-    top: 100.2,
+    top: 102,
     left: 0,
     position: "absolute",
     right: 0,

@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     bottom: 0
   },
   layoutStatusBar: {
-    height: 34,
+    height: 33,
     alignSelf: "stretch"
   },
   headerSettings: {
