@@ -19,7 +19,9 @@ export default class OptionsProfile extends Component {
           style={styles.headerIcon}
           navigation={Platform.OS === "ios" ? this.props.navigation : undefined}
         />
-        <View style={styles.rect} />
+        <View style={styles.rect4}>
+          <View style={styles.rect} />
+        </View>
         <View style={styles.rect2}>
           <Text style={styles.text}>{title}</Text>
           <Text style={styles.text2}>{desc}</Text>
@@ -118,15 +120,7 @@ const styles = StyleSheet.create({
     right: 0,
     height: 53
   },
-  rect: {
-    top: Platform.OS === "android" ? 77 : 79.89,
-    left: Platform.OS === "android" ? 0 : 0,
-    position: "absolute",
-    backgroundColor: "rgba(25,39,52,1)",
-    right: Platform.OS === "android" ? 0 : 0,
-    bottom: Platform.OS === "android" ? 3 : 0,
-    opacity: 1
-  },
+
   rect2: {
     height: Platform.OS === "android" ? 81 : 81.4,
     top: Platform.OS === "android" ? 83 : 83,
@@ -223,5 +217,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
     bottom: 366
+  },
+  rect4: {
+    height: 740,
+    width: 379,
+    top: 72,
+    left: 0,
+    position: "absolute"
+  },
+  rect: {
+    top: Platform.OS === "android" ? 77 : 0,
+    left: 0,
+    bottom: Platform.OS === "android" ? 3 : 0,
+    right: 0,
+    position: "absolute",
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1
   }
 });

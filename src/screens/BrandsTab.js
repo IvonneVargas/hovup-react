@@ -1203,10 +1203,11 @@ const styles = StyleSheet.create({
     width: 305
   },
   containerStars: {
-    width: "60%",
+    width: 100,
     alignSelf: "flex-start",
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    height: 25
   },
   containerItems: {
     alignSelf: "center",
