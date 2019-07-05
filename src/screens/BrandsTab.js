@@ -532,15 +532,17 @@ export default class BrandsTab extends Component {
                 type="MaterialCommunityIcons"
               />
             </View>
-            <View style={styles.topleftlayer}>
-              <Image
-                style={styles.imagetop}
-                source={require("../assets/ic_60x60.png")}
-              />
-            </View>
-            <View style={styles.toprigthlayer}>
-              <Text style={styles.titlelayertop}>Titulo</Text>
-              <Text style={styles.subtitletoplayer}>Text Added</Text>
+            <View style={styles.topContainerRl}>
+              <View style={styles.topleftlayer}>
+                <Image
+                  style={styles.imagetop}
+                  source={require("../assets/ic_60x60.png")}
+                />
+              </View>
+              <View style={styles.toprigthlayer}>
+                <Text style={styles.titlelayertop}>Titulo</Text>
+                <Text style={styles.subtitletoplayer}>Text Added</Text>
+              </View>
             </View>
           </View>
           <View style={styles.bottomlatyer}>
@@ -1060,7 +1062,8 @@ const styles = StyleSheet.create({
     height: "14.3%",
 
     justifyContent: "flex-end",
-    flexDirection: "row"
+    flexDirection: "row",
+    alignSelf: "stretch"
   },
   topfavlayers: {
     width: 24,
@@ -1071,39 +1074,7 @@ const styles = StyleSheet.create({
     marginRight: 3,
     marginTop: 3
   },
-  topleftlayer: {
-    width: "50%",
-    height: "84.80392156862744%",
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  toprigthlayer: {
-    top: 30,
-    left: 189,
-    width: "49.33%",
-    height: "84.8%",
-    position: "absolute",
-    justifyContent: "center"
-  },
-  imagetop: {
-    width: 140,
-    height: 140,
-    borderRadius: 7
-  },
-  titlelayertop: {
-    height: 23,
-    backgroundColor: "transparent",
-    fontSize: 20,
-    color: "rgba(255,255,255,1)",
-    alignSelf: "stretch"
-  },
-  subtitletoplayer: {
-    height: 16,
-    backgroundColor: "transparent",
-    fontSize: 14,
-    alignSelf: "stretch",
-    color: "rgba(255,255,255,1)"
-  },
+
   lalalal: {
     top: 33,
     left: 158,
@@ -1310,5 +1281,40 @@ const styles = StyleSheet.create({
   tabViewButton: {
     alignSelf: "stretch",
     flex: 1
+  },
+  topContainerRl: {
+    flexDirection: "row",
+    alignSelf: "stretch",
+    flex: 1
+  },
+  topleftlayer: {
+    width: 187,
+    height: 173,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  imagetop: {
+    width: 140,
+    height: 140,
+    borderRadius: 7
+  },
+  toprigthlayer: {
+    width: 184,
+    height: 170,
+    justifyContent: "center"
+  },
+  titlelayertop: {
+    height: 23,
+    alignSelf: "stretch",
+    backgroundColor: "transparent",
+    fontSize: 20,
+    color: "rgba(255,255,255,1)"
+  },
+  subtitletoplayer: {
+    height: 16,
+    alignSelf: "stretch",
+    backgroundColor: "transparent",
+    fontSize: 14,
+    color: "rgba(255,255,255,1)"
   }
 });
