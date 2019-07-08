@@ -26,6 +26,7 @@ import { Center } from "@builderx/utils";
 import CardFlip from "react-native-card-flip";
 import { AccordionList } from "accordion-collapse-react-native";
 
+import Icon from "@builderx/icons";
 import LoadMoreList from "../symbols/LoadMoreList";
 
 const tableHead = ["Nombre", "Eventos", "Puntos", "Detalles"];
@@ -523,7 +524,8 @@ const styles = StyleSheet.create({
   contentCenterLeft: {
     width: "15%",
     alignSelf: "stretch",
-    alignItems: "center"
+    alignItems: "center",
+    flexDirection: "column"
   },
   contentCenterCenter: {
     width: "70%",
@@ -553,6 +555,7 @@ const styles = StyleSheet.create({
   },
   textLevelVer: {
     height: 15,
+    width: 150,
     backgroundColor: "transparent",
     fontSize: 16,
     lineHeight: 14,
@@ -564,7 +567,7 @@ const styles = StyleSheet.create({
     paddingRight: 0,
     transform: [
       {
-        rotate: "-90deg"
+        rotate: "270deg"
       }
     ]
   },
@@ -817,9 +820,10 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     height: 450,
+    width: "90%",
     flexDirection: "column",
     borderRadius: 20,
-    alignSelf: "stretch"
+    alignSelf: "center"
   },
   wrapper: { flexDirection: "row" },
   wrapperDetail: { flexDirection: "row" },
@@ -900,5 +904,12 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 0,
     bottom: 0
+  },
+  icon: {
+    width: 40,
+    height: 38,
+    backgroundColor: "transparent",
+    color: "grey",
+    fontSize: 40
   }
 });
