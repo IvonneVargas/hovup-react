@@ -1118,7 +1118,7 @@ const styles = StyleSheet.create({
   },
   titleFive: {
     width: 359,
-    height: 16,
+    height: 17,
     margin: 15,
     alignSelf: "center"
   },
@@ -1159,12 +1159,11 @@ const styles = StyleSheet.create({
     margin: 5
   },
   description: {
-    width: 330.97,
     height: 71.57,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     textAlign: "center",
-    alignSelf: "center"
+    alignSelf: "stretch"
   },
   contentDetailCoupon: {
     height: 148.56,
@@ -1196,7 +1195,7 @@ const styles = StyleSheet.create({
     top: 9,
     left: 0,
     position: "absolute",
-    right: 29.72,
+    right: 0,
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "flex-start"
@@ -1206,7 +1205,8 @@ const styles = StyleSheet.create({
     height: 15,
     fontSize: 16,
     color: "rgba(255,255,255,1)",
-    alignSelf: "center"
+    alignSelf: "flex-start",
+    paddingLeft: 10
   },
   textDiscountPercentage: {
     width: 312.38,
@@ -1216,7 +1216,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     margin: 0,
     padding: 0,
-    alignSelf: "center"
+    alignSelf: "flex-start",
+    paddingLeft: 10
   },
   icon3: {
     top: 12.24,
