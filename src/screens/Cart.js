@@ -268,13 +268,11 @@ export default class Cart extends Component {
             }
           />
           <Text style={styles.textDescription}>
-            {
-              typeUser == "notAdmin" ? (
-                "Selecciona la tarjeta con la cual quieres hacer el cargo de tu compra. Desliza hacia la derecha para editar o borrar una tarjeta que hayas dado de alta anteriormente."
-              ) : (
-                "Para continuar ingresa el email de tu cliente y enviarle su certificado de compra"
-              )
-            }
+            {typeUser == "notAdmin" ? (
+              "Selecciona la tarjeta con la cual quieres hacer el cargo de tu compra. Desliza hacia la derecha para editar o borrar una tarjeta que hayas dado de alta anteriormente."
+            ) : (
+              "Para continuar ingresa el email de tu cliente y enviarle su certificado de compra"
+            )}
           </Text>
           {this.showAdmin()}
         </View>
