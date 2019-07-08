@@ -109,6 +109,7 @@ export default class Cart extends Component {
               return (
                 <View style={styles.rect}>
                   <Swipeout
+                    buttonWidth={80}
                     left={[
                       {
                         component: (
