@@ -267,16 +267,15 @@ export default class Cart extends Component {
               )
             }
           />
-          <DescriptionFive
-            style={styles.descriptionFive}
-            text2={
+          <Text style={styles.textDescription}>
+            {
               typeUser == "notAdmin" ? (
                 "Selecciona la tarjeta con la cual quieres hacer el cargo de tu compra. Desliza hacia la derecha para editar o borrar una tarjeta que hayas dado de alta anteriormente."
               ) : (
                 "Para continuar ingresa el email de tu cliente y enviarle su certificado de compra"
               )
             }
-          />
+          </Text>
           {this.showAdmin()}
         </View>
       );
@@ -350,11 +349,11 @@ export default class Cart extends Component {
                     source={require("../assets/ic_card_visa.png")}
                     style={styles.imageCard}
                   />
-                  {this.showSelected(item.key)}
-                  <View style={styles.rect9}>
+                  <View style={styles.rect21}>
                     <Text style={styles.textKey}>{item.key}</Text>
                     <Text style={styles.textSub}>{item.name}</Text>
                   </View>
+                  {this.showSelected(item.key)}
                 </TouchableOpacity>
               );
             }}
@@ -530,11 +529,11 @@ export default class Cart extends Component {
                     source={require("../assets/ic_card_visa.png")}
                     style={styles.imageCard}
                   />
-                  {this.showSelected(item.key)}
-                  <View style={styles.rect9}>
+                  <View style={styles.rect21}>
                     <Text style={styles.textKey}>{item.key}</Text>
                     <Text style={styles.textSub}>{item.name}</Text>
                   </View>
+                  {this.showSelected(item.key)}
                 </TouchableOpacity>
               );
             }}
@@ -607,7 +606,7 @@ export default class Cart extends Component {
             root={() => {
               this.props.navigation.push("Cart", {
                 type: "contentPayment",
-                typeUser: "Admin"
+                typeUser: "notAdmin"
               });
             }}
           />
@@ -1224,12 +1223,11 @@ const styles = StyleSheet.create({
     paddingLeft: 10
   },
   icon3: {
-    top: 12.24,
-    left: 343,
-    position: "absolute",
     backgroundColor: "transparent",
     color: "rgba(126,211,33,1)",
-    fontSize: 23
+    fontSize: 23,
+    alignSelf: "center",
+    marginRight: 20
   },
   textReferenceC: {
     width: 237,
@@ -1250,9 +1248,8 @@ const styles = StyleSheet.create({
     marginTop: 30
   },
   descriptionFive: {
-    width: 359,
     height: 37.66,
-    alignSelf: "center",
+    alignSelf: "stretch",
     margin: 10
   },
 
@@ -1650,7 +1647,7 @@ const styles = StyleSheet.create({
     height: 47.23,
     backgroundColor: "transparent",
     alignSelf: "center",
-    color: "rgba(255,255,255,1)"
+    color: "rgba(253,248,248,1)"
   },
   button: {
     height: 17.55,
@@ -1668,5 +1665,9 @@ const styles = StyleSheet.create({
   rect20: {
     flex: 1,
     marginLeft: 18
+  },
+  rect21: {
+    flex: 1,
+    alignSelf: "stretch"
   }
 });
