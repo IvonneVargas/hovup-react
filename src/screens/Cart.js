@@ -472,7 +472,7 @@ export default class Cart extends Component {
           />
           <GenericButtonIcon
             style={styles.paymentClientSelectBtn}
-            text="Forma de pago"
+            text="Selecciona le pago"
             iconType="MaterialCommunityIcons"
             iconName="check"
             navigation={this.props.navigation}
@@ -606,7 +606,7 @@ export default class Cart extends Component {
             root={() => {
               this.props.navigation.push("Cart", {
                 type: "contentPayment",
-                typeUser: "notAdmin"
+                typeUser: "Admin"
               });
             }}
           />
@@ -644,7 +644,7 @@ export default class Cart extends Component {
           <LineView style={styles.lineView} />
         </View>
       );
-    } else if (typeUser == "Admin") {
+    } else if (typeUser == "notAdmin") {
       return (
         <View style={styles.contentCardResume}>
           <Image
