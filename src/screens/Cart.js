@@ -915,15 +915,16 @@ const styles = StyleSheet.create({
     margin: 15
   },
   textDescription: {
-    width: 350.5,
-    height: 49,
+    height: 66.13,
     backgroundColor: "transparent",
     color: "rgba(241,241,241,1)",
     fontSize: 14,
 
     textAlign: "left",
     margin: 0,
-    alignSelf: "center"
+    alignSelf: "stretch",
+    paddingLeft: 30,
+    paddingRight: 0
   },
   headerSingleLogo: {
     height: 53,
