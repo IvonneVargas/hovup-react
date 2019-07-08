@@ -933,7 +933,8 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     flex: 1,
     flexDirection: "column",
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
+    alignItems: "flex-end"
   },
   list: {
     alignSelf: "stretch",
@@ -1038,32 +1039,32 @@ const styles = StyleSheet.create({
     textAlign: "right"
   },
   contentOne: {
-    width: 374,
-    height: 31,
+    height: 30,
     flexDirection: "row",
     justifyContent: "flex-end",
-    alignItems: "center"
+    alignItems: "center",
+    alignSelf: "stretch"
   },
   contentTwo: {
-    width: 374,
     height: 31,
     flexDirection: "row",
     justifyContent: "flex-end",
-    alignItems: "center"
+    alignItems: "center",
+    alignSelf: "stretch"
   },
   contentThree: {
-    width: 374,
     height: 31,
     flexDirection: "row",
     justifyContent: "flex-end",
-    alignItems: "center"
+    alignItems: "center",
+    alignSelf: "stretch"
   },
   textSubtotal: {
     width: 75,
     height: 16,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    margin: 5,
+    margin: 30,
     textAlign: "right"
   },
 
@@ -1073,14 +1074,15 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     margin: 5,
-    textAlign: "right"
+    textAlign: "right",
+    marginRight: 30
   },
   textIvaT: {
     width: 130,
     height: 16,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    margin: 5,
+    margin: 30,
     textAlign: "right"
   },
   textSubtotalT: {
@@ -1088,7 +1090,7 @@ const styles = StyleSheet.create({
     height: 16,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    margin: 5,
+    margin: 30,
     textAlign: "right"
   },
   textTotals: {
@@ -1097,14 +1099,15 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     margin: 5,
-    textAlign: "right"
+    textAlign: "right",
+    marginRight: 30
   },
   textIva: {
     width: 75,
     height: 16,
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
-    margin: 5,
+    margin: 30,
     textAlign: "right"
   },
   contentCodes: {
@@ -1250,7 +1253,8 @@ const styles = StyleSheet.create({
   contentResume: {
     height: 111.53,
     alignSelf: "stretch",
-    flexDirection: "column"
+    flexDirection: "column",
+    alignItems: "center"
   },
   titleFive5: {
     width: 359,

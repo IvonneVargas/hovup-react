@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     paddingTop: 0,
     paddingBottom: 0,
 
-    alignSelf: "stretch",
+    alignSelf: "flex-start",
     margin: 0
   },
   text: {
@@ -83,7 +83,8 @@ const styles = StyleSheet.create({
     padding: 13,
     color: "rgba(255,255,255,1)",
     right: 0,
-    bottom: 0
+    bottom: 0,
+    textAlign: "center"
   },
   rect3: {
     height: 212,
