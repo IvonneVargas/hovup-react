@@ -169,7 +169,7 @@ export default class Cart extends Component {
                         source={require("../assets/ic_200x200.png")}
                         style={styles.image}
                       />
-                      <View style={styles.rect9}>
+                      <View style={styles.rect20}>
                         <Text style={styles.textKey}>{item.key}</Text>
                         <Text style={styles.textSub}>$ {item.sub} MXN</Text>
                         <Text style={styles.textReferenceC}>
@@ -966,13 +966,16 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     fontSize: 20,
-    alignSelf: "center"
+    alignSelf: "center",
+    marginLeft: 18,
+    marginRight: 23
   },
   image: {
     width: 59,
     height: 60,
     borderRadius: 6,
-    margin: 5
+    margin: 5,
+    marginLeft: 18
   },
   imageCard: {
     width: 70.71,
@@ -1021,9 +1024,9 @@ const styles = StyleSheet.create({
     textAlign: "right"
   },
   contentPieces: {
-    width: 237,
     height: 17,
-    flexDirection: "row"
+    flexDirection: "row",
+    alignSelf: "stretch"
   },
   textPieces: {
     width: "50%",
@@ -1660,5 +1663,9 @@ const styles = StyleSheet.create({
     color: "rgba(126,211,33,1)",
     textAlign: "center",
     alignSelf: "center"
+  },
+  rect20: {
+    flex: 1,
+    marginLeft: 18
   }
 });
