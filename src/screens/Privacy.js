@@ -75,19 +75,20 @@ const styles = StyleSheet.create({
     top: Platform.OS === "android" ? 79 : 85,
     left: Platform.OS === "android" ? 0 : 0,
     position: "absolute",
-    backgroundColor: "rgba(25,39,52,1)",
+
     right: Platform.OS === "android" ? 0 : 0,
     bottom: Platform.OS === "android" ? 2 : -5,
-    opacity: 1
+    backgroundColor: "#E6E6E6"
   },
   text: {
-    top: 10,
-    left: 4,
-    width: 376,
-    height: 476,
+    top: 4,
+    left: 0,
+
+    height: 482,
     position: "absolute",
     backgroundColor: "transparent",
     textAlign: "left",
-    color: "rgba(255,255,255,1)"
+    color: "rgba(255,255,255,1)",
+    right: -4
   }
 });

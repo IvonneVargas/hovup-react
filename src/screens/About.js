@@ -63,28 +63,27 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   rect2: {
-    height: 58,
+    height: 60,
     padding: 0,
     paddingTop: 0,
     paddingBottom: 0,
 
-    alignSelf: "flex-start",
-    margin: 0
+    alignSelf: "stretch",
+    margin: 0,
+    flexDirection: "column",
+    alignItems: "center"
   },
   text: {
-    top: -16.59,
-    left: 0,
-
-    position: "absolute",
     backgroundColor: "transparent",
     margin: 0,
     marginTop: 0,
     marginBottom: 0,
     padding: 13,
     color: "rgba(255,255,255,1)",
-    right: 0,
-    bottom: 0,
-    textAlign: "center"
+
+    textAlign: "center",
+    flex: 1,
+    alignSelf: "center"
   },
   rect3: {
     height: 212,
