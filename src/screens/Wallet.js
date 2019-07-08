@@ -594,5 +594,8 @@ const styles = StyleSheet.create({
     padding: 0,
     margin: 25,
     textAlign: "center"
+  },
+  rect9: {
+    flex: 1
   }
 });
