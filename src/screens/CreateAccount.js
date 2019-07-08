@@ -140,8 +140,8 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   layoutStatusBar: {
-    width: 375,
-    height: 33
+    height: 33,
+    alignSelf: "stretch"
   },
   header: {
     height: 54,
