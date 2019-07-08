@@ -186,6 +186,9 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     opacity: 1
   },
+  rect9: {
+    flex: 1
+  },
   text: {
     color: "rgba(255,255,255,1)"
   },
@@ -194,7 +197,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     margin: 0,
-    justifyContent: "space-between"
+    justifyContent: "flex-start"
   },
   icon: {
     top: Platform.OS === "android" ? 18 : undefined,
