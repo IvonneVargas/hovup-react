@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   rect2: {
-    height: Platform.OS === "android" ? 81 : 81.4,
+    height: Platform.OS === "android" ? 81 : 98,
     flexDirection: "column",
     alignItems: "flex-start",
     justifyContent: "space-around",
@@ -225,23 +225,25 @@ const styles = StyleSheet.create({
     opacity: 1
   },
   text: {
-    width: 354,
     height: 16,
     alignSelf: "stretch",
     backgroundColor: "transparent",
     margin: 10,
     padding: 0,
     fontWeight: "bold",
-    color: "rgba(255,255,255,1)"
+    color: "rgba(255,255,255,1)",
+    marginLeft: 13,
+    marginTop: 13
   },
   text2: {
-    width: 357,
-    height: 59.3,
+    height: 66.13,
     alignSelf: "stretch",
     backgroundColor: "transparent",
     margin: 10,
     padding: 0,
-    color: "rgba(255,255,255,1)"
+    color: "rgba(255,255,255,1)",
+    marginLeft: 13,
+    marginTop: 13
   },
   scrollArea: {
     alignSelf: "stretch",
