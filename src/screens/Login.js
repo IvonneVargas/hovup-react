@@ -28,7 +28,7 @@ export default class Login extends Component {
         <StatusBar barStyle="light-content" style={styles.statusBar} />
         <View style={styles.background}>
           <LayoutStatusBar style={styles.layoutStatusBar} />
-          <ScrollView style={styles.scrollArea}>
+          <View style={styles.rect}>
             <Icon
               style={styles.icon}
               name="ios-arrow-back"
@@ -39,7 +39,7 @@ export default class Login extends Component {
             />
             <LogoR style={styles.logoR} />
             {this.displayContent()}
-          </ScrollView>
+          </View>
         </View>
       </View>
     );
@@ -161,7 +161,6 @@ const styles = StyleSheet.create({
 
   statusBar: {},
   background: {
-    height: Platform.OS === "android" ? 25 : undefined,
     top: 0,
     left: 0,
     position: "absolute",
@@ -230,7 +229,7 @@ const styles = StyleSheet.create({
     height: 34,
     alignSelf: "stretch"
   },
-  scrollArea: {
+  rect: {
     backgroundColor: "#192734",
     opacity: 1,
     flex: 1,
