@@ -99,9 +99,6 @@ export default class Options extends Component {
               </View>
             );
           }}
-          ItemSeparatorComponent={({}) => {
-            return <View style={styles.rect3} />;
-          }}
         />
         <Header
           style={styles.header}
@@ -179,11 +176,5 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     margin: 0,
     marginRight: 8
-  },
-  rect3: {
-    backgroundColor: "rgba(148,148,148,1)",
-    left: 0,
-    height: 3,
-    opacity: 1
   }
 });

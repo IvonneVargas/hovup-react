@@ -140,9 +140,6 @@ export default class Wallet extends Component {
                   </View>
                 );
               }}
-              ItemSeparatorComponent={({}) => {
-                return <View style={styles.rect4} />;
-              }}
             />
           </View>
         </View>
@@ -234,9 +231,6 @@ export default class Wallet extends Component {
                     </TouchableOpacity>
                   </View>
                 );
-              }}
-              ItemSeparatorComponent={({}) => {
-                return <View style={styles.rect4} />;
               }}
             />
           </View>

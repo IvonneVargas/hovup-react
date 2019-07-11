@@ -193,9 +193,6 @@ export default class Cart extends Component {
                 </View>
               );
             }}
-            ItemSeparatorComponent={({}) => {
-              return <View style={styles.rect4} />;
-            }}
           />
           {this.displayUserContent()}
           <View style={styles.contentProducts}>
@@ -354,9 +351,6 @@ export default class Cart extends Component {
                   {this.showSelected(item.key)}
                 </TouchableOpacity>
               );
-            }}
-            ItemSeparatorComponent={({}) => {
-              return <View style={styles.rect17} />;
             }}
           />
         </View>
@@ -535,9 +529,6 @@ export default class Cart extends Component {
                 </TouchableOpacity>
               );
             }}
-            ItemSeparatorComponent={({}) => {
-              return <View style={styles.rect17} />;
-            }}
           />
           <Icon
             style={styles.iconPlus}
@@ -703,9 +694,6 @@ export default class Cart extends Component {
                   {this.showSelected(item.key)}
                 </View>
               );
-            }}
-            ItemSeparatorComponent={({}) => {
-              return <View style={styles.rect13} />;
             }}
           />
         </View>

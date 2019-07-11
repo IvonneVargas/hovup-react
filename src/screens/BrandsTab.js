@@ -382,9 +382,6 @@ export default class BrandsTab extends Component {
                 </View>
               );
             }}
-            ItemSeparatorComponent={({}) => {
-              return <View style={styles.rect8} />;
-            }}
           />
         </View>
       );
@@ -507,9 +504,6 @@ export default class BrandsTab extends Component {
                     </TouchableOpacity>
                   </View>
                 );
-              }}
-              ItemSeparatorComponent={({}) => {
-                return <View style={styles.rect8} />;
               }}
             />
           </View>
@@ -639,9 +633,6 @@ export default class BrandsTab extends Component {
                     </TouchableOpacity>
                   </View>
                 );
-              }}
-              ItemSeparatorComponent={({}) => {
-                return <View style={styles.rect8} />;
               }}
             />
           </View>
