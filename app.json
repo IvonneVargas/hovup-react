@@ -1,5 +1,16 @@
 {
   "expo": {
-    "sdkVersion": "31.0.0"
-  }
+    "name": "Hovup",
+    "icon": "./src/assets/ic_launcher.png",
+    "version": "1.0.0",
+    "slug": "hovup",
+    "sdkVersion": "31.0.0",
+    "privacy": "public",
+    "ios": {
+      "bundleIdentifier": "com.hovanetworks.hovup"
+    },
+    "android": {
+      "package": "com.hovanetworks.hovup"
+    }
+   }
 }
