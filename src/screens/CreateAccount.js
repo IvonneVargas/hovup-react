@@ -40,7 +40,7 @@ export default class CreateAccount extends Component {
     const type = this.props.navigation.getParam("type", "main");
     if (type == "main") {
       return (
-        <ScrollView style={styles.scrollArea}>
+        <View style={styles.rect2}>
           <View style={styles.rect} navigation={this.props.navigation}>
             <TextInput style={styles.textInput2} placeholder="Nombre*" />
             <TextInput
@@ -83,7 +83,7 @@ export default class CreateAccount extends Component {
               Al registrarte aceptas los terminos y condiciones
             </Text>
           </View>
-        </ScrollView>
+        </View>
       );
     } else {
       return (
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     height: 54,
     alignSelf: "stretch"
   },
-  scrollArea: {
+  rect2: {
     alignSelf: "stretch",
     flex: 1
   },
