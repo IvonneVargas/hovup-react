@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { View, StyleSheet, StatusBar, Platform, Text } from "react-native";
 import { Center } from "@builderx/utils";
-import LayoutStatusBar from "../symbols/LayoutStatusBar";
-import HeaderSettings from "../symbols/HeaderSettings";
+
 import { TabView, TabContent } from "@builderx/tab-view";
 import { TabViewAnimated, TabBar, SceneMap } from "react-native-tab-view";
 
 import Colors from "../assets/colors";
 import Zones from "./ZonesTab";
 import Membership from "./MembershipTab";
+import LayoutStatusBar from "../symbols/LayoutStatusBar";
+import HeaderSettings from "../symbols/HeaderSettings";
 import Brands from "./BrandsTab";
 
 export default class Main extends Component {
@@ -46,31 +47,34 @@ export default class Main extends Component {
     const ZonesTab = () => <Zones style={styles.text2} />;
     return (
       <View style={styles.root}>
-        <StatusBar barStyle="light-content" style={styles.statusBar} />
-        <LayoutStatusBar style={styles.layoutStatusBar} />
-        <HeaderSettings
-          style={styles.headerSettings}
-          navigation={this.props.navigation}
-        />
-        <TabViewAnimated
-          style={styles.tab}
-          navigationState={this.state}
-          renderScene={SceneMap({
-            first: MembershipTab,
-            second: BrandTab,
-            third: StoreTab,
-            fourth: ZonesTab
-          })}
-          onIndexChange={index => this.setState({ index })}
-          renderHeader={(props: any) => (
-            <TabBar
-              {...props}
-              style={styles.tab_tabBarStyle}
-              indicatorStyle={styles.tab_tabIndicatorStyle}
-              labelStyle={styles.tab_tabLabelStyle}
+        <View style={styles.background}>
+          <LayoutStatusBar style={styles.layoutStatusBar} />
+          <HeaderSettings
+            style={styles.headerSettings}
+            navigation={this.props.navigation}
+          />
+          <View style={styles.containerTabs}>
+            <TabViewAnimated
+              style={styles.tab}
+              navigationState={this.state}
+              renderScene={SceneMap({
+                first: MembershipTab,
+                second: BrandTab,
+                third: StoreTab,
+                fourth: ZonesTab
+              })}
+              onIndexChange={index => this.setState({ index })}
+              renderHeader={(props: any) => (
+                <TabBar
+                  {...props}
+                  style={styles.tab_tabBarStyle}
+                  indicatorStyle={styles.tab_tabIndicatorStyle}
+                  labelStyle={styles.tab_tabLabelStyle}
+                />
+              )}
             />
-          )}
-        />
+          </View>
+        </View>
       </View>
     );
   }
@@ -88,29 +92,10 @@ const styles = StyleSheet.create({
     height: 34,
     width: 376
   },
-  layoutStatusBar: {
-    top: 0,
-    left: 0,
-    position: "absolute",
-    height: Platform.OS === "android" ? 25 : 33,
-    right: 0
-  },
-  headerSettings: {
-    top: Platform.OS === "android" ? 18 : 31,
-    left: 0,
-    position: "absolute",
-    height: 53,
-    right: 0
-  },
-  tab: {
-    height: Platform.OS === "android" ? 670 : undefined,
-    top: Platform.OS === "android" ? 72 : 82.14,
-    left: 0,
-    position: "absolute",
-    right: 0,
 
-    backgroundColor: "#E6E6E6",
-    bottom: 0
+  tab: {
+    flex: 1,
+    backgroundColor: "#E6E6E6"
   },
   tab_tabBarStyle: {
     backgroundColor: "rgba(25,39,52,1)",
@@ -175,5 +160,27 @@ const styles = StyleSheet.create({
     left: 168.81,
     position: "absolute",
     backgroundColor: "transparent"
+  },
+  background: {
+    top: 0,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    bottom: 0,
+    flexDirection: "column"
+  },
+  layoutStatusBar: {
+    height: Platform.OS === "android" ? 25 : 33,
+    alignSelf: "stretch"
+  },
+  headerSettings: {
+    height: 52,
+    alignSelf: "stretch"
+  },
+  containerTabs: {
+    backgroundColor: "rgba(25,39,52,1)",
+    alignSelf: "stretch",
+    flex: 1,
+    opacity: 1
   }
 });
