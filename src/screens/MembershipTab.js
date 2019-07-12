@@ -706,7 +706,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   textPointsDd: {
-    width: 43,
+    width: 45,
     height: 16,
     backgroundColor: "transparent",
     fontSize: 14
@@ -759,7 +759,7 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   tittleTexPoints: {
-    height: 17,
+    height: 18,
     backgroundColor: "transparent",
     color: "rgba(10,10,10,1)",
     fontSize: 16,
@@ -876,14 +876,14 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   textCoupondRedeem: {
-    height: 14,
+    height: 18,
 
     backgroundColor: "transparent",
     flex: 1,
     paddingLeft: 15
   },
   contentDetailBack: {
-    width: "15%",
+    width: "20%",
     alignSelf: "stretch",
     flexDirection: "column",
     justifyContent: "center",
