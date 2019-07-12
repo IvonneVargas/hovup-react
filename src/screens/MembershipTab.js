@@ -101,7 +101,19 @@ const dataFlip = [
   {
     title: "Getting Started",
     id: "1234 5671",
-    color: "#F74302",
+    color: "#8A0886",
+    points: "60"
+  },
+  {
+    title: "Getting Started",
+    id: "1234 5671",
+    color: "#0B3B24",
+    points: "60"
+  },
+  {
+    title: "Getting Started",
+    id: "1234 5671",
+    color: "#BCA9F5",
     points: "60"
   }
 ];
