@@ -106,15 +106,10 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   header: {
-    top: Platform.OS === "android" ? 24 : undefined,
     height: 53,
     alignSelf: "stretch"
   },
   list: {
-    top: Platform.OS === "android" ? 75.67 : undefined,
-    bottom: Platform.OS === "android" ? "" : undefined,
-    right: Platform.OS === "android" ? 0 : undefined,
-    height: Platform.OS === "android" ? 745 : undefined,
     backgroundColor: "rgba(25,39,52,1)",
     opacity: 1,
     alignSelf: "stretch",
