@@ -190,6 +190,7 @@ export default class Cart extends Component {
                       />
                     </View>
                   </Swipeout>
+                  <View style={styles.separators} />
                 </View>
               );
             }}
@@ -547,7 +548,7 @@ export default class Cart extends Component {
             root={() => {
               this.props.navigation.push("Cart", {
                 type: "content",
-                typeUser: "notAdmin"
+                typeUser: "Admin"
               });
             }}
           />
@@ -595,7 +596,7 @@ export default class Cart extends Component {
             root={() => {
               this.props.navigation.push("Cart", {
                 type: "contentPayment",
-                typeUser: "Admin"
+                typeUser: "notAdmin"
               });
             }}
           />
@@ -772,26 +773,26 @@ export default class Cart extends Component {
   getPhotosFromGallery = () => {
     let options = {
       allowsEditing: true
-    }
-    ImagePicker.launchImageLibrary(options, response => {
-      if (response.uri) {
-        this.setState({ image: response })
-        this.handleUploadPhoto();
-      }
-    })
+      ImagePicker.launchImageLibrary(options, response => {
+        if (response.uri) {
+          this.setState({ image: response })
+          this.handleUploadPhoto();
+        }
+      })
+    };
   };
 
   getPhotosCamera = () => {
     let options = {
       allowsEditing: true,
-      mediaType: 'photo'
-    }
-    ImagePicker.launchCamera(options, response => {
-      if (response.uri) {
-        this.setState({ image: response })
-        this.handleUploadPhoto();
-      }
-    })
+      mediaType: "photo"
+      ImagePicker.launchCamera(options, response => {
+        if (response.uri) {
+          this.setState({ image: response })
+          this.handleUploadPhoto();
+        }
+      })
+    };
   };
 
   createFormData = (image, body) => {
@@ -973,7 +974,7 @@ const styles = StyleSheet.create({
     textAlign: "right"
   },
   contentPieces: {
-    height: 17,
+    height: 19,
     flexDirection: "row",
     alignSelf: "stretch"
   },
@@ -1180,7 +1181,7 @@ const styles = StyleSheet.create({
   },
   textReferenceC: {
     width: 237,
-    height: 14,
+    height: 16,
     fontSize: 14,
     color: "rgba(255,255,255,1)"
   },
@@ -1618,5 +1619,13 @@ const styles = StyleSheet.create({
   rect21: {
     flex: 1,
     alignSelf: "stretch"
+  },
+  separators: {
+    height: 1,
+    top: 82,
+    left: 0,
+    position: "absolute",
+    backgroundColor: "rgb(230,230,230)",
+    right: 0
   }
 });

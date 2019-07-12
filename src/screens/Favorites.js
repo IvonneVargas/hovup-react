@@ -112,6 +112,7 @@ export default class Favorites extends Component {
                       type="Ionicons"
                     />
                   </TouchableOpacity>
+                  <View style={styles.separators} />
                 </View>
               );
             }}
@@ -231,5 +232,13 @@ const styles = StyleSheet.create({
     height: 17,
     fontSize: 16,
     color: "rgba(255,255,255,1)"
+  },
+  separators: {
+    height: 1,
+    top: 53,
+    left: 0,
+    position: "absolute",
+    backgroundColor: "rgb(230,230,230)",
+    right: 0
   }
 });

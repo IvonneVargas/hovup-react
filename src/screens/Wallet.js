@@ -137,6 +137,7 @@ export default class Wallet extends Component {
                       />
                       <Text style={styles.textlist}>{item.key}</Text>
                     </TouchableOpacity>
+                    <View style={styles.separators} />
                   </View>
                 );
               }}
@@ -229,6 +230,7 @@ export default class Wallet extends Component {
                         type="Ionicons"
                       />
                     </TouchableOpacity>
+                    <View style={styles.separators} />
                   </View>
                 );
               }}
@@ -591,5 +593,21 @@ const styles = StyleSheet.create({
   },
   rect9: {
     flex: 1
+  },
+  separatorst: {
+    height: 1,
+    top: 53,
+    left: 0,
+    position: "absolute",
+    backgroundColor: "rgb(230,230,230)",
+    right: 0
+  },
+  separators: {
+    height: 1,
+    top: 82,
+    left: 0,
+    position: "absolute",
+    backgroundColor: "rgb(230,230,230)",
+    right: 0
   }
 });

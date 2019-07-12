@@ -96,6 +96,7 @@ export default class Options extends Component {
                   />
                   <Text style={styles.text2}>{item.key}</Text>
                 </TouchableOpacity>
+                <View style={styles.separator} />
               </View>
             );
           }}
@@ -176,5 +177,13 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     margin: 0,
     marginRight: 8
+  },
+  separator: {
+    height: 1,
+    top: 45,
+    left: 0,
+    position: "absolute",
+    backgroundColor: "rgb(230,230,230)",
+    right: 0
   }
 });

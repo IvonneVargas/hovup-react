@@ -46,6 +46,7 @@ export default class CountryStateCityLists extends Component {
             return (
               <View style={styles.rect}>
                 <Text style={styles.text}>List Item</Text>
+                <View style={styles.separators} />
               </View>
             );
           }}
@@ -89,5 +90,13 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "rgba(255,255,255,1)"
+  },
+  separators: {
+    height: 2,
+    top: 33,
+    left: 0,
+    position: "absolute",
+    backgroundColor: "rgb(230,230,230)",
+    right: 0
   }
 });

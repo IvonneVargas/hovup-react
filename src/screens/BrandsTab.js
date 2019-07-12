@@ -379,6 +379,7 @@ export default class BrandsTab extends Component {
                       type="Ionicons"
                     />
                   </TouchableOpacity>
+                  <View style={styles.separators} />
                 </View>
               );
             }}
@@ -502,6 +503,7 @@ export default class BrandsTab extends Component {
                         type="Ionicons"
                       />
                     </TouchableOpacity>
+                    <View style={styles.separators} />
                   </View>
                 );
               }}
@@ -631,6 +633,7 @@ export default class BrandsTab extends Component {
                         type="Ionicons"
                       />
                     </TouchableOpacity>
+                    <View style={styles.separators} />
                   </View>
                 );
               }}
@@ -1307,5 +1310,13 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     fontSize: 14,
     color: "rgba(255,255,255,1)"
+  },
+  separators: {
+    height: 1,
+    top: 82,
+    left: 0,
+    position: "absolute",
+    backgroundColor: "rgb(230,230,230)",
+    right: 0
   }
 });
