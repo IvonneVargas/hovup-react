@@ -24,7 +24,7 @@ import TitleFive from "../symbols/TitleFive";
 import DescriptionFive from "../symbols/DescriptionFive";
 import GenericButton from "../symbols/GenericButton";
 import Swipeout from "react-native-swipeout";
-import { Constants, ImagePicker, Permissions } from "expo";
+import ImagePicker from 'react-native-image-picker';
 
 export default class Cart extends Component {
   constructor() {
@@ -769,102 +769,65 @@ export default class Cart extends Component {
     );
   }
 
-  getPhotosFromGallery = async () => {
-    const { status: cameraRollPerm } = await Permissions.askAsync(
-      Permissions.CAMERA_ROLL
-    );
-
-    if (cameraRollPerm === "granted") {
-      let pickerResult = await ImagePicker.launchImageLibraryAsync({
-        allowsEditing: true,
-        aspect: [4, 3]
-      });
-
-      this._handleImagePicked(pickerResult);
+  getPhotosFromGallery = () => {
+    let options = {
+      allowsEditing: true
     }
-  };
-
-  getPhotosCamera = async () => {
-    const { status: cameraPerm } = await Permissions.askAsync(
-      Permissions.CAMERA
-    );
-
-    const { status: cameraRollPerm } = await Permissions.askAsync(
-      Permissions.CAMERA_ROLL
-    );
-
-    if (cameraPerm === "granted" && cameraRollPerm === "granted") {
-      let pickerResult = await ImagePicker.launchCameraAsync({
-        allowsEditing: true,
-        aspect: [4, 3]
-      });
-
-      this._handleImagePicked(pickerResult);
-    }
-  };
-
-  _handleImagePicked = async pickerResult => {
-    let uploadResponse, uploadResult;
-
-    try {
-      this.setState({
-        uploading: true
-      });
-
-      if (!pickerResult.cancelled) {
-        uploadResponse = await uploadImageAsync(pickerResult.uri);
-        uploadResult = await uploadResponse.json();
-
-        this.setState({
-          image: uploadResult.location
-        });
+    ImagePicker.launchImageLibrary(options, response => {
+      if (response.uri) {
+        this.setState({ image: response })
+        this.handleUploadPhoto();
       }
-    } catch (e) {
-      console.log({ uploadResponse });
-      console.log({ uploadResult });
-      console.log({ e });
-      alert("Upload failed, sorry :(");
-    } finally {
-      this.setState({
-        uploading: false
-      });
+    })
+  };
+
+  getPhotosCamera = () => {
+    let options = {
+      allowsEditing: true,
+      mediaType: 'photo'
     }
+    ImagePicker.launchCamera(options, response => {
+      if (response.uri) {
+        this.setState({ image: response })
+        this.handleUploadPhoto();
+      }
+    })
+  };
+
+  createFormData = (image, body) => {
+    const data = new FormData();
+
+    data.append("image", {
+      name: image.fileName,
+      type: image.type,
+      uri:
+        Platform.OS === "android" ? image.uri : image.uri.replace("file://", "")
+    });
+
+    Object.keys(body).forEach(key => {
+      data.append(key, body[key]);
+    });
+
+    return data;
+  };
+
+  handleUploadPhoto = () => {
+    fetch("http://192.168.1.100:3000/api/upload", {
+      method: "POST",
+      body: this.createFormData(this.state.image, {})
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log("upload succes", response);
+        alert("Upload success!");
+        this.setState({ image: null });
+      })
+      .catch(error => {
+        console.log("upload error", error);
+        alert("Upload failed!");
+      });
   };
 }
-
-/*async function uploadImageAsync(uri) {
-  let apiUrl = 'https://file-upload-example-backend-dkhqoilqqn.now.sh/upload';
-
-  // Note:
-  // Uncomment this if you want to experiment with local server
-  //
-  // if (Constants.isDevice) {
-  //   apiUrl = `https://your-ngrok-subdomain.ngrok.io/upload`;
-  // } else {
-  //   apiUrl = `http://localhost:3000/upload`
-  // }
-
-  let uriParts = uri.split('.');
-  let fileType = uriParts[uriParts.length - 1];
-
-  let formData = new FormData();
-  formData.append('photo', {
-    uri,
-    name: `photo.${fileType}`,
-    type: `image/${fileType}`,
-  });
-
-  let options = {
-    method: 'POST',
-    body: formData,
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'multipart/form-data',
-    },
-  };
-
-  return fetch(apiUrl, options);
-}*/
 
 const styles = StyleSheet.create({
   root: {
