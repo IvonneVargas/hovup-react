@@ -38,9 +38,7 @@ export default class Login extends Component {
               type="Ionicons"
             />
             <LogoR style={styles.logoR} />
-            <View style={styles.rectAll}>
-              {this.displayContent()}
-            </View>
+            <View style={styles.rectAll}>{this.displayContent()}</View>
           </ScrollView>
         </View>
       </View>
