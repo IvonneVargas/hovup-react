@@ -28,7 +28,7 @@ export default class Login extends Component {
         <StatusBar barStyle="light-content" style={styles.statusBar} />
         <View style={styles.background}>
           <LayoutStatusBar style={styles.layoutStatusBar} />
-          <View style={styles.rect}>
+          <ScrollView style={styles.scrollArea}>
             <Icon
               style={styles.icon}
               name="ios-arrow-back"
@@ -38,8 +38,10 @@ export default class Login extends Component {
               type="Ionicons"
             />
             <LogoR style={styles.logoR} />
-            {this.displayContent()}
-          </View>
+            <View style={styles.rectAll}>
+              {this.displayContent()}
+            </View>
+          </ScrollView>
         </View>
       </View>
     );
@@ -158,8 +160,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     flex: 1
   },
-
-  statusBar: {},
   background: {
     top: 0,
     left: 0,
@@ -167,40 +167,42 @@ const styles = StyleSheet.create({
 
     right: 0,
     bottom: 0,
-    flexDirection: "column"
+    flexDirection: "column",
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1
   },
   rect3: {
-    height: 202,
-
-    top: 281,
-    left: 0,
-    position: "absolute",
+    height: 220,
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
-    right: 0
+    alignSelf: "stretch",
+    padding: 0,
+    paddingTop: 10
   },
   rect4: {
     height: 272.5,
-
-    top: 280,
-    left: 0,
-    position: "absolute",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
-    right: 0
+    alignSelf: "stretch",
+    padding: 0,
+    paddingTop: 10
   },
   genericButton: {
     width: 263,
     height: 42,
     backgroundColor: "rgba(101,188,70,1)",
-    opacity: 1
+    opacity: 1,
+    marginTop: 0
   },
   textInput2: {
     width: 262,
     height: 42,
     backgroundColor: "#E6E6E6",
     borderRadius: 7,
-    textAlign: "center"
+    textAlign: "center",
+    marginTop: 0
   },
   textInput: {
     width: 100,
@@ -215,7 +217,8 @@ const styles = StyleSheet.create({
   },
   genericButtonTransparent: {
     width: 265,
-    height: 42
+    height: 42,
+    marginTop: 0
   },
   text: {
     backgroundColor: "transparent",
@@ -229,14 +232,11 @@ const styles = StyleSheet.create({
     height: 34,
     alignSelf: "stretch"
   },
-  rect: {
-    backgroundColor: "#192734",
-    opacity: 1,
-    flex: 1,
-    alignSelf: "stretch"
+  scrollArea: {
+    flex: 1
   },
   logoR: {
-    width: 265,
+    width: 272.47,
     height: 164,
     margin: 0,
     marginTop: 60,
@@ -251,5 +251,16 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     color: "rgba(255,255,255,1)",
     fontSize: 40
+  },
+  rectAll: {
+    flex: 1
+  },
+  textInput3: {
+    width: 262,
+    height: 42,
+    backgroundColor: "#E6E6E6",
+    borderRadius: 7,
+    textAlign: "center",
+    marginTop: 0
   }
 });
