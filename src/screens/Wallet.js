@@ -16,7 +16,8 @@ import {
   Platform,
   ActionSheetIOS,
   Image,
-  Text
+  Text,
+  ScrollView
 } from "react-native";
 
 import DateTimePicker from "react-native-modal-datetime-picker";
@@ -240,47 +241,50 @@ export default class Wallet extends Component {
       );
     } else if (typeT == "buy") {
       return (
-        <View style={styles.content}>
-          <HeaderBack
-            style={styles.headerBack}
-            navigation={this.props.navigation}
-          />
-          <Text style={styles.text2}>Compras</Text>
-          <View style={styles.viewProd}>
-            <Subtitle style={styles.subtitle2} />
-            <Subtitle
-              style={styles.subtitle}
-              text="Total de articulos comprados"
+        <ScrollView style={styles.scrollArea}>
+          <View style={styles.content}>
+            <HeaderBack
+              style={styles.headerBack}
+              navigation={this.props.navigation}
             />
-          </View>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={this.showDateTimePicker}
-          >
-            <Text style={styles.month}>{this.state.selectedMonth}</Text>
-            <Text style={styles.year}>{this.state.selectedYear}</Text>
-          </TouchableOpacity>
-          <DateTimePicker
-            isVisible={this.state.isDateTimePickerVisible}
-            onConfirm={this.handleDatePicked}
-            onCancel={this.hideDateTimePicker}
-            cancelTextIOS="Cancelar"
-            confirmTextIOS="Seleccionar"
-            titleIOS="Selecciona la fecha"
-          />
-          <View style={styles.contentBuy}>
-            <View style={styles.contentNotBuy}>
-              <Image
-                style={styles.image}
-                source={require("../assets/ic_gracias_compra.png")}
+            <Text style={styles.text2}>Compras</Text>
+            <View style={styles.viewProd}>
+              <Subtitle style={styles.subtitle2} />
+              <Subtitle
+                style={styles.subtitle}
+                text="Total de articulos comprados"
               />
-              <Text style={styles.text}>
-                Por el momento no tienes ninguna compra, cuando realices alguna
-                en esta seccion podras ver el resumen de cada una de ellas.
-              </Text>
+            </View>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={this.showDateTimePicker}
+            >
+              <Text style={styles.month}>{this.state.selectedMonth}</Text>
+              <Text style={styles.year}>{this.state.selectedYear}</Text>
+            </TouchableOpacity>
+            <DateTimePicker
+              isVisible={this.state.isDateTimePickerVisible}
+              onConfirm={this.handleDatePicked}
+              onCancel={this.hideDateTimePicker}
+              cancelTextIOS="Cancelar"
+              confirmTextIOS="Seleccionar"
+              titleIOS="Selecciona la fecha"
+            />
+            <View style={styles.contentBuy}>
+              <View style={styles.contentNotBuy}>
+                <Image
+                  style={styles.image}
+                  source={require("../assets/ic_gracias_compra.png")}
+                />
+                <Text style={styles.text}>
+                  Por el momento no tienes ninguna compra, cuando realices
+                  alguna en esta seccion podras ver el resumen de cada una de
+                  ellas.
+                </Text>
+              </View>
             </View>
           </View>
-        </View>
+        </ScrollView>
       );
     } else if ("sales") {
       return (
@@ -608,5 +612,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "rgb(230,230,230)",
     right: 0
+  },
+  scrollArea: {
+    flex: 1
   }
 });
