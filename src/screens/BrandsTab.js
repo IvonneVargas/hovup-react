@@ -291,7 +291,7 @@ export default class BrandsTab extends Component {
             style={styles.list2}
             data={[
               {
-                key: "Titulo",
+                key: "Titulo1",
                 sub: "Descripcion",
                 level: 2
               },
@@ -416,7 +416,7 @@ export default class BrandsTab extends Component {
               style={styles.listSecond}
               data={[
                 {
-                  key: "Titulo",
+                  key: "Titulo2",
                   sub: "Descripcion",
                   level: 3
                 },
@@ -546,7 +546,7 @@ export default class BrandsTab extends Component {
               style={styles.listSecond}
               data={[
                 {
-                  key: "Titulo",
+                  key: "Titulo3",
                   sub: "Descripcion",
                   level: 4
                 },
@@ -699,13 +699,11 @@ const styles = StyleSheet.create({
     bottom: 0
   },
   list2: {
-    left: 0,
-    right: 0,
     top: 84,
-    bottom: 0.4,
-
-    alignSelf: "stretch",
-    height: 656.6
+    left: 0,
+    position: "absolute",
+    right: 0,
+    bottom: 0
   },
   fav: {
     alignItems: "center",
