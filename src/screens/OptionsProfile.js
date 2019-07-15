@@ -143,20 +143,18 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   rect6: {
-    top: 0,
-    left: 0,
-    position: "absolute",
+    flexDirection: "column",
+    alignItems: "center",
     justifyContent: "space-between",
-    margin: 0,
+    alignSelf: "stretch",
     marginTop: 13,
-    padding: 0,
-    height: 713,
-    right: 0
+    height: 450
   },
   rect7: {
     height: 184,
+    flexDirection: "column",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignSelf: "stretch"
   },
   text3: {
@@ -199,19 +197,20 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   background: {
-    top: 0,
-    left: 0,
+    top: Platform.OS === "android" ? 0 : 0,
+    left: Platform.OS === "android" ? 0 : 0,
     position: "absolute",
-    right: 0,
-    bottom: 0,
-    flexDirection: "column"
+    right: Platform.OS === "android" ? 0 : 0,
+    bottom: Platform.OS === "android" ? 0 : 0,
+    flexDirection: "column",
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1
   },
   layoutStatusBar: {
     height: Platform.OS === "android" ? 25 : 33,
     alignSelf: "stretch"
   },
   headerIcon: {
-    top: Platform.OS === "android" ? 25 : undefined,
     height: 54,
     alignSelf: "stretch"
   },
@@ -246,10 +245,7 @@ const styles = StyleSheet.create({
     marginTop: 13
   },
   scrollArea: {
-    alignSelf: "stretch",
-    flex: 1,
-    backgroundColor: "rgba(25,39,52,1)",
-    opacity: 1
+    flex: 1
   },
   textInput2: {
     width: 264,
