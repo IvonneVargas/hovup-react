@@ -12,7 +12,8 @@ import {
   Alert,
   ActionSheetIOS,
   TextInput,
-  Text
+  Text,
+  ScrollView
 } from "react-native";
 
 import GenericButtonIcon from "../symbols/GenericButtonIcon";
@@ -24,7 +25,7 @@ import TitleFive from "../symbols/TitleFive";
 import DescriptionFive from "../symbols/DescriptionFive";
 import GenericButton from "../symbols/GenericButton";
 import Swipeout from "react-native-swipeout";
-import ImagePicker from 'react-native-image-picker';
+//import ImagePicker from 'react-native-image-picker';
 
 export default class Cart extends Component {
   constructor() {
@@ -72,7 +73,7 @@ export default class Cart extends Component {
       <View style={styles.root}>
         <View style={styles.background}>
           <LayoutStatusBar style={styles.layoutStatusBar} />
-          {this.displayContent()}
+          <View style={styles.rect22}>{this.displayContent()}</View>
         </View>
       </View>
     );
@@ -222,7 +223,7 @@ export default class Cart extends Component {
             style={styles.headerBack}
             navigation={this.props.navigation}
           />
-          <TitleFive style={styles.titleFive} text2="Codigos promocionales" />
+          <Text style={styles.textTitle}>Codigos promocionales</Text>
           <Text style={styles.description} selectionColor="rgba(255,255,255,1)">
             Por favor ingresa los codigos promocionales que deseas usar para tu
             compra, recuerda que solo se aplica a los productos validos para
@@ -334,7 +335,7 @@ export default class Cart extends Component {
             renderItem={({ item, separators }) => {
               return (
                 <TouchableOpacity
-                  style={styles.buttonsStyle}
+                  style={styles.buttonsStyleT}
                   onPress={() => {
                     this.setState({
                       selectedCard: item.key
@@ -350,6 +351,7 @@ export default class Cart extends Component {
                     <Text style={styles.textSub}>{item.name}</Text>
                   </View>
                   {this.showSelected(item.key)}
+                  <View style={styles.separatorD} />
                 </TouchableOpacity>
               );
             }}
@@ -511,7 +513,7 @@ export default class Cart extends Component {
             renderItem={({ item, separators }) => {
               return (
                 <TouchableOpacity
-                  style={styles.buttonsStyle}
+                  style={styles.buttonsStyleT}
                   onPress={() => {
                     this.setState({
                       selectedCard: item.key
@@ -527,6 +529,7 @@ export default class Cart extends Component {
                     <Text style={styles.textSub}>{item.name}</Text>
                   </View>
                   {this.showSelected(item.key)}
+                  <View style={styles.separatorD} />
                 </TouchableOpacity>
               );
             }}
@@ -689,10 +692,11 @@ export default class Cart extends Component {
                   >
                     <Text style={styles.textHash}>{item.name}</Text>
                     <Text style={styles.textDiscountPercentage}>
-                      {item.percentage}
+                      %{item.percentage}
                     </Text>
                   </TouchableOpacity>
                   {this.showSelected(item.key)}
+                  <View style={styles.separatorsT} />
                 </View>
               );
             }}
@@ -771,7 +775,7 @@ export default class Cart extends Component {
   }
 
   getPhotosFromGallery = () => {
-    let options = {
+    /*let options = {
       allowsEditing: true
       ImagePicker.launchImageLibrary(options, response => {
         if (response.uri) {
@@ -779,11 +783,11 @@ export default class Cart extends Component {
           this.handleUploadPhoto();
         }
       })
-    };
+    };*/
   };
 
   getPhotosCamera = () => {
-    let options = {
+    /*let options = {
       allowsEditing: true,
       mediaType: "photo"
       ImagePicker.launchCamera(options, response => {
@@ -792,7 +796,7 @@ export default class Cart extends Component {
           this.handleUploadPhoto();
         }
       })
-    };
+    };*/
   };
 
   createFormData = (image, body) => {
@@ -910,6 +914,14 @@ const styles = StyleSheet.create({
     height: 80,
     justifyContent: "space-around"
   },
+  buttonsStyleT: {
+    flexDirection: "row",
+    margin: 0,
+    height: 55,
+    justifyContent: "space-around",
+    backgroundColor: "rgba(25,39,52,1)",
+    opacity: 1
+  },
   icon: {
     top: Platform.OS === "android" ? 18 : undefined,
     left: Platform.OS === "android" ? 329 : undefined,
@@ -974,19 +986,19 @@ const styles = StyleSheet.create({
     textAlign: "right"
   },
   contentPieces: {
-    height: 19,
+    height: 22,
     flexDirection: "row",
     alignSelf: "stretch"
   },
   textPieces: {
     width: "50%",
-    height: 14,
+    height: 16,
     backgroundColor: "transparent",
     color: "rgba(241,241,241,1)"
   },
   textTotal: {
     width: "50%",
-    height: 14,
+    height: 16,
     backgroundColor: "transparent",
     fontSize: 14,
     color: "rgba(255,252,252,1)",
@@ -1071,7 +1083,7 @@ const styles = StyleSheet.create({
   },
   titleFive: {
     width: 359,
-    height: 17,
+    height: 20,
     margin: 15,
     alignSelf: "center"
   },
@@ -1155,7 +1167,7 @@ const styles = StyleSheet.create({
   },
   textHash: {
     width: 312,
-    height: 15,
+    height: 17,
     fontSize: 16,
     color: "rgba(255,255,255,1)",
     alignSelf: "flex-start",
@@ -1176,7 +1188,7 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     color: "rgba(126,211,33,1)",
     fontSize: 23,
-    alignSelf: "center",
+    alignSelf: "flex-end",
     marginRight: 20
   },
   textReferenceC: {
@@ -1192,7 +1204,7 @@ const styles = StyleSheet.create({
   },
   titleFive3: {
     width: 360,
-    height: 19,
+    height: 23,
     alignSelf: "center",
     margin: 10,
     marginTop: 30
@@ -1599,6 +1611,13 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     color: "rgba(253,248,248,1)"
   },
+  textTitle: {
+    backgroundColor: "transparent",
+    alignSelf: "center",
+    color: "rgba(253,248,248,1)",
+    height: 21,
+    fontSize: 17
+  },
   button: {
     height: 17.55,
     alignSelf: "stretch",
@@ -1618,11 +1637,32 @@ const styles = StyleSheet.create({
   },
   rect21: {
     flex: 1,
-    alignSelf: "stretch"
+    alignSelf: "stretch",
+    flexDirection: "column",
+    justifyContent: "center"
   },
   separators: {
     height: 1,
-    top: 82,
+    top: 98,
+    left: 0,
+    position: "absolute",
+    backgroundColor: "rgb(230,230,230)",
+    right: 0
+  },
+  separatorsT: {
+    height: 1,
+    top: 49,
+    left: 0,
+    position: "absolute",
+    backgroundColor: "rgb(230,230,230)",
+    right: 0
+  },
+  rect22: {
+    flex: 1
+  },
+  separatorD: {
+    height: 1,
+    top: 54,
     left: 0,
     position: "absolute",
     backgroundColor: "rgb(230,230,230)",
