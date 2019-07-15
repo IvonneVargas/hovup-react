@@ -24,27 +24,21 @@ export default class Privacy extends Component {
           />
           <ScrollView style={styles.scrollArea}>
             <Text style={styles.text}>
-              HOVUP, comprometida con la legalidad y transparencia,
-              mediante el presente aviso comunica a las personas que
-              contraten un servicio o que sean usuarias de esta aplicación,
-              la forma en que tratará sus datos personales.
-              HOVUP, tiene su domicilio ubicado en Guillermo González
-              Camarena 1,600-2E, Santa Fe, México CDMX 01210
-              Los Datos Personales en posesión de HOVUP serán
-              utilizados para:
-              1. Prestación de los servicios contratados.
-              2. Facturación y cobranza por servicios.
-              3. Análisis estadísticos de los datos en forma disasociada.
-              
-              4. Compartir con terceros los datos personales que se
-              encuentren asociados para llevar a cabo un proyecto o
-              actividad relacionada con los objetivos de generación de
-              negocio de HOVUP.
-               Los datos personales sensibles serán mantenidos y
-              tratados con estricta seguridad y confidencialidad para
-              fines relacionados con la prestación de servicios, conforme a
-              este aviso de privacidad y contrato de prestación de
-              serviciosrespectivo.
+              HOVUP, comprometida con la legalidad y transparencia, mediante el
+              presente aviso comunica a las personas que contraten un servicio o
+              que sean usuarias de esta aplicación, la forma en que tratará sus
+              datos personales. HOVUP, tiene su domicilio ubicado en Guillermo
+              González Camarena 1,600-2E, Santa Fe, México CDMX 01210 Los Datos
+              Personales en posesión de HOVUP serán utilizados para: 1.
+              Prestación de los servicios contratados. 2. Facturación y cobranza
+              por servicios. 3. Análisis estadísticos de los datos en forma
+              disasociada. 4. Compartir con terceros los datos personales que se
+              encuentren asociados para llevar a cabo un proyecto o actividad
+              relacionada con los objetivos de generación de negocio de HOVUP.
+              Los datos personales sensibles serán mantenidos y tratados con
+              estricta seguridad y confidencialidad para fines relacionados con
+              la prestación de servicios, conforme a este aviso de privacidad y
+              contrato de prestación de serviciosrespectivo.
             </Text>
           </ScrollView>
         </View>
