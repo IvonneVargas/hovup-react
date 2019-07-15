@@ -31,10 +31,10 @@ export default class GenericButton extends Component {
 }
 const styles = StyleSheet.create({
   text: {
-    top: 15,
+    top: 13,
     left: "0%",
     width: 264,
-    height: 16,
+    height: 19,
     position: "absolute",
     backgroundColor: "transparent",
     textAlign: "center",
