@@ -401,7 +401,6 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   text2: {
-    width: 77,
     height: 23,
     backgroundColor: "transparent",
 
