@@ -30,7 +30,9 @@ export default class CreateAccount extends Component {
             navigation={this.props.navigation}
             text={type == "main" ? "Crear cuenta" : "Verificacion"}
           />
-          {this.displayContent()}
+          <ScrollView style={styles.scrollArea}>
+            {this.displayContent()}
+          </ScrollView>
         </View>
       </View>
     );
@@ -40,49 +42,47 @@ export default class CreateAccount extends Component {
     const type = this.props.navigation.getParam("type", "main");
     if (type == "main") {
       return (
-        <View style={styles.rect2}>
-          <View style={styles.rect} navigation={this.props.navigation}>
-            <TextInput style={styles.textInput2} placeholder="Nombre*" />
-            <TextInput
-              style={styles.textInput3}
-              placeholder="Apellido paterno*"
-            />
-            <TextInput style={styles.textInput4} placeholder="Genero*" />
-            <TextInput
-              style={styles.textInput5}
-              placeholder="Codigo Hovup (opcional)"
-            />
-            <Text style={styles.text6}>
-              Con este código podrás dirigir a tus seguidores y amigos a tu
-              marca y/o tienda. Comprobar disponibilidad.
-            </Text>
-            <TextInput
-              style={styles.textInput6}
-              placeholder="Correo electronico*"
-            />
-            <TextInput style={styles.textInput7} placeholder="contrasena*" />
-            <TextInput
-              style={styles.textInput8}
-              placeholder="Confirmar contrasena*"
-            />
-            <TextInput style={styles.textInput9} placeholder="Pais*" />
-            <TextInput style={styles.textInput10} placeholder="Estado*" />
-            <TextInput style={styles.textInput11} placeholder="Ciudad*" />
-            <Text style={styles.text12}>* Campos obligatorios</Text>
-            <GenericButton
-              style={styles.nextButton}
-              navigation={this.props.navigation}
-              root={() => {
-                this.props.navigation.push("CreateAccount", {
-                  type: "success"
-                });
-              }}
-              text="Siguiente"
-            />
-            <Text style={styles.text13}>
-              Al registrarte aceptas los terminos y condiciones
-            </Text>
-          </View>
+        <View style={styles.rect} navigation={this.props.navigation}>
+          <TextInput style={styles.textInput2} placeholder="Nombre*" />
+          <TextInput
+            style={styles.textInput3}
+            placeholder="Apellido paterno*"
+          />
+          <TextInput style={styles.textInput4} placeholder="Genero*" />
+          <TextInput
+            style={styles.textInput5}
+            placeholder="Codigo Hovup (opcional)"
+          />
+          <Text style={styles.text6}>
+            Con este código podrás dirigir a tus seguidores y amigos a tu marca
+            y/o tienda. Comprobar disponibilidad.
+          </Text>
+          <TextInput
+            style={styles.textInput6}
+            placeholder="Correo electronico*"
+          />
+          <TextInput style={styles.textInput7} placeholder="contrasena*" />
+          <TextInput
+            style={styles.textInput8}
+            placeholder="Confirmar contrasena*"
+          />
+          <TextInput style={styles.textInput9} placeholder="Pais*" />
+          <TextInput style={styles.textInput10} placeholder="Estado*" />
+          <TextInput style={styles.textInput11} placeholder="Ciudad*" />
+          <Text style={styles.text12}>* Campos obligatorios</Text>
+          <GenericButton
+            style={styles.nextButton}
+            navigation={this.props.navigation}
+            root={() => {
+              this.props.navigation.push("CreateAccount", {
+                type: "success"
+              });
+            }}
+            text="Siguiente"
+          />
+          <Text style={styles.text13}>
+            Al registrarte aceptas los terminos y condiciones
+          </Text>
         </View>
       );
     } else {
@@ -148,19 +148,15 @@ const styles = StyleSheet.create({
     alignSelf: "stretch"
   },
   rect2: {
-    alignSelf: "stretch",
     flex: 1
   },
   rect: {
-    top: 0,
-    left: 0,
-    position: "absolute",
-    justifyContent: "space-between",
-    margin: 0,
     marginTop: 13,
-    padding: 0,
     height: 713,
-    right: 0
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-between",
+    alignSelf: "stretch"
   },
   textInput2: {
     width: 264,
@@ -332,15 +328,11 @@ const styles = StyleSheet.create({
     color: "rgba(249,249,249,1)"
   },
   rect3: {
-    height: 333.85,
-
-    top: 84.15,
-    left: 0,
-    position: "absolute",
-
-    justifyContent: "space-around",
-    right: 0,
-    alignItems: "center"
+    height: 340.85,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-between",
+    alignSelf: "stretch"
   },
   buttonTransparent: {
     width: 260,
@@ -365,16 +357,19 @@ const styles = StyleSheet.create({
   },
   textEmail: {
     width: 335,
-    height: 13,
+    height: 16,
     backgroundColor: "transparent",
     color: "rgba(247,247,247,1)",
     textAlign: "center"
   },
   textInstructions: {
     width: 335,
-    height: 13,
+    height: 16,
     backgroundColor: "transparent",
     textAlign: "center",
     color: "rgba(247,247,247,1)"
+  },
+  scrollArea: {
+    flex: 1
   }
 });
