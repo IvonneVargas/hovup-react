@@ -1241,7 +1241,7 @@ const styles = StyleSheet.create({
   },
   titleFive6: {
     width: 359,
-    height: 19
+    height: 22
   },
   descriptionFive7: {
     width: 359,
