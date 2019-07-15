@@ -234,8 +234,8 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)"
   },
   separators: {
-    height: 1,
-    top: 53,
+    height: 2,
+    top: 83,
     left: 0,
     position: "absolute",
     backgroundColor: "rgb(230,230,230)",
