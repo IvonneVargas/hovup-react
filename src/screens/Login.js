@@ -56,7 +56,6 @@ export default class Login extends Component {
             onChangeText={this.handleEmail}
             keyboardType="email-address"
             returnKeyType="next"
-            underlineColorAndroid="rgba(189,25,25,1)"
           />
           <TextInput
             style={styles.textInput2}
@@ -64,7 +63,6 @@ export default class Login extends Component {
             onChangeText={this.handlePassword}
             returnKeyType="go"
             secureTextEntry={true}
-            underlineColorAndroid="rgba(255,255,255,1)"
           />
           <GenericButton
             style={styles.genericButton}
