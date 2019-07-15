@@ -73,7 +73,9 @@ export default class Cart extends Component {
       <View style={styles.root}>
         <View style={styles.background}>
           <LayoutStatusBar style={styles.layoutStatusBar} />
-          <View style={styles.rect22}>{this.displayContent()}</View>
+          <ScrollView style={styles.scrollArea}>
+            {this.displayContent()}
+          </ScrollView>
         </View>
       </View>
     );
@@ -1657,7 +1659,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(230,230,230)",
     right: 0
   },
-  rect22: {
+  scrollArea: {
     flex: 1
   },
   separatorD: {
